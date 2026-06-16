@@ -80,17 +80,5 @@ Normalmente o link publicado continua o mesmo:
 ## Observações técnicas
 
 - A pasta `.git` local pode estar bloqueada pelo ambiente do Windows/Codex, então o envio automático por Git pode falhar.
-- Neste ambiente, existe uma pasta `.gitpub` que funciona como canal técnico de publicação. Ela está alinhada com `origin/main`, ignora `.gitpub/`, `.git/` e `.claude/`, e deve ser usada assim:
-
-```powershell
-git --git-dir=.gitpub --work-tree=. fetch origin
-git --git-dir=.gitpub --work-tree=. status
-git --git-dir=.gitpub --work-tree=. add index.html README.md INSTRUCOES_DO_PROJETO.md
-git --git-dir=.gitpub --work-tree=. commit -m "[tipo] Descrição da alteração"
-git --git-dir=.gitpub --work-tree=. push origin main
-```
-
-- O Git deste ambiente precisa usar `http.sslBackend=openssl`, já configurado em `.gitpub`.
-- Se o push falhar pedindo credenciais, Felipe precisa autenticar o GitHub uma vez no Windows/Git Credential Manager. Depois disso, os próximos pushes tendem a funcionar automaticamente.
-- A pasta `.gitpub` não faz parte do site publicado.
+- Se existir uma pasta `.gitpub`, ela veio de uma tentativa temporária de envio e não faz parte do site publicado.
 - O conteúdo publicado no GitHub Pages depende apenas dos arquivos enviados ao repositório, principalmente `index.html`.

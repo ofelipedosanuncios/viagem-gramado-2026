@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gramado &amp; Canela 2026 · Família Felipe + Família Juininho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Spline+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#1f3b30; --pine-2:#2d5444; --choco:#5a3a2e;
+    --hortensia:#7c83c4; --hortensia-soft:#aeb3e0;
+    --amber:#c8893a; --amber-soft:#e6b877;
+    --cream:#f7f1e7; --cream-2:#efe6d6; --snow:#fcfaf5;
+    --ink:#241d16; --ink-soft:#5d5346;
+    --line:rgba(36,29,22,.12);
+    --shadow:0 18px 50px -22px rgba(31,59,48,.45);
+    --r:20px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Spline Sans',system-ui,sans-serif;color:var(--ink);
+    background:radial-gradient(120% 60% at 50% -10%, #e9eefb 0%, transparent 55%),linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+    background-attachment:fixed;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .wrap{max-width:560px;margin:0 auto;padding:0 18px}
+  h1,h2,h3,.disp{font-family:'Fraunces',Georgia,serif}
+
+  .hero{position:relative;overflow:hidden;padding:64px 0 52px;
+    background:radial-gradient(80% 50% at 80% 0%, rgba(174,179,224,.5), transparent 60%),linear-gradient(160deg,var(--pine) 0%, var(--pine-2) 60%, #25463a 100%);
+    color:var(--snow);text-align:center;border-bottom-left-radius:34px;border-bottom-right-radius:34px;box-shadow:var(--shadow);}
+  .hero::before{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.6), transparent),radial-gradient(2px 2px at 70% 20%, rgba(255,255,255,.45), transparent),radial-gradient(1.5px 1.5px at 40% 70%, rgba(255,255,255,.4), transparent),radial-gradient(2px 2px at 85% 60%, rgba(255,255,255,.35), transparent),radial-gradient(1.5px 1.5px at 15% 80%, rgba(255,255,255,.3), transparent);
+    opacity:.7;animation:drift 9s ease-in-out infinite alternate;}
+  @keyframes drift{from{transform:translateY(0)}to{transform:translateY(10px)}}
+  .hero .wrap{position:relative;z-index:2}
+  .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--hortensia-soft);font-weight:600;margin-bottom:16px;opacity:0;animation:rise .7s .1s forwards;}
+  .hero h1{font-size:clamp(2.6rem,11vw,3.6rem);font-weight:600;line-height:.98;letter-spacing:-.01em;opacity:0;animation:rise .7s .25s forwards;}
+  .hero h1 em{font-style:italic;color:var(--amber-soft);font-weight:500}
+  .hero .who{margin-top:14px;font-size:.9rem;letter-spacing:.04em;color:rgba(252,250,245,.72);opacity:0;animation:rise .7s .4s forwards;}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  .eyebrow,.hero h1,.hero .who,.countdown{transform:translateY(14px)}
+  .countdown{margin:26px auto 0;display:flex;gap:8px;justify-content:center;opacity:0;animation:rise .7s .55s forwards;}
+  .cd-box{background:rgba(252,250,245,.1);border:1px solid rgba(252,250,245,.18);backdrop-filter:blur(6px);border-radius:14px;padding:10px 4px;min-width:62px;}
+  .cd-num{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:600;line-height:1;color:var(--snow)}
+  .cd-lab{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--hortensia-soft);margin-top:6px}
+  .cd-tagline{margin-top:14px;font-size:.78rem;color:rgba(252,250,245,.55);opacity:0;animation:rise .7s .65s forwards}
+
+  nav{position:sticky;top:0;z-index:40;background:rgba(247,241,231,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:-1px;}
+  nav .wrap{display:flex;gap:6px;overflow-x:auto;padding:11px 18px;scrollbar-width:none}
+  nav .wrap::-webkit-scrollbar{display:none}
+  nav a{flex:0 0 auto;font-size:.8rem;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:7px 13px;border-radius:99px;border:1px solid var(--line);background:var(--snow);white-space:nowrap;transition:.2s;}
+  nav a:active{transform:scale(.96)}
+
+  section{padding:40px 0}
+  .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+  .sec-kicker{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--hortensia);font-weight:700}
+  h2{font-size:clamp(1.8rem,7vw,2.3rem);font-weight:600;letter-spacing:-.01em;line-height:1.05;margin-bottom:6px}
+  .lead{color:var(--ink-soft);font-size:1rem;max-width:46ch}
+
+  .note{margin-top:18px;background:var(--snow);border:1px solid var(--line);border-radius:var(--r);padding:18px;position:relative;box-shadow:var(--shadow);}
+  .note.good{border-left:4px solid var(--pine-2)}
+  .note h3{font-size:1.05rem;margin-bottom:5px}
+  .note p{color:var(--ink-soft);font-size:.92rem}
+
+  .fams{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+  .fam{background:var(--snow);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+  .fam h3{font-size:1rem;margin-bottom:10px;color:var(--pine)}
+  .fam ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .fam li{display:flex;align-items:center;gap:8px;font-size:.9rem}
+  .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .age{margin-left:auto;font-size:.74rem;color:var(--ink-soft);background:var(--cream-2);padding:2px 8px;border-radius:99px}
+
+  .flights{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+  .flight{background:var(--snow);border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow)}
+  .flight .ico{font-size:1.3rem;flex:0 0 auto}
+  .flight .rt{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--hortensia);font-weight:700}
+  .flight .det{font-size:.92rem;color:var(--ink)}
+  .flight .det b{font-weight:600}.flight .det small{color:var(--ink-soft)}
+
+  .climate{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .chip-stat{background:var(--snow);border:1px solid var(--line);border-radius:14px;padding:12px 14px;flex:1;min-width:120px;box-shadow:var(--shadow)}
+  .chip-stat .v{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;color:var(--pine)}
+  .chip-stat .l{font-size:.74rem;color:var(--ink-soft);margin-top:2px}
+
+  .day{background:var(--snow);border:1px solid var(--line);border-radius:24px;margin-top:16px;overflow:hidden;box-shadow:var(--shadow);position:relative;}
+  .day-top{padding:18px 18px 12px;border-left:5px solid var(--accent,var(--hortensia))}
+  .day-meta{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+  .day-num{font-family:'Fraunces',serif;font-size:.92rem;font-weight:700;color:var(--pine);background:var(--cream-2);border:1px solid var(--line);padding:3px 11px;border-radius:99px;letter-spacing:.01em}
+  .day-date{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  .day-ico{font-size:1.5rem;margin-left:auto}
+  .day h3{font-size:1.32rem;font-weight:600;line-height:1.05;letter-spacing:-.01em}
+  .day .obj{font-size:.88rem;color:var(--ink-soft);margin-top:4px}
+  .anchor{display:inline-flex;align-items:center;gap:7px;margin-top:12px;background:linear-gradient(120deg,var(--amber),var(--amber-soft));color:#3a230e;font-weight:600;font-size:.82rem;padding:7px 13px;border-radius:99px;box-shadow:0 6px 16px -8px rgba(200,137,58,.8);}
+  .anchor.none{background:var(--cream-2);color:var(--ink-soft);box-shadow:none}
+  .timeline{padding:6px 18px 4px}
+  .slot{display:flex;gap:13px;padding:11px 0;border-top:1px dashed var(--line)}
+  .slot:first-child{border-top:none}
+  .slot .time{font-size:.72rem;font-weight:700;color:var(--hortensia);letter-spacing:.06em;flex:0 0 58px;padding-top:2px;text-transform:uppercase}
+  .slot .body{flex:1}
+  .slot .body .desc{font-size:.86rem;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+  .pchip{font-size:.78rem;font-weight:600;color:var(--pine);background:#eef3ee;border:1px solid rgba(31,59,48,.16);padding:5px 11px;border-radius:99px;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:5px;}
+  .pchip:active{transform:scale(.95)}
+  .pchip::after{content:"›";font-weight:700;opacity:.5}
+  .day-foot{display:flex;gap:8px;flex-wrap:wrap;padding:12px 18px 18px;border-top:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(239,230,214,.4))}
+  .tag{font-size:.72rem;font-weight:600;padding:5px 10px;border-radius:8px;display:inline-flex;align-items:center;gap:5px}
+  .tag.tired-leve{background:#e6f0e8;color:#2f6a45}
+  .tag.tired-medio{background:#fbf0dc;color:#9a6a1e}
+  .tag.rain{background:#e9ecfb;color:#4a52a3}
+  .tag.book{background:#f7e3e0;color:#a3463a}
+  .day.birthday{border:1.5px solid var(--amber)}
+  .day.birthday .day-top{background:linear-gradient(160deg,#fff8ec,transparent)}
+  .bday-ribbon{position:absolute;top:14px;right:-34px;transform:rotate(38deg);background:var(--amber);color:#3a230e;font-size:.66rem;font-weight:700;letter-spacing:.12em;padding:5px 40px;text-transform:uppercase;box-shadow:0 4px 10px -3px rgba(0,0,0,.3)}
+
+  .swaps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+  .swap{background:var(--snow);border:1px solid var(--line);border-radius:16px;padding:14px;cursor:pointer;transition:.15s;box-shadow:var(--shadow);}
+  .swap:active{transform:scale(.97)}
+  .swap .si{font-size:1.4rem}
+  .swap h4{font-size:.95rem;font-weight:600;margin-top:6px;line-height:1.1}
+  .swap p{font-size:.72rem;color:var(--ink-soft);margin-top:4px;text-transform:uppercase;letter-spacing:.04em}
+  .swap .more{font-size:.72rem;color:var(--hortensia);font-weight:700;margin-top:8px}
+
+  .decisions{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+  .dec{background:var(--snow);border:1px solid var(--line);border-left:4px solid var(--hortensia);border-radius:16px;padding:15px 16px;box-shadow:var(--shadow)}
+  .dec .q{font-weight:600;font-size:.96rem}
+  .dec .a{font-size:.84rem;color:var(--ink-soft);margin-top:4px}
+  .dec.done{border-left-color:var(--pine-2)}
+  .dec .badge{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pine-2)}
+
+  /* ORÇAMENTO */
+  .bud-day{background:var(--snow);border:1px solid var(--line);border-radius:16px;margin-top:12px;overflow:hidden;box-shadow:var(--shadow)}
+  .bud-day h4{font-size:.95rem;font-family:'Fraunces',serif;font-weight:600;padding:12px 14px;background:var(--cream-2);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .bud-row{display:flex;padding:9px 14px;font-size:.86rem;border-top:1px solid var(--line);gap:8px;align-items:center}
+  .bud-row .bn{flex:1}
+  .bud-row .bf,.bud-row .bj{flex:0 0 92px;text-align:right;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+  .bud-head{font-size:.64rem;text-transform:uppercase;letter-spacing:.06em;color:var(--hortensia);font-weight:700}
+  .bud-sub{background:var(--cream);font-weight:600}
+  .bud-sub .bf,.bud-sub .bj{color:var(--pine)}
+  .bud-total{margin-top:16px;display:flex;gap:12px}
+  .bud-total .bt{flex:1;background:linear-gradient(135deg,var(--pine),var(--pine-2));color:var(--snow);border-radius:16px;padding:16px;text-align:center;box-shadow:var(--shadow)}
+  .bud-total .bt .lab{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;opacity:.85}
+  .bud-total .bt .val{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:600;margin-top:4px}
+
+  .todo{display:flex;flex-direction:column;gap:9px;margin-top:18px}
+  .todo .t{background:var(--cream-2);border:1px dashed rgba(36,29,22,.25);border-radius:14px;padding:13px 15px;font-size:.9rem}
+  .todo .t b{color:var(--choco)}
+
+  .overlay{position:fixed;inset:0;background:rgba(31,59,48,.55);backdrop-filter:blur(4px);z-index:90;opacity:0;pointer-events:none;transition:.25s;display:flex;align-items:flex-end;justify-content:center}
+  .overlay.on{opacity:1;pointer-events:auto}
+  .sheet{background:var(--cream);width:100%;max-width:560px;max-height:92vh;overflow-y:auto;border-top-left-radius:28px;border-top-right-radius:28px;transform:translateY(30px);transition:.3s cubic-bezier(.2,.8,.2,1);padding:8px 0 30px;}
+  .overlay.on .sheet{transform:translateY(0)}
+  .grab{width:42px;height:5px;background:rgba(36,29,22,.2);border-radius:99px;margin:8px auto 4px}
+  .sheet-in{padding:8px 20px}
+  .closebtn{position:absolute;top:14px;right:18px;width:34px;height:34px;border-radius:50%;border:none;background:rgba(252,250,245,.85);font-size:1.1rem;cursor:pointer;color:var(--ink);z-index:5}
+  .sheet-banner{position:relative;height:150px;border-radius:18px;margin:4px 0 6px;display:flex;flex-direction:column;justify-content:flex-end;padding:14px 16px;overflow:hidden}
+  .sheet-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .sheet-banner .bovl{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.5));z-index:1}
+  .sheet-banner .bico{position:absolute;top:12px;left:16px;font-size:2.4rem;z-index:2;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
+  .sheet-banner .tag2{position:relative;z-index:2;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.92)}
+  .sheet-banner h3{position:relative;z-index:2;color:#fff;font-size:1.45rem;line-height:1.05;margin-top:3px;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+  .addr{margin-top:12px;background:var(--snow);border:1px solid var(--line);border-radius:14px;padding:11px 13px;display:flex;align-items:center;gap:10px;font-size:.84rem}
+  .addr .pin{font-size:1.05rem;flex:0 0 auto}
+  .addr .a-txt{flex:1;color:var(--ink);line-height:1.35}
+  .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .actions a,.actions button{font-size:.78rem;font-weight:600;border-radius:99px;padding:9px 13px;border:1px solid var(--line);background:var(--snow);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:.15s;font-family:inherit}
+  .actions a:active,.actions button:active{transform:scale(.96)}
+  .actions .wa{background:#25d366;color:#fff;border-color:#25d366}
+  .actions .ig{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);color:#fff;border-color:transparent}
+  .actions .vid{background:#cc3a2e;color:#fff;border-color:#cc3a2e}
+  .what{font-size:.95rem;color:var(--ink);margin-top:14px;line-height:1.55}
+  .subh{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--hortensia);font-weight:700;margin:18px 0 8px}
+  .hl{display:flex;flex-wrap:wrap;gap:6px}
+  .hl span{font-size:.78rem;font-weight:600;color:var(--pine);background:#eef3ee;border:1px solid rgba(31,59,48,.14);padding:5px 10px;border-radius:99px}
+  .cost{margin-top:8px;background:linear-gradient(135deg,#fbf4e6,#eef3ee);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .cost .unit{font-size:.85rem;color:var(--ink)}
+  .cost .fams2{display:flex;gap:10px;margin-top:11px}
+  .cost .f2{flex:1;background:var(--snow);border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center}
+  .cost .f2 .lab{font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);font-weight:700}
+  .cost .f2 .val{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;color:var(--pine);margin-top:3px}
+  .facts{display:flex;flex-direction:column;gap:1px;background:var(--line);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .fact{background:var(--snow);padding:11px 14px;display:flex;gap:12px;font-size:.88rem}
+  .fact .k{flex:0 0 96px;color:var(--ink-soft);font-weight:600;font-size:.74rem;text-transform:uppercase;letter-spacing:.03em;padding-top:2px}
+  .fact .vv{flex:1}
+  .famlist{display:flex;flex-direction:column;gap:7px}
+  .famlist li{list-style:none;font-size:.87rem;color:var(--ink);display:flex;gap:9px;align-items:flex-start}
+  .famlist li::before{content:"•";color:var(--amber);font-weight:700;line-height:1.4}
+  .tipbox{margin-top:18px;background:#faf3e4;border:1px solid #ecdcbf;border-radius:14px;padding:12px 14px;font-size:.88rem;display:flex;gap:10px;line-height:1.5}
+  .tipbox .ti{font-size:1.15rem;flex:0 0 auto}
+  .verdictbox{margin-top:10px;background:linear-gradient(120deg,#eef3ee,#e9ecfb);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:.9rem;display:flex;gap:10px;line-height:1.5}
+  .verdictbox span{flex:0 0 auto}
+  .price-tag{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.07em;padding:2px 6px;border-radius:6px;margin-left:5px;vertical-align:middle;text-transform:uppercase}
+  .pt-oficial{background:#e6f0e8;color:#2f6a45}
+  .pt-estimado{background:#fbf0dc;color:#9a6a1e}
+  .pt-confirmar{background:#f7e3e0;color:#a3463a}
+  .pt-gratis{background:#e9ecfb;color:#4a52a3}
+
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .legend span{font-size:.74rem;color:var(--ink-soft);display:inline-flex;align-items:center;gap:6px}
+  footer{background:var(--pine);color:rgba(252,250,245,.7);padding:30px 0 40px;margin-top:30px;border-top-left-radius:34px;border-top-right-radius:34px;text-align:center}
+  footer .wrap p{font-size:.82rem;margin-top:6px}
+  footer .disp{font-family:'Fraunces',serif;color:var(--amber-soft);font-size:1.3rem;font-style:italic}
+
+  /* CHECKLISTS */
+  .cl-group{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--hortensia);font-weight:700;margin:24px 2px 0}
+  .cl{background:var(--snow);border:1px solid var(--line);border-left:4px solid var(--accent,var(--hortensia));border-radius:18px;padding:16px 18px;margin-top:12px;box-shadow:var(--shadow)}
+  .cl-head{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+  .cl-head .ci{font-size:1.5rem;flex:0 0 auto}
+  .cl-head h3{font-size:1.08rem;font-weight:600;line-height:1.1}
+  .cl-head .cs{font-size:.77rem;color:var(--ink-soft);margin-top:2px}
+  .cl ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .cl li{font-size:.9rem;color:var(--ink);display:flex;gap:10px;align-items:flex-start;line-height:1.42}
+  .cl li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent,var(--amber));flex:0 0 auto;margin-top:6px}
+  .cl li b{font-weight:600;color:var(--pine)}
+
+  /* MAPA */
+  .mapwrap{margin-top:18px;background:var(--snow);border:1px solid var(--line);border-radius:20px;padding:12px;box-shadow:var(--shadow)}
+  .mlist{display:flex;flex-direction:column;gap:6px}
+  .mrow{display:flex;align-items:center;gap:11px;background:var(--snow);border:1px solid var(--line);border-radius:13px;padding:11px 13px;cursor:pointer;transition:.15s}
+  .mrow:active{transform:scale(.99)}
+  .mrow .mi{font-size:1.25rem;flex:0 0 auto;width:26px;text-align:center}
+  .mrow .mn{flex:1;font-size:.92rem;font-weight:500}
+  .mrow .mbadge{flex:0 0 auto;width:22px;height:22px;border-radius:50%;font-size:.7rem;font-weight:700;display:none;align-items:center;justify-content:center;color:#fff}
+  .mrow.selA{border-color:var(--pine);background:#eef3ee}
+  .mrow.selB{border-color:var(--amber);background:#fbf4e6}
+  .mrow.selA .mbadge,.mrow.selB .mbadge{display:inline-flex}
+  .mrow.selA .mbadge{background:var(--pine)}
+  .mrow.selB .mbadge{background:var(--amber);color:#3a230e}
+  .mapsel{display:flex;gap:8px;margin-top:12px;align-items:stretch}
+  .mapsel .slot{flex:1;border:1px dashed var(--line);border-radius:12px;padding:9px 10px;font-size:.8rem;text-align:center;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;font-weight:600}
+  .mapsel .slot.on{border-style:solid;border-color:var(--pine);color:var(--ink);background:var(--cream-2)}
+  .mclear{flex:0 0 auto;font-size:.74rem;font-weight:600;border:1px solid var(--line);background:var(--snow);color:var(--ink-soft);border-radius:12px;padding:0 14px;cursor:pointer;font-family:inherit}
+  .mclear:active{transform:scale(.96)}
+  .mres{margin-top:12px;background:linear-gradient(135deg,#fbf4e6,#eef3ee);border:1px solid var(--line);border-radius:16px;padding:14px;display:none}
+  .mres.on{display:block}
+  .mres-pair{display:flex;flex-direction:column;gap:9px}
+  .mp{font-size:.92rem}
+  .mp .mpa,.mp .mpb{display:inline-flex;width:19px;height:19px;border-radius:50%;color:#fff;font-size:.66rem;font-weight:700;align-items:center;justify-content:center;margin-right:7px;vertical-align:middle}
+  .mp .mpa{background:var(--pine)}
+  .mp .mpb{background:var(--amber);color:#3a230e}
+  .mpaddr{font-size:.78rem;color:var(--ink-soft);margin:3px 0 0 26px}
+  .mmetrics{display:flex;gap:8px;margin-top:13px}
+  .mm{flex:1;background:var(--snow);border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center}
+  .mm .mv{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;color:var(--pine);line-height:1.05}
+  .mm .ml{font-size:.63rem;color:var(--ink-soft);margin-top:4px}
+  .mlinks{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .mgo{flex:1;min-width:150px;text-align:center;font-size:.8rem;font-weight:600;text-decoration:none;background:linear-gradient(120deg,var(--amber),var(--amber-soft));color:#3a230e;border-radius:99px;padding:10px 12px}
+  .mgo.walk{background:var(--cream-2);color:var(--ink)}
+  .mgo:active{transform:scale(.97)}
+  .mgroup-lab{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--hortensia);font-weight:700;margin:16px 0 2px}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:.6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Serra Gaúcha · 24 – 29 Setembro 2026</div>
+    <h1>Gramado<br>&amp; <em>Canela</em></h1>
+    <p class="who">8 viajantes · 4 adultos · 3 crianças · 1 bebê</p>
+    <div class="countdown" id="cd">
+      <div class="cd-box"><div class="cd-num" id="cd-d">--</div><div class="cd-lab">dias</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-h">--</div><div class="cd-lab">horas</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-m">--</div><div class="cd-lab">min</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-s">--</div><div class="cd-lab">seg</div></div>
+    </div>
+    <p class="cd-tagline" id="cd-tag">para a decolagem ❄️</p>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#viagem">A viagem</a>
+    <a href="#roteiro">Roteiro</a>
+    <a href="#mapa">Mapa</a>
+    <a href="#opcoes">Opções</a>
+    <a href="#decisoes">Decisões</a>
+    <a href="#orcamento">Orçamento</a>
+    <a href="#checklist">Checklist</a>
+    <a href="#pendencias">Falta fechar</a>
+  </div>
+</nav>
+
+<section id="viagem">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">A viagem</span></div>
+    <h2>Suave, sem correria</h2>
+    <p class="lead">A ideia é simples: um lugar marcante por dia, o resto leve. Tempo pra criança ser criança, pausa pra bebê, e os adultos curtindo de verdade.</p>
+
+    <div class="note good reveal">
+      <h3>🍂 Pegamos a melhor janela do ano</h3>
+      <p>Fim de setembro é <b>baixa temporada</b> em Gramado — depois da Semana Farroupilha e antes do Natal Luz. Menos fila, hospedagem e restaurantes mais em conta, e reservas fáceis. A Oktoberfest só acontece em outubro, então não pega a gente.</p>
+    </div>
+
+    <div class="fams reveal">
+      <div class="fam">
+        <h3>Família Felipe</h3>
+        <ul>
+          <li><span class="dot" style="background:var(--pine)"></span>Felipe</li>
+          <li><span class="dot" style="background:var(--pine)"></span>Joyce</li>
+          <li><span class="dot" style="background:var(--hortensia)"></span>Sofia<span class="age">8 anos</span></li>
+          <li><span class="dot" style="background:var(--amber)"></span>Lavínia<span class="age">3 anos</span></li>
+        </ul>
+      </div>
+      <div class="fam">
+        <h3>Família Juininho</h3>
+        <ul>
+          <li><span class="dot" style="background:var(--pine)"></span>Juininho</li>
+          <li><span class="dot" style="background:var(--pine)"></span>Jennifer</li>
+          <li><span class="dot" style="background:var(--hortensia)"></span>Netinho<span class="age">12 anos</span></li>
+          <li><span class="dot" style="background:var(--choco)"></span>Isis<span class="age">bebê</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flights reveal">
+      <div class="flight">
+        <span class="ico">🛫</span>
+        <div><span class="rt">Ida · Qui 24/09</span><div class="det"><b>Recife 02:30 → Porto Alegre 07:00</b> <small>· Azul, voo direto de madrugada</small></div></div>
+      </div>
+      <div class="flight">
+        <span class="ico">🛬</span>
+        <div><span class="rt">Volta · Ter 29/09</span><div class="det"><b>Porto Alegre 19:20 → Recife 01:00 (30/09)</b> <small>· conexão em Congonhas</small></div></div>
+      </div>
+    </div>
+
+    <div class="climate reveal">
+      <div class="chip-stat"><div class="v">9° – 20°</div><div class="l">temperatura típica de setembro</div></div>
+      <div class="chip-stat"><div class="v">~10 dias</div><div class="l">de chuva no mês — plano B indoor pronto</div></div>
+    </div>
+    <p class="lead" style="margin-top:12px;font-size:.86rem">Tragam casaco de verdade, touca e luva fina. Manhãs e noites são frias — atenção redobrada com a Isis. Todo dia de chuva tem troca coberta no roteiro.</p>
+  </div>
+</section>
+
+<section id="roteiro">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Dia a dia</span></div>
+    <h2>O roteiro</h2>
+    <p class="lead">Toque em qualquer lugar <span style="color:var(--pine);font-weight:600">verde</span> para abrir o guia completo — endereço, contatos, preços por família e dicas. As estrelas douradas marcam a atração principal do dia.</p>
+    <div id="days"></div>
+  </div>
+</section>
+
+<section id="mapa">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Distâncias</span></div>
+    <h2>Distância entre locais</h2>
+    <p class="lead">Toque em <b>dois locais</b> na lista pra ver os dois endereços, a distância e o tempo aproximado de carro e a pé.</p>
+    <div class="mapwrap reveal">
+      <div class="mapsel">
+        <div class="slot" id="mselA">1º local</div>
+        <div class="slot" id="mselB">2º local</div>
+        <button class="mclear" id="mclear">limpar</button>
+      </div>
+      <div class="mres" id="mapResult"></div>
+    </div>
+    <div class="mgroup-lab">Gramado</div>
+    <div class="mlist" id="mlistG"></div>
+    <div class="mgroup-lab">Canela</div>
+    <div class="mlist" id="mlistC"></div>
+    <p class="lead" style="margin-top:14px;font-size:.8rem">Tempos e distâncias são <b>estimativas</b> (linha reta × fator de estrada e velocidade média), sem trânsito em tempo real. Pro número exato, use o botão de <b>rota no Google Maps</b> que aparece ao selecionar dois locais.</p>
+  </div>
+</section>
+
+<section id="opcoes">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Carta na manga</span></div>
+    <h2>Opções que ficaram de fora</h2>
+    <p class="lead">Tudo isso é bom — só não coube sem deixar a viagem corrida. Ficam aqui pra trocar se a família quiser, ou virar plano B de chuva. Toque pra ver os detalhes.</p>
+    <div class="swaps" id="swaps"></div>
+  </div>
+</section>
+
+<section id="decisoes">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Precisamos de vocês</span></div>
+    <h2>O que a família decide</h2>
+    <p class="lead">O grosso já está definido. Faltam poucos detalhes de experiência — vocês opinam e a gente ajusta.</p>
+    <div class="decisions">
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🏡 Onde vamos ficar — Cabanas Rota do Sol</div><div class="a">2 chalés família (8 pessoas). Rua Dartagnan de Oliveira, 310 — Av. Central, Gramado (95670-000). Café da manhã incluído, chalé com lareira e estacionamento grátis. Check-in 24/09 (14h) · check-out 29/09 (12h). R$ 1.560 por família, já pago. <a href="https://www.instagram.com/cabanasrotadosol/" target="_blank" rel="noopener" style="color:var(--hortensia);font-weight:600;text-decoration:none">@cabanasrotadosol ↗</a></div></div>
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">❄️ A neve — Snowland</div><div class="a">Junto com a Hector no Dia 3 (aniversário do Juininho — aniversariante costuma não pagar).</div></div>
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🍫 Mundo Lugano</div><div class="a">Parque indoor de chocolate e jogos no dia da chegada (Dia 1) — e o rodízio de pizza fecha a noite.</div></div>
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🍕 Hector — pizzaria do Harry Potter</div><div class="a">Jantar de aniversário do Juininho, sábado 26 (Dia 3, sessão 19h45).</div></div>
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">💦 Águas quentes — Acquamotion</div><div class="a">Domingo (Dia 4). Fica fora da segunda, porque o parque fecha às segundas.</div></div>
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🎅 Aldeia do Papai Noel</div><div class="a">Agora na tarde do Dia 2, junto com o Mini Mundo e o Lago Negro.</div></div>
+      <div class="dec"><div class="q">🌄 Canela: o Dia 5 já tem Caracol + Vale dos Dinossauros. Somamos os Bondinhos?</div><div class="a">Os Bondinhos ficam ao lado do Caracol, na mesma estrada. Dá pra encaixar no mesmo dia ou deixar de fora pra não pesar.</div></div>
+      <div class="dec"><div class="q">☕ Onde encaixar o Café Colonial Bela Vista?</div><div class="a">Saiu do último dia. Querem pôr em outro dia — tipo almoço do Dia 2 ou Dia 4 — ou deixar de fora? A gente reserva.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="orcamento">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Quanto vai custar</span></div>
+    <h2>Orçamento por família</h2>
+    <p class="lead">Estimativa de <b>ingressos e refeições especiais</b> do roteiro, já calculada por família (a Lavínia e a Isis não pagam na maioria, por idade). Não inclui hospedagem, transporte, refeições comuns nem compras.</p>
+    <div id="budget"></div>
+    <div class="bud-total">
+      <div class="bt"><div class="lab">Total · Família Felipe</div><div class="val" id="budTotalF">—</div></div>
+      <div class="bt"><div class="lab">Total · Família Juininho</div><div class="val" id="budTotalJ">—</div></div>
+    </div>
+    <p class="lead" style="margin-top:14px;font-size:.82rem">Valores estimados, a reconfirmar na compra. Acquamotion é oficial; Snowland, Hector e Mini Mundo são estimativas; Mundo Lugano, Aldeia, Caracol e Vale dos Dinossauros precisam de confirmação. O rodízio de pizza do Lugano e o almoço de churrascaria entram à parte. As opções de fora não entram neste total.</p>
+  </div>
+</section>
+
+<section id="checklist">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Antes de fechar a mala</span></div>
+    <h2>Checklist de viagem</h2>
+    <p class="lead">Duas frentes pra não esquecer nada: o que pôr na mala pra serra em setembro e o que separar pro dia de viagem. Dia ameno, manhã e noite frias — e atenção redobrada com a Isis.</p>
+
+    <div class="note good reveal">
+      <h3>🍂 Como é a serra no fim de setembro</h3>
+      <p>Dias amenos (até ~20°), mas <b>manhãs e noites frias</b> (perto de 9°) e cerca de 10 dias de chuva no mês. A regra é <b>vestir em camadas</b>: segunda pele + blusa + casaco corta-vento. O chalé tem lareira, mas as noites pedem pijama quentinho. E lembrem do <b>Snowland (−5°)</b> e do <b>Acquamotion</b> — pedem roupa térmica e muda de banho.</p>
+    </div>
+
+    <div class="cl-group reveal">A mala</div>
+
+    <div class="cl reveal" style="--accent:var(--pine)">
+      <div class="cl-head"><span class="ci">🧥</span><div><h3>Roupas pra serra</h3><div class="cs">Vestir em camadas — frio de manhã e à noite</div></div></div>
+      <ul>
+        <li><b>Segunda pele / roupa térmica</b> — essencial pro Snowland</li>
+        <li>Casaco corta-vento ou jaqueta de verdade</li>
+        <li>Blusas de lã ou fleece pra sobrepor</li>
+        <li>Calça comprida e jeans (evitar shorts)</li>
+        <li>Meias grossas + meias extras pro Snowland</li>
+        <li>Touca, luva fina e cachecol ou gola</li>
+        <li>Tênis fechado e confortável; se der, um par à prova d'água</li>
+        <li>Capa de chuva leve ou guarda-chuva compacto</li>
+        <li>Pijama quentinho pras noites</li>
+        <li><b>Acquamotion:</b> maiô/sunga, chinelo, toalha e muda de banho</li>
+        <li>Muda extra pras crianças — Snowland e Acquamotion molham</li>
+      </ul>
+    </div>
+
+    <div class="cl reveal" style="--accent:var(--choco)">
+      <div class="cl-head"><span class="ci">🍼</span><div><h3>Kit da Isis</h3><div class="cs">Bebê de ~5 meses — o frio pede cuidado extra</div></div></div>
+      <ul>
+        <li>Macacões de frio, bodies de manga longa e casaquinho</li>
+        <li>Manta grossa + cobertor pro carro e passeios</li>
+        <li>Touca, luvas e meias de bebê</li>
+        <li>Fraldas pros dias + lenços umedecidos</li>
+        <li>Pomada de assadura, soro e itens de higiene</li>
+        <li>Fórmula/leite (se usar) + <b>garrafa térmica</b> pra água quente</li>
+        <li>Mamadeiras + escova de limpeza</li>
+        <li>Sling/canguru e carrinho com capa de chuva</li>
+        <li>Remédios, termômetro e receita (se houver)</li>
+        <li>Documento da Isis</li>
+      </ul>
+    </div>
+
+    <div class="cl reveal" style="--accent:var(--hortensia)">
+      <div class="cl-head"><span class="ci">🔌</span><div><h3>Eletrônicos &amp; documentos</h3><div class="cs">O chalé é 220V — atenção com aparelho 110V</div></div></div>
+      <ul>
+        <li>Documento com foto de todos — inclusive das crianças</li>
+        <li>Comprovante da pousada (Reserva nº 6.598) e dos ingressos</li>
+        <li>Cartões + dinheiro em espécie (pedágio e estacionamento)</li>
+        <li>Celulares e carregadores</li>
+        <li>Power bank e carregador de carro (estrada e parques)</li>
+        <li><b>Tomada 220V</b> — levar adaptador se algum aparelho for 110V</li>
+        <li>Fones e tablet/joguinhos pras crianças no voo e na estrada</li>
+        <li>Câmera ou GoPro — Caracol e Snowland rendem</li>
+      </ul>
+    </div>
+
+    <div class="cl-group reveal">Dia de viagem · mochila de mão</div>
+
+    <div class="cl reveal" style="--accent:var(--amber)">
+      <div class="cl-head"><span class="ci">✈️</span><div><h3>Pra separar pro aeroporto</h3><div class="cs">Voo de madrugada 02:30 · pouso em POA 07:00</div></div></div>
+      <ul>
+        <li>Chegar no Guararapes com <b>~2h de antecedência</b> (estar lá por volta de 00:30)</li>
+        <li>Documento com foto de todos em mãos</li>
+        <li>A passagem inclui bolsa + mão, <b>sem bagagem despachada</b> — caiba tudo</li>
+        <li>Kit da Isis de fácil acesso: fralda, leite, muda e manta</li>
+        <li>Lanches e água pras crianças (voo de madrugada)</li>
+        <li>Casacos à mão pro desembarque — POA amanhece frio (~9–12°)</li>
+        <li>Tablet e fones carregados; remédios de uso contínuo na mão</li>
+        <li><b>Check-in só às 14h:</b> deixar uma muda do Dia 1 e os itens da bebê acessíveis</li>
+      </ul>
+    </div>
+
+    <div class="todo reveal" style="margin-top:16px">
+      <div class="t">📍 <b>Plano da chegada:</b> pousar 07:00 → retirar carro → subir a serra (~2h, com parada pra café e troca da Isis) → deixar malas ou early check-in na Cabanas Rota do Sol → almoço no centro → Mundo Lugano à tarde. Vale confirmar com a pousada se guardam a bagagem antes das 14h.</div>
+    </div>
+  </div>
+</section>
+
+<section id="pendencias">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Bastidores</span></div>
+    <h2>O que ainda falta fechar</h2>
+    <p class="lead">Parte da logística (comigo, o Felipe). Não trava a aprovação de vocês — define os valores finais.</p>
+    <div class="todo">
+      <div class="t"><b>Transporte</b> — van privativa x 2 carros alugados. Considerando a chegada 07:00, a bebê, cadeirinhas e o carrinho. A pousada tem estacionamento grátis, o que pesa a favor dos 2 carros.</div>
+      <div class="t"><b>Orçamento por família</b> — define o cenário (econômico, intermediário ou completo) e quais opcionais entram.</div>
+    </div>
+    <div class="legend">
+      <span><span class="price-tag pt-oficial">oficial</span> confirmado em fonte oficial</span>
+      <span><span class="price-tag pt-estimado">estimado</span> referência, varia por data</span>
+      <span><span class="price-tag pt-confirmar">conferir</span> reconfirmar na data exata</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="disp">Vai ser inesquecível.</p>
+    <p>Gramado &amp; Canela · 24 a 29 de setembro de 2026</p>
+    <p style="opacity:.6;margin-top:14px">Roteiro vivo — sujeito a ajustes conforme a família decidir.</p>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="sheet">
+    <div class="grab"></div>
+    <button class="closebtn" id="closeBtn">✕</button>
+    <div class="sheet-in" id="sheetIn"></div>
+  </div>
+</div>
+
+<script>
+/* Campos por lugar: ico,name,tag,g(gradiente),img, addr, ig, wa, video,
+   price{adult,child,childMax,freeUnder,etiq} (null = grátis),
+   what, highlights, facts, family(opc), tip, verdict */
+const PLACES = {
+  lugano:{ico:"🍫",name:"Mundo Lugano",tag:"Parque indoor · Chocolate & jogos · Gramado",g:"#a4703e,#5e3d24",img:"",
+    addr:"Av. Borges de Medeiros, 2497 - Centro, Gramado - RS, 95670-000",ig:"mundolugano",wa:"5554992762168",video:"",
+    price:{adult:109.9,child:89.9,childMax:12,freeUnder:4,etiq:"oficial"},
+    what:"Parque temático indoor no coração de Gramado, da marca de chocolate Lugano. Esculturas gigantes feitas de chocolate, mais de 70 máquinas de games, realidade virtual, boliche, shows com personagens e até rodízio de pizza. Diversão garantida em qualquer clima.",
+    highlights:["Esculturas gigantes de chocolate","70+ games e realidade virtual","Shows com personagens","Rodízio de pizza (opcional)","Boliche e oficina de chocolate (à parte)"],
+    facts:[["Horário","Quarta a segunda 10h–23h (entrada até 21h) · fecha terças · rodízio 17h–23h"],["Tempo de visita","~2h a 3h"],["Atrações","Games, VR, shows e área de chocolate"],["Extras pagos","Boliche e oficina de chocolate"],["Se chover","Indoor — perfeito em qualquer clima"]],
+    family:["Netinho (12) e Sofia (8): games, VR e boliche","Lavínia (3): shows e o mundo de chocolate","Isis (bebê): tranquilo, ambiente fechado"],
+    tip:"Como é central e indoor, é a abertura perfeita pro dia de chegada — sem exigir energia depois do voo de madrugada.",
+    verdict:"Entrada leve e divertida pra começar a viagem com o pé direito."},
+
+  snowland:{ico:"❄️",name:"Snowland",tag:"Parque de neve · Indoor · Gramado",g:"#bcd4e6,#5d7fa8",img:"",
+    addr:"RS-235, R. Linha Carazal, 9009 - Gramado - RS, 95675-500",ig:"snowlandgramado",wa:"555430501720",video:"",
+    price:{adult:199.9,child:129.5,childMax:17,freeUnder:4,etiq:"oficial"},
+    what:"O único parque de neve indoor da América Latina. Neve de verdade a -5°C, com pista de esqui e snowboard, patinação no gelo, tobogã, montanha de neve e espetáculo. Tudo coberto e climatizado.",
+    highlights:["Esqui e snowboard pra iniciantes","Patinação no gelo","Tobogã e guerra de neve","Espetáculo de gelo","Espaço kids","Casaco, luva e bota inclusos"],
+    facts:[["Horário","10h às 17h (atrações até 16h30) · fecha quartas"],["Tempo de visita","Meio período a dia inteiro (3–5h)"],["Melhor horário","Logo na abertura (10h)"],["Reserva","Comprar online antecipado"],["Se chover","Indoor — plano B perfeito"]],
+    family:["Sofia (8) e Netinho (12): esqui, tobogã e patinação","Lavínia (3): espaço kids e bonecos de neve","Isis (bebê): pouco tempo e bem agasalhada (o frio é intenso)"],
+    tip:"Vistam roupa térmica e meias grossas por baixo — o casaco emprestado ajuda, mas as pernas sentem o frio.",
+    verdict:"Indispensável pra esse grupo — é o pedido que abriu a viagem e rende um dia inteiro."},
+
+  hector:{ico:"🍕",name:"Hector — Pizzaria do Harry Potter",tag:"Rodízio temático · Jantar · Gramado",g:"#5a3a8a,#2a1d4a",img:"",
+    addr:"Av. Borges de Medeiros, 1791 - Centro, Gramado - RS",ig:"hectordragao",wa:"555496885995",video:"",
+    price:{adult:249.9,child:89.9,childMax:12,freeUnder:5,etiq:"oficial"},
+    what:"Pizzaria temática inspirada no universo de Harry Potter: cenário de escola de magia, rodízio de 'discos de sabor' (pizzas), show com personagens nas mesas e o famoso Dragão Hector. Tem espaço kids monitorado e clima de parque da Disney.",
+    highlights:["Cenário de escola de magia","Rodízio de pizzas + entradas temáticas","Show com personagens nas mesas","Espaço kids monitorado","Loja de itens temáticos"],
+    facts:[["Horário","Diariamente a partir das 18h · turnos 18h, 19h e 21h"],["Tempo de visita","~2h"],["Reserva","Recomendada (site/WhatsApp) — garante mesa e evita fila"],["Espaço kids","Monitorado, com brincadeiras"],["Com bebê","Tranquilo: show e espaço kids seguram os maiores"]],
+    family:["Sofia (8) e Netinho (12): vão amar o tema e o show","Lavínia (3): personagens e espaço kids","Aniversariante ganha botton especial na entrada"],
+    tip:"Reservar a experiência completa (com mesa marcada) evita fila e garante a sessão — ideal pra noite de aniversário.",
+    verdict:"Jantar de aniversário perfeito: mágico pras crianças e divertido pros adultos. Está no Dia 3."},
+
+  acquamotion:{ico:"💦",name:"Acquamotion",tag:"Parque aquático termal · Indoor · Gramado",g:"#4fb0c2,#236b7a",img:"",
+    addr:"R. Linha Carazal, 501 - Gramado - RS, 95670-000",ig:"acquamotion",wa:"555430501720",video:"",
+    price:{adult:149.9,child:104.5,childMax:11,freeUnder:4,etiq:"oficial"},
+    what:"Parque aquático de águas termais quentes, todo coberto e climatizado: piscinas internas e externas aquecidas, toboáguas, rio lento, hidromassagem e área infantil. O refúgio perfeito pra um dia frio ou de chuva.",
+    highlights:["Piscinas de água quente (~32°C)","Toboáguas pra todas as idades","Rio lento e hidromassagem","Área infantil rasa","Tudo coberto e aquecido"],
+    facts:[["Horário","10h às 18h, terça a domingo · fecha segundas"],["Tempo de visita","Meio período a dia inteiro"],["O que levar","Maiô/sunga, toalha, chinelo e troca de roupa"],["Com bebê","Águas quentes — Isis com supervisão e pouco tempo"],["Se chover","Coberto — perfeito"]],
+    family:["Todos: piscinas quentes relaxam e divertem","Isis (bebê): só na parte rasa e morna, no colo"],
+    tip:"Levem chinelo e muda extra pras crianças. Como é o meio da viagem, é o dia ideal pra desacelerar.",
+    verdict:"Ótimo equilíbrio: diversão garantida e um respiro no meio da viagem."},
+
+  caracol:{ico:"🌿",name:"Parque do Caracol",tag:"Parque estadual · Natureza · Canela",g:"#3e7d4f,#1c3f29",img:"",
+    addr:"Rodovia RS-466, km 0 - Caracol, Canela - RS, 95680-000",ig:"parquedocaracol",wa:"5554999769063",video:"",
+    price:{adult:114.9,child:57,childMax:12,freeUnder:6,etiq:"oficial"},
+    what:"O cartão-postal natural da Serra: uma cascata de 131 metros despencando no meio da mata. Tem observatório panorâmico, o novo mirante de piso de vidro de 3 andares (2025) e a Escada da Perna Bamba (700+ degraus) pra descer até a base.",
+    highlights:["Cascata de 131 m","Mirante de piso de vidro (novo, 2025)","Observatório panorâmico","Trilhas e mata preservada"],
+    facts:[["Horário","Seg–sex 9h–17h · sáb–dom 9h–18h30"],["Tempo de visita","~2h a 3h"],["Com carrinho","Mirante ok; Escada da Perna Bamba (700 degraus) não"],["Extras pagos","Trem do Caracol e Salto de Pêndulo à parte"],["Se chover","Mirante aberto fica ruim → Mundo a Vapor"]],
+    family:["Sofia e Netinho: curtem o mirante de vidro e a aventura","Lavínia e Isis: ficam pelo observatório, sem encarar a escada"],
+    tip:"Não precisam descer os 700 degraus pra valer a pena — a vista do mirante de vidro já entrega o show. Pode ter meia pra crianças — conferir na bilheteria.",
+    verdict:"A paisagem mais marcante de Canela. Vale muito, respeitando o limite das crianças nas escadas."},
+
+  catedral:{ico:"⛪",name:"Catedral de Pedra",tag:"Cartão-postal · Grátis · Canela",g:"#8a8597,#54506a",img:"",
+    addr:"Praça da Matriz - Centro, Canela - RS",ig:"",wa:"",video:"",price:null,
+    what:"A Igreja de Pedra de Canela (Matriz de Nossa Senhora de Lourdes), em estilo gótico, com torre de 65 metros e 12 sinos de bronze. É o símbolo da cidade, eleita uma das sete maravilhas do Brasil. À noite ganha iluminação colorida.",
+    highlights:["Arquitetura gótica imponente","Torre de 65 m e 12 sinos","Iluminação colorida à noite","Praça e cafés no entorno"],
+    facts:[["Horário","Visitação durante o dia (conferir missas)"],["Tempo de visita","~30 a 45 min"],["Com carrinho","Central e plano"],["Melhor horário","Fim de tarde, pra ver iluminada"]],
+    tip:"Combina com um café no centro de Canela. Se der, voltem ao anoitecer pra ver iluminada.",
+    verdict:"Parada leve, gratuita e linda — fecha bem o dia de Canela."},
+
+  laghonegro:{ico:"🦢",name:"Lago Negro",tag:"Lago & natureza · Grátis · Gramado",g:"#3a6b5e,#1d3a30",img:"",
+    addr:"Lago Negro - Bairro Planalto, Gramado - RS",ig:"",wa:"",video:"",price:null,
+    what:"Lago de águas escuras cercado por pinheiros negros trazidos da Europa, com pedalinhos em formato de cisne e uma trilha de pedras portuguesas no entorno. Um dos cenários mais fotografados de Gramado.",
+    highlights:["Pedalinhos de cisne","Trilha leve à beira do lago","Cenário clássico pra fotos","Cafés e quiosques perto"],
+    facts:[["Tempo de visita","~45 min a 1h"],["Pedalinho","Pago à parte"],["Com carrinho","Trilha plana — ótima"],["Se chover","Ao ar livre — pular"]],
+    tip:"Vão de manhã ou no fim de tarde pra luz bonita. O pedalinho de cisne é a foto que as crianças vão querer.",
+    verdict:"Passeio leve, gratuito e encantador — perfeito pra abrir a viagem sem cansar."},
+
+  minimundo:{ico:"🏰",name:"Mini Mundo",tag:"Parque de miniaturas · Gramado",g:"#8fb98f,#4f7d5f",img:"",
+    addr:"Rua Horácio Cardoso, 291 - Centro, Gramado - RS, 95670-000",ig:"minimundogramado",wa:"555432864055",video:"",
+    price:{adult:98,child:64,childMax:15,freeUnder:3,etiq:"oficial"},
+    what:"Parque com miniaturas perfeitas em escala 1:24 — castelos europeus, cidades, ferrovias com trens em movimento, aeroporto e porto. Um mundo em miniatura que encanta de criança a adulto.",
+    highlights:["Trens e teleféricos em movimento","Réplicas de castelos e cidades","Jardins impecáveis","Tudo na altura das crianças"],
+    facts:[["Horário","Diariamente, ~9h às 17h"],["Tempo de visita","~1h30 a 2h"],["Com carrinho","Caminhos planos e largos — ótimo"],["Se chover","Ao ar livre — ruim em chuva forte"]],
+    family:["Lavínia (3): ama os trenzinhos na escala dela","Sofia/Netinho: detalhes e fotos","Isis: passeio tranquilo no carrinho"],
+    tip:"Cheguem cedo pra ver os trens funcionando sem aglomeração. Rende fotos lindas.",
+    verdict:"Leve, visual e pra todas as idades — ótimo encaixe na manhã do sábado."},
+
+  ruacoberta:{ico:"🍫",name:"Rua Coberta & Centro",tag:"Centro & gastronomia · Gramado",g:"#8a5a3e,#523524",img:"",
+    addr:"Rua Coberta - Centro, Gramado - RS",ig:"",wa:"",video:"",price:null,
+    what:"O coração de Gramado: a Rua Coberta liga as duas principais avenidas e concentra restaurantes, cafés, chocolaterias e lojas — tudo sob uma cobertura de vidro, o que ajuda em dias de chuva ou frio. Vira ponto de encontro à noite.",
+    highlights:["Chocolaterias (Caracol, Prawer, Lugano)","Cafés e restaurantes","Lojas e souvenirs","Coberta — funciona na chuva fraca"],
+    facts:[["Tempo de visita","O quanto quiserem"],["Com carrinho","Plano e coberto"],["Se chover","Trecho coberto salva a noite"],["Dica","Chocolaterias com degustação"]],
+    tip:"Reservem uma noite pra chocolate quente. As fábricas de chocolate costumam ter degustação.",
+    verdict:"O point das noites leves — é onde vocês vão terminar vários dias sem planejar."},
+
+  fondue:{ico:"🫕",name:"Noite de Fondue",tag:"Jantar clássico da Serra · Gramado",g:"#c8893a,#7a4a2a",img:"",
+    addr:"Gramado - RS (casa a definir)",ig:"casa.lugano",wa:"555492051140",video:"",
+    price:{adult:170,child:85,childMax:12,freeUnder:4,etiq:"oficial"},
+    what:"A experiência gastronômica mais típica de Gramado: fondue de queijo pra começar, fondue de carne no principal e fondue de chocolate com frutas na sobremesa. Clima aconchegante de montanha numa noite fria.",
+    highlights:["Fondue de queijo, carne e chocolate","Ambiente aconchegante","Experiência típica da Serra","Casas: Chateau de La Fondue, La Famille de Gazon"],
+    facts:[["Tempo de visita","Refeição longa — a noite toda"],["Reserva","Reservar com antecedência"],["Com crianças","Demorado — pequenos podem cansar"]],
+    tip:"Uma noite de fondue na viagem é o ponto certo. Confiram se a casa tem opção pras crianças.",
+    verdict:"Vale pela experiência típica. Está no Dia 5, depois de Canela — pra esquentar a noite fria."},
+
+  cafecolonial:{ico:"☕",name:"Café Colonial Bela Vista",tag:"Café colonial · Bela Vista · Gramado",g:"#b88a5a,#74542f",img:"",
+    addr:"Café Colonial Bela Vista - Gramado - RS",ig:"belavistacafecolonialoficial",wa:"555432861608",video:"",
+    price:{adult:165,child:82.5,childMax:9,freeUnder:5,etiq:"oficial"},
+    what:"Tradição alemã e italiana da Serra: uma mesa farta com dezenas de itens — cucas, pães, geleias caseiras, queijos, embutidos, tortas, sucos e chás. Uma única refeição que facilmente substitui almoço e jantar.",
+    highlights:["Dezenas de doces e salgados","Cucas, tortas e geleias caseiras","Queijos e embutidos da Serra","Experiência completa"],
+    facts:[["Quando","Substitui o almoço (café da manhã fica no hotel)"],["Tempo de visita","~1h30, sem pressa"],["Sobre o Bela Vista","Uma das casas mais tradicionais de Gramado, com mesa farta e vista linda"],["Com crianças","Tem item pra todo gosto — tranquilo"]],
+    tip:"Ir com fome de verdade. Funciona perfeito como a refeição de despedida antes da estrada.",
+    verdict:"Fecha a viagem com chave de ouro — está no almoço do último dia."},
+
+  kongo:{ico:"🍕",name:"Kongo Pizzaria Temática",tag:"Rodízio temático · opção · Carniel",g:"#c0563e,#7a2f22",img:"",
+    addr:"Av. das Hortênsias, 5683 - Carniel, Gramado - RS",ig:"kongogramado",wa:"555496309742",video:"",
+    price:{adult:189.9,child:189.9,childMax:99,freeUnder:5,etiq:"estimado"},
+    what:"Rodízio de pizza com mais de 100 sabores num cenário de selva, com show ao vivo e a Casa da Árvore (brinquedoteca grátis). Era a opção de aniversário antes da Hector — fica aqui como alternativa de jantar temático.",
+    highlights:["+100 sabores de pizza","Show ao vivo","Casa da Árvore: brinquedoteca grátis","Cenário de selva"],
+    facts:[["Horário","Sessões 17h30, 20h, 21h, 22h"],["Tempo de visita","~2h a 2h30"],["Reserva","Recomendada"],["Com bebê","Brinquedoteca grátis"]],
+    tip:"Alternativa à Hector se quiserem trocar o tema do jantar de aniversário.",
+    verdict:"Ótima opção de jantar temático — ficou como alternativa à Hector."},
+
+  bondinhos:{ico:"🚡",name:"Bondinhos Aéreos",tag:"Teleférico · opção · Canela",g:"#6f9fb8,#37657a",img:"",
+    addr:"Rua Constante Félix Orsolin, 699 - Caracol, Canela - RS, 95684-880",ig:"bondinhoscanela",wa:"5554992061225",video:"",
+    price:{adult:120,child:60,childMax:9,freeUnder:4,etiq:"oficial"},
+    what:"Complexo de teleférico estilo suíço, com 3 estações e cabines pra até 8 pessoas, com vista frontal da Cascata do Caracol lá do alto. Fica ao lado do Parque do Caracol, mas é outro ingresso.",
+    highlights:["Teleférico com vista da cascata","3 estações pra explorar","Cabine fechada (boa com a bebê)","Tirolesa e Aerozuum (à parte)"],
+    facts:[["Horário","~9h–17h, diário (pode parar por clima)"],["Tempo de visita","~2h"],["Com bebê","Cabine fechada e confortável"],["Se chover","Pode fechar por clima"]],
+    family:["Todos: a vista agrada de criança a adulto","Sofia/Netinho: podem encarar a tirolesa Eagle"],
+    tip:"Confirmar no dia se está operando (vento fecha). Combina com o Caracol no mesmo eixo da estrada.",
+    verdict:"Ótima opção pra somar ao dia de Canela — decisão de vocês."},
+
+  vale:{ico:"🦕",name:"Vale dos Dinossauros",tag:"Parque temático · opção · Canela",g:"#6e8a3e,#3e5a26",img:"",
+    addr:"RS-466, nº 1600 - Bosque Sinoserra, Canela - RS",ig:"valedinocanela",wa:"555432865100",video:"",
+    price:{adult:217,child:199.99,childMax:99,freeUnder:4,etiq:"oficial"},
+    what:"Trilha temática com dinossauros animatrônicos em tamanho real, que se mexem e rugem. Um clássico que faz o maior sucesso com a criançada.",
+    highlights:["Dinossauros animatrônicos em tamanho real","Trilha temática","Sucesso garantido com crianças"],
+    facts:[["Horário","Diariamente 9h–17h30"],["Tempo de visita","~1h a 1h30"],["Com carrinho","Ao ar livre — leve carrinho"]],
+    family:["Lavínia, Sofia e Netinho: provável o maior sucesso entre as crianças","Adultos: curtem menos, mas é rápido"],
+    tip:"Ótimo pra combinar no eixo de Canela (RS-466). Por ser ao ar livre, evitar em dia de chuva.",
+    verdict:"Forte candidato pra somar ou trocar no dia de Canela — decisão de vocês."},
+
+  florybal:{ico:"🦖",name:"Terra Mágica Florybal",tag:"Parque temático · opção · Canela",g:"#5a8a4a,#7a5a26",img:"",
+    addr:"RS-466, Km 5 - Canela - RS, 95680-000",ig:"parqueterramagicaflorybal",wa:"555432825050",video:"",
+    price:{adult:180,child:90,childMax:15,freeUnder:4,etiq:"oficial"},
+    what:"Parque grande e completo com dinossauros, cavernas, fábrica de chocolate e cenários cinematográficos num percurso ao ar livre. Muito conteúdo, mas exige caminhada.",
+    highlights:["Dinossauros e cenários temáticos","Fábrica de chocolate Florybal","Percurso longo e imersivo"],
+    facts:[["Horário","Território dos Dinossauros 9h–16h30"],["Tempo de visita","~2h a 3h"],["Com bebê/carrinho","Percurso longo a céu aberto — leve carrinho"]],
+    tip:"É o mais caro do bloco pra 8 pessoas. Se entrar, talvez no lugar de outra atração de Canela, não somado.",
+    verdict:"Completo, mas caro e cansativo pra esse grupo — por isso ficou como opção."},
+
+  mundovapor:{ico:"⚙️",name:"Mundo a Vapor",tag:"Museu/parque · Indoor · Canela",g:"#7a7e88,#9a6a4a",img:"",
+    addr:"RS-466 - entrada de Canela - RS",ig:"parquemundoavapor",wa:"5554991469680",video:"",
+    price:{adult:129,child:89,childMax:12,freeUnder:4,etiq:"oficial"},
+    what:"Reaberto reformado em 2026 com 10 salas imersivas. Máquinas a vapor em funcionamento, ilusões de ótica e o famoso 'prédio caindo' — uma das fotos mais conhecidas da Serra. Tudo coberto.",
+    highlights:["10 salas imersivas (reforma 2026)","Máquinas a vapor reais","O prédio 'desabando' pra foto","Totalmente coberto"],
+    facts:[["Horário","9h–20h · fecha quartas"],["Tempo de visita","~1h30"],["Se chover","Coberto — ótimo plano B"]],
+    tip:"Guardem pra um dia de chuva. A foto do prédio caindo é obrigatória.",
+    verdict:"Melhor carta na manga pra chuva forte em Canela."},
+
+  aldeia:{ico:"🎅",name:"Aldeia do Papai Noel",tag:"Vila de Natal · opção · Gramado",g:"#b0473e,#3e7d4f",img:"",
+    addr:"Aldeia do Papai Noel - Gramado - RS",ig:"aldeiadopapainoel",wa:"555491293431",video:"",
+    price:{adult:60,child:40,childMax:12,freeUnder:4,etiq:"conferir"},
+    what:"Uma vila natalina aberta o ano inteiro, com a casa do Papai Noel, oficina dos duendes, fábrica de brinquedos e cenários de Natal. Encanta principalmente as crianças menores.",
+    highlights:["Casa do Papai Noel","Oficina dos duendes","Cenários natalinos pra foto","Clima de Natal o ano todo"],
+    facts:[["Horário","Diariamente (conferir)"],["Tempo de visita","~1h30 a 2h"],["Com carrinho","Tranquilo"]],
+    family:["Lavínia (3): provavelmente o maior encanto","Sofia (8): curte os cenários","Netinho (12): pode achar 'de criança'"],
+    tip:"Se entrar, encaixa bem numa manhã leve. Como o Netinho é maior, vale medir o interesse antes.",
+    verdict:"Fofo, mas opcional pra essa faixa de idade — por isso ficou nas opções à parte."},
+
+  opcionais:{ico:"🌸",name:"Outras opcionais",tag:"Atrações extras · decidir na hora",g:"#8a7eb8,#544a8a",img:"",
+    addr:"",ig:"",wa:"",video:"",price:null,
+    what:"Atrações legais da região que não entraram no roteiro fixo, mas valem ficar no radar caso sobre tempo, o clima ajude ou a família queira.",
+    highlights:["Sem compromisso","Encaixar se abrir espaço"],
+    facts:[["Olivas de Gramado","Olival com degustação de azeites e vista do vale"],["Le Jardin Lavanda","Campo de lavanda (depende da floração)"],["Skyglass Canela","Plataforma de vidro suspensa sobre o cânion"],["Alpen Park","Trenó de montanha e tirolesa — pros maiores"],["Museus do centro","Dreamland, cera, carros e afins"]],
+    tip:"Nenhuma é essencial pra esse grupo. Encaixar só se um dia abrir espaço.",
+    verdict:"Radar de extras — sem compromisso."}
+};
+
+const DAYS = [
+  {n:1,date:"Qui · 24 Set",ico:"✈️",accent:"var(--choco)",title:"Chegada & Mundo Lugano",obj:"Subir a serra com calma, instalar e curtir o centro sem pressa.",
+   anchor:"lugano",tired:"leve",rain:"Mundo Lugano é indoor — perfeito em qualquer clima",book:null,
+   slots:[
+     {t:"Manhã",b:"Pouso em Porto Alegre às 07:00, retirar carro/transfer e subir a serra (~2h, com parada pra café e troca da bebê).",p:[]},
+     {t:"~12h",b:"Chegada em Gramado pela Cabanas Rota do Sol (check-in a partir das 14h — dá pra deixar as malas antes). Almoço numa churrascaria, rodízio gaúcho pra estrear a viagem.",p:[]},
+     {t:"Tarde",b:"Depois de descansar, Mundo Lugano — parque indoor de chocolate, jogos e shows, no coração de Gramado.",p:["lugano"]},
+     {t:"Noite",b:"Rodízio de pizza no próprio Mundo Lugano — fecha o dia sem sair do lugar.",p:[]}
+   ]},
+  {n:2,date:"Sex · 25 Set",ico:"🏰",accent:"var(--hortensia)",title:"Mini Mundo & Aldeia do Papai Noel",obj:"Manhã no Mini Mundo, tarde na Aldeia do Papai Noel e Lago Negro — leve, guardando energia pro grande Dia 3.",
+   anchor:"minimundo",tired:"medio",rain:"Se chover, trocar Lago Negro por chocolaterias na Rua Coberta",book:null,
+   slots:[
+     {t:"Manhã",b:"Mini Mundo — réplicas em escala 1:24, trens em movimento e jardins lindos. Ótimo pra fotos e carrinho.",p:["minimundo"]},
+     {t:"Almoço",b:"No centro de Gramado.",p:[]},
+     {t:"Tarde",b:"Aldeia do Papai Noel — clima de Natal e fotos (a Lavínia vai amar). Depois, passeio leve pelo Lago Negro e centro/Rua Coberta com chocolate quente.",p:["aldeia","laghonegro","ruacoberta"]},
+     {t:"Noite",b:"Jantar leve no centro e descanso — o Dia 3 vai ser intenso.",p:[]}
+   ]},
+  {n:3,date:"Sáb · 26 Set",ico:"🎂",accent:"var(--amber)",birthday:true,title:"Aniversário do Juininho · Snowland + Hector",obj:"O grande dia: neve no Snowland e jantar mágico na Hector. O aniversariante costuma não pagar nos dois — vale ligar antes pra confirmar e mencionar o aniversário.",
+   anchor:"snowland",tired:"medio",rain:"Tudo indoor — perfeito em qualquer clima",book:"Snowland antecipado + reservar Hector (avisar do aniversário)",
+   slots:[
+     {t:"Manhã",b:"Snowland — neve de verdade, esqui, tobogã e patinação. Chegar 10h em ponto pra aproveitar tudo.",p:["snowland"]},
+     {t:"Almoço",b:"No próprio Snowland, sem sair da diversão.",p:[]},
+     {t:"Tarde",b:"Seguir no Snowland — espetáculo de gelo, espaço kids e mais neve. Sair ~16h pra descansar antes da noite.",p:[]},
+     {t:"Noite",b:"🎉 Jantar de aniversário na Hector (sessão 19h45) — pizzaria do Harry Potter, com rodízio, show de personagens e botton especial pro aniversariante.",p:["hector"]}
+   ]},
+  {n:4,date:"Dom · 27 Set",ico:"💦",accent:"var(--hortensia)",title:"Dia de águas quentes",obj:"Um dia relaxante de piscinas termais — perfeito pra recarregar no meio da viagem.",
+   anchor:"acquamotion",tired:"medio",rain:"Já é indoor (águas cobertas) — perfeito se chover",book:"Comprar ingresso do Acquamotion antecipado",
+   slots:[
+     {t:"Manhã",b:"Acquamotion — águas termais quentes, piscinas e toboáguas pra todas as idades.",p:["acquamotion"]},
+     {t:"Almoço",b:"No próprio parque ou perto.",p:[]},
+     {t:"Tarde",b:"Continuar nas piscinas ou voltar pra descansar.",p:[]},
+     {t:"Noite",b:"Jantar simples no centro.",p:[]}
+   ]},
+  {n:5,date:"Seg · 28 Set",ico:"🌿",accent:"var(--pine-2)",title:"Canela — Caracol & Vale dos Dinossauros",obj:"A natureza e os dinossauros de Canela durante o dia, e uma noite tranquila de descanso no hotel.",
+   anchor:"caracol",tired:"medio",rain:"Caracol e Vale são ao ar livre — em chuva forte, trocar por Mundo a Vapor (indoor)",book:null,
+   slots:[
+     {t:"Manhã",b:"Parque do Caracol — a cascata gigante e o novo mirante de piso de vidro.",p:["caracol"]},
+     {t:"Almoço",b:"Restaurante em Canela.",p:[]},
+     {t:"Tarde",b:"Vale dos Dinossauros — dinossauros animatrônicos em tamanho real, na mesma estrada (RS-466). Sucesso garantido com a criançada.",p:["vale"]},
+     {t:"Noite",b:"Noite tranquila: pedir um lanche no hotel e descansar depois do dia em Canela.",p:[]}
+   ]},
+  {n:6,date:"Ter · 29 Set",ico:"🧳",accent:"var(--hortensia)",title:"Último dia — manhã livre &amp; volta",obj:"Check-out até 12h e estrada pra Porto Alegre com folga. Sem atração marcada — a regra do dia é não perder o voo.",
+   anchor:null,tired:"leve",rain:"Em chuva, ficar no coberto (café/Rua Coberta) até a hora de sair",book:"Confirmar transporte de volta pra POA",
+   slots:[
+     {t:"Manhã",b:"Café da manhã na pousada, manhã livre e check-out até as 12h. Sem corrida.",p:[]},
+     {t:"Almoço",b:"Almoço sem pressa — na pousada, no centro ou na estrada.",p:[]},
+     {t:"~14h",b:"Sair de Gramado pra Porto Alegre com margem de sobra (~2h de estrada).",p:[]},
+     {t:"19:20",b:"Voo de volta pra casa.",p:[]}
+   ]}
+];
+
+const SWAPS = ["kongo","bondinhos","florybal","mundovapor","opcionais"];
+
+const TRAVELERS = [
+  {name:"Felipe",fam:"F",age:35},{name:"Joyce",fam:"F",age:33},{name:"Sofia",fam:"F",age:8},{name:"Lavínia",fam:"F",age:3},
+  {name:"Juininho",fam:"J",age:35},{name:"Jennifer",fam:"J",age:33},{name:"Netinho",fam:"J",age:12},{name:"Isis",fam:"J",age:0}
+];
+const ETIQ={oficial:"oficial",estimado:"estimado",conferir:"confirmar"};
+const brl=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+function priceFor(pr,age){ if(!pr) return 0; if(age<pr.freeUnder) return 0; if(pr.childMax!=null && age<=pr.childMax) return pr.child; return pr.adult; }
+function famTotal(p,fam){ if(!p.price) return 0; return TRAVELERS.filter(t=>t.fam===fam).reduce((s,t)=>s+priceFor(p.price,t.age),0); }
+
+function chip(id){const p=PLACES[id];return `<span class="pchip" data-place="${id}">${p.ico} ${p.name}</span>`}
+
+function renderDays(){
+  document.getElementById("days").innerHTML = DAYS.map(d=>{
+    const slots = d.slots.map(s=>`
+      <div class="slot">
+        <div class="time">${s.t}</div>
+        <div class="body">
+          <p class="desc">${s.b}</p>
+          ${s.p.length?`<div class="chips">${s.p.map(chip).join("")}</div>`:""}
+        </div>
+      </div>`).join("");
+    const anchor = d.anchor
+      ? `<div class="anchor">⭐ ${PLACES[d.anchor].name}</div>`
+      : `<div class="anchor none">☕ Dia leve, sem atração paga</div>`;
+    const foot = `<div class="day-foot">
+        <span class="tag tired-${d.tired}">🔋 ${d.tired==="leve"?"Cansaço leve":"Cansaço médio"}</span>
+        <span class="tag rain">🌧 ${d.rain}</span>
+        ${d.book?`<span class="tag book">📌 ${d.book}</span>`:""}
+      </div>`;
+    return `<article class="day reveal ${d.birthday?"birthday":""}" style="--accent:${d.accent}">
+      ${d.birthday?'<div class="bday-ribbon">Aniversário</div>':''}
+      <div class="day-top">
+        <div class="day-meta"><span class="day-num">Dia ${d.n}</span><span class="day-date">${d.date}</span><span class="day-ico">${d.ico}</span></div>
+        <h3>${d.title}</h3>
+        <p class="obj">${d.obj}</p>
+        ${anchor}
+      </div>
+      <div class="timeline">${slots}</div>
+      ${foot}
+    </article>`;
+  }).join("");
+}
+
+function renderSwaps(){
+  document.getElementById("swaps").innerHTML = SWAPS.map(id=>{
+    const p=PLACES[id];
+    return `<div class="swap" data-place="${id}">
+      <div class="si">${p.ico}</div>
+      <h4>${p.name}</h4>
+      <p>${p.tag}</p>
+      <div class="more">Ver guia ›</div>
+    </div>`;
+  }).join("");
+}
+
+function costBlock(p){
+  if(!p.price) return `<div class="subh">Quanto custa</div><div class="cost"><div class="unit"><b>Gratuito</b> — sem ingresso</div></div>`;
+  const pr=p.price;
+  const freeTxt = pr.freeUnder>1?` · grátis até ${pr.freeUnder-1} ${pr.freeUnder-1===1?'ano':'anos'}`:'';
+  let unit;
+  if(pr.child!==pr.adult){ unit = `Adulto ${brl(pr.adult)} · Criança (${pr.freeUnder}–${pr.childMax}) ${brl(pr.child)}${freeTxt}`; }
+  else { unit = `${brl(pr.adult)} por pessoa (a partir de ${pr.freeUnder} anos)${freeTxt}`; }
+  const ft=famTotal(p,'F'), jt=famTotal(p,'J');
+  return `<div class="subh">Quanto custa <span class="price-tag pt-${ETIQ[pr.etiq]}">${pr.etiq}</span></div>
+    <div class="cost">
+      <div class="unit">${unit}</div>
+      <div class="fams2">
+        <div class="f2"><div class="lab">Família Felipe</div><div class="val">${brl(ft)}</div></div>
+        <div class="f2"><div class="lab">Família Juininho</div><div class="val">${brl(jt)}</div></div>
+      </div>
+    </div>`;
+}
+
+const overlay=document.getElementById("overlay");
+const sheetIn=document.getElementById("sheetIn");
+function openPlace(id){
+  const p=PLACES[id];
+  let html = `<div class="sheet-banner" style="background:linear-gradient(135deg,${p.g})">
+    ${p.img?`<img src="${p.img}" alt="${p.name}"><div class="bovl"></div>`:""}
+    <span class="bico">${p.ico}</span><span class="tag2">${p.tag}</span><h3>${p.name}</h3>
+  </div>`;
+  if(p.addr){
+    let actions = `<button class="copyaddr" data-addr="${p.addr}">📋 Copiar endereço</button>`;
+    if(p.wa) actions += `<a class="wa" href="https://wa.me/${p.wa}" target="_blank" rel="noopener">💬 WhatsApp</a>`;
+    if(p.ig) actions += `<a class="ig" href="https://instagram.com/${p.ig}" target="_blank" rel="noopener">@${p.ig}</a>`;
+    if(p.video) actions += `<a class="vid" href="${p.video}" target="_blank" rel="noopener">▶ Vídeo</a>`;
+    html += `<div class="addr"><span class="pin">📍</span><span class="a-txt">${p.addr}</span></div><div class="actions">${actions}</div>`;
+  }
+  html += `<p class="what">${p.what}</p>`;
+  if(p.highlights&&p.highlights.length){ html += `<div class="subh">Destaques</div><div class="hl">${p.highlights.map(h=>`<span>${h}</span>`).join("")}</div>`; }
+  html += costBlock(p);
+  html += `<div class="subh">Informações</div><div class="facts">${p.facts.map(f=>`<div class="fact"><div class="k">${f[0]}</div><div class="vv">${f[1]}</div></div>`).join("")}</div>`;
+  if(p.family&&p.family.length){ html += `<div class="subh">Pra cada um</div><ul class="famlist">${p.family.map(x=>`<li>${x}</li>`).join("")}</ul>`; }
+  if(p.tip){ html += `<div class="tipbox"><span class="ti">💡</span><div><b>Dica de ouro.</b> ${p.tip}</div></div>`; }
+  if(p.verdict){ html += `<div class="verdictbox"><span>⭐</span><div>${p.verdict}</div></div>`; }
+  sheetIn.innerHTML = html;
+  document.querySelector(".sheet").scrollTop = 0;
+  overlay.classList.add("on");
+  document.body.style.overflow="hidden";
+}
+function closeSheet(){overlay.classList.remove("on");document.body.style.overflow=""}
+document.getElementById("closeBtn").addEventListener("click",closeSheet);
+overlay.addEventListener("click",e=>{if(e.target===overlay)closeSheet()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
+document.addEventListener("click",e=>{
+  const cp=e.target.closest(".copyaddr");
+  if(cp){ const t=cp.dataset.addr; navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{const o=cp.textContent;cp.textContent="✓ Copiado!";setTimeout(()=>cp.textContent=o,1500)}).catch(()=>{}); return; }
+  if(e.target.closest(".actions a")) return;
+  const el=e.target.closest("[data-place]");
+  if(el)openPlace(el.dataset.place);
+});
+
+function renderBudget(){
+  let html="", gF=0, gJ=0;
+  DAYS.forEach(d=>{
+    const seen=new Set(), rows=[];
+    d.slots.forEach(s=>s.p.forEach(id=>{ if(!seen.has(id)){ seen.add(id); const p=PLACES[id]; if(p.price){ rows.push({name:p.name,F:famTotal(p,'F'),J:famTotal(p,'J')}); } } }));
+    if(!rows.length){
+      html += `<div class="bud-day reveal"><h4><span>Dia ${d.n} · ${d.title}</span><span class="bud-head">só passeios grátis</span></h4></div>`;
+      return;
+    }
+    let sF=0,sJ=0;
+    const rowsHtml = rows.map(r=>{ sF+=r.F; sJ+=r.J; return `<div class="bud-row"><span class="bn">${r.name}</span><span class="bf">${brl(r.F)}</span><span class="bj">${brl(r.J)}</span></div>`; }).join("");
+    gF+=sF; gJ+=sJ;
+    html += `<div class="bud-day reveal">
+      <h4><span>Dia ${d.n} · ${d.title}</span></h4>
+      <div class="bud-row"><span class="bn bud-head">Local</span><span class="bf bud-head">Felipe</span><span class="bj bud-head">Juininho</span></div>
+      ${rowsHtml}
+      <div class="bud-row bud-sub"><span class="bn">Subtotal do dia</span><span class="bf">${brl(sF)}</span><span class="bj">${brl(sJ)}</span></div>
+    </div>`;
+  });
+  document.getElementById("budget").innerHTML = html;
+  document.getElementById("budTotalF").textContent = brl(gF);
+  document.getElementById("budTotalJ").textContent = brl(gJ);
+}
+
+const TARGET = new Date("2026-09-24T02:30:00-03:00").getTime();
+function tick(){
+  const diff = TARGET - Date.now();
+  if(diff<=0){
+    document.getElementById("cd").innerHTML='<div class="cd-box" style="min-width:auto;padding:10px 18px"><div class="cd-num">🎉</div></div>';
+    document.getElementById("cd-tag").textContent="A viagem começou!";
+    return;
+  }
+  const d=Math.floor(diff/864e5), h=Math.floor(diff%864e5/36e5), m=Math.floor(diff%36e5/6e4), s=Math.floor(diff%6e4/1e3);
+  document.getElementById("cd-d").textContent=d;
+  document.getElementById("cd-h").textContent=String(h).padStart(2,"0");
+  document.getElementById("cd-m").textContent=String(m).padStart(2,"0");
+  document.getElementById("cd-s").textContent=String(s).padStart(2,"0");
+}
+
+function initReveal(){
+  const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}}),{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+}
+
+/* ---- MAPA & DISTÂNCIAS ---- */
+const MAPPTS=[
+  {id:"hotel",name:"Cabanas Rota do Sol",ico:"🏡",lat:-29.3652363,lng:-50.8619194,city:"Gramado",addr:"Rua Dartagnan de Oliveira, 310 — Av. Central, Gramado 95670-000"},
+  {id:"lugano",name:"Mundo Lugano",ico:"🍫",lat:-29.3806796,lng:-50.8728692,city:"Gramado",addr:"Av. Borges de Medeiros, 2497 — Centro, Gramado"},
+  {id:"hector",name:"Hector",ico:"🍕",lat:-29.3861283,lng:-50.8741297,city:"Gramado",addr:"Av. Borges de Medeiros, 1791 — Centro, Gramado"},
+  {id:"minimundo",name:"Mini Mundo",ico:"🏰",lat:-29.3843032,lng:-50.8757997,city:"Gramado",addr:"R. Horácio Cardoso, 291 — Planalto, Gramado"},
+  {id:"ruacoberta",name:"Rua Coberta",ico:"🛍️",lat:-29.3787256,lng:-50.8735655,city:"Gramado",addr:"R. Madre Verônica, 30 — Centro, Gramado"},
+  {id:"laghonegro",name:"Lago Negro",ico:"🦢",lat:-29.3943674,lng:-50.8777667,city:"Gramado",addr:"R. Vinte e Cinco de Julho, 439 — Gramado"},
+  {id:"aldeia",name:"Aldeia do Papai Noel",ico:"🎅",lat:-29.3815873,lng:-50.8710802,city:"Gramado",addr:"Av. Borges de Medeiros, 2300 — Centro, Gramado"},
+  {id:"cafecolonial",name:"Café Bela Vista",ico:"☕",lat:-29.3711219,lng:-50.8626883,city:"Gramado",addr:"Av. das Hortênsias, 3500 — Vila Suíça, Gramado"},
+  {id:"kongo",name:"Kongo Pizzaria",ico:"🍕",lat:-29.3605135,lng:-50.8471245,city:"Gramado",addr:"Av. das Hortênsias, 5683 — Carniel, Gramado"},
+  {id:"snowland",name:"Snowland",ico:"❄️",lat:-29.3938142,lng:-50.9219863,city:"Gramado",addr:"RS-235, Linha Carazal, 9009 — Gramado"},
+  {id:"acquamotion",name:"Acquamotion",ico:"💦",lat:-29.3911764,lng:-50.9274082,city:"Gramado",addr:"Linha Carazal, 501 — Gramado"},
+  {id:"caracol",name:"Parque do Caracol",ico:"🌿",lat:-29.3129543,lng:-50.851966,city:"Canela",addr:"Rod. RS-466, km 0 — Caracol, Canela"},
+  {id:"bondinhos",name:"Bondinhos Aéreos",ico:"🚡",lat:-29.3078672,lng:-50.8492377,city:"Canela",addr:"R. Constante Félix Orsolin, 699 — Caracol, Canela"},
+  {id:"vale",name:"Vale dos Dinossauros",ico:"🦕",lat:-29.3495289,lng:-50.8351396,city:"Canela",addr:"RS-466 — Bosque Sinoserra, Canela"},
+  {id:"florybal",name:"Florybal",ico:"🦖",lat:-29.3494751,lng:-50.8326802,city:"Canela",addr:"RS-466, 1630 — Canela"},
+  {id:"mundovapor",name:"Mundo a Vapor",ico:"⚙️",lat:-29.3615531,lng:-50.8347406,city:"Canela",addr:"Av. Don Luiz Guanella, 1247 — Canela"},
+  {id:"catedral",name:"Catedral de Pedra",ico:"⛪",lat:-29.363811,lng:-50.8094398,city:"Canela",addr:"Praça da Matriz, 69 — Centro, Canela"}
+];
+let mapSel=[];
+const ptOf=id=>MAPPTS.find(p=>p.id===id);
+function initMap(){
+  const row=p=>`<div class="mrow" data-id="${p.id}"><span class="mi">${p.ico}</span><span class="mn">${p.name}</span><span class="mbadge"></span></div>`;
+  document.getElementById("mlistG").innerHTML=MAPPTS.filter(p=>p.city==="Gramado").map(row).join("");
+  document.getElementById("mlistC").innerHTML=MAPPTS.filter(p=>p.city==="Canela").map(row).join("");
+  document.querySelectorAll(".mrow").forEach(r=>r.addEventListener("click",()=>toggleSel(r.dataset.id)));
+  document.getElementById("mclear").addEventListener("click",()=>{mapSel=[];syncMap();});
+  syncMap();
+}
+function toggleSel(id){
+  const i=mapSel.indexOf(id);
+  if(i>-1)mapSel.splice(i,1);
+  else if(mapSel.length<2)mapSel.push(id);
+  else mapSel=[id];
+  syncMap();
+}
+function syncMap(){
+  document.querySelectorAll(".mrow").forEach(r=>{
+    const idx=mapSel.indexOf(r.dataset.id);
+    r.classList.toggle("selA",idx===0);
+    r.classList.toggle("selB",idx===1);
+    r.querySelector(".mbadge").textContent=idx===0?"A":idx===1?"B":"";
+  });
+  const A=mapSel[0]?ptOf(mapSel[0]):null, B=mapSel[1]?ptOf(mapSel[1]):null;
+  const sA=document.getElementById("mselA"),sB=document.getElementById("mselB");
+  sA.textContent=A?`A · ${A.name}`:"1º local"; sA.classList.toggle("on",!!A);
+  sB.textContent=B?`B · ${B.name}`:"2º local"; sB.classList.toggle("on",!!B);
+  const res=document.getElementById("mapResult");
+  if(A&&B){res.innerHTML=resultHTML(A,B);res.classList.add("on");}
+  else{res.classList.remove("on");res.innerHTML="";}
+}
+function haversineKm(a,b){const R=6371,rad=x=>x*Math.PI/180;
+  const dLat=rad(b.lat-a.lat),dLng=rad(b.lng-a.lng);
+  const h=Math.sin(dLat/2)**2+Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLng/2)**2;
+  return R*2*Math.asin(Math.sqrt(h));}
+const fmtKm=k=>k<10?k.toFixed(1).replace('.',','):Math.round(k)+"";
+function fmtMin(m){m=Math.round(m);if(m<60)return m+" min";const h=Math.floor(m/60),mm=m%60;return mm?`${h}h${String(mm).padStart(2,'0')}`:`${h}h`;}
+function resultHTML(A,B){
+  const straight=haversineKm(A,B), roadKm=straight*1.4;
+  const speed=roadKm<1.5?18:roadKm<5?28:38;
+  const driveMin=roadKm/speed*60, walkMin=straight*1.25/4.7*60;
+  const durl=`https://www.google.com/maps/dir/?api=1&origin=${A.lat},${A.lng}&destination=${B.lat},${B.lng}&travelmode=driving`;
+  const wurl=`https://www.google.com/maps/dir/?api=1&origin=${A.lat},${A.lng}&destination=${B.lat},${B.lng}&travelmode=walking`;
+  const walkNote=walkMin>45?' · longe a pé':'';
+  return `<div class="mres-pair">
+    <div class="mp"><span class="mpa">A</span><b>${A.name}</b><div class="mpaddr">${A.addr}</div></div>
+    <div class="mp"><span class="mpb">B</span><b>${B.name}</b><div class="mpaddr">${B.addr}</div></div>
+  </div>
+  <div class="mmetrics">
+    <div class="mm"><div class="mv">${fmtKm(straight)} km</div><div class="ml">linha reta</div></div>
+    <div class="mm"><div class="mv">~${fmtMin(driveMin)}</div><div class="ml">de carro · ~${fmtKm(roadKm)} km</div></div>
+    <div class="mm"><div class="mv">~${fmtMin(walkMin)}</div><div class="ml">a pé${walkNote}</div></div>
+  </div>
+  <div class="mlinks">
+    <a class="mgo" href="${durl}" target="_blank" rel="noopener">🚗 Rota de carro no Google Maps</a>
+    <a class="mgo walk" href="${wurl}" target="_blank" rel="noopener">🚶 A pé</a>
+  </div>`;
+}
+
+renderDays();
+renderSwaps();
+renderBudget();
+initMap();
+initReveal();
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>

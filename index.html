@@ -65,6 +65,7 @@
   nav .wrap::-webkit-scrollbar{display:none}
   nav a{flex:0 0 auto;font-size:.8rem;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:7px 13px;border-radius:99px;border:1px solid var(--line);background:var(--snow);white-space:nowrap;transition:.2s;}
   nav a:active{transform:scale(.96)}
+  nav a.active{background:var(--pine);color:#fff;border-color:var(--pine)}
 
   section{padding:40px 0}
   .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
@@ -121,6 +122,7 @@
   .tag{font-size:.72rem;font-weight:600;padding:5px 10px;border-radius:8px;display:inline-flex;align-items:center;gap:5px}
   .tag.tired-leve{background:#e6f0e8;color:#2f6a45}
   .tag.tired-medio{background:#fbf0dc;color:#9a6a1e}
+  .tag.tired-pesado{background:#f7e3e0;color:#a3463a}
   .tag.rain{background:#e9ecfb;color:#4a52a3}
   .tag.book{background:#f7e3e0;color:#a3463a}
   .day.birthday{border:1.5px solid var(--amber)}
@@ -303,6 +305,17 @@
 
   .reveal{opacity:0;transform:translateY(20px);transition:.6s ease}
   .reveal.in{opacity:1;transform:none}
+
+  /* desktop: aproveita a tela larga sem mudar o mobile */
+  @media(min-width:960px){
+    .wrap{max-width:920px}
+    #days{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;margin-top:16px}
+    #days .day{margin-top:0}
+    .swaps{grid-template-columns:repeat(3,1fr)}
+    #mapbox{height:420px}
+    .contacts-grid{grid-template-columns:repeat(4,1fr)}
+    nav .wrap{justify-content:center}
+  }
 
   .vip-rows{display:flex;flex-direction:column;gap:0;margin-top:10px}
   .vip-r{display:flex;gap:10px;font-size:.84rem;padding:6px 0;border-top:1px dashed var(--line)}
@@ -1165,7 +1178,7 @@ const PLACES = {
     tip:"Cheguem cedo pra ver os trens funcionando sem aglomeração. Rende fotos lindas.",
     verdict:"Leve, visual e pra todas as idades — ótimo encaixe na manhã do sábado."},
 
-  ruacoberta:{ico:"🍫",name:"Rua Coberta & Centro",tag:"Centro & gastronomia · Gramado",g:"#8a5a3e,#523524",img:"",
+  ruacoberta:{ico:"🛍️",name:"Rua Coberta & Centro",tag:"Centro & gastronomia · Gramado",g:"#8a5a3e,#523524",img:"",
     addr:"Rua Coberta - Centro, Gramado - RS",ig:"",wa:"",video:"",price:null,
     what:"O coração de Gramado: a Rua Coberta liga as duas principais avenidas e concentra restaurantes, cafés, chocolaterias e lojas — tudo sob uma cobertura de vidro, o que ajuda em dias de chuva ou frio. Vira ponto de encontro à noite.",
     highlights:["Chocolaterias (Caracol, Prawer, Lugano)","Cafés e restaurantes","Lojas e souvenirs","Coberta — funciona na chuva fraca"],
@@ -1179,7 +1192,7 @@ const PLACES = {
     what:"Sequência de fondue na pedra na La Famille de Gazon: queijo derretido com vinho branco + pão, batata e legumes; carne na pedra (bovino, suíno e frango) com 11 molhos; e fondue de chocolate com 5 frutas e waffer. Vouchers já comprados — só aparecer!",
     highlights:["Fondue de queijo com vinho branco","Carne na pedra: 3 tipos + 11 molhos","Fondue de chocolate com frutas","Sem agendamento — por ordem de chegada","Restaurante não cobra taxa de 10%"],
     facts:[["Endereço","Av. das Hortênsias, 1008 - Centro, Gramado"],["Horário jantar","18h às 23h — todos os dias"],["Voucher","✅ JÁ PAGO (família F e J)"],["⚠️ Regra do voucher","NÃO VALE sábado nem domingo — somente dias de semana"],["Crianças","Até 4 anos: isento · 5 a 10 anos: R$60 no local"],["Agendamento","Não precisa — ordem de chegada"],["Bebidas","Não inclusas no voucher"],["Tempo de visita","~2h a 2h30 — refeição completa"]],
-    tip:"Chegar cedo (18h–18h30) pra não esperar. Levar o voucher impresso ou no celular (códigos JOGK54 e QMMA17).",
+    tip:"Chegar cedo (18h–18h30) pra não esperar. Levar os vouchers no celular — Felipe e Juininho têm os códigos (não publicados aqui por segurança).",
     verdict:"Está no Dia 5 (segunda-feira) — fondue quente pra fechar o dia de Canela."},
 
   cafecolonial:{ico:"☕",name:"Café Colonial Bela Vista",tag:"Café colonial · Bela Vista · Gramado",g:"#b88a5a,#74542f",img:"",
@@ -1201,7 +1214,7 @@ const PLACES = {
     tip:"Fica na mesma estrada do Parque do Caracol e dos Bondinhos — dá pra emendar com o passeio do Dia 5 sem desvio.",
     verdict:"Sugestão pra experimentar o lado gaúcho raiz da Serra — sem compromisso no roteiro."},
 
-  kongo:{ico:"🍕",name:"Kongo Pizzaria Temática",tag:"Rodízio temático · opção · Carniel",g:"#c0563e,#7a2f22",img:"",
+  kongo:{ico:"🦍",name:"Kongo Pizzaria Temática",tag:"Rodízio temático · opção · Carniel",g:"#c0563e,#7a2f22",img:"",
     addr:"Av. das Hortênsias, 5683 - Carniel, Gramado - RS",ig:"kongogramado",wa:"555496309742",video:"",
     price:{adult:189.9,child:189.9,childMax:99,freeUnder:5,etiq:"estimado"},
     what:"Rodízio de pizza com mais de 100 sabores num cenário de selva, com show ao vivo e a Casa da Árvore (brinquedoteca grátis). Era a opção de aniversário antes da Hector — fica aqui como alternativa de jantar temático.",
@@ -1259,8 +1272,8 @@ const PLACES = {
     verdict:"Fofo, mas opcional pra essa faixa de idade — por isso ficou nas opções à parte."},
 
   alpenpark:{ico:"🛷",name:"Alpen Park",tag:"Parque de aventura · Canela",g:"#3d6e8a,#1d3a4a",img:"",
-    addr:"Canela - RS",ig:"alpenpark",wa:"",video:"",
-    price:{adult:0,child:0,childMax:99,freeUnder:0,etiq:"conferir"},
+    addr:"Rod. Arnaldo Oppitz, 901 - Canela - RS",ig:"alpenpark",wa:"",video:"",
+    price:{tbd:true,etiq:"conferir"},
     what:"Parque de aventura com o famoso trenó de montanha (alpine slide) e tirolesa — as atrações mais radicais da região. Ótimas pras crianças maiores e adultos que querem adrenalina.",
     highlights:["Trenó de montanha (alpine slide)","Tirolesa","Outras atrações radicais","Vista de Canela"],
     facts:[["Horário","Verificar no site antes de ir"],["Com criança pequena","Atrações têm altura mínima — Lavínia e Ísis ficam de fora das radicais"],["Dica","Confirmar alturas mínimas e preços antes de ir"]],
@@ -1355,7 +1368,7 @@ function renderDays(){
       ? `<div class="anchor">⭐ ${PLACES[d.anchor].name}</div>`
       : `<div class="anchor none">☕ Dia leve, sem atração paga</div>`;
     const foot = `<div class="day-foot">
-        <span class="tag tired-${d.tired}">🔋 ${d.tired==="leve"?"Cansaço leve":"Cansaço médio"}</span>
+        <span class="tag tired-${d.tired}">🔋 ${d.tired==="leve"?"Cansaço leve":d.tired==="pesado"?"Dia pesado":"Cansaço médio"}</span>
         <span class="tag rain">🌧 ${d.rain}</span>
         ${d.book?`<span class="tag book">📌 ${d.book}</span>`:""}
       </div>`;
@@ -1550,6 +1563,23 @@ function initReveal(){
   document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 }
 
+/* ---- SCROLLSPY: destaca na navegação a seção visível ---- */
+function initScrollspy(){
+  const links={};
+  document.querySelectorAll("nav a[href^='#']").forEach(a=>{links[a.getAttribute("href").slice(1)]=a});
+  const io=new IntersectionObserver(es=>{
+    es.forEach(en=>{
+      if(!en.isIntersecting)return;
+      const a=links[en.target.id];
+      if(!a)return;
+      document.querySelectorAll("nav a.active").forEach(x=>x.classList.remove("active"));
+      a.classList.add("active");
+      a.scrollIntoView({block:"nearest",inline:"center",behavior:"smooth"});
+    });
+  },{rootMargin:"-35% 0px -55% 0px"});
+  document.querySelectorAll("section[id]").forEach(s=>io.observe(s));
+}
+
 /* ---- MAPA & DISTÂNCIAS ---- */
 const MAPPTS=[
   {id:"hotel",name:"Cabanas Rota do Sol",ico:"🏡",lat:-29.3652363,lng:-50.8619194,city:"Gramado",addr:"Rua Dartagnan de Oliveira, 310 — Av. Central, Gramado 95670-000"},
@@ -1560,7 +1590,7 @@ const MAPPTS=[
   {id:"laghonegro",name:"Lago Negro",ico:"🦢",lat:-29.3943674,lng:-50.8777667,city:"Gramado",addr:"R. Vinte e Cinco de Julho, 439 — Gramado"},
   {id:"aldeia",name:"Aldeia do Papai Noel",ico:"🎅",lat:-29.3815873,lng:-50.8710802,city:"Gramado",addr:"Av. Borges de Medeiros, 2300 — Centro, Gramado"},
   {id:"cafecolonial",name:"Café Bela Vista",ico:"☕",lat:-29.3711219,lng:-50.8626883,city:"Gramado",addr:"Av. das Hortênsias, 3500 — Vila Suíça, Gramado"},
-  {id:"kongo",name:"Kongo Pizzaria",ico:"🍕",lat:-29.3605135,lng:-50.8471245,city:"Gramado",addr:"Av. das Hortênsias, 5683 — Carniel, Gramado"},
+  {id:"kongo",name:"Kongo Pizzaria",ico:"🦍",lat:-29.3605135,lng:-50.8471245,city:"Gramado",addr:"Av. das Hortênsias, 5683 — Carniel, Gramado"},
   {id:"snowland",name:"Snowland",ico:"❄️",lat:-29.3938142,lng:-50.9219863,city:"Gramado",addr:"RS-235, Linha Carazal, 9009 — Gramado"},
   {id:"acquamotion",name:"Acquamotion",ico:"💦",lat:-29.3911764,lng:-50.9274082,city:"Gramado",addr:"Linha Carazal, 501 — Gramado"},
   {id:"caracol",name:"Parque do Caracol",ico:"🌿",lat:-29.3129543,lng:-50.851966,city:"Canela",addr:"Rod. RS-466, km 0 — Caracol, Canela"},
@@ -1685,6 +1715,7 @@ initChecklists();
 initToday();
 initWeather();
 initReveal();
+initScrollspy();
 tick();setInterval(tick,1000);
 
 function initAeroportoTabs(){

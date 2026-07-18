@@ -251,6 +251,19 @@
 
   .reveal{opacity:0;transform:translateY(20px);transition:.6s ease}
   .reveal.in{opacity:1;transform:none}
+
+  .vip-rows{display:flex;flex-direction:column;gap:0;margin-top:10px}
+  .vip-r{display:flex;gap:10px;font-size:.84rem;padding:6px 0;border-top:1px dashed var(--line)}
+  .vip-r:first-child{border-top:none}
+  .vip-r .vl{flex:0 0 90px;font-size:.7rem;font-weight:700;color:var(--hortensia);text-transform:uppercase;letter-spacing:.07em;padding-top:2px}
+  .vip-why{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:.83rem;color:var(--ink-soft)}
+  .vip-2col{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .vip-block{background:var(--cream-2);border-radius:14px;padding:12px 13px}
+  .vip-block h4{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--hortensia);margin-bottom:7px}
+  .vip-block ul{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:.8rem;color:var(--ink-soft)}
+  .vip-checklist{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:10px}
+  .vip-checklist li{font-size:.83rem;display:flex;gap:9px;align-items:flex-start}
+  .vip-checklist li::before{content:"☐";flex:0 0 auto;color:var(--hortensia);font-size:1rem;line-height:1.2}
 </style>
 </head>
 <body>
@@ -273,6 +286,7 @@
 <nav>
   <div class="wrap">
     <a href="#viagem">A viagem</a>
+    <a href="#salavip">Sala VIP</a>
     <a href="#roteiro">Roteiro</a>
     <a href="#mapa">Mapa</a>
     <a href="#opcoes">Opções</a>
@@ -331,6 +345,94 @@
       <div class="chip-stat"><div class="v">~10 dias</div><div class="l">de chuva no mês — plano B indoor pronto</div></div>
     </div>
     <p class="lead" style="margin-top:12px;font-size:.86rem">Tragam casaco de verdade, touca e luva fina. Manhãs e noites são frias — atenção redobrada com a Isis. Todo dia de chuva tem troca coberta no roteiro.</p>
+  </div>
+</section>
+
+<section id="salavip">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Aeroporto</span></div>
+    <h2>Sala VIP</h2>
+    <p class="lead">Felipe e Juininho têm acesso via <b>C6 Carbon Black</b>. A preferência é usar na ida em Recife — maior conforto de madrugada com as crianças. Porto Alegre fica como plano alternativo.</p>
+
+    <div class="note reveal" style="border-left:4px solid var(--amber);margin-top:20px">
+      <p style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--amber);margin-bottom:7px">⭐ Recomendado · Ida · 24/09</p>
+      <h3 style="margin-bottom:3px">W Premium Lounge Recife São João</h3>
+      <p style="font-size:.84rem;color:var(--ink-soft);margin-bottom:2px">Antes do voo das 02:30 — chegar ao aeroporto ~00h30, usar a sala após o raio-X</p>
+      <div class="vip-rows">
+        <div class="vip-r"><span class="vl">Localização</span><span>Depois do controle de segurança, em frente ao portão 7</span></div>
+        <div class="vip-r"><span class="vl">Voos</span><span>Passageiros de voos domésticos</span></div>
+        <div class="vip-r"><span class="vl">Funcionamento</span><span>24 horas</span></div>
+        <div class="vip-r"><span class="vl">Permanência</span><span>Até ~3 horas</span></div>
+        <div class="vip-r"><span class="vl">Acesso</span><span>C6 Carbon via rede parceira DragonPass</span></div>
+        <div class="vip-r"><span class="vl">Benefícios</span><span>Alimentação · bebidas · Wi-Fi · tomadas · banheiros · espaço de descanso</span></div>
+      </div>
+      <div class="vip-why">Por que Recife é a melhor escolha: aeroporto de madrugada, crianças fora do horário normal de sono, espera de ~1h45 antes de um voo de 4h30. A sala entrega conforto exatamente quando vai fazer mais diferença.</div>
+    </div>
+
+    <div class="note reveal" style="margin-top:12px">
+      <p style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink-soft);margin-bottom:7px">Alternativa · Volta · 29/09</p>
+      <h3 style="margin-bottom:3px">W Premium Lounge Porto Alegre</h3>
+      <p style="font-size:.84rem;color:var(--ink-soft);margin-bottom:2px">Antes do voo das 19:20 — chegar ao aeroporto ~17h20, ~2h disponíveis</p>
+      <div class="vip-rows">
+        <div class="vip-r"><span class="vl">Localização</span><span>Depois do raio-X · mezanino do 3º piso · embarque doméstico</span></div>
+        <div class="vip-r"><span class="vl">Funcionamento</span><span>24 horas</span></div>
+        <div class="vip-r"><span class="vl">Permanência</span><span>Até ~3 horas</span></div>
+        <div class="vip-r"><span class="vl">Acesso</span><span>C6/DragonPass</span></div>
+        <div class="vip-r"><span class="vl">Destaque</span><span>Boa opção pra uma refeição tranquila antes do voo</span></div>
+      </div>
+      <div class="vip-why">Nesse horário de fim de tarde, também é fácil encontrar restaurantes abertos no aeroporto ou jantar antes de ir. Fica como plano B caso Recife não esteja disponível.</div>
+    </div>
+
+    <div class="note reveal" style="margin-top:12px;border-left:4px solid #c0392b">
+      <h3 style="color:#c0392b;margin-bottom:5px">⛔ Congonhas — não usar sala VIP</h3>
+      <p style="font-size:.84rem;color:var(--ink-soft)">A conexão tem apenas 1 hora (pouso 20h55 → voo 21h55). Ao chegar em Congonhas, seguir <b>direto para o próximo portão</b>. Não há tempo hábil considerando desembarque, caminhada, crianças e início de embarque. A sala W Premium fica antes da segurança (teria que refazer o raio-X).</p>
+    </div>
+
+    <div class="note reveal" style="margin-top:12px">
+      <h3 style="margin-bottom:12px">📱 Como acessar</h3>
+      <div class="vip-2col">
+        <div class="vip-block">
+          <h4>Via app (DragonPass)</h4>
+          <ul>
+            <li>Abrir o app C6</li>
+            <li>Cartões → Salas VIP</li>
+            <li>Exibir QR Code DragonPass</li>
+            <li>Selecionar a sala</li>
+            <li>Gerar QR de cada acompanhante</li>
+            <li>Nome deve ser exatamente igual ao cartão de embarque</li>
+          </ul>
+        </div>
+        <div class="vip-block">
+          <h4>Acesso direto</h4>
+          <ul>
+            <li>Apresentar o cartão físico C6 Carbon na entrada da sala</li>
+            <li>Manter o app C6 funcionando</li>
+          </ul>
+        </div>
+      </div>
+      <div class="vip-rows" style="margin-top:12px">
+        <div class="vip-r"><span class="vl">Levar sempre</span><span>Cartão físico C6 Carbon · app C6 atualizado · cartões de embarque de todos · documentos originais das crianças</span></div>
+        <div class="vip-r"><span class="vl">Atenção</span><span>Uma utilização pode levar até 60 dias pra aparecer no saldo do app — controlar manualmente qualquer entrada realizada no ano</span></div>
+      </div>
+    </div>
+
+    <div class="note reveal" style="margin-top:12px">
+      <h3 style="margin-bottom:10px">✅ Checklist da sala VIP</h3>
+      <ul class="vip-checklist">
+        <li>Confirmar que os acessos ainda aparecem disponíveis no app antes da viagem</li>
+        <li>Não usar nenhum acesso antes da viagem sem registrar manualmente</li>
+        <li>Conferir se a W Premium Recife aparece disponível no app C6</li>
+        <li>Testar a geração do QR Code DragonPass antes de sair de casa</li>
+        <li>Atualizar o app C6</li>
+        <li>Levar o cartão físico C6 Carbon na bagagem de mão</li>
+        <li>Manter os cartões de embarque de todos disponíveis</li>
+        <li>Levar documentos originais das crianças</li>
+        <li>Confirmar horário de funcionamento da sala na semana da viagem</li>
+        <li>Verificar o número do portão no dia do voo</li>
+        <li>Ter Porto Alegre como plano alternativo caso Recife não aceite o acesso</li>
+        <li>Em Congonhas, seguir direto pro próximo portão — sem parada em sala VIP</li>
+      </ul>
+    </div>
   </div>
 </section>
 

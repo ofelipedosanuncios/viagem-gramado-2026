@@ -226,6 +226,31 @@
   .cl li{font-size:.9rem;color:var(--ink);display:flex;gap:10px;align-items:flex-start;line-height:1.42}
   .cl li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent,var(--amber));flex:0 0 auto;margin-top:6px}
   .cl li b{font-weight:600;color:var(--pine)}
+  /* checklists interativos */
+  .cl li,.vip-checklist li{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none}
+  .cl li.done,.vip-checklist li.done{opacity:.5;text-decoration:line-through}
+  .cl li.done::before{background:var(--pine-2)}
+  .vip-checklist li.done::before{content:"☑";color:var(--pine-2)}
+  .ck-prog{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--pine-2);background:#e6f0e8;padding:3px 9px;border-radius:99px;flex:0 0 auto}
+  .ck-prog.full{background:var(--pine-2);color:#fff}
+  .ck-hint{font-size:.74rem;color:var(--ink-soft);margin-top:10px}
+  /* banner "hoje" durante a viagem */
+  .today-banner{background:linear-gradient(120deg,var(--amber),var(--amber-soft));box-shadow:0 10px 24px -14px rgba(200,137,58,.8)}
+  .today-banner .wrap{display:flex;gap:10px;align-items:center;padding:10px 18px}
+  .today-banner a{text-decoration:none;color:#3a230e;font-size:.86rem;font-weight:600}
+  .today-banner .tb-main{flex:1}
+  .day.today{outline:2px solid var(--pine-2);outline-offset:-1px}
+  /* previsão do tempo */
+  .wx{margin-top:12px;background:var(--snow);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
+  .wx h3{font-size:.98rem;margin-bottom:10px}
+  .wx-row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+  .wx-row::-webkit-scrollbar{display:none}
+  .wx-d{flex:0 0 74px;text-align:center;background:var(--cream-2);border-radius:12px;padding:9px 4px}
+  .wx-d .wd{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft)}
+  .wx-d .wi{font-size:1.35rem;margin:4px 0}
+  .wx-d .wt{font-size:.76rem;font-weight:600;color:var(--pine)}
+  .wx-d .wr{font-size:.64rem;color:var(--hortensia);margin-top:2px;font-weight:600}
+  .wx-src{font-size:.66rem;color:var(--ink-soft);margin-top:9px}
 
   /* MAPA */
   .mapwrap{margin-top:18px;background:var(--snow);border:1px solid var(--line);border-radius:20px;padding:12px;box-shadow:var(--shadow)}
@@ -399,6 +424,7 @@
       <div class="chip-stat"><div class="v">9° – 20°</div><div class="l">temperatura típica de setembro</div></div>
       <div class="chip-stat"><div class="v">~10 dias</div><div class="l">de chuva no mês — plano B indoor pronto</div></div>
     </div>
+    <div class="wx reveal" id="wx" hidden></div>
     <p class="lead" style="margin-top:12px;font-size:.86rem">Tragam casaco de verdade, touca e luva fina. Manhãs e noites são frias — atenção redobrada com a Isis. Todo dia de chuva tem troca coberta no roteiro.</p>
 
     <div class="viagem-btns reveal">
@@ -733,6 +759,7 @@
     <!-- TAB: CHECKLIST -->
     <div class="ap-panel" id="ap-checklist">
       <p class="lead">Checklists baseados nas orientações da Azul e ANAC para grupos com crianças e bebê.</p>
+      <p class="ck-hint">✅ <b>Toque em qualquer item pra marcar como feito</b> — fica salvo neste aparelho.</p>
 
       <p class="ap-sub">7 dias antes</p>
       <div class="note reveal">
@@ -878,6 +905,7 @@
     <div class="sec-head"><span class="sec-kicker">Antes de fechar a mala</span></div>
     <h2>Checklist de viagem</h2>
     <p class="lead">Duas frentes pra não esquecer nada: o que pôr na mala pra serra em setembro e o que separar pro dia de viagem. Dia ameno, manhã e noite frias — e atenção redobrada com a Isis.</p>
+    <p class="ck-hint">✅ <b>Toque em qualquer item pra marcar como feito</b> — fica salvo neste aparelho.</p>
 
     <div class="note good reveal">
       <h3>🍂 Como é a serra no fim de setembro</h3>
@@ -1254,7 +1282,7 @@ function renderDays(){
         <span class="tag rain">🌧 ${d.rain}</span>
         ${d.book?`<span class="tag book">📌 ${d.book}</span>`:""}
       </div>`;
-    return `<article class="day reveal ${d.birthday?"birthday":""}" style="--accent:${d.accent}">
+    return `<article class="day reveal ${d.birthday?"birthday":""}" id="day-${d.n}" style="--accent:${d.accent}">
       ${d.birthday?'<div class="bday-ribbon">Aniversário</div>':''}
       <div class="day-top">
         <div class="day-meta"><span class="day-num">Dia ${d.n}</span><span class="day-date">${d.date}</span><span class="day-ico">${d.ico}</span></div>
@@ -1374,6 +1402,67 @@ function tick(){
   document.getElementById("cd-h").textContent=String(h).padStart(2,"0");
   document.getElementById("cd-m").textContent=String(m).padStart(2,"0");
   document.getElementById("cd-s").textContent=String(s).padStart(2,"0");
+}
+
+/* ---- CHECKLISTS INTERATIVOS (salvos no aparelho) ---- */
+function initChecklists(){
+  const KEY="gramado26-ck";
+  let st={}; try{st=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+  const hash=t=>{let h=5381;for(let i=0;i<t.length;i++)h=(h*33+t.charCodeAt(i))>>>0;return h.toString(36)};
+  document.querySelectorAll(".cl ul, ul.vip-checklist").forEach(ul=>{
+    const lis=ul.querySelectorAll("li");
+    if(!lis.length)return;
+    const head=ul.closest(".cl")?ul.closest(".cl").querySelector(".cl-head"):null;
+    let chip=null;
+    if(head){chip=document.createElement("span");chip.className="ck-prog";head.appendChild(chip);}
+    const update=()=>{if(chip){const done=ul.querySelectorAll("li.done").length;chip.textContent=done+"/"+lis.length;chip.classList.toggle("full",done===lis.length);}};
+    lis.forEach(li=>{
+      const k=hash(li.textContent.trim());
+      if(st[k])li.classList.add("done");
+      li.addEventListener("click",e=>{
+        if(e.target.closest("a"))return;
+        li.classList.toggle("done");
+        if(li.classList.contains("done"))st[k]=1;else delete st[k];
+        save();update();
+      });
+    });
+    update();
+  });
+}
+
+/* ---- MODO "HOJE" (aparece só durante a viagem) ---- */
+function initToday(){
+  const start=new Date("2026-09-24T00:00:00-03:00");
+  const dayN=Math.floor((Date.now()-start.getTime())/864e5)+1;
+  if(dayN<1||dayN>6)return;
+  const d=DAYS[dayN-1];
+  const el=document.createElement("div");
+  el.className="today-banner";
+  el.innerHTML=`<div class="wrap"><a class="tb-main" href="#day-${dayN}">📍 Hoje é o <b>Dia ${dayN}</b> · ${d.title}</a></div>`;
+  document.querySelector("nav").insertAdjacentElement("afterend",el);
+  const card=document.getElementById("day-"+dayN);
+  if(card)card.classList.add("today");
+}
+
+/* ---- PREVISÃO DO TEMPO (Open-Meteo, sem chave) ---- */
+function initWeather(){
+  const box=document.getElementById("wx");
+  if(!box||!window.fetch)return;
+  fetch("https://api.open-meteo.com/v1/forecast?latitude=-29.3787&longitude=-50.8736&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=America%2FSao_Paulo&forecast_days=7")
+    .then(r=>r.json())
+    .then(j=>{
+      const wmo=c=>c===0?"☀️":c<=2?"🌤️":c===3?"☁️":c<=49?"🌫️":c<=59?"🌦️":c<=69?"🌧️":c<=79?"🌨️":c<=84?"🌧️":c<=94?"🌨️":"⛈️";
+      const wd=["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+      const d=j.daily;
+      box.innerHTML=`<h3>🌤️ Previsão pra Gramado — próximos 7 dias</h3><div class="wx-row">`+
+        d.time.map((t,i)=>{
+          const dt=new Date(t+"T12:00:00");
+          return `<div class="wx-d"><div class="wd">${wd[dt.getDay()]} ${dt.getDate()}</div><div class="wi">${wmo(d.weather_code[i])}</div><div class="wt">${Math.round(d.temperature_2m_min[i])}°–${Math.round(d.temperature_2m_max[i])}°</div><div class="wr">💧${d.precipitation_probability_max[i]}%</div></div>`;
+        }).join("")+
+        `</div><div class="wx-src">Fonte: Open-Meteo · atualizada a cada visita · perto da viagem, usem pra acionar os planos B de chuva</div>`;
+      box.hidden=false;
+    }).catch(()=>{});
 }
 
 function initReveal(){
@@ -1502,6 +1591,9 @@ renderSwaps();
 renderBudget();
 initMap();
 initLeaflet();
+initChecklists();
+initToday();
+initWeather();
 initReveal();
 tick();setInterval(tick,1000);
 

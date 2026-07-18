@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gramado &amp; Canela 2026 · Família Felipe + Família Juininho</title>
+<meta name="description" content="Guia da viagem das famílias Felipe e Juininho pra Gramado e Canela — 24 a 29 de setembro de 2026. Roteiro dia a dia, mapa, orçamento e checklists.">
+<meta name="theme-color" content="#1f3b30">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gramado &amp; Canela 2026 ❄️">
+<meta property="og:description" content="Roteiro dia a dia, mapa, orçamento e checklists da viagem — 24 a 29 de setembro · 8 viajantes.">
+<meta property="og:url" content="https://ofelipedosanuncios.github.io/viagem-gramado-2026/">
+<meta property="og:image" content="https://ofelipedosanuncios.github.io/viagem-gramado-2026/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Spline+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1515,6 +1528,11 @@ function initAeroportoTabs(){
   });
 }
 initAeroportoTabs();
+
+/* PWA — funciona offline depois da primeira visita (sinal fraco na serra) */
+if("serviceWorker" in navigator && location.protocol==="https:"){
+  window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})});
+}
 </script>
 </body>
 </html>

@@ -264,6 +264,37 @@
   .vip-checklist{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:10px}
   .vip-checklist li{font-size:.83rem;display:flex;gap:9px;align-items:flex-start}
   .vip-checklist li::before{content:"☐";flex:0 0 auto;color:var(--hortensia);font-size:1rem;line-height:1.2}
+  /* aeroporto tab system */
+  .ap-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;margin-top:8px}
+  .ap-tab{padding:7px 14px;border-radius:20px;border:1px solid var(--line);background:var(--snow);font-size:.8rem;font-weight:600;cursor:pointer;color:var(--ink-soft);transition:.15s}
+  .ap-tab.active{background:var(--pine);color:#fff;border-color:var(--pine)}
+  .ap-panel{display:none}
+  .ap-panel.active{display:block}
+  /* viagem quick-access buttons */
+  .viagem-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .viagem-btn{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:13px;background:var(--snow);border:1px solid var(--line);font-size:.83rem;font-weight:600;color:var(--ink);cursor:pointer;text-decoration:none;box-shadow:var(--shadow);transition:.15s}
+  .viagem-btn:hover{background:var(--pine);color:#fff;border-color:var(--pine)}
+  /* emergency & bagagem tables */
+  .em-table,.bag-table{width:100%;border-collapse:collapse;font-size:.78rem;margin-top:10px}
+  .em-table th{background:var(--pine);color:#fff;padding:7px 8px;text-align:left;font-weight:700}
+  .em-table td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  .em-table tr:nth-child(even) td{background:var(--cream-2)}
+  .bag-table th{background:var(--cream-2);padding:7px 9px;text-align:left;font-size:.72rem;font-weight:700;border-bottom:2px solid var(--line)}
+  .bag-table td{padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  /* ready phrases */
+  .frase{background:var(--cream-2);border-left:3px solid var(--pine);border-radius:0 10px 10px 0;padding:10px 13px;font-size:.82rem;color:var(--ink);margin:8px 0;font-style:italic;line-height:1.5}
+  /* section sub-titles */
+  .ap-sub{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--hortensia);margin:16px 0 8px}
+  .ap-sub:first-child{margin-top:0}
+  /* contacts grid */
+  .contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+  @media(max-width:480px){.contacts-grid{grid-template-columns:1fr}}
+  .contact-card{background:var(--snow);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+  .contact-card h4{font-size:.75rem;font-weight:700;margin-bottom:5px;color:var(--pine)}
+  .contact-card p{font-size:.8rem;color:var(--ink-soft);margin:2px 0}
+  /* doc items */
+  .doc-item{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--snow);border:1px solid var(--line);border-radius:10px;margin-bottom:7px;font-size:.84rem}
+  .doc-item .dic{font-size:1.1rem;flex:0 0 auto;line-height:1}
 </style>
 </head>
 <body>
@@ -286,7 +317,7 @@
 <nav>
   <div class="wrap">
     <a href="#viagem">A viagem</a>
-    <a href="#salavip">Sala VIP</a>
+    <a href="#aeroporto">Aeroporto</a>
     <a href="#roteiro">Roteiro</a>
     <a href="#mapa">Mapa</a>
     <a href="#opcoes">Opções</a>
@@ -345,94 +376,404 @@
       <div class="chip-stat"><div class="v">~10 dias</div><div class="l">de chuva no mês — plano B indoor pronto</div></div>
     </div>
     <p class="lead" style="margin-top:12px;font-size:.86rem">Tragam casaco de verdade, touca e luva fina. Manhãs e noites são frias — atenção redobrada com a Isis. Todo dia de chuva tem troca coberta no roteiro.</p>
+
+    <div class="viagem-btns reveal">
+      <a class="viagem-btn" data-panel="salavip" href="#aeroporto"><span>⭐</span> Sala VIP</a>
+      <a class="viagem-btn" data-panel="bagagem" href="#aeroporto"><span>🧳</span> Bagagem</a>
+      <a class="viagem-btn" data-panel="docs" href="#aeroporto"><span>📄</span> Documentos</a>
+      <a class="viagem-btn" data-panel="emergencias" href="#aeroporto"><span>🆘</span> Emergências</a>
+      <a class="viagem-btn" data-panel="checklist" href="#aeroporto"><span>✅</span> Checklist</a>
+    </div>
   </div>
 </section>
 
-<section id="salavip">
+<section id="aeroporto">
   <div class="wrap">
     <div class="sec-head"><span class="sec-kicker">Aeroporto</span></div>
-    <h2>Sala VIP</h2>
-    <p class="lead">Felipe e Juininho têm acesso via <b>C6 Carbon Black</b>. A preferência é usar na ida em Recife — maior conforto de madrugada com as crianças. Porto Alegre fica como plano alternativo.</p>
+    <h2>Voos e aeroporto</h2>
 
-    <div class="note reveal" style="border-left:4px solid var(--amber);margin-top:20px">
-      <p style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--amber);margin-bottom:7px">⭐ Recomendado · Ida · 24/09</p>
-      <h3 style="margin-bottom:3px">W Premium Lounge Recife São João</h3>
-      <p style="font-size:.84rem;color:var(--ink-soft);margin-bottom:2px">Antes do voo das 02:30 — chegar ao aeroporto ~00h30, usar a sala após o raio-X</p>
-      <div class="vip-rows">
-        <div class="vip-r"><span class="vl">Localização</span><span>Depois do controle de segurança, em frente ao portão 7</span></div>
-        <div class="vip-r"><span class="vl">Voos</span><span>Passageiros de voos domésticos</span></div>
-        <div class="vip-r"><span class="vl">Funcionamento</span><span>24 horas</span></div>
-        <div class="vip-r"><span class="vl">Permanência</span><span>Até ~3 horas</span></div>
-        <div class="vip-r"><span class="vl">Acesso</span><span>C6 Carbon via rede parceira DragonPass</span></div>
-        <div class="vip-r"><span class="vl">Benefícios</span><span>Alimentação · bebidas · Wi-Fi · tomadas · banheiros · espaço de descanso</span></div>
-      </div>
-      <div class="vip-why">Por que Recife é a melhor escolha: aeroporto de madrugada, crianças fora do horário normal de sono, espera de ~1h45 antes de um voo de 4h30. A sala entrega conforto exatamente quando vai fazer mais diferença.</div>
+    <div class="ap-tabs">
+      <button class="ap-tab active" data-panel="salavip">⭐ Sala VIP</button>
+      <button class="ap-tab" data-panel="bagagem">🧳 Bagagem</button>
+      <button class="ap-tab" data-panel="docs">📄 Documentos</button>
+      <button class="ap-tab" data-panel="emergencias">🆘 Emergências</button>
+      <button class="ap-tab" data-panel="checklist">✅ Checklist</button>
     </div>
 
-    <div class="note reveal" style="margin-top:12px">
-      <p style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink-soft);margin-bottom:7px">Alternativa · Volta · 29/09</p>
-      <h3 style="margin-bottom:3px">W Premium Lounge Porto Alegre</h3>
-      <p style="font-size:.84rem;color:var(--ink-soft);margin-bottom:2px">Antes do voo das 19:20 — chegar ao aeroporto ~17h20, ~2h disponíveis</p>
-      <div class="vip-rows">
-        <div class="vip-r"><span class="vl">Localização</span><span>Depois do raio-X · mezanino do 3º piso · embarque doméstico</span></div>
-        <div class="vip-r"><span class="vl">Funcionamento</span><span>24 horas</span></div>
-        <div class="vip-r"><span class="vl">Permanência</span><span>Até ~3 horas</span></div>
-        <div class="vip-r"><span class="vl">Acesso</span><span>C6/DragonPass</span></div>
-        <div class="vip-r"><span class="vl">Destaque</span><span>Boa opção pra uma refeição tranquila antes do voo</span></div>
-      </div>
-      <div class="vip-why">Nesse horário de fim de tarde, também é fácil encontrar restaurantes abertos no aeroporto ou jantar antes de ir. Fica como plano B caso Recife não esteja disponível.</div>
-    </div>
+    <!-- TAB: SALA VIP -->
+    <div class="ap-panel active" id="ap-salavip">
+      <p class="lead">Felipe e Juininho têm acesso via <b>C6 Carbon Black</b>. A preferência é usar na ida em Recife — maior conforto de madrugada com as crianças. Porto Alegre fica como plano alternativo.</p>
 
-    <div class="note reveal" style="margin-top:12px;border-left:4px solid #c0392b">
-      <h3 style="color:#c0392b;margin-bottom:5px">⛔ Congonhas — não usar sala VIP</h3>
-      <p style="font-size:.84rem;color:var(--ink-soft)">A conexão tem apenas 1 hora (pouso 20h55 → voo 21h55). Ao chegar em Congonhas, seguir <b>direto para o próximo portão</b>. Não há tempo hábil considerando desembarque, caminhada, crianças e início de embarque. A sala W Premium fica antes da segurança (teria que refazer o raio-X).</p>
-    </div>
-
-    <div class="note reveal" style="margin-top:12px">
-      <h3 style="margin-bottom:12px">📱 Como acessar</h3>
-      <div class="vip-2col">
-        <div class="vip-block">
-          <h4>Via app (DragonPass)</h4>
-          <ul>
-            <li>Abrir o app C6</li>
-            <li>Cartões → Salas VIP</li>
-            <li>Exibir QR Code DragonPass</li>
-            <li>Selecionar a sala</li>
-            <li>Gerar QR de cada acompanhante</li>
-            <li>Nome deve ser exatamente igual ao cartão de embarque</li>
-          </ul>
+      <div class="note reveal" style="border-left:4px solid var(--amber);margin-top:16px">
+        <p style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--amber);margin-bottom:7px">⭐ Recomendado · Ida · 24/09</p>
+        <h3 style="margin-bottom:3px">W Premium Lounge Recife São João</h3>
+        <p style="font-size:.84rem;color:var(--ink-soft);margin-bottom:2px">Antes do voo das 02:30 — chegar ao aeroporto ~00h30, usar a sala após o raio-X</p>
+        <div class="vip-rows">
+          <div class="vip-r"><span class="vl">Localização</span><span>Depois do controle de segurança, em frente ao portão 7</span></div>
+          <div class="vip-r"><span class="vl">Voos</span><span>Passageiros de voos domésticos</span></div>
+          <div class="vip-r"><span class="vl">Funcionamento</span><span>24 horas</span></div>
+          <div class="vip-r"><span class="vl">Permanência</span><span>Até ~3 horas</span></div>
+          <div class="vip-r"><span class="vl">Acesso</span><span>C6 Carbon via rede parceira DragonPass</span></div>
+          <div class="vip-r"><span class="vl">Benefícios</span><span>Alimentação · bebidas · Wi-Fi · tomadas · banheiros · espaço de descanso</span></div>
         </div>
-        <div class="vip-block">
-          <h4>Acesso direto</h4>
-          <ul>
-            <li>Apresentar o cartão físico C6 Carbon na entrada da sala</li>
-            <li>Manter o app C6 funcionando</li>
-          </ul>
+        <div class="vip-why">Por que Recife é a melhor escolha: aeroporto de madrugada, crianças fora do horário normal de sono, espera de ~1h45 antes de um voo de 4h30. A sala entrega conforto exatamente quando vai fazer mais diferença.</div>
+      </div>
+
+      <div class="note reveal" style="margin-top:12px">
+        <p style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink-soft);margin-bottom:7px">Alternativa · Volta · 29/09</p>
+        <h3 style="margin-bottom:3px">W Premium Lounge Porto Alegre</h3>
+        <p style="font-size:.84rem;color:var(--ink-soft);margin-bottom:2px">Antes do voo das 19:20 — chegar ao aeroporto ~17h00, ~2h disponíveis</p>
+        <div class="vip-rows">
+          <div class="vip-r"><span class="vl">Localização</span><span>Depois do raio-X · mezanino do 3º piso · embarque doméstico</span></div>
+          <div class="vip-r"><span class="vl">Funcionamento</span><span>24 horas</span></div>
+          <div class="vip-r"><span class="vl">Permanência</span><span>Até ~3 horas</span></div>
+          <div class="vip-r"><span class="vl">Acesso</span><span>C6/DragonPass</span></div>
+          <div class="vip-r"><span class="vl">Destaque</span><span>Boa opção pra uma refeição tranquila antes do voo</span></div>
+        </div>
+        <div class="vip-why">Nesse horário de fim de tarde, também é fácil encontrar restaurantes abertos no aeroporto ou jantar antes de ir. Fica como plano B caso Recife não esteja disponível.</div>
+      </div>
+
+      <div class="note reveal" style="margin-top:12px;border-left:4px solid #c0392b">
+        <h3 style="color:#c0392b;margin-bottom:5px">⛔ Congonhas — não usar sala VIP</h3>
+        <p style="font-size:.84rem;color:var(--ink-soft)">A conexão tem apenas 1 hora (pouso 20h55 → voo 21h55). Ao chegar em Congonhas, seguir <b>direto para o próximo portão</b>. Não há tempo hábil. A sala W Premium fica antes da segurança (teria que refazer o raio-X).</p>
+      </div>
+
+      <div class="note reveal" style="margin-top:12px">
+        <h3 style="margin-bottom:12px">📱 Como acessar</h3>
+        <div class="vip-2col">
+          <div class="vip-block">
+            <h4>Via app (DragonPass)</h4>
+            <ul>
+              <li>Abrir o app C6</li>
+              <li>Cartões → Salas VIP</li>
+              <li>Exibir QR Code DragonPass</li>
+              <li>Selecionar a sala</li>
+              <li>Gerar QR de cada acompanhante</li>
+              <li>Nome exatamente igual ao cartão de embarque</li>
+            </ul>
+          </div>
+          <div class="vip-block">
+            <h4>Acesso direto</h4>
+            <ul>
+              <li>Apresentar o cartão físico C6 Carbon na entrada da sala</li>
+              <li>Manter o app C6 funcionando</li>
+            </ul>
+          </div>
+        </div>
+        <div class="vip-rows" style="margin-top:12px">
+          <div class="vip-r"><span class="vl">Levar sempre</span><span>Cartão físico C6 Carbon · app C6 atualizado · cartões de embarque de todos · documentos das crianças</span></div>
+          <div class="vip-r"><span class="vl">Atenção</span><span>Uma utilização pode levar até 60 dias pra aparecer no saldo do app — controlar manualmente</span></div>
         </div>
       </div>
-      <div class="vip-rows" style="margin-top:12px">
-        <div class="vip-r"><span class="vl">Levar sempre</span><span>Cartão físico C6 Carbon · app C6 atualizado · cartões de embarque de todos · documentos originais das crianças</span></div>
-        <div class="vip-r"><span class="vl">Atenção</span><span>Uma utilização pode levar até 60 dias pra aparecer no saldo do app — controlar manualmente qualquer entrada realizada no ano</span></div>
+
+      <div class="note reveal" style="margin-top:12px">
+        <h3 style="margin-bottom:10px">✅ Checklist sala VIP</h3>
+        <ul class="vip-checklist">
+          <li>Confirmar que os acessos aparecem disponíveis no app antes da viagem</li>
+          <li>Não usar nenhum acesso antes da viagem sem registrar manualmente</li>
+          <li>Conferir se a W Premium Recife aparece disponível no app C6</li>
+          <li>Testar a geração do QR Code DragonPass antes de sair de casa</li>
+          <li>Atualizar o app C6</li>
+          <li>Levar o cartão físico C6 Carbon na bagagem de mão</li>
+          <li>Manter os cartões de embarque de todos disponíveis</li>
+          <li>Levar documentos originais das crianças</li>
+          <li>Confirmar horário de funcionamento na semana da viagem</li>
+          <li>Verificar o número do portão no dia do voo</li>
+          <li>Ter Porto Alegre como plano alternativo</li>
+          <li>Em Congonhas, seguir direto pro próximo portão — sem parada em sala VIP</li>
+        </ul>
       </div>
     </div>
 
-    <div class="note reveal" style="margin-top:12px">
-      <h3 style="margin-bottom:10px">✅ Checklist da sala VIP</h3>
-      <ul class="vip-checklist">
-        <li>Confirmar que os acessos ainda aparecem disponíveis no app antes da viagem</li>
-        <li>Não usar nenhum acesso antes da viagem sem registrar manualmente</li>
-        <li>Conferir se a W Premium Recife aparece disponível no app C6</li>
-        <li>Testar a geração do QR Code DragonPass antes de sair de casa</li>
-        <li>Atualizar o app C6</li>
-        <li>Levar o cartão físico C6 Carbon na bagagem de mão</li>
-        <li>Manter os cartões de embarque de todos disponíveis</li>
-        <li>Levar documentos originais das crianças</li>
-        <li>Confirmar horário de funcionamento da sala na semana da viagem</li>
-        <li>Verificar o número do portão no dia do voo</li>
-        <li>Ter Porto Alegre como plano alternativo caso Recife não aceite o acesso</li>
-        <li>Em Congonhas, seguir direto pro próximo portão — sem parada em sala VIP</li>
-      </ul>
+    <!-- TAB: BAGAGEM -->
+    <div class="ap-panel" id="ap-bagagem">
+      <p class="lead">Cada passageiro tem direito a <b>1 mala de bordo</b> (até 10 kg) e <b>1 mochila/bolsa</b>. Nenhuma bagagem despachada está incluída nas passagens.</p>
+
+      <p class="ap-sub">Franquia da família Felipe — 4 passageiros</p>
+      <div class="note reveal">
+        <div class="vip-rows">
+          <div class="vip-r"><span class="vl">Malas bordo</span><span>4 malas · até 10 kg cada (controlar individualmente — não é soma total)</span></div>
+          <div class="vip-r"><span class="vl">Mochilas</span><span>4 mochilas/bolsas · fica embaixo do assento da frente</span></div>
+          <div class="vip-r"><span class="vl">Despacho</span><span>Não incluído — ver preços abaixo se necessário</span></div>
+        </div>
+        <div class="vip-why">Crianças com assento próprio têm a mesma franquia dos adultos. A pesagem deve ser feita mala a mala — cada uma abaixo de 10 kg, incluindo rodas e alças.</div>
+      </div>
+
+      <p class="ap-sub">Medidas oficiais Azul</p>
+      <div class="note reveal" style="padding:0;overflow:hidden">
+        <table class="bag-table">
+          <tr><th>Item</th><th>Dimensões máx.</th><th>Peso</th><th>Onde fica</th></tr>
+          <tr><td>🧳 Mala de bordo</td><td>55 × 35 × 25 cm</td><td>Até 10 kg</td><td>Compartimento superior</td></tr>
+          <tr><td>🎒 Mochila / bolsa</td><td>45 × 35 × 20 cm</td><td>Sem limite publicado</td><td>Embaixo do assento</td></tr>
+        </table>
+        <p style="font-size:.76rem;color:var(--ink-soft);padding:8px 12px">Medidas incluem rodas, alças, puxador, cadeado e bolsos. Soma máx. mala: 115 cm. Soma máx. mochila: 100 cm.</p>
+      </div>
+
+      <p class="ap-sub">Preços para despachar — voos nacionais Azul</p>
+      <div class="note reveal" style="padding:0;overflow:hidden">
+        <table class="bag-table">
+          <tr><th>Mala</th><th>Com +48h antecedência</th><th>Últimas 48h</th></tr>
+          <tr><td>1ª mala (até 23 kg)</td><td>R$ 175</td><td>R$ 200</td></tr>
+          <tr><td>2ª mala</td><td>+ R$ 200</td><td>+ R$ 220</td></tr>
+        </table>
+        <div style="padding:10px 12px">
+          <div class="vip-rows">
+            <div class="vip-r"><span class="vl">Só volta</span><span>R$ 175 antecipado · R$ 200 última hora</span></div>
+            <div class="vip-r"><span class="vl">Ida + volta</span><span>R$ 350 total (antecipado) · R$ 400 última hora</span></div>
+          </div>
+          <p style="font-size:.76rem;color:var(--ink-soft);margin-top:8px">A volta POA→CGH→REC aparece em reserva única — a bagagem deve ser contratada para o itinerário completo e despachada até Recife direto. Conferir valor final no app antes de pagar.</p>
+        </div>
+      </div>
+
+      <p class="ap-sub">Recomendações para compra de mala nova</p>
+      <div class="note reveal">
+        <div class="vip-rows">
+          <div class="vip-r"><span class="vl">Tamanho</span><span>~20 polegadas (bordo). Medidas ideais: 53 × 33 × 21 cm (deixa margem)</span></div>
+          <div class="vip-r"><span class="vl">Peso vazio</span><span>Até 2,7 kg — quanto mais leve, mais sobra pra roupa</span></div>
+          <div class="vip-r"><span class="vl">Rodas</span><span>4 rodas com giro 360°, preferencialmente duplas</span></div>
+          <div class="vip-r"><span class="vl">Material</span><span>ABS ou polipropileno</span></div>
+          <div class="vip-r"><span class="vl">Expansor</span><span>Se tiver, fechar durante os voos — pode ultrapassar o limite de profundidade</span></div>
+        </div>
+      </div>
+
+      <p class="ap-sub">Antes de qualquer despacho no portão — tirar da mala</p>
+      <div class="note reveal" style="border-left:4px solid var(--amber)">
+        <p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:10px">Mesmo dentro das medidas, a Azul pode pedir despacho por alta ocupação. Estes itens devem <b>sempre</b> estar na mochila:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;font-size:.8rem">
+          <span style="padding:4px 10px;background:var(--cream-2);border-radius:20px">📄 Documentos</span>
+          <span style="padding:4px 10px;background:var(--cream-2);border-radius:20px">💊 Medicamentos</span>
+          <span style="padding:4px 10px;background:var(--cream-2);border-radius:20px">📱 Celular/carregador</span>
+          <span style="padding:4px 10px;background:var(--cream-2);border-radius:20px">🔋 Power bank</span>
+          <span style="padding:4px 10px;background:var(--cream-2);border-radius:20px">💳 Cartões/dinheiro</span>
+          <span style="padding:4px 10px;background:var(--cream-2);border-radius:20px">🍼 Itens do bebê</span>
+          <span style="padding:4px 10px;background:var(--cream-2);border-radius:20px">🔑 Chaves</span>
+          <span style="padding:4px 10px;background:var(--cream-2);border-radius:20px">👶 Fraldas/pomada</span>
+          <span style="padding:4px 10px;background:var(--cream-2);border-radius:20px">👕 Muda de roupa</span>
+        </div>
+        <p style="font-size:.76rem;color:var(--ink-soft);margin-top:10px">⚠️ Power banks e baterias avulsas são <b>proibidos em bagagem despachada</b> — devem ficar sempre na mochila.</p>
+      </div>
+
+      <div class="note reveal" style="margin-top:12px">
+        <h3 style="margin-bottom:8px">🔗 Conexão em Congonhas — o que saber</h3>
+        <p style="font-size:.84rem;color:var(--ink-soft)">Malas de bordo ficam com vocês na mudança de avião. Se alguma for despachada no portão em POA, confirmar com o funcionário: a retirada é em Congonhas (porta da aeronave) ou somente em Recife?</p>
+      </div>
     </div>
+
+    <!-- TAB: DOCUMENTOS -->
+    <div class="ap-panel" id="ap-docs">
+      <p class="lead">Viagem nacional com todos os pais presentes — sem necessidade de autorização judicial. Crianças aceitam certidão de nascimento original.</p>
+
+      <p class="ap-sub">Adultos</p>
+      <div class="note reveal">
+        <div class="doc-item"><span class="dic">🪪</span><div><b>RG, CNH ou CIN</b> — físico original ou digital no app oficial do governo (não vale print ou foto)</div></div>
+        <div class="doc-item"><span class="dic">📱</span><div>Documento digital deve estar aberto no app oficial, com validação ativa e internet disponível</div></div>
+      </div>
+
+      <p class="ap-sub">Sofia (8 anos), Lavínia (3 anos), Netinho (12 anos)</p>
+      <div class="note reveal">
+        <div class="doc-item"><span class="dic">📋</span><div><b>Certidão de nascimento original</b> em bom estado — aceito em voos nacionais</div></div>
+        <div class="doc-item"><span class="dic">🪪</span><div>Carteira de Identidade ou CIN também é aceita</div></div>
+        <div class="doc-item"><span class="dic">✅</span><div>Com ambos os pais presentes: nenhuma autorização extra necessária</div></div>
+      </div>
+
+      <p class="ap-sub">Isis (bebê)</p>
+      <div class="note reveal">
+        <div class="doc-item"><span class="dic">📋</span><div><b>Certidão de nascimento original</b> — necessária mesmo para bebês no colo</div></div>
+        <div class="doc-item"><span class="dic">✅</span><div>Viajando com ambos os pais — sem necessidade de autorização judicial</div></div>
+      </div>
+
+      <p class="ap-sub">Organize uma pasta física e digital</p>
+      <div class="note reveal" style="border-left:4px solid var(--pine-2)">
+        <ul class="vip-checklist">
+          <li>Documentos de todos os 8 passageiros</li>
+          <li>Certidões de nascimento das crianças e do bebê</li>
+          <li>Cartões de embarque de todos — salvar offline (PDF ou print) para os 3 trechos</li>
+          <li>Voucher da Decolar (evitar expor CPF e códigos em locais públicos)</li>
+          <li>Comprovante de reserva do hotel</li>
+          <li>Vouchers pagos: Snowland e fondue</li>
+          <li>Contatos de emergência salvos: Azul 0800 887 1118 · Decolar (11) 4003-9444</li>
+        </ul>
+      </div>
+
+      <div class="note reveal" style="margin-top:12px">
+        <h3 style="margin-bottom:10px">📌 Janelas de check-in online</h3>
+        <div class="vip-rows">
+          <div class="vip-r"><span class="vl">Ida (02h30)</span><span>Check-in abre 21/09 às 02h30 · encerra 1h antes do voo</span></div>
+          <div class="vip-r"><span class="vl">Volta (19h20)</span><span>Check-in abre 26/09 às 19h20 · chegar ao aeroporto ~17h00</span></div>
+          <div class="vip-r"><span class="vl">Dica</span><span>Salvar cartões offline assim que fizer o check-in — 3 cartões por passageiro (POA→CGH e CGH→REC na volta)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: EMERGÊNCIAS -->
+    <div class="ap-panel" id="ap-emergencias">
+      <p class="lead">Referência rápida de direitos e ações. Em caso de problema no aeroporto: <b>primeiro a Azul</b>, depois Decolar, ANAC (163) e Procon.</p>
+
+      <p class="ap-sub">Assistência material por tempo de espera</p>
+      <div class="note reveal" style="padding:0;overflow:hidden">
+        <table class="bag-table">
+          <tr><th>Tempo de espera</th><th>Direito mínimo</th></tr>
+          <tr><td>A partir de 1h</td><td>Internet ou telefone</td></tr>
+          <tr><td>A partir de 2h</td><td>Alimentação (voucher ou refeição)</td></tr>
+          <tr><td>A partir de 4h</td><td>Hospedagem + transporte de ida e volta (se houver pernoite)</td></tr>
+        </table>
+        <p style="font-size:.76rem;color:var(--ink-soft);padding:8px 12px">Válido mesmo em caso de mau tempo, manutenção, tripulação ou restrição de tráfego aéreo.</p>
+      </div>
+
+      <p class="ap-sub">Tabela rápida</p>
+      <div class="note reveal" style="padding:0;overflow-x:auto">
+        <table class="em-table">
+          <tr><th>Problema</th><th>O que fazer</th><th>O que exigir</th></tr>
+          <tr><td>Atraso &gt; 1h</td><td>Ir ao balcão da Azul</td><td>Motivo por escrito + protocolo</td></tr>
+          <tr><td>Atraso &gt; 2h</td><td>Solicitar assistência</td><td>Alimentação / voucher</td></tr>
+          <tr><td>Atraso &gt; 4h</td><td>Escolher continuar, desistir ou reacomodar</td><td>Reacomodação, reembolso ou outro transporte</td></tr>
+          <tr><td>Voo cancelado</td><td>Não aceitar ficar sem alternativa formal</td><td>Declaração + 3 opções</td></tr>
+          <tr><td>Perda de conexão (culpa Azul)</td><td>Direto ao balcão da Azul</td><td>Proteção até Recife sem custo</td></tr>
+          <tr><td>Overbooking</td><td>Informar que não aceita ser voluntário</td><td>Declaração de preterição + compensação</td></tr>
+          <tr><td>Mala forçada a despachar</td><td>Tirar itens essenciais antes</td><td>Despacho sem cobrança</td></tr>
+          <tr><td>Bagagem extraviada</td><td>Reclamar antes de sair do aeroporto</td><td>RIB + protocolo + prazo</td></tr>
+          <tr><td>Família separada</td><td>Balcão e portão antes do embarque</td><td>Criança ao lado de adulto responsável</td></tr>
+          <tr><td>Azul manda ver Decolar</td><td>Exigir solução operacional da Azul</td><td>Protocolo nos dois + negativa por escrito</td></tr>
+        </table>
+      </div>
+
+      <p class="ap-sub">Frases prontas para o aeroporto</p>
+      <div class="note reveal">
+        <p class="ap-sub" style="margin-top:0">Atraso / motivo por escrito</p>
+        <p class="frase">"Solicito informação sobre o motivo e a previsão do voo, além da declaração de atraso por escrito e do protocolo."</p>
+
+        <p class="ap-sub">Alimentação (após 2h)</p>
+        <p class="frase">"O tempo de espera já ultrapassou duas horas. Solicito assistência de alimentação para todos os passageiros da reserva."</p>
+
+        <p class="ap-sub">Perda de conexão</p>
+        <p class="frase">"A conexão foi perdida em razão do atraso do primeiro trecho da mesma reserva. Solicito proteção até Recife sem qualquer custo adicional."</p>
+
+        <p class="ap-sub">Reacomodação em outra companhia</p>
+        <p class="frase">"Não há solução adequada nos próximos voos da Azul. Solicito reacomodação na primeira oportunidade disponível, inclusive por outra companhia, até o meu destino final."</p>
+
+        <p class="ap-sub">Overbooking — não aceitar voluntário</p>
+        <p class="frase">"Não me apresento como voluntário. Caso meu embarque seja negado, solicito declaração de preterição, compensação imediata e reacomodação."</p>
+
+        <p class="ap-sub">Recusar crédito ou voucher</p>
+        <p class="frase">"Não concordo com crédito ou voucher. Escolho o reembolso pelo meio de pagamento original e solicito protocolo com a data do pedido."</p>
+
+        <p class="ap-sub">Família separada</p>
+        <p class="frase">"Há criança pequena separada de qualquer adulto responsável. Solicito ajuste para que cada criança permaneça ao lado de um responsável."</p>
+
+        <p class="ap-sub">Dentro do voo POA→CGH (se atrasar)</p>
+        <p class="frase">"Temos conexão para Recife às 21h55, com crianças e bebê. Poderiam avisar a equipe de solo e orientar o desembarque prioritário?"</p>
+      </div>
+
+      <p class="ap-sub">Plano rápido — 10 situações</p>
+      <div class="note reveal">
+        <div class="vip-rows">
+          <div class="vip-r"><span class="vl">1. Atraso</span><span>Foto do painel → motivo por escrito → assistência após 2h → reacomodação após 4h</span></div>
+          <div class="vip-r"><span class="vl">2. Cancelado</span><span>Balcão → 3 opções (reacomodar / reembolso / outro transporte) → assistência material</span></div>
+          <div class="vip-r"><span class="vl">3. Avião lotado</span><span>Não aceitar voluntário sem acordo escrito com benefícios por escrito</span></div>
+          <div class="vip-r"><span class="vl">4. Negativa embarque</span><span>Motivo por escrito · confirmação de chegada no prazo · exigir reacomodação</span></div>
+          <div class="vip-r"><span class="vl">5. Perde conexão</span><span>Informar que é mesma reserva · exigir transporte até Recife sem custo</span></div>
+          <div class="vip-r"><span class="vl">6. Bagagem extraviada</span><span>Não sair do aeroporto · RIB e protocolo · guardar recibos de compras essenciais</span></div>
+          <div class="vip-r"><span class="vl">7. Mala danificada</span><span>Fotografar antes de mexer · registrar imediatamente · inventário</span></div>
+          <div class="vip-r"><span class="vl">8. Família separada</span><span>Balcão e portão antes do embarque · criança e bebê com adulto</span></div>
+          <div class="vip-r"><span class="vl">9. Erro check-in</span><span>Print com horário → balcão presencial → voucher e comprovante → acionar Decolar se falha de emissão</span></div>
+          <div class="vip-r"><span class="vl">10. Azul x Decolar</span><span>Protocolo nos dois · negativa por escrito · Consumidor.gov.br · ANAC (163)</span></div>
+        </div>
+      </div>
+
+      <p class="ap-sub">Contatos úteis</p>
+      <div class="contacts-grid reveal">
+        <div class="contact-card">
+          <h4>✈️ Azul</h4>
+          <p>Capitais: (11) 4003-1118</p>
+          <p>Demais: 0800 887 1118</p>
+        </div>
+        <div class="contact-card">
+          <h4>🏢 Decolar</h4>
+          <p>(11) 4003-9444</p>
+          <p>App: Minhas Viagens</p>
+        </div>
+        <div class="contact-card">
+          <h4>🛡️ ANAC</h4>
+          <p>Telefone: 163</p>
+          <p>anac.gov.br/passageiros</p>
+        </div>
+        <div class="contact-card">
+          <h4>⚖️ Procon Recife</h4>
+          <p>0800 282 1512</p>
+          <p>Aeroporto: (81) 3181-7049</p>
+        </div>
+      </div>
+      <p style="font-size:.75rem;color:var(--ink-soft);margin-top:10px">Reconfirme todos os telefones alguns dias antes da viagem.</p>
+    </div>
+
+    <!-- TAB: CHECKLIST -->
+    <div class="ap-panel" id="ap-checklist">
+      <p class="lead">Checklists baseados nas orientações da Azul e ANAC para grupos com crianças e bebê.</p>
+
+      <p class="ap-sub">7 dias antes</p>
+      <div class="note reveal">
+        <ul class="vip-checklist">
+          <li>Conferir horários na Azul e na Decolar — tirar print da programação</li>
+          <li>Confirmar que os trechos da volta POA→CGH e CGH→REC aparecem na mesma reserva</li>
+          <li>Conferir regras de bagagem de mão da Azul</li>
+          <li>Confirmar documentos de adultos, crianças e bebê</li>
+          <li>Pesar cada mala separadamente (abaixo de 10 kg, medir com rodas e alças)</li>
+          <li>Salvar contatos: Azul 0800 887 1118 · Decolar (11) 4003-9444 · ANAC 163</li>
+          <li>Conferir transporte ao aeroporto (sair de casa ~22h30 para voo às 02h30)</li>
+          <li>Conferir sala VIP: W Premium Recife disponível no app C6</li>
+        </ul>
+      </div>
+
+      <p class="ap-sub">Quando o check-in abrir (72h antes)</p>
+      <div class="note reveal">
+        <ul class="vip-checklist">
+          <li>Fazer check-in de todos os 8 passageiros</li>
+          <li>Salvar cartões de embarque offline — PDF ou print — para os 3 trechos</li>
+          <li>Conferir assentos: crianças e bebê ao lado de adulto responsável</li>
+          <li>Confirmar que aparecem dois cartões de embarque para a volta (POA→CGH e CGH→REC)</li>
+          <li>Tirar print da reserva mostrando os dois trechos juntos</li>
+        </ul>
+      </div>
+
+      <p class="ap-sub">Na saída de casa — Qui 24/09 · ~22h30</p>
+      <div class="note reveal">
+        <ul class="vip-checklist">
+          <li>Documentos físicos de todos</li>
+          <li>Celulares e tablets carregados</li>
+          <li>Power banks na mochila (proibido em mala despachada)</li>
+          <li>Medicamentos acessíveis — na mochila, não na mala</li>
+          <li>Fraldas, pomada e muda de roupa da Isis na bolsa de mão</li>
+          <li>Alimentação para crianças no trajeto e no voo</li>
+          <li>Voucher e cartões de embarque</li>
+          <li>Cartão físico C6 Carbon (sala VIP)</li>
+          <li>App C6 atualizado</li>
+          <li>Etiqueta de identificação em todas as malas e no carrinho</li>
+        </ul>
+      </div>
+
+      <p class="ap-sub">Conexão em Congonhas — 1 hora · atenção máxima</p>
+      <div class="note reveal" style="border-left:4px solid #c0392b">
+        <ul class="vip-checklist">
+          <li>Antes do pouso em CGH: ver no app o portão do voo CGH→REC</li>
+          <li>Avisar a tripulação sobre a conexão curta com crianças e bebê</li>
+          <li>Ao desembarcar: seguir direto para o portão — sem parar em loja ou restaurante</li>
+          <li>Não sair da área de embarque</li>
+          <li>Manter cartões de embarque e documentos em mãos</li>
+          <li>Um adulto pode ir à frente localizar o portão — manter comunicação entre o grupo</li>
+        </ul>
+      </div>
+
+      <p class="ap-sub">Volta — Ter 29/09 · chegar ~17h00</p>
+      <div class="note reveal">
+        <ul class="vip-checklist">
+          <li>Chegar ao aeroporto de Porto Alegre por volta de 17h00</li>
+          <li>Avisar no balcão/portão que o grupo tem conexão de 1 hora com crianças e bebê</li>
+          <li>Confirmar portão do voo POA→CGH e do CGH→REC antes de embarcar</li>
+          <li>Sala VIP POA disponível se houver disposição (~2h antes do voo)</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1100,6 +1441,30 @@ renderBudget();
 initMap();
 initReveal();
 tick();setInterval(tick,1000);
+
+function initAeroportoTabs(){
+  document.querySelectorAll('.ap-tab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      const panel=tab.dataset.panel;
+      document.querySelectorAll('.ap-tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.ap-panel').forEach(p=>p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('ap-'+panel).classList.add('active');
+    });
+  });
+  document.querySelectorAll('.viagem-btn[data-panel]').forEach(btn=>{
+    btn.addEventListener('click',e=>{
+      e.preventDefault();
+      const panel=btn.dataset.panel;
+      document.querySelectorAll('.ap-tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.ap-panel').forEach(p=>p.classList.remove('active'));
+      const targetTab=document.querySelector('.ap-tab[data-panel="'+panel+'"]');
+      if(targetTab){targetTab.classList.add('active');document.getElementById('ap-'+panel).classList.add('active');}
+      document.getElementById('aeroporto').scrollIntoView({behavior:'smooth'});
+    });
+  });
+}
+initAeroportoTabs();
 </script>
 </body>
 </html>

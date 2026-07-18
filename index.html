@@ -369,6 +369,7 @@
     <a href="#aeroporto">Aeroporto</a>
     <a href="#roteiro">Roteiro</a>
     <a href="#mapa">Mapa</a>
+    <a href="#comer">Onde comer</a>
     <a href="#opcoes">Opções</a>
     <a href="#decisoes">Decisões</a>
     <a href="#orcamento">Orçamento</a>
@@ -659,6 +660,34 @@
     <div class="ap-panel" id="ap-emergencias">
       <p class="lead">Referência rápida de direitos e ações. Em caso de problema no aeroporto: <b>primeiro a Azul</b>, depois Decolar, ANAC (163) e Procon.</p>
 
+      <p class="ap-sub">🚑 Emergências na serra — Gramado &amp; Canela</p>
+      <div class="contacts-grid reveal">
+        <div class="contact-card">
+          <h4>🚨 Urgência geral</h4>
+          <p>SAMU: <b>192</b></p>
+          <p>Bombeiros: <b>193</b> · Polícia: <b>190</b></p>
+        </div>
+        <div class="contact-card">
+          <h4>🏥 Hospital em Gramado</h4>
+          <p>Arcanjo São Miguel — plantão 24h</p>
+          <p>R. Madre Verônica, 396 - Centro</p>
+          <p>(54) 3295-8600</p>
+        </div>
+        <div class="contact-card">
+          <h4>🏥 Hospital em Canela</h4>
+          <p>Hospital de Caridade de Canela</p>
+          <p>R. Visconde de Mauá, 143 - Centro</p>
+          <p>(54) 3282-4344</p>
+        </div>
+        <div class="contact-card">
+          <h4>🏡 Pousada</h4>
+          <p>Cabanas Rota do Sol</p>
+          <p>Recepção 7h–22h</p>
+          <p>WhatsApp: (54) 3286-6569</p>
+        </div>
+      </div>
+      <p style="font-size:.75rem;color:var(--ink-soft);margin:8px 0 18px">O hospital de Gramado fica a ~5 min do centro — com criança e bebê, é a referência mais próxima do chalé. Reconfirmar telefones antes da viagem.</p>
+
       <p class="ap-sub">Assistência material por tempo de espera</p>
       <div class="note reveal" style="padding:0;overflow:hidden">
         <table class="bag-table">
@@ -856,6 +885,37 @@
     <div class="mgroup-lab">Canela</div>
     <div class="mlist" id="mlistC"></div>
     <p class="lead" style="margin-top:14px;font-size:.8rem">Tempos e distâncias são <b>estimativas</b> (linha reta × fator de estrada e velocidade média), sem trânsito em tempo real. Pro número exato, use o botão de <b>rota no Google Maps</b> que aparece ao selecionar dois locais.</p>
+  </div>
+</section>
+
+<section id="comer">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Onde comer</span></div>
+    <h2>Comidas da viagem</h2>
+    <p class="lead">As refeições especiais já têm dia marcado no roteiro. Aqui fica tudo reunido — e o plano pros almoços e jantares "livres". Toque em qualquer card pra abrir o guia.</p>
+
+    <div class="subh" style="margin-top:20px">Já no roteiro</div>
+    <div class="chips" style="margin-top:4px">
+      <span class="pchip" data-place="lugano">🍫 Rodízio de pizza no Lugano · Dia 1</span>
+      <span class="pchip" data-place="hector">🍕 Hector (Harry Potter) · Dia 3</span>
+      <span class="pchip" data-place="fondue">🫕 Fondue La Famille · Dia 5</span>
+      <span class="pchip" data-place="cafecolonial">☕ Café Colonial Bela Vista · a encaixar</span>
+    </div>
+
+    <div class="subh" style="margin-top:20px">Sugestão pra conhecer</div>
+    <div class="chips" style="margin-top:4px">
+      <span class="pchip" data-place="garfoebombacha">🥩 Garfo &amp; Bombacha — churrasco + show gaúcho</span>
+      <span class="pchip" data-place="kongo">🦍 Kongo — alternativa de jantar temático</span>
+    </div>
+
+    <div class="note reveal" style="margin-top:18px">
+      <h3>🍽️ Pros almoços e jantares livres</h3>
+      <p style="margin-top:6px"><b>Em Gramado:</b> a <span class="pchip" data-place="ruacoberta" style="vertical-align:middle">🛍️ Rua Coberta</span> concentra restaurantes, cafés e chocolaterias — é o lugar de decidir na hora sem errar, e funciona mesmo com chuva.</p>
+      <p style="margin-top:8px"><b>Em Canela (Dias 4 e 5):</b> o centro fica a poucos minutos das atrações da RS-466 — restaurantes em volta da Catedral de Pedra resolvem o almoço.</p>
+      <p style="margin-top:8px"><b>Café da manhã:</b> incluso na pousada, das 7h30 às 10h — nos dias de atração cedo (Snowland 10h!), chegar no café até 8h30.</p>
+    </div>
+
+    <div class="tipbox reveal"><span class="ti">👶</span><div><b>Com a turminha:</b> Hector e Kongo têm espaço kids; no fondue (pedra quente na mesa) vale sentar a Lavínia e a Isis longe do rechaud.</div></div>
   </div>
 </section>
 
@@ -1124,6 +1184,16 @@ const PLACES = {
     tip:"Ir com fome de verdade. Funciona perfeito como a refeição de despedida antes da estrada.",
     verdict:"Fecha a viagem com chave de ouro — está no almoço do último dia."},
 
+  garfoebombacha:{ico:"🥩",name:"Garfo & Bombacha",tag:"Churrascaria com show gaúcho · Sugestão · Canela",g:"#7a3b2e,#3e1f18",img:"",
+    addr:"RS-466, Km 2 - Caracol, Canela - RS",ig:"",wa:"",video:"",
+    price:{tbd:true,etiq:"conferir"},
+    what:"Churrascaria tradicional da Serra, no caminho do Parque do Caracol: costelão assado na brasa por mais de 8 horas, dezenas de pratos da comida campeira e show tradicionalista com danças gaúchas, chula e boleadeiras. A experiência 'noite gaúcha' completa.",
+    highlights:["Costelão 8 horas na brasa","Buffet de comida campeira","Show de danças tradicionalistas","No eixo da RS-466 (Caracol)"],
+    facts:[["Telefone","(54) 3278-3077 · reservas@garfoebombacha.com.br"],["Onde","RS-466, Km 2 — a caminho do Parque do Caracol"],["Quando encaixar","Almoço ou jantar num dos dias de Canela (Dia 4 ou 5)"],["Reserva","Recomendada — conferir horários dos shows"]],
+    family:["Adultos: churrasco de verdade e show típico","Crianças: as danças e boleadeiras costumam prender a atenção"],
+    tip:"Fica na mesma estrada do Parque do Caracol e dos Bondinhos — dá pra emendar com o passeio do Dia 5 sem desvio.",
+    verdict:"Sugestão pra experimentar o lado gaúcho raiz da Serra — sem compromisso no roteiro."},
+
   kongo:{ico:"🍕",name:"Kongo Pizzaria Temática",tag:"Rodízio temático · opção · Carniel",g:"#c0563e,#7a2f22",img:"",
     addr:"Av. das Hortênsias, 5683 - Carniel, Gramado - RS",ig:"kongogramado",wa:"555496309742",video:"",
     price:{adult:189.9,child:189.9,childMax:99,freeUnder:5,etiq:"estimado"},
@@ -1260,7 +1330,7 @@ const TRAVELERS = [
 const ETIQ={oficial:"oficial",estimado:"estimado",conferir:"confirmar"};
 const brl=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 function priceFor(pr,age){ if(!pr) return 0; if(age<pr.freeUnder) return 0; if(pr.childMax!=null && age<=pr.childMax) return pr.child; return pr.adult; }
-function famTotal(p,fam){ if(!p.price) return 0; return TRAVELERS.filter(t=>t.fam===fam).reduce((s,t)=>s+priceFor(p.price,t.age),0); }
+function famTotal(p,fam){ if(!p.price||p.price.tbd) return 0; return TRAVELERS.filter(t=>t.fam===fam).reduce((s,t)=>s+priceFor(p.price,t.age),0); }
 
 function chip(id){const p=PLACES[id];return `<span class="pchip" data-place="${id}">${p.ico} ${p.name}</span>`}
 
@@ -1310,6 +1380,7 @@ function renderSwaps(){
 
 function costBlock(p){
   if(!p.price) return `<div class="subh">Quanto custa</div><div class="cost"><div class="unit"><b>Gratuito</b> — sem ingresso</div></div>`;
+  if(p.price.tbd) return `<div class="subh">Quanto custa <span class="price-tag pt-confirmar">confirmar</span></div><div class="cost"><div class="unit"><b>Preço a confirmar</b> — conferir valores atuais antes de ir</div></div>`;
   const pr=p.price;
   const freeTxt = pr.freeUnder>1?` · grátis até ${pr.freeUnder-1} ${pr.freeUnder-1===1?'ano':'anos'}`:'';
   let unit;
@@ -1369,13 +1440,13 @@ function renderBudget(){
   let html="", gF=0, gJ=0;
   DAYS.forEach(d=>{
     const seen=new Set(), rows=[];
-    d.slots.forEach(s=>s.p.forEach(id=>{ if(!seen.has(id)){ seen.add(id); const p=PLACES[id]; if(p.price){ rows.push({name:p.name,F:famTotal(p,'F'),J:famTotal(p,'J')}); } } }));
+    d.slots.forEach(s=>s.p.forEach(id=>{ if(!seen.has(id)){ seen.add(id); const p=PLACES[id]; if(p.price){ rows.push({name:p.name,tbd:!!p.price.tbd,F:famTotal(p,'F'),J:famTotal(p,'J')}); } } }));
     if(!rows.length){
       html += `<div class="bud-day reveal"><h4><span>Dia ${d.n} · ${d.title}</span><span class="bud-head">só passeios grátis</span></h4></div>`;
       return;
     }
     let sF=0,sJ=0;
-    const rowsHtml = rows.map(r=>{ sF+=r.F; sJ+=r.J; return `<div class="bud-row"><span class="bn">${r.name}</span><span class="bf">${brl(r.F)}</span><span class="bj">${brl(r.J)}</span></div>`; }).join("");
+    const rowsHtml = rows.map(r=>{ if(r.tbd) return `<div class="bud-row"><span class="bn">${r.name} <span class="price-tag pt-confirmar">confirmar</span></span><span class="bf">—</span><span class="bj">—</span></div>`; sF+=r.F; sJ+=r.J; return `<div class="bud-row"><span class="bn">${r.name}</span><span class="bf">${brl(r.F)}</span><span class="bj">${brl(r.J)}</span></div>`; }).join("");
     gF+=sF; gJ+=sJ;
     html += `<div class="bud-day reveal">
       <h4><span>Dia ${d.n} · ${d.title}</span></h4>

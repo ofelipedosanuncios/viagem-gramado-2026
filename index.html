@@ -925,7 +925,6 @@
     <div class="subh" style="margin-top:20px">Sugestão pra conhecer</div>
     <div class="chips" style="margin-top:4px">
       <span class="pchip" data-place="garfoebombacha">🥩 Garfo &amp; Bombacha — churrasco + show gaúcho</span>
-      <span class="pchip" data-place="kongo">🦍 Kongo — alternativa de jantar temático</span>
     </div>
 
     <div class="note reveal" style="margin-top:18px">
@@ -935,7 +934,7 @@
       <p style="margin-top:8px"><b>Café da manhã:</b> incluso na pousada, das 7h30 às 10h — nos dias de atração cedo (Snowland 10h!), chegar no café até 8h30.</p>
     </div>
 
-    <div class="tipbox reveal"><span class="ti">👶</span><div><b>Com a turminha:</b> Hector e Kongo têm espaço kids; no fondue (pedra quente na mesa) vale sentar a Lavínia e a Isis longe do rechaud.</div></div>
+    <div class="tipbox reveal"><span class="ti">👶</span><div><b>Com a turminha:</b> Hector tem espaço kids; no fondue (pedra quente na mesa) vale sentar a Lavínia e a Isis longe do rechaud.</div></div>
   </div>
 </section>
 
@@ -1214,15 +1213,6 @@ const PLACES = {
     tip:"Fica na mesma estrada do Parque do Caracol e dos Bondinhos — dá pra emendar com o passeio do Dia 5 sem desvio.",
     verdict:"Sugestão pra experimentar o lado gaúcho raiz da Serra — sem compromisso no roteiro."},
 
-  kongo:{ico:"🦍",name:"Kongo Pizzaria Temática",tag:"Rodízio temático · opção · Carniel",g:"#c0563e,#7a2f22",img:"",
-    addr:"Av. das Hortênsias, 5683 - Carniel, Gramado - RS",ig:"kongogramado",wa:"555496309742",video:"",
-    price:{adult:189.9,child:189.9,childMax:99,freeUnder:5,etiq:"estimado"},
-    what:"Rodízio de pizza com mais de 100 sabores num cenário de selva, com show ao vivo e a Casa da Árvore (brinquedoteca grátis). Era a opção de aniversário antes da Hector — fica aqui como alternativa de jantar temático.",
-    highlights:["+100 sabores de pizza","Show ao vivo","Casa da Árvore: brinquedoteca grátis","Cenário de selva"],
-    facts:[["Horário","Sessões 17h30, 20h, 21h, 22h"],["Tempo de visita","~2h a 2h30"],["Reserva","Recomendada"],["Com bebê","Brinquedoteca grátis"]],
-    tip:"Alternativa à Hector se quiserem trocar o tema do jantar de aniversário.",
-    verdict:"Ótima opção de jantar temático — ficou como alternativa à Hector."},
-
   bondinhos:{ico:"🚡",name:"Bondinhos Aéreos",tag:"Teleférico · opção · Canela",g:"#6f9fb8,#37657a",img:"",
     addr:"Rua Constante Félix Orsolin, 699 - Caracol, Canela - RS, 95684-880",ig:"bondinhoscanela",wa:"5554992061225",video:"",
     price:{adult:120,child:60,childMax:9,freeUnder:4,etiq:"oficial"},
@@ -1308,12 +1298,12 @@ const DAYS = [
      {t:"Noite",b:"Jantar leve no centro e descanso — o Dia 3 vai ser intenso.",p:[]}
    ]},
   {n:3,date:"Sáb · 26 Set",ico:"🎂",accent:"var(--amber)",birthday:true,title:"Aniversário do Juininho · Snowland + Jantar Temático",obj:"O grande dia: neve no Snowland (já pago!) e jantar mágico à escolha. O aniversariante costuma não pagar nos dois — vale ligar antes pra confirmar e mencionar o aniversário.",
-   anchor:"snowland",tired:"medio",rain:"Tudo indoor — perfeito em qualquer clima",book:"✅ Snowland PAGO · 26/09 às 10h · ⏳ Decidir: Hector ou Kongo para o jantar",
+   anchor:"snowland",tired:"medio",rain:"Tudo indoor — perfeito em qualquer clima",book:"✅ Snowland PAGO · 26/09 às 10h · 🎉 Jantar Hector (Harry Potter)",
    slots:[
      {t:"Manhã",b:"Snowland — neve de verdade (já pago!). Chegar às 10h em ponto (horário do voucher). Roupas impermeáveis inclusas. Esqui/snowboard são pagos à parte.",p:["snowland"]},
      {t:"Almoço",b:"No próprio Snowland, sem sair da diversão.",p:[]},
      {t:"Tarde",b:"Seguir no Snowland — espetáculo de gelo, Snow Kids (Lavínia), patinação (Sofia/Netinho). Sair ~16h pra descansar antes da noite.",p:[]},
-     {t:"Noite",b:"🎉 Jantar de aniversário temático — decidindo entre Hector (Harry Potter) ou Kongo (selva). Ambas com rodízio, show e espaço kids. Avisar do aniversário na reserva!",p:["hector","kongo"]}
+     {t:"Noite",b:"🎉 Jantar de aniversário temático na Hector (Harry Potter) — rodízio, show e espaço kids. Avisar do aniversário na reserva!",p:["hector"]}
    ]},
   {n:4,date:"Dom · 27 Set",ico:"🛷",accent:"var(--pine-2)",title:"Canela — Alpen Park & Terra Mágica Florybal",obj:"Dia de aventura e natureza em Canela: trenó de montanha e tirolesa no Alpen Park pela manhã, tarde no Florybal com dinossauros, cavernas e fábrica de chocolate.",
    anchor:"alpenpark",tired:"pesado",rain:"Alpen Park e Florybal são ao ar livre — em chuva forte, trocar por Mundo a Vapor (indoor) ou Acquamotion",book:"Verificar alturas mínimas e comprar ingressos Alpen Park + Florybal antecipado",
@@ -1341,7 +1331,7 @@ const DAYS = [
    ]}
 ];
 
-const SWAPS = ["kongo","bondinhos","florybal","mundovapor","opcionais"];
+const SWAPS = ["bondinhos","florybal","mundovapor","opcionais"];
 
 const TRAVELERS = [
   {name:"Felipe",fam:"F",age:35},{name:"Joyce",fam:"F",age:33},{name:"Sofia",fam:"F",age:8},{name:"Lavínia",fam:"F",age:3},
@@ -1590,7 +1580,6 @@ const MAPPTS=[
   {id:"laghonegro",name:"Lago Negro",ico:"🦢",lat:-29.3943674,lng:-50.8777667,city:"Gramado",addr:"R. Vinte e Cinco de Julho, 439 — Gramado"},
   {id:"aldeia",name:"Aldeia do Papai Noel",ico:"🎅",lat:-29.3815873,lng:-50.8710802,city:"Gramado",addr:"Av. Borges de Medeiros, 2300 — Centro, Gramado"},
   {id:"cafecolonial",name:"Café Bela Vista",ico:"☕",lat:-29.3711219,lng:-50.8626883,city:"Gramado",addr:"Av. das Hortênsias, 3500 — Vila Suíça, Gramado"},
-  {id:"kongo",name:"Kongo Pizzaria",ico:"🦍",lat:-29.3605135,lng:-50.8471245,city:"Gramado",addr:"Av. das Hortênsias, 5683 — Carniel, Gramado"},
   {id:"snowland",name:"Snowland",ico:"❄️",lat:-29.3938142,lng:-50.9219863,city:"Gramado",addr:"RS-235, Linha Carazal, 9009 — Gramado"},
   {id:"acquamotion",name:"Acquamotion",ico:"💦",lat:-29.3911764,lng:-50.9274082,city:"Gramado",addr:"Linha Carazal, 501 — Gramado"},
   {id:"caracol",name:"Parque do Caracol",ico:"🌿",lat:-29.3129543,lng:-50.851966,city:"Canela",addr:"Rod. RS-466, km 0 — Caracol, Canela"},

@@ -118,6 +118,8 @@
   .pchip{font-size:.78rem;font-weight:600;color:var(--pine);background:#eef3ee;border:1px solid rgba(31,59,48,.16);padding:5px 11px;border-radius:99px;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:5px;}
   .pchip:active{transform:scale(.95)}
   .pchip::after{content:"›";font-weight:700;opacity:.5}
+  .pchip.static{cursor:default;opacity:.8}
+  .pchip.static::after{content:""}
   .day-foot{display:flex;gap:8px;flex-wrap:wrap;padding:12px 18px 18px;border-top:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(239,230,214,.4))}
   .tag{font-size:.72rem;font-weight:600;padding:5px 10px;border-radius:8px;display:inline-flex;align-items:center;gap:5px}
   .tag.tired-leve{background:#e6f0e8;color:#2f6a45}
@@ -911,11 +913,12 @@
       <span class="pchip" data-place="carademau">🏴‍☠️ Cara de Mau (pizzaria pirata) · Dia 3</span>
       <span class="pchip" data-place="garfoebombacha">🥩 Garfo &amp; Bombacha (almoço) · Dia 5</span>
       <span class="pchip" data-place="fondue">🫕 Fondue La Famille · Dia 5</span>
-      <span class="pchip" data-place="cafecolonial">☕ Café Colonial Bela Vista · a encaixar</span>
+      <span class="pchip" data-place="cafecolonial">☕ Café Colonial Bela Vista · Dia 6 (almoço)</span>
     </div>
 
-    <div class="subh" style="margin-top:20px">Alternativa / a conhecer</div>
+    <div class="subh" style="margin-top:20px">A escolher</div>
     <div class="chips" style="margin-top:4px">
+      <span class="pchip static">🍔 Jantar em hamburgueria · Dia 2 (a definir)</span>
       <span class="pchip" data-place="hector">🍕 Hector (Harry Potter) — alternativa pro jantar temático</span>
     </div>
 
@@ -953,7 +956,8 @@
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🧸 Lago Negro & Mundo Criamigos</div><div class="a">Dia 2, um dia leve em Gramado: manhã no Lago Negro e uma tarde dedicada ao Criamigos, onde cada criança monta o próprio urso de pelúcia.</div></div>
       <div class="dec"><div class="q">🏰 Mini Mundo e Aldeia do Papai Noel — encaixar?</div><div class="a">Saíram do roteiro fixo e ficaram como opções. Se a família quiser, dá pra encaixar numa manhã leve de Gramado. Toque nas opções pra ver os detalhes.</div></div>
       <div class="dec"><div class="q">🌿 Parque do Caracol e Vale dos Dinossauros — entram?</div><div class="a">Saíram como certos e agora são opções de Canela (RS-466). Dá pra somar num dos dias de Canela se a família quiser natureza e dinossauros — ou deixar de fora pra não pesar.</div></div>
-      <div class="dec"><div class="q">☕ Onde encaixar o Café Colonial Bela Vista?</div><div class="a">Saiu do último dia. Querem pôr em outro dia — tipo almoço do Dia 2 — ou deixar de fora? A gente reserva.</div></div>
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">☕ Café Colonial Bela Vista — almoço do Dia 6</div><div class="a">Volta pro último dia: mesa farta de despedida que substitui almoço e jantar antes da estrada pra Porto Alegre.</div></div>
+      <div class="dec"><span class="badge" style="background:var(--amber);color:#fff">⏳ Decidir</span><div class="q">🍔 Jantar em hamburgueria — Dia 2</div><div class="a">A noite leve do Dia 2 vai ser numa hamburgueria no centro de Gramado. Falta escolher qual — mandem as sugestões que a gente fecha.</div></div>
     </div>
   </div>
 </section>
@@ -1307,7 +1311,7 @@ const DAYS = [
      {t:"Manhã",b:"Lago Negro — pedalinho de cisne, trilha leve à beira d'água e o cenário mais clássico de Gramado pra fotos.",p:["laghonegro"]},
      {t:"Almoço",b:"No centro de Gramado.",p:[]},
      {t:"Tarde",b:"Tarde dedicada ao Mundo Criamigos — cada criança monta e personaliza o próprio urso de pelúcia. Depois, volta leve pelo centro de Gramado.",p:["criamigos"]},
-     {t:"Noite",b:"Jantar leve no centro e descanso — o Dia 3 vai ser intenso.",p:[]}
+     {t:"Noite",b:"🍔 Jantar numa hamburgueria (a escolher ainda) — algo casual no centro pra fechar o dia leve. O Dia 3 vai ser intenso.",p:[]}
    ]},
   {n:3,date:"Sáb · 26 Set",ico:"🎂",accent:"var(--amber)",birthday:true,title:"Aniversário do Juininho · Snowland + Jantar Temático",obj:"O grande dia: neve no Snowland (já pago!) e jantar mágico à escolha. O aniversariante costuma não pagar nos dois — vale ligar antes pra confirmar e mencionar o aniversário.",
    anchor:"snowland",tired:"medio",rain:"Tudo indoor — perfeito em qualquer clima",book:"✅ Snowland PAGO · 26/09 às 10h · 🎉 Jantar Cara de Mau (pizzaria pirata) — reservar sessão",
@@ -1337,7 +1341,7 @@ const DAYS = [
    anchor:null,tired:"leve",rain:"Em chuva, ficar no coberto (café/Rua Coberta) até a hora de sair",book:"Confirmar transporte de volta pra POA",
    slots:[
      {t:"Manhã",b:"Café da manhã na pousada, manhã livre e check-out até as 12h. Sem corrida.",p:[]},
-     {t:"Almoço",b:"Almoço sem pressa — na pousada, no centro ou na estrada.",p:[]},
+     {t:"Almoço",b:"Café Colonial Bela Vista — a mesa farta de despedida (cucas, tortas, queijos e embutidos) que substitui almoço e jantar antes da estrada.",p:["cafecolonial"]},
      {t:"~14h",b:"Sair de Gramado pra Porto Alegre com margem de sobra (~2h de estrada).",p:[]},
      {t:"19:20",b:"Voo de volta pra casa.",p:[]}
    ]}

@@ -426,6 +426,25 @@
       </div>
     </div>
 
+    <div class="climate reveal">
+      <div class="chip-stat"><div class="v">9° – 20°</div><div class="l">temperatura típica de setembro</div></div>
+      <div class="chip-stat"><div class="v">~10 dias</div><div class="l">de chuva no mês — plano B indoor pronto</div></div>
+    </div>
+    <div class="wx reveal" id="wx" hidden></div>
+    <p class="lead" style="margin-top:12px;font-size:.86rem">Tragam casaco de verdade, touca e luva fina. Manhãs e noites são frias — atenção redobrada com a Isis. Todo dia de chuva tem troca coberta no roteiro.</p>
+
+    <div class="viagem-btns reveal">
+      <a class="viagem-btn uber-home" href="#" target="_blank" rel="noopener"><span>🚗</span> Uber pro chalé</a>
+    </div>
+  </div>
+</section>
+
+<section id="aeroporto">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Aeroporto</span></div>
+    <h2>Voos e aeroporto</h2>
+
+    <!-- IDA E VOLTA — sempre visível -->
     <div class="flights reveal">
       <div class="flight">
         <span class="ico">🛫</span>
@@ -437,31 +456,9 @@
       </div>
     </div>
 
-    <div class="climate reveal">
-      <div class="chip-stat"><div class="v">9° – 20°</div><div class="l">temperatura típica de setembro</div></div>
-      <div class="chip-stat"><div class="v">~10 dias</div><div class="l">de chuva no mês — plano B indoor pronto</div></div>
-    </div>
-    <div class="wx reveal" id="wx" hidden></div>
-    <p class="lead" style="margin-top:12px;font-size:.86rem">Tragam casaco de verdade, touca e luva fina. Manhãs e noites são frias — atenção redobrada com a Isis. Todo dia de chuva tem troca coberta no roteiro.</p>
-
-    <div class="viagem-btns reveal">
-      <a class="viagem-btn" data-panel="salavip" href="#aeroporto"><span>⭐</span> Sala VIP</a>
-      <a class="viagem-btn" data-panel="bagagem" href="#aeroporto"><span>🧳</span> Bagagem</a>
-      <a class="viagem-btn" data-panel="docs" href="#aeroporto"><span>📄</span> Documentos</a>
-      <a class="viagem-btn" data-panel="emergencias" href="#aeroporto"><span>🆘</span> Emergências</a>
-      <a class="viagem-btn" data-panel="checklist" href="#aeroporto"><span>✅</span> Checklist</a>
-      <a class="viagem-btn uber-home" href="#" target="_blank" rel="noopener"><span>🚗</span> Uber pro chalé</a>
-    </div>
-  </div>
-</section>
-
-<section id="aeroporto">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-kicker">Aeroporto</span></div>
-    <h2>Voos e aeroporto</h2>
-
+    <p class="ap-sub" style="margin-top:22px">Mais detalhes · toque para abrir</p>
     <div class="ap-tabs">
-      <button class="ap-tab active" data-panel="salavip">⭐ Sala VIP</button>
+      <button class="ap-tab" data-panel="salavip">⭐ Sala VIP</button>
       <button class="ap-tab" data-panel="bagagem">🧳 Bagagem</button>
       <button class="ap-tab" data-panel="docs">📄 Documentos</button>
       <button class="ap-tab" data-panel="emergencias">🆘 Emergências</button>
@@ -469,7 +466,7 @@
     </div>
 
     <!-- TAB: SALA VIP -->
-    <div class="ap-panel active" id="ap-salavip">
+    <div class="ap-panel" id="ap-salavip">
       <p class="lead">Felipe e Juininho têm acesso via <b>C6 Carbon Black</b>. A preferência é usar na ida em Recife — maior conforto de madrugada com as crianças. Porto Alegre fica como plano alternativo.</p>
 
       <div class="note reveal" style="border-left:4px solid var(--amber);margin-top:16px">
@@ -925,6 +922,8 @@
     <div class="subh" style="margin-top:20px">Sugestão pra conhecer</div>
     <div class="chips" style="margin-top:4px">
       <span class="pchip" data-place="garfoebombacha">🥩 Garfo &amp; Bombacha — churrasco + show gaúcho</span>
+      <span class="pchip" data-place="carademau">🏴‍☠️ Cara de Mau — pizzaria pirata temática</span>
+      <span class="pchip" data-place="criamigos">🧸 Mundo Criamigos — urso de pelúcia pras crianças</span>
     </div>
 
     <div class="note reveal" style="margin-top:18px">
@@ -1155,7 +1154,7 @@ const PLACES = {
     addr:"Praça da Matriz - Centro, Canela - RS",ig:"",wa:"",video:"",price:null,
     what:"A Igreja de Pedra de Canela (Matriz de Nossa Senhora de Lourdes), em estilo gótico, com torre de 65 metros e 12 sinos de bronze. É o símbolo da cidade, eleita uma das sete maravilhas do Brasil. À noite ganha iluminação colorida.",
     highlights:["Arquitetura gótica imponente","Torre de 65 m e 12 sinos","Iluminação colorida à noite","Praça e cafés no entorno"],
-    facts:[["Horário","Visitação durante o dia (conferir missas)"],["Tempo de visita","~30 a 45 min"],["Com carrinho","Central e plano"],["Melhor horário","Fim de tarde, pra ver iluminada"]],
+    facts:[["Horário","Visitação durante o dia (conferir missas)"],["Subir à torre","R$ 30 por pessoa (opcional)"],["Tempo de visita","~30 a 45 min"],["Com carrinho","Central e plano"],["Melhor horário","Fim de tarde, pra ver iluminada"]],
     tip:"Combina com um café no centro de Canela. Se der, voltem ao anoitecer pra ver iluminada.",
     verdict:"Parada leve, gratuita e linda — fecha bem o dia de Canela."},
 
@@ -1163,7 +1162,7 @@ const PLACES = {
     addr:"Lago Negro - Bairro Planalto, Gramado - RS",ig:"",wa:"",video:"",price:null,
     what:"Lago de águas escuras cercado por pinheiros negros trazidos da Europa, com pedalinhos em formato de cisne e uma trilha de pedras portuguesas no entorno. Um dos cenários mais fotografados de Gramado.",
     highlights:["Pedalinhos de cisne","Trilha leve à beira do lago","Cenário clássico pra fotos","Cafés e quiosques perto"],
-    facts:[["Tempo de visita","~45 min a 1h"],["Pedalinho","Pago à parte"],["Com carrinho","Trilha plana — ótima"],["Se chover","Ao ar livre — pular"]],
+    facts:[["Tempo de visita","~45 min a 1h"],["Pedalinho","R$ 70 · 20 min (cisne)"],["Com carrinho","Trilha plana — ótima"],["Se chover","Ao ar livre — pular"]],
     tip:"Vão de manhã ou no fim de tarde pra luz bonita. O pedalinho de cisne é a foto que as crianças vão querer.",
     verdict:"Passeio leve, gratuito e encantador — perfeito pra abrir a viagem sem cansar."},
 
@@ -1186,11 +1185,11 @@ const PLACES = {
     verdict:"O point das noites leves — é onde vocês vão terminar vários dias sem planejar."},
 
   fondue:{ico:"🫕",name:"Fondue — La Famille de Gazon",tag:"Sequência fondue na pedra · PAGO · Gramado",g:"#c8893a,#7a4a2a",img:"",
-    addr:"Av. das Hortênsias, 1008 - Centro, Gramado",ig:"",wa:"",video:"",
+    addr:"Av. das Hortênsias, 1008 - Centro, Gramado",ig:"gazongramado",wa:"",video:"",
     price:{adult:129.9,child:60,childMax:10,freeUnder:5,etiq:"pago"},
     what:"Sequência de fondue na pedra na La Famille de Gazon: queijo derretido com vinho branco + pão, batata e legumes; carne na pedra (bovino, suíno e frango) com 11 molhos; e fondue de chocolate com 5 frutas e waffer. Vouchers já comprados — só aparecer!",
     highlights:["Fondue de queijo com vinho branco","Carne na pedra: 3 tipos + 11 molhos","Fondue de chocolate com frutas","Sem agendamento — por ordem de chegada","Restaurante não cobra taxa de 10%"],
-    facts:[["Endereço","Av. das Hortênsias, 1008 - Centro, Gramado"],["Horário jantar","18h às 23h — todos os dias"],["Voucher","✅ JÁ PAGO (família F e J)"],["⚠️ Regra do voucher","NÃO VALE sábado nem domingo — somente dias de semana"],["Crianças","Até 4 anos: isento · 5 a 10 anos: R$60 no local"],["Agendamento","Não precisa — ordem de chegada"],["Bebidas","Não inclusas no voucher"],["Tempo de visita","~2h a 2h30 — refeição completa"]],
+    facts:[["Endereço","Av. das Hortênsias, 1008 - Centro, Gramado"],["Horário jantar","18h às 23h — todos os dias"],["Voucher","✅ JÁ PAGO (família F e J)"],["⚠️ Regra do voucher","NÃO VALE sábado nem domingo — somente dias de semana"],["Crianças","Até 4 anos: isento · 5 a 10 anos: R$60 no local"],["Agendamento","Não precisa — ordem de chegada"],["Bebidas","Não inclusas no voucher"],["Rodízio de vinhos","R$ 40 por pessoa (opcional)"],["Tempo de visita","~2h a 2h30 — refeição completa"]],
     tip:"Chegar cedo (18h–18h30) pra não esperar. Levar os vouchers no celular — Felipe e Juininho têm os códigos (não publicados aqui por segurança).",
     verdict:"Está no Dia 5 (segunda-feira) — fondue quente pra fechar o dia de Canela."},
 
@@ -1204,7 +1203,7 @@ const PLACES = {
     verdict:"Fecha a viagem com chave de ouro — está no almoço do último dia."},
 
   garfoebombacha:{ico:"🥩",name:"Garfo & Bombacha",tag:"Churrascaria com show gaúcho · Sugestão · Canela",g:"#7a3b2e,#3e1f18",img:"",
-    addr:"RS-466, Km 2 - Caracol, Canela - RS",ig:"",wa:"",video:"",
+    addr:"RS-466, Km 2 - Caracol, Canela - RS",ig:"garfoebombacha",wa:"5554981295587",video:"",
     price:{tbd:true,etiq:"conferir"},
     what:"Churrascaria tradicional da Serra, no caminho do Parque do Caracol: costelão assado na brasa por mais de 8 horas, dezenas de pratos da comida campeira e show tradicionalista com danças gaúchas, chula e boleadeiras. A experiência 'noite gaúcha' completa.",
     highlights:["Costelão 8 horas na brasa","Buffet de comida campeira","Show de danças tradicionalistas","No eixo da RS-466 (Caracol)"],
@@ -1260,6 +1259,35 @@ const PLACES = {
     family:["Netinho (12) e Sofia (8): destaque do dia — trenó e tirolesa são pra eles","Adultos: podem curtir junto","Lavínia (3) e Ísis: ficam com quem não for nas atrações radicais"],
     tip:"Comprar ingressos antecipado se disponível. Vale combinar com o Florybal no mesmo dia, já que ambos ficam em Canela.",
     verdict:"Adrenalina e diversão no dia 4 — junto com o Florybal."},
+
+  carademau:{ico:"🏴‍☠️",name:"Cara de Mau",tag:"Pizzaria pirata · Rodízio temático · Gramado",g:"#3a2a5a,#17102e",img:"",
+    addr:"R. Cel. João Corrêa, 394 - Belvedere, Gramado - RS, 95670-210",ig:"carademau",wa:"555493712057",video:"",
+    price:{adult:249.9,child:99.9,childMax:12,freeUnder:5,etiq:"oficial"},
+    what:"Pizzaria pirata imersiva com dois ambientes lado a lado: o Porto (palco central, clima de teatro musical) e o Navio (convés pirata, mais lúdico pra famílias). Rodízio de pizzas, shows com o Capitão Cara de Mau e sua tripulação, e muita interação. Atende por reserva, em sessões de 18h ou 21h30.",
+    highlights:["Rodízio de pizzas","Show com o Capitão Cara de Mau","Interação com piratas e TikToks","Dois ambientes: Porto e Navio","Espaço lúdico pras crianças"],
+    facts:[["Sessões","18h ou 21h30 — por reserva de mesa"],["Navio","Teatro musical e pockets shows todos os dias — ideal com crianças"],["Porto","Seg–qui teatro musical · sex–dom baladas piratas"],["Crianças","5 a 12 anos R$ 99,90 · até 4 anos grátis"],["Duração","~2h50 (rodízio + show)"],["Reserva","Necessária — garante a sessão"]],
+    family:["Sofia (8) e Netinho (12): shows e interação com os piratas","Lavínia (3): ambiente Navio, mais lúdico e acolhedor","Rende TikToks com a tripulação"],
+    tip:"O ambiente Navio é o mais indicado pra família com criança. Chegar no check-in ~30 min antes da sessão.",
+    verdict:"Alternativa pirata à Hector pro jantar temático — imersão garantida pras crianças."},
+
+  criamigos:{ico:"🧸",name:"Mundo Criamigos",tag:"Experiência infantil · Ursos de pelúcia · Gramado",g:"#c86a9a,#6e2f52",img:"",
+    addr:"R. São Pedro, 663 - Centro, Gramado - RS, 95670-150",ig:"mundocriamigosgramado",wa:"555493712057",video:"",
+    price:{tbd:true,etiq:"conferir"},
+    what:"Loja-experiência da marca Criamigos, onde a criança monta e personaliza o próprio urso de pelúcia — escolhe o bichinho, o enchimento, roupinhas e acessórios, num ritual divertido e interativo. Passeio curtinho e encantador no centro de Gramado, perfeito pras crianças.",
+    highlights:["Monte seu próprio urso de pelúcia","Roupinhas e acessórios personalizáveis","Experiência interativa","No centro de Gramado"],
+    facts:[["Onde","R. São Pedro, 663 — Centro, Gramado"],["Tempo de visita","~30 a 45 min"],["Custo","Varia conforme o bichinho e acessórios escolhidos"],["Com bebê","Tranquilo — ambiente de loja"]],
+    family:["Lavínia (3) e Sofia (8): vão amar montar o próprio bichinho","Netinho (12): pode curtir personalizar o dele","Isis (bebê): passeio leve no colo"],
+    tip:"O valor final depende do que a criança escolher (bicho + roupinhas). Ótimo pra um fim de tarde no centro.",
+    verdict:"Extra fofo pras crianças — encaixa numa volta pelo centro de Gramado."},
+
+  hotel:{ico:"🏡",name:"Cabanas Rota do Sol",tag:"Pousada · Nossa base · Gramado",g:"#5a3a2e,#2d1d16",img:"",
+    addr:"Rua Dartagnan de Oliveira, 310 - Av. Central, Gramado - RS, 95670-000",ig:"",wa:"555432866569",video:"",
+    price:null,
+    what:"A base da viagem: chalés na Av. Central de Gramado, com estacionamento grátis, café da manhã incluso (7h30–10h) e recepção das 7h às 22h. Reserva nº 6.598. Tomadas 220V.",
+    highlights:["Estacionamento grátis","Café da manhã incluso","Chalés na Av. Central","Recepção 7h–22h"],
+    facts:[["Reserva","Nº 6.598"],["Café da manhã","7h30 às 10h — incluso"],["Recepção","7h às 22h"],["WhatsApp","(54) 3286-6569"],["Tomadas","220V — adaptador se aparelho for 110V"],["Check-in / out","Entrada a partir das 14h · saída até 12h"]],
+    tip:"Dá pra deixar as malas antes das 14h — confirmar com a recepção. Estacionamento grátis facilita levar os 2 carros.",
+    verdict:"Base central e confortável pra ir e voltar das atrações sem complicação."},
 
   opcionais:{ico:"🌸",name:"Outras opcionais",tag:"Atrações extras · decidir na hora",g:"#8a7eb8,#544a8a",img:"",
     addr:"",ig:"",wa:"",video:"",price:null,
@@ -1321,7 +1349,30 @@ const DAYS = [
    ]}
 ];
 
-const SWAPS = ["florybal","mundovapor","opcionais"];
+const SWAPS = ["florybal","mundovapor","criamigos","opcionais"];
+
+/* Vídeos do TikTok/Instagram por lugar (até 4 cada) */
+const VIDEOS = {
+  hotel:["https://www.instagram.com/reels/DZGYrY5tl7p/","https://www.instagram.com/reels/DWkCBZ0AIKR/","https://www.instagram.com/reels/DUOsgrCjHT1/"],
+  lugano:["https://www.tiktok.com/@lacadordeofertas/video/7571421690178129170","https://www.tiktok.com/@triomundoafora/video/7559958935814294796","https://www.tiktok.com/@tripgramadoecanela/video/7325958179270003973","https://www.tiktok.com/@duplagourmet/video/7543008650361670918"],
+  snowland:["https://www.instagram.com/ocasaldesp/reel/DZ52cklzgry/","https://www.instagram.com/reels/DVKIiXvlDJw/","https://www.tiktok.com/@marcelinosporai/video/7644385859126496532"],
+  hector:["https://www.instagram.com/reels/DUqVxzAEVRi/","https://www.instagram.com/reels/DXurLBPCm6L/","https://www.instagram.com/reels/DatiGMQo5we/"],
+  acquamotion:["https://www.tiktok.com/@gramadoblog/video/7207570818304445701","https://www.tiktok.com/@soporviajar/video/7597879450503630087","https://www.tiktok.com/@nativasconcellos/video/6989316496551841030"],
+  caracol:["https://www.tiktok.com/@julliadallavalle/video/7649920675762687239","https://www.tiktok.com/@mariavedovatox/video/7615790681420090645","https://www.tiktok.com/@ataliadantas1/video/7638733827199798549","https://www.tiktok.com/@viajacomandrea/video/7609071352397565202"],
+  catedral:["https://www.tiktok.com/@isadora.canelaa/video/7651763779788737800","https://www.tiktok.com/@tcheindico/video/7659108611842395413","https://www.tiktok.com/@refugiohospedagens/video/7659795173550902549"],
+  laghonegro:["https://www.tiktok.com/@mari.partiu/video/7642379535329152277","https://www.tiktok.com/@gramadocomjo/video/7631965454873005320","https://www.tiktok.com/@dudamunizaqui/video/7549190391958883589"],
+  minimundo:["https://www.tiktok.com/@carolsanttiago_/video/7593349479240076551","https://www.tiktok.com/@thayzecabral.m/video/7657301951113219346","https://www.tiktok.com/@triomundoafora/video/7557852813989006603"],
+  fondue:["https://www.tiktok.com/@euvanessamarinho/video/7499962896617704710","https://www.tiktok.com/@aventurandotche/video/7320381685571357957","https://www.tiktok.com/@lacadordeofertas/video/7122473331814567174","https://www.tiktok.com/@guiagrandepoa/video/7431630123884907782"],
+  cafecolonial:["https://www.tiktok.com/@omelhordegaropaba/video/7634227626193751317","https://www.tiktok.com/@vivacanelaegramado/video/7657299144314211602","https://www.tiktok.com/@tripgramadoecanela/video/7498803265790872837"],
+  florybal:["https://www.tiktok.com/@coordenadasadois/video/7658445925051944193","https://www.tiktok.com/@euamorole/video/7518965951488871685","https://www.tiktok.com/@souingridlops/video/7565652475173145876"],
+  mundovapor:["https://www.tiktok.com/@parqueiros/video/7629818051487141140","https://www.tiktok.com/@brockerturismo/video/7645400806254005525","https://www.tiktok.com/@julia.orige/video/7660313850679512341"],
+  vale:["https://www.tiktok.com/@marcosmendesreal/video/7546293633113197829","https://www.tiktok.com/@germannocorreia/video/7600844746654797064"],
+  aldeia:["https://www.tiktok.com/@euamorole/video/7579987339087269140","https://www.tiktok.com/@vicsgirotto/video/7521861734370397446","https://www.tiktok.com/@diariodeborduai/video/7564477767320882439"],
+  alpenpark:["https://www.tiktok.com/@alpen.tour/video/7556232655914896651","https://www.tiktok.com/@gramadocomnando/video/7651394391860333845","https://www.tiktok.com/@anavvvvvv0/video/7419291209417542917","https://www.tiktok.com/@reviewgramado/video/7586504419705949461"],
+  garfoebombacha:["https://www.tiktok.com/@carol_fgal/video/7517070052709993733","https://www.tiktok.com/@omelhordegaropaba/video/7626550387515870484","https://www.tiktok.com/@gaherrera_dicas/video/7523379481688411398","https://www.tiktok.com/@crispimichele/video/7512618516671909125"],
+  carademau:["https://www.tiktok.com/@ocasaldesp/video/7654772879120141575","https://www.tiktok.com/@euamorole/video/7564840865319947537","https://www.tiktok.com/@viviannemirandaoficial/video/7599685588899335432","https://www.instagram.com/reel/DZiJv25x0Eq/"],
+  criamigos:["https://www.tiktok.com/@gramadoblog/video/7601126311142231303","https://www.tiktok.com/@alpen.tour/video/7574396656016280853","https://www.tiktok.com/@brincando.por.ai/video/7482764063504747782"]
+};
 
 const TRAVELERS = [
   {name:"Felipe",fam:"F",age:35},{name:"Joyce",fam:"F",age:33},{name:"Sofia",fam:"F",age:8},{name:"Lavínia",fam:"F",age:3},
@@ -1411,7 +1462,8 @@ function openPlace(id){
     if(upt) actions += `<a class="uber" href="${uberURL(upt)}" target="_blank" rel="noopener">🚗 Uber pra cá</a>`;
     if(p.wa) actions += `<a class="wa" href="https://wa.me/${p.wa}" target="_blank" rel="noopener">💬 WhatsApp</a>`;
     if(p.ig) actions += `<a class="ig" href="https://instagram.com/${p.ig}" target="_blank" rel="noopener">@${p.ig}</a>`;
-    if(p.video) actions += `<a class="vid" href="${p.video}" target="_blank" rel="noopener">▶ Vídeo</a>`;
+    const vids=(typeof VIDEOS!=="undefined"&&VIDEOS[id])?VIDEOS[id]:(p.video?[p.video]:[]);
+    vids.forEach((v,i)=>{ actions += `<a class="vid" href="${v}" target="_blank" rel="noopener">▶ Vídeo ${vids.length>1?i+1:""}</a>`; });
     html += `<div class="addr"><span class="pin">📍</span><span class="a-txt">${p.addr}</span></div><div class="actions">${actions}</div>`;
   }
   html += `<p class="what">${p.what}</p>`;
@@ -1700,10 +1752,13 @@ function initAeroportoTabs(){
   document.querySelectorAll('.ap-tab').forEach(tab=>{
     tab.addEventListener('click',()=>{
       const panel=tab.dataset.panel;
+      const wasActive=tab.classList.contains('active');
       document.querySelectorAll('.ap-tab').forEach(t=>t.classList.remove('active'));
       document.querySelectorAll('.ap-panel').forEach(p=>p.classList.remove('active'));
-      tab.classList.add('active');
-      document.getElementById('ap-'+panel).classList.add('active');
+      if(!wasActive){
+        tab.classList.add('active');
+        document.getElementById('ap-'+panel).classList.add('active');
+      }
     });
   });
   document.querySelectorAll('.viagem-btn[data-panel]').forEach(btn=>{

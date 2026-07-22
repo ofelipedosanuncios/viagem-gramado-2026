@@ -1,0 +1,4 @@
+# Scripts de shell precisam SEMPRE de quebra de linha LF (Linux),
+# senao quebram ao rodar no VPS.
+*.sh text eol=lf
+bot.js text eol=lf

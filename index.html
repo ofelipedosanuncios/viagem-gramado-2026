@@ -385,6 +385,7 @@
   <div class="wrap">
     <a href="#viagem">A viagem</a>
     <a href="#aeroporto">Aeroporto</a>
+    <a href="#transfer">Transfer</a>
     <a href="#roteiro">Roteiro</a>
     <a href="#mapa">Mapa</a>
     <a href="#comer">Onde comer</a>
@@ -867,6 +868,17 @@
   </div>
 </section>
 
+<section id="transfer">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Transporte</span></div>
+    <h2>Transfer aeroporto ⇄ Gramado</h2>
+    <p class="lead">Carro privativo com a <b>FL Tour Gramado</b> (Flávio Souza) — 2 sedans, um por família. Saída imediata na chegada e retorno 4h antes do voo. Toque pra ver contato (WhatsApp e Instagram), valores e como funciona.</p>
+    <div class="viagem-btns reveal" style="margin-top:6px">
+      <span class="viagem-btn" data-place="transfer"><span>🚗</span> Ver detalhes do transfer</span>
+    </div>
+  </div>
+</section>
+
 <section id="roteiro">
   <div class="wrap">
     <div class="sec-head"><span class="sec-kicker">Dia a dia</span></div>
@@ -1287,6 +1299,15 @@ const PLACES = {
     tip:"Dá pra deixar as malas antes das 14h — confirmar com a recepção. Estacionamento grátis facilita levar os 2 carros.",
     verdict:"Base central e confortável pra ir e voltar das atrações sem complicação."},
 
+  transfer:{ico:"🚗",name:"Transfer — FL Tour Gramado",tag:"Carro privativo · Aeroporto ⇄ Gramado",g:"#2e6b8a,#16384a",img:"",
+    addr:"Retirada no desembarque do Aeroporto Salgado Filho (POA) → Gramado (~2h de serra)",ig:"fltour.gramado",wa:"555492362592",video:"",
+    price:{note:"<b>R$ 1.290</b> ida e volta por carro (até 6x sem juros) · <b>R$ 1.150 no Pix</b> — 1 carro por família. Sinal de R$ 300 já pago pra fechar; o restante é acertado no fim da viagem. Escolhemos pagar no Pix.",etiq:"pago sinal"},
+    what:"Transfer privativo da FL Tour Gramado, com o Flávio Souza: 2 carros sedan (um por família) fazendo aeroporto ⇄ Gramado. Saída imediata do aeroporto na chegada e retorno programado 4 horas antes do voo de volta.",
+    highlights:["2 carros sedan — 1 por família","Saída imediata do aeroporto","Retorno 4h antes do voo","Ida e volta no mesmo pacote","Sinal pago — restante no fim"],
+    facts:[["Empresa","FL Tour Gramado — Flávio Souza"],["WhatsApp","(54) 9236-2592"],["Instagram","@fltour.gramado"],["Veículos","2 carros sedan (1 por família)"],["Valor","R$ 1.290 ida e volta (6x s/ juros) · R$ 1.150 no Pix — por carro"],["Pagamento","Sinal R$ 300 pago · restante no fim · escolhido Pix"],["Chegada","Saída imediata do aeroporto (pouso 07:00)"],["Retorno","4 horas antes do voo de volta (voo 19:20)"]],
+    tip:"Confirmar com o Flávio no WhatsApp o ponto de encontro no desembarque e o horário exato do retorno alguns dias antes — e combinar o acerto do restante no Pix.",
+    verdict:"Nosso transporte aeroporto ⇄ Gramado: privativo, um carro por família, sem depender de aluguel."},
+
   opcionais:{ico:"🌸",name:"Outras opcionais",tag:"Atrações extras · decidir na hora",g:"#8a7eb8,#544a8a",img:"",
     addr:"",ig:"",wa:"",video:"",price:null,
     what:"Atrações legais da região que não entraram no roteiro fixo, mas valem ficar no radar caso sobre tempo, o clima ajude ou a família queira.",
@@ -1301,7 +1322,7 @@ const DAYS = [
    anchor:"lugano",tired:"leve",rain:"Mundo Lugano é indoor — perfeito em qualquer clima",book:null,
    slots:[
      {t:"Manhã",b:"Pouso em Porto Alegre às 07:00, retirar carro/transfer e subir a serra (~2h, com parada pra café e troca da bebê).",p:[]},
-     {t:"~12h",b:"Chegada em Gramado pela Cabanas Rota do Sol (check-in a partir das 14h — dá pra deixar as malas antes). Almoço numa churrascaria, rodízio gaúcho pra estrear a viagem.",p:[]},
+     {t:"~12h",b:"Chegada em Gramado pela Cabanas Rota do Sol (check-in a partir das 14h — dá pra deixar as malas antes). Almoço numa churrascaria, rodízio gaúcho pra estrear a viagem.",p:["hotel"]},
      {t:"Tarde",b:"Depois de descansar, Mundo Lugano — parque indoor de chocolate, jogos e shows, no coração de Gramado.",p:["lugano"]},
      {t:"Noite",b:"Rodízio de pizza no próprio Mundo Lugano — fecha o dia sem sair do lugar.",p:[]}
    ]},
@@ -1428,6 +1449,7 @@ function renderSwaps(){
 }
 
 function costBlock(p){
+  if(p.price&&p.price.note) return `<div class="subh">Quanto custa <span class="price-tag pt-oficial">${p.price.etiq||'pago'}</span></div><div class="cost"><div class="unit">${p.price.note}</div></div>`;
   if(!p.price) return `<div class="subh">Quanto custa</div><div class="cost"><div class="unit"><b>Gratuito</b> — sem ingresso</div></div>`;
   if(p.price.tbd) return `<div class="subh">Quanto custa <span class="price-tag pt-confirmar">confirmar</span></div><div class="cost"><div class="unit"><b>Preço a confirmar</b> — conferir valores atuais antes de ir</div></div>`;
   const pr=p.price;

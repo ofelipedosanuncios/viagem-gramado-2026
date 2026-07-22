@@ -1,0 +1,4 @@
+# Nunca subir segredos nem dependencias
+.env
+node_modules/
+npm-debug.log*

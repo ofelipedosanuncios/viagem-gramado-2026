@@ -1,0 +1,13 @@
+{
+  "name": "guia-gramado-bot",
+  "version": "1.0.0",
+  "description": "Bot de Telegram que responde perguntas sobre a viagem a Gramado usando o conteudo do site + Gemini",
+  "type": "module",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

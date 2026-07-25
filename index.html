@@ -1767,5 +1767,179 @@ if("serviceWorker" in navigator && location.protocol==="https:"){
   window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})});
 }
 </script>
+
+<!-- ===================== Claudio — o guia da viagem ===================== -->
+<style>
+  #claudio-fab{position:fixed;right:18px;bottom:18px;z-index:9998;display:flex;align-items:center;gap:10px;
+    padding:0 18px 0 14px;height:56px;border:0;border-radius:999px;cursor:pointer;
+    background:linear-gradient(145deg,var(--pine-2),var(--pine));color:var(--cream);
+    font:600 15px/1 inherit;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease}
+  #claudio-fab:hover{transform:translateY(-3px)}
+  #claudio-fab .cl-ico{font-size:22px}
+  #claudio-fab.hidden{display:none}
+  @media(max-width:520px){#claudio-fab .cl-txt{display:none}#claudio-fab{padding:0;width:56px;justify-content:center}}
+
+  #claudio-panel{position:fixed;right:18px;bottom:18px;z-index:9999;
+    width:min(390px,calc(100vw - 24px));height:min(580px,calc(100vh - 24px));
+    background:var(--snow);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);display:none;flex-direction:column;overflow:hidden}
+  #claudio-panel.open{display:flex}
+  .cl-head{display:flex;align-items:center;gap:10px;padding:14px 16px;
+    background:linear-gradient(145deg,var(--pine-2),var(--pine));color:var(--cream)}
+  .cl-head .cl-av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+    background:rgba(255,255,255,.15);font-size:19px}
+  .cl-head h4{margin:0;font-size:15px;font-weight:700}
+  .cl-head p{margin:2px 0 0;font-size:12px;opacity:.8}
+  .cl-close{margin-left:auto;background:transparent;border:0;color:var(--cream);cursor:pointer;
+    font-size:24px;line-height:1;padding:4px 6px;border-radius:8px;opacity:.85}
+  .cl-close:hover{background:rgba(255,255,255,.15)}
+
+  .cl-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;
+    background:var(--cream)}
+  .cl-msg{max-width:85%;padding:10px 13px;border-radius:16px;font-size:14px;line-height:1.5;
+    white-space:pre-wrap;word-wrap:break-word}
+  .cl-msg.bot{background:var(--snow);border:1px solid var(--line);color:var(--ink);
+    align-self:flex-start;border-bottom-left-radius:5px}
+  .cl-msg.user{background:var(--pine);color:var(--cream);align-self:flex-end;
+    border-bottom-right-radius:5px}
+  .cl-msg.erro{background:#fdecea;border:1px solid #f5c2bd;color:#8a2a1f;align-self:flex-start}
+  .cl-msg strong{font-weight:700}
+  .cl-msg ul{margin:6px 0 0;padding-left:18px}
+  .cl-msg li{margin:3px 0}
+  .cl-dots{display:flex;gap:4px;align-self:flex-start;padding:12px 14px;background:var(--snow);
+    border:1px solid var(--line);border-radius:16px;border-bottom-left-radius:5px}
+  .cl-dots i{width:7px;height:7px;border-radius:50%;background:var(--ink-soft);opacity:.45;
+    animation:clb 1.3s infinite}
+  .cl-dots i:nth-child(2){animation-delay:.18s}.cl-dots i:nth-child(3){animation-delay:.36s}
+  @keyframes clb{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-5px);opacity:.9}}
+
+  .cl-chips{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 12px;background:var(--cream)}
+  .cl-chip{background:var(--snow);border:1px solid var(--line);border-radius:999px;
+    padding:7px 12px;font-size:12.5px;color:var(--ink-soft);cursor:pointer}
+  .cl-chip:hover{border-color:var(--amber);color:var(--ink)}
+
+  .cl-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--snow)}
+  .cl-form input{flex:1;min-width:0;padding:11px 14px;border:1px solid var(--line);border-radius:999px;
+    font:inherit;font-size:14px;color:var(--ink);background:var(--cream);outline:none}
+  .cl-form input:focus{border-color:var(--amber)}
+  .cl-form button{width:44px;height:44px;flex:none;border:0;border-radius:50%;cursor:pointer;
+    background:var(--amber);color:#fff;font-size:17px;transition:filter .15s ease}
+  .cl-form button:hover{filter:brightness(1.08)}
+  .cl-form button:disabled{opacity:.45;cursor:not-allowed}
+</style>
+
+<button id="claudio-fab" aria-label="Abrir conversa com o Claudio, o guia da viagem">
+  <span class="cl-ico" aria-hidden="true">🧭</span><span class="cl-txt">Falar com o Claudio</span>
+</button>
+
+<div id="claudio-panel" role="dialog" aria-modal="false" aria-label="Conversa com o Claudio">
+  <div class="cl-head">
+    <div class="cl-av" aria-hidden="true">🧭</div>
+    <div><h4>Claudio</h4><p>o guia da viagem</p></div>
+    <button class="cl-close" aria-label="Fechar conversa">&times;</button>
+  </div>
+  <div class="cl-msgs" id="cl-msgs"></div>
+  <div class="cl-chips" id="cl-chips"></div>
+  <form class="cl-form" id="cl-form">
+    <input id="cl-input" type="text" maxlength="500" autocomplete="off"
+           placeholder="Pergunte sobre a viagem..." aria-label="Sua pergunta">
+    <button type="submit" id="cl-send" aria-label="Enviar">➤</button>
+  </form>
+</div>
+
+<script>
+(function(){
+  const fab=document.getElementById('claudio-fab');
+  const panel=document.getElementById('claudio-panel');
+  const msgs=document.getElementById('cl-msgs');
+  const chips=document.getElementById('cl-chips');
+  const form=document.getElementById('cl-form');
+  const input=document.getElementById('cl-input');
+  const send=document.getElementById('cl-send');
+
+  const SUGESTOES=['O que faremos no Dia 1?','Quanto vai custar pra minha família?','O que levar na mala?'];
+  let historico=[], ocupado=false, iniciado=false;
+
+  /* Markdown leve: escapa HTML e entende **negrito** e listas com * ou - */
+  function formatar(txt){
+    const esc=txt.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const linhas=esc.split('\n'); let html='', lista=false;
+    for(const l of linhas){
+      const item=l.match(/^\s*[\*\-]\s+(.*)$/);
+      if(item){ if(!lista){html+='<ul>';lista=true;} html+='<li>'+item[1]+'</li>'; }
+      else { if(lista){html+='</ul>';lista=false;} html+=l+'\n'; }
+    }
+    if(lista)html+='</ul>';
+    return html.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').trim();
+  }
+
+  function bolha(texto,tipo){
+    const d=document.createElement('div');
+    d.className='cl-msg '+tipo;
+    if(tipo==='bot')d.innerHTML=formatar(texto); else d.textContent=texto;
+    msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight; return d;
+  }
+
+  function pensando(){
+    const d=document.createElement('div');
+    d.className='cl-dots'; d.innerHTML='<i></i><i></i><i></i>';
+    msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight; return d;
+  }
+
+  function mostrarChips(){
+    chips.innerHTML='';
+    if(historico.length)return;
+    SUGESTOES.forEach(s=>{
+      const b=document.createElement('button');
+      b.className='cl-chip'; b.type='button'; b.textContent=s;
+      b.addEventListener('click',()=>{input.value=s;form.requestSubmit();});
+      chips.appendChild(b);
+    });
+  }
+
+  async function perguntar(texto){
+    if(ocupado||!texto.trim())return;
+    ocupado=true; send.disabled=true;
+    bolha(texto,'user'); input.value=''; chips.innerHTML='';
+    const dots=pensando();
+    try{
+      const r=await fetch('/api/claudio/chat',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({pergunta:texto,historico:historico.slice(-6)})
+      });
+      const dados=await r.json().catch(()=>({}));
+      dots.remove();
+      if(!r.ok){
+        bolha(dados.erro||'Não consegui responder agora. Tenta de novo em instantes.','erro');
+      }else{
+        bolha(dados.resposta,'bot');
+        historico.push({papel:'user',texto:texto},{papel:'model',texto:dados.resposta});
+      }
+    }catch(e){
+      dots.remove();
+      bolha('Não consegui falar com o guia agora. Verifique sua conexão e tente de novo.','erro');
+    }finally{
+      ocupado=false; send.disabled=false; input.focus();
+    }
+  }
+
+  function abrir(){
+    panel.classList.add('open'); fab.classList.add('hidden');
+    if(!iniciado){
+      iniciado=true;
+      bolha('Oi! Eu sou o **Claudio**, o guia da viagem 🧭\nPode me perguntar sobre roteiro, horários, preços, endereços, orçamento ou o que levar na mala.','bot');
+      mostrarChips();
+    }
+    setTimeout(()=>input.focus(),80);
+  }
+  function fechar(){ panel.classList.remove('open'); fab.classList.remove('hidden'); }
+
+  fab.addEventListener('click',abrir);
+  panel.querySelector('.cl-close').addEventListener('click',fechar);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('open'))fechar();});
+  form.addEventListener('submit',e=>{e.preventDefault();perguntar(input.value);});
+})();
+</script>
 </body>
 </html>

@@ -39,6 +39,8 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const SITE_URL =
   process.env.SITE_URL ||
   "https://ofelipedosanuncios.github.io/viagem-gramado-2026/";
+// Se definido, le o site direto do disco (site privado no VPS) em vez da URL publica
+const SITE_FILE = process.env.SITE_FILE || "";
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-flash-lite-latest";
 // Lista opcional de IDs autorizados (separados por virgula). Vazio = todos.
 const ALLOWED_IDS = (process.env.TELEGRAM_ALLOWED_IDS || "")
@@ -83,11 +85,17 @@ async function carregarSite(forcar = false) {
     return conteudoSite;
   }
   try {
-    const resp = await fetch(SITE_URL, {
-      headers: { "Cache-Control": "no-cache" },
-    });
-    if (!resp.ok) throw new Error("HTTP " + resp.status);
-    const html = await resp.text();
+    let html;
+    if (SITE_FILE && fs.existsSync(SITE_FILE)) {
+      // Site privado servido pelo proprio VPS: le do disco (nao depende de rede)
+      html = fs.readFileSync(SITE_FILE, "utf8");
+    } else {
+      const resp = await fetch(SITE_URL, {
+        headers: { "Cache-Control": "no-cache" },
+      });
+      if (!resp.ok) throw new Error("HTTP " + resp.status);
+      html = await resp.text();
+    }
     conteudoSite = extrairTexto(html);
     siteAtualizadoEm = agora;
     console.log(

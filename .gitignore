@@ -1,0 +1,8 @@
+# Comprovantes de pagamento — NUNCA vão pro GitHub.
+# O repositório é público e o histórico do git é permanente.
+# Estes arquivos são enviados direto pro VPS por scp, para
+# /var/www/gramado/comprovantes/ (protegido pela senha do nginx).
+comprovantes/
+
+node_modules/
+tmp/

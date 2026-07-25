@@ -22,6 +22,8 @@ self.addEventListener("fetch", e => {
   if (e.request.method !== "GET") return;
   const url = new URL(e.request.url);
   if (url.hostname.includes("cartocdn") || url.hostname.includes("openstreetmap") || url.hostname.includes("open-meteo")) return;
+  // comprovantes: documento sensível — sempre rede, nunca guardar em cache do navegador
+  if (url.pathname.includes("/comprovantes/")) return;
 
   if (e.request.mode === "navigate") {
     e.respondWith(

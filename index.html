@@ -362,6 +362,82 @@
   /* doc items */
   .doc-item{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--snow);border:1px solid var(--line);border-radius:10px;margin-bottom:7px;font-size:.84rem}
   .doc-item .dic{font-size:1.1rem;flex:0 0 auto;line-height:1}
+
+  /* ---------- HOSPEDAGEM ---------- */
+  /* galeria do chalé */
+  .gal{margin-top:18px;background:var(--snow);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+  .gal-stage{position:relative;aspect-ratio:4/3;background:linear-gradient(160deg,var(--pine) 0%,var(--pine-2) 100%);overflow:hidden;touch-action:pan-y}
+  .gal-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s ease}
+  .gal-stage img.on{opacity:1}
+  .gal-shade{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.30) 0%,rgba(0,0,0,0) 24%,rgba(0,0,0,0) 46%,rgba(0,0,0,.66) 100%)}
+  .gal-cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:0 16px 14px;color:#fff;font-size:.85rem;line-height:1.35;text-shadow:0 2px 10px rgba(0,0,0,.55);pointer-events:none}
+  .gal-cap .kd{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--amber-soft);margin-bottom:3px}
+  .gal-count{position:absolute;top:12px;left:14px;z-index:3;font-size:.68rem;font-weight:700;letter-spacing:.1em;color:#fff;background:rgba(20,20,20,.45);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:5px 11px}
+  .gal-zoom{position:absolute;top:10px;right:12px;z-index:4;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(20,20,20,.45);backdrop-filter:blur(6px);color:#fff;font-size:.95rem;cursor:pointer;font-family:inherit;line-height:1;transition:.16s}
+  .gal-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(20,20,20,.42);backdrop-filter:blur(6px);color:#fff;font-size:1.45rem;line-height:0;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;transition:.16s;padding:0 0 3px}
+  .gal-nav.prev{left:10px}.gal-nav.next{right:10px}
+  .gal-nav:hover,.gal-zoom:hover{background:rgba(20,20,20,.72)}
+  .gal-nav:active,.gal-zoom:active{transform:translateY(-50%) scale(.9)}
+  .gal-zoom:active{transform:scale(.9)}
+  .gal-thumbs{display:flex;gap:6px;padding:9px;overflow-x:auto;scrollbar-width:none;background:var(--cream-2)}
+  .gal-thumbs::-webkit-scrollbar{display:none}
+  .gal-thumbs img{flex:0 0 auto;width:56px;height:44px;object-fit:cover;border-radius:8px;cursor:pointer;opacity:.55;border:2px solid transparent;transition:.18s}
+  .gal-thumbs img.on{opacity:1;border-color:var(--pine)}
+  .gal-hint{font-size:.72rem;color:var(--ink-soft);margin-top:7px;text-align:center}
+
+  /* lightbox de fotos */
+  .lbx{position:fixed;inset:0;z-index:120;background:rgba(12,16,14,.94);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.22s}
+  .lbx.on{opacity:1;pointer-events:auto}
+  .lbx img{max-width:96vw;max-height:78vh;object-fit:contain;border-radius:12px;box-shadow:0 30px 80px -20px rgba(0,0,0,.9)}
+  .lbx .lbx-cap{position:absolute;left:0;right:0;bottom:26px;text-align:center;color:rgba(255,255,255,.86);font-size:.83rem;padding:0 24px;line-height:1.4}
+  .lbx .lbx-cap span{display:block;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber-soft);font-weight:700;margin-bottom:4px}
+  .lbx .gal-nav{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);width:46px;height:46px}
+  .lbx .gal-nav.prev{left:14px}.lbx .gal-nav.next{right:14px}
+  .lbx .lbx-close{position:absolute;top:16px;right:16px;z-index:5;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:#fff;font-size:1.05rem;cursor:pointer;font-family:inherit}
+  .lbx .lbx-count{position:absolute;top:22px;left:18px;color:rgba(255,255,255,.7);font-size:.72rem;font-weight:700;letter-spacing:.12em}
+
+  /* cartão do comprovante */
+  .cmp{margin-top:14px;display:flex;align-items:center;gap:13px;background:linear-gradient(140deg,var(--pine) 0%,var(--pine-2) 78%);color:var(--snow);border-radius:var(--r);padding:15px 16px;box-shadow:var(--shadow)}
+  .cmp .cmp-ic{font-size:1.7rem;flex:0 0 auto;line-height:1}
+  .cmp .cmp-tx{flex:1;min-width:0}
+  .cmp .cmp-tx b{display:block;font-family:'Fraunces',serif;font-size:1.02rem;font-weight:600}
+  .cmp .cmp-tx small{display:block;font-size:.74rem;color:rgba(252,250,245,.72);margin-top:2px;line-height:1.35}
+  .cmp button{flex:0 0 auto;font-family:inherit;font-size:.78rem;font-weight:700;color:var(--pine);background:var(--amber-soft);border:none;border-radius:99px;padding:10px 15px;cursor:pointer;transition:.16s}
+  .cmp button:active{transform:scale(.95)}
+
+  /* visualizador do comprovante */
+  .pdfx{position:fixed;inset:0;z-index:120;background:rgba(12,16,14,.9);backdrop-filter:blur(4px);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:.22s}
+  .pdfx.on{opacity:1;pointer-events:auto}
+  .pdfx-bar{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--pine);color:var(--snow)}
+  .pdfx-bar .pt{flex:1;min-width:0;font-size:.82rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pdfx-bar a,.pdfx-bar button{flex:0 0 auto;font-family:inherit;font-size:.75rem;font-weight:700;border-radius:99px;padding:8px 13px;cursor:pointer;text-decoration:none;border:1px solid rgba(252,250,245,.28);background:rgba(252,250,245,.1);color:var(--snow);transition:.16s;display:inline-flex;align-items:center;gap:5px}
+  .pdfx-bar a.dl{background:var(--amber-soft);color:var(--pine);border-color:var(--amber-soft)}
+  .pdfx-bar a:active,.pdfx-bar button:active{transform:scale(.95)}
+  .pdfx-body{flex:1;min-height:0;background:var(--cream-2);position:relative}
+  .pdfx-body iframe{width:100%;height:100%;border:0;display:block;background:var(--cream-2)}
+  .pdfx-miss{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px;gap:8px;color:var(--ink-soft);font-size:.86rem;line-height:1.5}
+  .pdfx-miss b{color:var(--ink);font-family:'Fraunces',serif;font-size:1.05rem}
+  .pdfx.missing .pdfx-miss{display:flex}
+  .pdfx.missing iframe{visibility:hidden}
+
+  /* ficha da hospedagem */
+  .hosp-rows{margin-top:10px;background:var(--snow);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+  .hosp-rows .hr{display:flex;gap:12px;padding:11px 15px;border-bottom:1px solid var(--line);font-size:.86rem;align-items:flex-start}
+  .hosp-rows .hr:last-child{border-bottom:0}
+  .hosp-rows .hr .k{flex:0 0 104px;color:var(--ink-soft);font-size:.78rem;padding-top:1px}
+  .hosp-rows .hr .v{flex:1;color:var(--ink)}
+  .hosp-rows .hr .v b{font-weight:600}
+  .hosp-rows .hr .v em{font-style:normal;color:var(--pine-2);font-weight:600}
+
+  .amen{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .amen span{font-size:.76rem;background:var(--snow);border:1px solid var(--line);border-radius:99px;padding:6px 11px;color:var(--ink-soft)}
+  .amen span.hi{background:var(--pine);border-color:var(--pine);color:var(--snow);font-weight:600}
+
+  .rules{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:7px}
+  .rules li{display:flex;gap:9px;align-items:flex-start;background:var(--snow);border:1px solid var(--line);border-radius:12px;padding:10px 13px;font-size:.83rem;color:var(--ink-soft);line-height:1.4}
+  .rules li b{color:var(--ink);font-weight:600}
+  .rules li .ri{flex:0 0 auto;font-size:1rem;line-height:1.2}
+  .rules li.warn{border-left:3px solid var(--amber)}
 </style>
 </head>
 <body>
@@ -386,6 +462,7 @@
     <a href="#viagem">A viagem</a>
     <a href="#aeroporto">Aeroporto</a>
     <a href="#transfer">Transfer</a>
+    <a href="#hospedagem">Hospedagem</a>
     <a href="#roteiro">Roteiro</a>
     <a href="#mapa">Mapa</a>
     <a href="#opcoes">Opções</a>
@@ -878,6 +955,112 @@
   </div>
 </section>
 
+<section id="hospedagem">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Onde vamos ficar</span></div>
+    <h2>Cabanas Rota do Sol</h2>
+    <p class="lead">Dois <b>Chalés Família Econômico</b> — um pra cada família, 23 m², cozinha e banheiro privativos, café da manhã incluído. Cinco noites, de 24 a 29 de setembro. <b>Reserva nº 6.598, já paga.</b></p>
+
+    <div class="gal reveal" id="gal">
+      <div class="gal-stage" id="galStage">
+        <div class="gal-shade"></div>
+        <div class="gal-count"><span id="galN">1</span> / 20</div>
+        <button class="gal-zoom" id="galZoom" aria-label="Ver em tela cheia">⤢</button>
+        <button class="gal-nav prev" id="galPrev" aria-label="Foto anterior">‹</button>
+        <button class="gal-nav next" id="galNext" aria-label="Próxima foto">›</button>
+        <div class="gal-cap" id="galCap"></div>
+      </div>
+      <div class="gal-thumbs" id="galThumbs"></div>
+    </div>
+    <p class="gal-hint">20 fotos do chalé · use as setas, arraste pro lado ou toque em ⤢ pra ver em tela cheia</p>
+
+    <div class="climate reveal">
+      <div class="chip-stat"><div class="v">5 noites</div><div class="l">24/09 (14h) → 29/09 (12h)</div></div>
+      <div class="chip-stat"><div class="v">2 × 23 m²</div><div class="l">um chalé por família · 4 pessoas cada</div></div>
+      <div class="chip-stat"><div class="v">R$ 3.120</div><div class="l">total da reserva — pago, saldo R$ 0,00</div></div>
+    </div>
+
+    <div class="cmp reveal">
+      <div class="cmp-ic">🧾</div>
+      <div class="cmp-tx"><b>Comprovante da reserva</b><small>Confirmação nº 6.598 emitida pela pousada em 07/06/2026</small></div>
+      <button id="cmpBtn">Ver PDF</button>
+    </div>
+
+    <p class="ap-sub">A reserva</p>
+    <div class="hosp-rows reveal">
+      <div class="hr"><div class="k">Reserva</div><div class="v"><b>nº 6.598</b> · emitida em 07/06/2026 · em nome de Jennifer Kelly Gonçalves Pontual</div></div>
+      <div class="hr"><div class="k">Acomodação</div><div class="v"><b>2 × Chalé Família Econômico</b> — 4 pessoas em cada</div></div>
+      <div class="hr"><div class="k">Check-in</div><div class="v"><b>24/09/2026 a partir das 14h</b> <em>·</em> dá pra deixar as malas antes e ir almoçar</div></div>
+      <div class="hr"><div class="k">Check-out</div><div class="v"><b>29/09/2026 até as 12h</b></div></div>
+      <div class="hr"><div class="k">Café da manhã</div><div class="v"><b>Incluído</b> — servido de 25 a 29/09, das <b>7h30 às 10h</b></div></div>
+      <div class="hr"><div class="k">Valor</div><div class="v">Diária R$ 283,63 + taxa de serviço R$ 141,82 → <b>R$ 1.560 por família</b> · total <b>R$ 3.120,00</b> <em>· total a pagar: R$ 0,00</em></div></div>
+    </div>
+
+    <p class="ap-sub">Quem fica em cada chalé</p>
+    <div class="fams reveal">
+      <div class="fam">
+        <h3>Chalé 1 · Juininho</h3>
+        <ul>
+          <li><span class="dot" style="background:var(--pine)"></span>Jennifer<span class="age">adulto</span></li>
+          <li><span class="dot" style="background:var(--pine)"></span>Juininho<span class="age">adulto</span></li>
+          <li><span class="dot" style="background:var(--hortensia)"></span>Netinho<span class="age">cortesia</span></li>
+          <li><span class="dot" style="background:var(--choco)"></span>Isis<span class="age">criança</span></li>
+        </ul>
+      </div>
+      <div class="fam">
+        <h3>Chalé 2 · Felipe</h3>
+        <ul>
+          <li><span class="dot" style="background:var(--pine)"></span>Felipe<span class="age">adulto</span></li>
+          <li><span class="dot" style="background:var(--pine)"></span>Joyce<span class="age">adulto</span></li>
+          <li><span class="dot" style="background:var(--hortensia)"></span>Sofia<span class="age">criança</span></li>
+          <li><span class="dot" style="background:var(--amber)"></span>Lavínia<span class="age">cortesia</span></li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:.75rem;color:var(--ink-soft);margin-top:8px">Na reserva, o mais novo de cada família entra como <b>cortesia</b> e o outro como criança pagante — por isso os dois chalés fecham o mesmo valor.</p>
+
+    <p class="ap-sub">Como é o chalé (23 m²)</p>
+    <div class="note reveal">
+      <p>Chalé inteiro, com <b>entrada privativa</b> e toda a unidade no <b>térreo</b> — bom com carrinho de bebê. Tem <b>1 quarto separado</b>, <b>1 sala de estar</b>, <b>cozinha compacta privativa</b> e <b>1 banheiro</b> com área de chuveiro ampla.</p>
+      <p style="margin-top:8px">Camas: <b>1 casal grande + 1 solteiro + 1 futon</b> — nota <b>8,6</b> em conforto das camas (310 avaliações). Vista do jardim e do pátio interno.</p>
+    </div>
+    <div class="amen reveal">
+      <span class="hi">❄️ Ar-condicionado</span><span class="hi">🔥 Aquecimento</span><span class="hi">🍳 Cozinha compacta</span><span class="hi">🚿 Banheiro privativo</span><span class="hi">📶 Wi-Fi grátis</span>
+      <span>🔥 Cooktop</span><span>🧊 Geladeira</span><span>🍽️ Mesa de jantar</span><span>🥄 Utensílios de cozinha</span><span>🧴 Produtos de limpeza</span>
+      <span>🧊 Frigobar</span><span>☕ Cafeteira/chaleira</span><span>📺 TV de tela plana</span><span>📡 Canais a cabo e satélite</span><span>☎️ Telefone</span><span>⏰ Serviço de despertar</span>
+      <span>💨 Secador de cabelo</span><span>🧼 Toalhas e roupa de cama</span><span>🧻 Papel higiênico</span><span>🧴 Álcool gel</span><span>🌬️ Purificador de ar</span>
+      <span>👞 Ferro de passar</span><span>🪵 Piso de madeira</span><span>🔌 Tomada perto da cama</span><span>🪑 Mesa de trabalho</span><span>🚪 Entrada privativa</span><span>🌿 Vista do jardim</span>
+    </div>
+
+    <p class="ap-sub">Regras e avisos da pousada</p>
+    <ul class="rules reveal">
+      <li><span class="ri">☕</span><div><b>Café da manhã das 7h30 às 10h.</b> Nos dias de saída cedo (Snowland, Canela), vale acordar no horário — depois das 10h não tem.</div></li>
+      <li><span class="ri">🔔</span><div><b>Recepção das 7h às 22h.</b> Chegada fora desse horário precisa ser avisada antes.</div></li>
+      <li><span class="ri">🅿️</span><div><b>Estacionamento gratuito e rotativo</b> — pesa a favor de alugar carro em vez da van.</div></li>
+      <li class="warn"><span class="ri">⚡</span><div><b>Voltagem 220v.</b> Conferir os aparelhos antes de plugar.</div></li>
+      <li class="warn"><span class="ri">🪵</span><div><b>Chalé com lareira: só lenha da pousada.</b> Trazer lenha de fora dá multa de R$ 150 por dia.</div></li>
+      <li class="warn"><span class="ri">🚭</span><div><b>Proibido fumar</b> nas acomodações e áreas internas — multa de R$ 250 por dia.</div></li>
+      <li><span class="ri">🐾</span><div><b>Aceita pet</b>, mediante consulta de regras e valores na recepção.</div></li>
+      <li><span class="ri">📅</span><div><b>Cancelamento flexível — 14 dias.</b> Até 14 dias antes do check-in dá pra remarcar, pegar carta de crédito ou receber reembolso integral. Com menos de 14 dias, o valor fica retido.</div></li>
+      <li class="warn"><span class="ri">⚠️</span><div><b>Não comparecer ou sair antes</b> gera cobrança integral da hospedagem. Alterações só por e-mail: <b>reservascabanasrotadosol@gmail.com</b>.</div></li>
+    </ul>
+
+    <p class="ap-sub">Endereço e contato</p>
+    <div class="addr reveal">
+      <span class="pin">📍</span>
+      <span class="a-txt">Rua Dartagnan de Oliveira, 310 — Av. Central<br>Gramado - RS, 95670-000</span>
+    </div>
+    <div class="actions">
+      <a class="uber uber-home" href="#" target="_blank" rel="noopener">🚗 Uber pro chalé</a>
+      <button class="copyaddr" data-addr="Rua Dartagnan de Oliveira, 310 - Av. Central, Gramado - RS, 95670-000">📋 Copiar endereço</button>
+      <a class="wa" href="https://wa.me/555432866569" target="_blank" rel="noopener">💬 WhatsApp</a>
+      <a href="tel:+555432866569">📞 (54) 3286-6569</a>
+      <a href="mailto:reservas@cabanasrotadosol.com.br">✉️ E-mail</a>
+      <a href="https://www.instagram.com/cabanasrotadosol/" target="_blank" rel="noopener">📸 @cabanasrotadosol</a>
+    </div>
+  </div>
+</section>
+
 <section id="roteiro">
   <div class="wrap">
     <div class="sec-head"><span class="sec-kicker">Dia a dia</span></div>
@@ -1065,6 +1248,33 @@
     <div class="grab"></div>
     <button class="closebtn" id="closeBtn">✕</button>
     <div class="sheet-in" id="sheetIn"></div>
+  </div>
+</div>
+
+<!-- tela cheia das fotos do chalé -->
+<div class="lbx" id="lbx">
+  <div class="lbx-count"><span id="lbxN">1</span> / 20</div>
+  <button class="lbx-close" id="lbxClose" aria-label="Fechar">✕</button>
+  <button class="gal-nav prev" id="lbxPrev" aria-label="Foto anterior">‹</button>
+  <button class="gal-nav next" id="lbxNext" aria-label="Próxima foto">›</button>
+  <img id="lbxImg" alt="">
+  <div class="lbx-cap" id="lbxCap"></div>
+</div>
+
+<!-- visualizador do comprovante -->
+<div class="pdfx" id="pdfx">
+  <div class="pdfx-bar">
+    <div class="pt">🧾 Comprovante · Reserva nº 6.598</div>
+    <a class="dl" id="pdfxDl" href="comprovantes/pousada-reserva-6598.pdf" download="Comprovante-Pousada-Reserva-6598.pdf">⤓ Baixar</a>
+    <a id="pdfxOpen" href="comprovantes/pousada-reserva-6598.pdf" target="_blank" rel="noopener">↗ Abrir</a>
+    <button id="pdfxClose" aria-label="Fechar">✕</button>
+  </div>
+  <div class="pdfx-body">
+    <iframe id="pdfxFrame" title="Comprovante da reserva"></iframe>
+    <div class="pdfx-miss">
+      <b>Comprovante ainda não publicado</b>
+      <div>O arquivo <code>comprovantes/pousada-reserva-6598.pdf</code> não está no servidor.<br>Ele não vai pro GitHub de propósito — precisa ser enviado direto pro VPS.</div>
+    </div>
   </div>
 </div>
 
@@ -1721,6 +1931,124 @@ function resultHTML(A,B){
   <div class="uber-note">🚘 Vocês são 8 + carrinho da Isis — em app, peçam <b>2 carros</b>.</div>`;
 }
 
+/* ---- HOSPEDAGEM: galeria do chalé + comprovante ---- */
+const FOTOS_CHALE = [
+  {f:"fotos/chale/01.jpg", k:"Sala de estar",       c:"Mesa de jantar e sofá-futon, com janela pro jardim"},
+  {f:"fotos/chale/02.jpg", k:"Quarto separado",     c:"Cama de casal grande, com o mimo de boas-vindas da pousada"},
+  {f:"fotos/chale/03.jpg", k:"Chegada",             c:"Toalhas, cartão e lembrancinha esperando na cama"},
+  {f:"fotos/chale/04.jpg", k:"Sala de estar",       c:"Futon, mesa e a cozinha compacta logo ao lado"},
+  {f:"fotos/chale/05.jpg", k:"Cozinha compacta",    c:"Pia e mesa — dá pra esquentar mamadeira e guardar comida"},
+  {f:"fotos/chale/06.jpg", k:"Quarto",              c:"TV de tela plana, ar-condicionado e cama de solteiro extra"},
+  {f:"fotos/chale/07.jpg", k:"Quarto",              c:"Cama de casal grande + cama de solteiro no mesmo ambiente"},
+  {f:"fotos/chale/08.jpg", k:"Quarto",              c:"Outro ângulo — ar-condicionado, piso de madeira e janela"},
+  {f:"fotos/chale/09.jpg", k:"Quarto",              c:"Casal e solteiro, com espaço de sobra pra circular"},
+  {f:"fotos/chale/10.jpg", k:"Extra opcional",      c:"Decoração de comemoração com balões — serviço à parte, sob consulta"},
+  {f:"fotos/chale/11.jpg", k:"Extra opcional",      c:"Kit comemorativo com espumante — serviço à parte"},
+  {f:"fotos/chale/12.jpg", k:"Extra opcional",      c:"Montagem especial na cama — serviço à parte"},
+  {f:"fotos/chale/13.jpg", k:"Extra opcional",      c:"Pétalas, taças e vinho — serviço à parte"},
+  {f:"fotos/chale/14.jpg", k:"Extra opcional",      c:"Decoração completa de comemoração — serviço à parte"},
+  {f:"fotos/chale/15.jpg", k:"Detalhe",             c:"A luminária de cabeceira, no estilo das cabanas"},
+  {f:"fotos/chale/16.jpg", k:"Banheiro",            c:"Amenities inclusos: shampoo 2 em 1 e sabonete"},
+  {f:"fotos/chale/17.jpg", k:"Chegada",             c:"Cartão de boas-vindas da Cabanas Rota do Sol"},
+  {f:"fotos/chale/18.jpg", k:"Banheiro privativo",  c:"Box de vidro e bancada em granito"},
+  {f:"fotos/chale/19.jpg", k:"Banheiro privativo",  c:"Chuveiro amplo, secador de cabelo e toalhas"},
+  {f:"fotos/chale/20.jpg", k:"Banheiro privativo",  c:"Box, espelho e bancada — tudo dentro do chalé"}
+];
+
+function initGaleria(){
+  const stage=document.getElementById("galStage");
+  if(!stage)return;
+  const L=FOTOS_CHALE.length, shade=stage.querySelector(".gal-shade");
+  const cap=document.getElementById("galCap"), num=document.getElementById("galN");
+  const thumbs=document.getElementById("galThumbs");
+  const lbx=document.getElementById("lbx"), lbxImg=document.getElementById("lbxImg");
+  const lbxCap=document.getElementById("lbxCap"), lbxN=document.getElementById("lbxN");
+  let cur=0;
+
+  const imgs=FOTOS_CHALE.map((p,i)=>{
+    const im=document.createElement("img");
+    im.alt="Chalé Família Econômico — foto "+(i+1);
+    im.decoding="async";
+    stage.insertBefore(im,shade);
+    return im;
+  });
+  FOTOS_CHALE.forEach((p,i)=>{
+    const t=document.createElement("img");
+    t.src=p.f; t.alt=""; t.loading="lazy"; t.dataset.i=i;
+    thumbs.appendChild(t);
+  });
+  const tImgs=[...thumbs.children];
+
+  const norm=n=>((n%L)+L)%L;
+  function carrega(n){const i=norm(n); if(!imgs[i].getAttribute("src"))imgs[i].src=FOTOS_CHALE[i].f; return i;}
+
+  function mostra(n){
+    cur=carrega(n); carrega(cur+1); carrega(cur-1);
+    const p=FOTOS_CHALE[cur];
+    imgs.forEach((im,k)=>im.classList.toggle("on",k===cur));
+    tImgs.forEach((t,k)=>t.classList.toggle("on",k===cur));
+    cap.innerHTML='<span class="kd">'+p.k+'</span>'+p.c;
+    num.textContent=cur+1;
+    tImgs[cur].scrollIntoView({block:"nearest",inline:"center",behavior:"smooth"});
+    if(lbx.classList.contains("on"))pintaLbx();
+  }
+  function pintaLbx(){
+    const p=FOTOS_CHALE[cur];
+    lbxImg.src=p.f; lbxImg.alt=p.c;
+    lbxCap.innerHTML="<span>"+p.k+"</span>"+p.c;
+    lbxN.textContent=cur+1;
+  }
+  function abreLbx(){pintaLbx();lbx.classList.add("on");document.body.style.overflow="hidden"}
+  function fechaLbx(){lbx.classList.remove("on");document.body.style.overflow=""}
+
+  document.getElementById("galPrev").onclick=()=>mostra(cur-1);
+  document.getElementById("galNext").onclick=()=>mostra(cur+1);
+  document.getElementById("lbxPrev").onclick=()=>mostra(cur-1);
+  document.getElementById("lbxNext").onclick=()=>mostra(cur+1);
+  document.getElementById("galZoom").onclick=abreLbx;
+  document.getElementById("lbxClose").onclick=fechaLbx;
+  lbx.addEventListener("click",e=>{if(e.target===lbx)fechaLbx()});
+  thumbs.addEventListener("click",e=>{const t=e.target.closest("img");if(t)mostra(+t.dataset.i)});
+
+  /* arrastar pro lado (celular) */
+  [stage,lbx].forEach(el=>{
+    let x0=null,y0=null;
+    el.addEventListener("touchstart",e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+    el.addEventListener("touchend",e=>{
+      if(x0===null)return;
+      const dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+      if(Math.abs(dx)>42&&Math.abs(dx)>Math.abs(dy))mostra(cur+(dx<0?1:-1));
+      x0=null;
+    },{passive:true});
+  });
+
+  document.addEventListener("keydown",e=>{
+    if(!lbx.classList.contains("on"))return;
+    if(e.key==="ArrowLeft")mostra(cur-1);
+    else if(e.key==="ArrowRight")mostra(cur+1);
+    else if(e.key==="Escape")fechaLbx();
+  });
+
+  mostra(0);
+}
+
+function initComprovante(){
+  const btn=document.getElementById("cmpBtn");
+  if(!btn)return;
+  const box=document.getElementById("pdfx"), frame=document.getElementById("pdfxFrame");
+  const url=document.getElementById("pdfxDl").getAttribute("href");
+  function fecha(){box.classList.remove("on");document.body.style.overflow="";frame.removeAttribute("src")}
+  btn.onclick=()=>{
+    box.classList.remove("missing");
+    box.classList.add("on");
+    document.body.style.overflow="hidden";
+    frame.src=url+"#view=FitH";
+    fetch(url,{method:"HEAD",cache:"no-store"}).then(r=>{if(!r.ok)box.classList.add("missing")}).catch(()=>box.classList.add("missing"));
+  };
+  document.getElementById("pdfxClose").onclick=fecha;
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&box.classList.contains("on"))fecha()});
+}
+
 renderDays();
 renderSwaps();
 renderBudget();
@@ -1731,6 +2059,8 @@ document.querySelectorAll(".uber-addr").forEach(a=>{a.href="https://m.uber.com/u
 initChecklists();
 initToday();
 initWeather();
+initGaleria();
+initComprovante();
 initReveal();
 initScrollspy();
 tick();setInterval(tick,1000);

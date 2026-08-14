@@ -92,6 +92,12 @@
   .flight .rt{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--hortensia);font-weight:700}
   .flight .det{font-size:.92rem;color:var(--ink)}
   .flight .det b{font-weight:600}.flight .det small{color:var(--ink-soft)}
+  .flight{align-items:flex-start}
+  .flight .legs{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+  .flight .leg{display:flex;gap:10px;align-items:baseline;font-size:.83rem;color:var(--ink-soft);line-height:1.35}
+  .flight .leg .lt{font-weight:700;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums;flex:0 0 auto}
+  .flight .cnx{margin-top:8px;font-size:.76rem;font-weight:700;color:#8a5a1e;background:rgba(212,160,74,.16);border-radius:20px;padding:4px 11px;display:inline-block}
+  .flight .loc{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-top:9px}
 
   .climate{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
   .chip-stat{background:var(--snow);border:1px solid var(--line);border-radius:14px;padding:12px 14px;flex:1;min-width:120px;box-shadow:var(--shadow)}
@@ -545,11 +551,37 @@
     <div class="flights reveal">
       <div class="flight">
         <span class="ico">🛫</span>
-        <div><span class="rt">Ida · Qui 24/09</span><div class="det"><b>Recife 02:30 → Porto Alegre 07:00</b> <small>· Azul, voo direto de madrugada</small></div></div>
+        <div><span class="rt">Ida · Qui 24/09</span><div class="det"><b>Recife 02:45 → Porto Alegre 08:50</b> <small>· Azul, agora com conexão em Guarulhos</small></div>
+          <div class="legs">
+            <div class="leg"><span class="lt">02:45 → 06:05</span><span>REC → GRU · voo AD 4153 · 3h20</span></div>
+            <div class="leg"><span class="lt">07:05 → 08:50</span><span>GRU → POA · voo AD 2842 · 1h45</span></div>
+          </div>
+          <span class="cnx">⚠️ Conexão em Guarulhos: 1h00 · reserva BT2PVB</span>
+        </div>
       </div>
       <div class="flight">
         <span class="ico">🛬</span>
-        <div><span class="rt">Volta · Ter 29/09</span><div class="det"><b>Porto Alegre 19:20 → Recife 01:00 (30/09)</b> <small>· conexão em Congonhas</small></div></div>
+        <div><span class="rt">Volta · Ter 29/09</span><div class="det"><b>Porto Alegre 19:20 → Recife 01:00 (30/09)</b> <small>· conexão em Congonhas</small></div>
+          <div class="legs">
+            <div class="leg"><span class="lt">19:20 → 20:55</span><span>POA → CGH · São Paulo/Congonhas</span></div>
+            <div class="leg"><span class="lt">21:55 → 01:00</span><span>CGH → REC · chegada 30/09</span></div>
+          </div>
+          <span class="cnx">⚠️ Conexão em Congonhas: 1h00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="note reveal" style="margin-top:14px;border-left:4px solid var(--amber)">
+      <p style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--amber);margin-bottom:7px">🔄 Alteração da Azul · aceita</p>
+      <h3 style="margin-bottom:6px">A ida mudou: agora tem parada em Guarulhos</h3>
+      <p style="font-size:.86rem;color:var(--ink-soft)">A Azul cancelou o voo direto Recife → Porto Alegre e ofereceu a remarcação, <b>sem custo adicional</b> — aceitamos. A ida deixou de ser direta e passou a ter conexão em <b>São Paulo/Guarulhos</b>. O pouso em Porto Alegre saiu das <b>07:00 para as 08:50</b> (1h50 mais tarde). A volta segue exatamente igual.</p>
+      <div class="vip-rows" style="margin-top:12px">
+        <div class="vip-r"><span class="vl">Reserva</span><span><b>BT2PVB</b> — Azul Brazilian Airlines</span></div>
+        <div class="vip-r"><span class="vl">Saída de Recife</span><span>02:30 → <b>02:45</b> (15 min mais tarde)</span></div>
+        <div class="vip-r"><span class="vl">Chegada em POA</span><span>07:00 → <b>08:50</b> (1h50 mais tarde)</span></div>
+        <div class="vip-r"><span class="vl">Trechos</span><span>Agora são <b>4</b> (2 na ida + 2 na volta) — antes eram 3</span></div>
+        <div class="vip-r"><span class="vl">Valor</span><span>Mesmo valor — sem cobrança extra</span></div>
+        <div class="vip-r"><span class="vl">Impacto</span><span>Transfer da FL Tour precisa ser reavisado — o contrato está com chegada 07h00</span></div>
       </div>
     </div>
 
@@ -573,7 +605,7 @@
       <div class="note reveal" style="border-left:4px solid var(--amber);margin-top:16px">
         <p style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--amber);margin-bottom:7px">⭐ Recomendado · Ida · 24/09</p>
         <h3 style="margin-bottom:3px">W Premium Lounge Recife São João</h3>
-        <p style="font-size:.84rem;color:var(--ink-soft);margin-bottom:2px">Antes do voo das 02:30 — chegar ao aeroporto ~00h30, usar a sala após o raio-X</p>
+        <p style="font-size:.84rem;color:var(--ink-soft);margin-bottom:2px">Antes do voo das 02:45 — chegar ao aeroporto ~00h30, usar a sala após o raio-X</p>
         <div class="vip-rows">
           <div class="vip-r"><span class="vl">Localização</span><span>Depois do controle de segurança, em frente ao portão 7</span></div>
           <div class="vip-r"><span class="vl">Voos</span><span>Passageiros de voos domésticos</span></div>
@@ -582,7 +614,7 @@
           <div class="vip-r"><span class="vl">Acesso</span><span>C6 Carbon via rede parceira DragonPass</span></div>
           <div class="vip-r"><span class="vl">Benefícios</span><span>Alimentação · bebidas · Wi-Fi · tomadas · banheiros · espaço de descanso</span></div>
         </div>
-        <div class="vip-why">Por que Recife é a melhor escolha: aeroporto de madrugada, crianças fora do horário normal de sono, espera de ~1h45 antes de um voo de 4h30. A sala entrega conforto exatamente quando vai fazer mais diferença.</div>
+        <div class="vip-why">Por que Recife é a melhor escolha: aeroporto de madrugada, crianças fora do horário normal de sono, espera de ~2h antes de um trecho de 3h20 — e agora, com a conexão em Guarulhos, a viagem inteira até Porto Alegre passa de 6h. A sala entrega conforto exatamente quando vai fazer mais diferença.</div>
       </div>
 
       <div class="note reveal" style="margin-top:12px">
@@ -600,7 +632,12 @@
       </div>
 
       <div class="note reveal" style="margin-top:12px;border-left:4px solid #c0392b">
-        <h3 style="color:#c0392b;margin-bottom:5px">⛔ Congonhas — não usar sala VIP</h3>
+        <h3 style="color:#c0392b;margin-bottom:5px">⛔ Guarulhos (ida) — não usar sala VIP</h3>
+        <p style="font-size:.84rem;color:var(--ink-soft)">A conexão nova tem apenas 1 hora (pouso 06:05 → voo 07:05) e Guarulhos é um aeroporto grande. Ao desembarcar, seguir <b>direto para o próximo portão</b> — sem loja, sem café, sem sala. Conferir o portão do voo AD 2842 no app ainda dentro do avião, antes do pouso.</p>
+      </div>
+
+      <div class="note reveal" style="margin-top:12px;border-left:4px solid #c0392b">
+        <h3 style="color:#c0392b;margin-bottom:5px">⛔ Congonhas (volta) — não usar sala VIP</h3>
         <p style="font-size:.84rem;color:var(--ink-soft)">A conexão tem apenas 1 hora (pouso 20h55 → voo 21h55). Ao chegar em Congonhas, seguir <b>direto para o próximo portão</b>. Não há tempo hábil. A sala W Premium fica antes da segurança (teria que refazer o raio-X).</p>
       </div>
 
@@ -687,7 +724,7 @@
             <div class="vip-r"><span class="vl">Só volta</span><span>R$ 175 antecipado · R$ 200 última hora</span></div>
             <div class="vip-r"><span class="vl">Ida + volta</span><span>R$ 350 total (antecipado) · R$ 400 última hora</span></div>
           </div>
-          <p style="font-size:.76rem;color:var(--ink-soft);margin-top:8px">A volta POA→CGH→REC aparece em reserva única — a bagagem deve ser contratada para o itinerário completo e despachada até Recife direto. Conferir valor final no app antes de pagar.</p>
+          <p style="font-size:.76rem;color:var(--ink-soft);margin-top:8px">Ida (REC→GRU→POA) e volta (POA→CGH→REC) aparecem cada uma em reserva única — a bagagem deve ser contratada para o itinerário completo e despachada até o destino final direto, sem retirar na conexão. Conferir valor final no app antes de pagar.</p>
         </div>
       </div>
 
@@ -709,8 +746,9 @@
       </div>
 
       <div class="note reveal" style="margin-top:12px">
-        <h3 style="margin-bottom:8px">🔗 Conexão em Congonhas — o que saber</h3>
-        <p style="font-size:.84rem;color:var(--ink-soft)">Malas de bordo ficam com vocês na mudança de avião. Se alguma for despachada no portão em POA, confirmar com o funcionário: a retirada é em Congonhas (porta da aeronave) ou somente em Recife?</p>
+        <h3 style="margin-bottom:8px">🔗 As duas conexões — o que saber</h3>
+        <p style="font-size:.84rem;color:var(--ink-soft);margin-bottom:8px"><b>Ida · Guarulhos:</b> malas de bordo ficam com vocês na mudança de avião. Se alguma for despachada no portão em Recife, perguntar ao funcionário se a retirada é em Guarulhos (porta da aeronave) ou só em Porto Alegre — com 1h de conexão, retirar e redespachar em GRU não dá tempo.</p>
+        <p style="font-size:.84rem;color:var(--ink-soft)"><b>Volta · Congonhas:</b> mesma regra. Se alguma for despachada no portão em POA, confirmar com o funcionário: a retirada é em Congonhas (porta da aeronave) ou somente em Recife?</p>
       </div>
     </div>
 
@@ -742,7 +780,7 @@
         <ul class="vip-checklist">
           <li>Documentos de todos os 8 passageiros</li>
           <li>Certidões de nascimento das crianças e do bebê</li>
-          <li>Cartões de embarque de todos — salvar offline (PDF ou print) para os 3 trechos</li>
+          <li>Cartões de embarque de todos — salvar offline (PDF ou print) para os <b>4 trechos</b></li>
           <li>Voucher da Decolar (evitar expor CPF e códigos em locais públicos)</li>
           <li>Comprovante de reserva do hotel</li>
           <li>Vouchers pagos: Snowland e fondue</li>
@@ -753,9 +791,10 @@
       <div class="note reveal" style="margin-top:12px">
         <h3 style="margin-bottom:10px">📌 Janelas de check-in online</h3>
         <div class="vip-rows">
-          <div class="vip-r"><span class="vl">Ida (02h30)</span><span>Check-in abre 21/09 às 02h30 · encerra 1h antes do voo</span></div>
+          <div class="vip-r"><span class="vl">Ida (02h45)</span><span>Check-in abre 21/09 às 02h45 · encerra 1h antes do voo</span></div>
           <div class="vip-r"><span class="vl">Volta (19h20)</span><span>Check-in abre 26/09 às 19h20 · chegar ao aeroporto ~17h00</span></div>
-          <div class="vip-r"><span class="vl">Dica</span><span>Salvar cartões offline assim que fizer o check-in — 3 cartões por passageiro (POA→CGH e CGH→REC na volta)</span></div>
+          <div class="vip-r"><span class="vl">Dica</span><span>Salvar cartões offline assim que fizer o check-in — agora são <b>4 cartões por passageiro</b> (REC→GRU e GRU→POA na ida; POA→CGH e CGH→REC na volta)</span></div>
+          <div class="vip-r"><span class="vl">Reserva</span><span>Código <b>BT2PVB</b> — usar no app da Azul e no site pra check-in</span></div>
         </div>
       </div>
     </div>
@@ -910,13 +949,14 @@
       <p class="ap-sub">7 dias antes</p>
       <div class="note reveal">
         <ul class="vip-checklist">
-          <li>Conferir horários na Azul e na Decolar — tirar print da programação</li>
-          <li>Confirmar que os trechos da volta POA→CGH e CGH→REC aparecem na mesma reserva</li>
+          <li><b>Reavisar a FL Tour do novo horário</b> — o contrato está com chegada 07h00, agora é 08h50</li>
+          <li>Conferir horários na Azul e na Decolar — tirar print da programação (reserva BT2PVB)</li>
+          <li>Confirmar que os 4 trechos aparecem nas reservas: REC→GRU→POA na ida e POA→CGH→REC na volta</li>
           <li>Conferir regras de bagagem de mão da Azul</li>
           <li>Confirmar documentos de adultos, crianças e bebê</li>
           <li>Pesar cada mala separadamente (abaixo de 10 kg, medir com rodas e alças)</li>
           <li>Salvar contatos: Azul 0800 887 1118 · Decolar (11) 4003-9444 · ANAC 163</li>
-          <li>Conferir transporte ao aeroporto (sair de casa ~22h30 para voo às 02h30)</li>
+          <li>Conferir transporte ao aeroporto (sair de casa ~22h30 para voo às 02h45)</li>
           <li>Conferir sala VIP: W Premium Recife disponível no app C6</li>
         </ul>
       </div>
@@ -925,14 +965,14 @@
       <div class="note reveal">
         <ul class="vip-checklist">
           <li>Fazer check-in de todos os 8 passageiros</li>
-          <li>Salvar cartões de embarque offline — PDF ou print — para os 3 trechos</li>
-          <li>Conferir assentos: crianças e bebê ao lado de adulto responsável</li>
-          <li>Confirmar que aparecem dois cartões de embarque para a volta (POA→CGH e CGH→REC)</li>
-          <li>Tirar print da reserva mostrando os dois trechos juntos</li>
+          <li>Salvar cartões de embarque offline — PDF ou print — para os <b>4 trechos</b></li>
+          <li>Conferir assentos: crianças e bebê ao lado de adulto responsável — nos dois voos da ida</li>
+          <li>Confirmar que aparecem dois cartões na ida (REC→GRU e GRU→POA) e dois na volta (POA→CGH e CGH→REC)</li>
+          <li>Tirar print das reservas mostrando os trechos juntos</li>
         </ul>
       </div>
 
-      <p class="ap-sub">Na saída de casa — Qui 24/09 · ~22h30</p>
+      <p class="ap-sub">Na saída de casa — noite de Qua 23/09 · ~22h30 (voo é 02:45 de Qui 24/09)</p>
       <div class="note reveal">
         <ul class="vip-checklist">
           <li>Documentos físicos de todos</li>
@@ -948,7 +988,20 @@
         </ul>
       </div>
 
-      <p class="ap-sub">Conexão em Congonhas — 1 hora · atenção máxima</p>
+      <p class="ap-sub">Ida · conexão em Guarulhos — 1 hora · atenção máxima</p>
+      <div class="note reveal" style="border-left:4px solid #c0392b">
+        <ul class="vip-checklist">
+          <li>Antes do pouso em GRU (06:05): ver no app o portão do voo AD 2842 (GRU→POA, 07:05)</li>
+          <li>Avisar a tripulação ainda no voo REC→GRU sobre a conexão curta com crianças e bebê</li>
+          <li>Ao desembarcar: seguir direto para o próximo portão — sem loja, sem café, sem banheiro fora do caminho</li>
+          <li>Não sair da área de embarque em nenhum momento</li>
+          <li>Guarulhos é grande: se o portão for distante, considerar pedir ajuda no balcão da Azul assim que desembarcar</li>
+          <li>Trocar a fralda da Isis ainda no avião, se der — em terra o tempo é curto</li>
+          <li>Um adulto pode ir à frente localizar o portão — manter comunicação entre o grupo</li>
+        </ul>
+      </div>
+
+      <p class="ap-sub">Volta · conexão em Congonhas — 1 hora · atenção máxima</p>
       <div class="note reveal" style="border-left:4px solid #c0392b">
         <ul class="vip-checklist">
           <li>Antes do pouso em CGH: ver no app o portão do voo CGH→REC</li>
@@ -978,9 +1031,9 @@
   <div class="wrap">
     <div class="sec-head"><span class="sec-kicker">Transporte</span></div>
     <h2>Transfer aeroporto ⇄ Gramado</h2>
-    <p class="lead">Retirada no desembarque do Aeroporto Salgado Filho (POA) → Gramado (~2h de serra)</p>
+    <p class="lead">FL Tour Gramado · privativo, 2 carros · contrato assinado. Retirada no desembarque do Aeroporto Salgado Filho (POA) → Gramado (~2h de serra), agora com pouso às <b>08:50</b>.</p>
     <div class="viagem-btns reveal" style="margin-top:6px">
-      <span class="viagem-btn" data-place="transfer"><span>🚗</span> Ver detalhes do transfer</span>
+      <span class="viagem-btn" data-place="transfer"><span>🚗</span> Ver o contrato e todos os detalhes</span>
     </div>
   </div>
 </section>
@@ -1035,7 +1088,9 @@
     <p class="lead">O grosso já está definido. Faltam poucos detalhes de experiência — vocês opinam e a gente ajusta.</p>
     <div class="decisions">
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🏡 Onde vamos ficar — Cabanas Rota do Sol</div><div class="a">2 chalés Família Econômico (4 pessoas cada) · Reserva nº 6.598 · R$ 3.120 no total, <b>já pago</b>. Rua Dartagnan de Oliveira, 310 — Av. Central, Gramado. Check-in 24/09 (14h) · check-out 29/09 (12h). <span class="viagem-btn" data-place="hotel" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>🏡</span> Fotos, regras e comprovante</span></div></div>
-      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">❄️ Snowland — ingresso comprado!</div><div class="a">✅ PAGO — 26/09 (sábado, aniversário do Juininho) às 10h. Família F e J já têm voucher. Inclui: montanha de neve, patinação, jogos, shows, roupas impermeáveis. Não inclui: esqui/snowboard (pago à parte), estacionamento, comida.</div></div>
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">❄️ Snowland — 26/09 às 10h</div><div class="a">Data e horário confirmados: <b>26/09 (sábado, aniversário do Juininho) às 10h</b>. A <b>família Felipe já tem os 3 ingressos pagos</b> (Felipe, Joyce e Sofia — a Lavínia é isenta). ⚠️ A <b>família Juininho ainda precisa comprar</b> os 3 dela, pro mesmo dia e horário. Inclui: montanha de neve, patinação, jogos, shows e roupas impermeáveis. Não inclui: esqui/snowboard, estacionamento e comida. <span class="viagem-btn" data-place="snowland" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>❄️</span> Ingressos, alturas e programação</span></div></div>
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🫕 Fondue — La Famille de Gazon</div><div class="a">Sequência de fondue na pedra no Dia 5. A <b>família Felipe tem 2 vouchers de jantar pagos</b> (Felipe e Joyce); Sofia paga R$ 60 no local e Lavínia é isenta. A família Juininho paga no local. ⚠️ Falta confirmar se o restaurante <b>abre nas segundas</b> em setembro — o voucher só garante segundas até 31/07. <span class="viagem-btn" data-place="fondue" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>🫕</span> Vouchers, cardápio e regras</span></div></div>
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🚗 Transfer aeroporto ⇄ Gramado — FL Tour</div><div class="a">Contrato assinado com a FL Tour Gramado: 2 veículos, ida e volta, com cadeirinha e bebê-conforto. <b>R$ 1.150 no total</b>, sinal de R$ 350 pago e R$ 800 em aberto. ⚠️ Como a Azul mudou a ida, o <b>novo horário de chegada (08h50) precisa ser avisado</b> — o contrato ainda registra 07h00. <span class="viagem-btn" data-place="transfer" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>🚗</span> Contrato e todas as regras</span></div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🍫 Mundo Lugano</div><div class="a">Parque indoor de chocolate e jogos no dia da chegada (Dia 1) — e o rodízio de pizza fecha a noite.</div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🏴‍☠️ Jantar de aniversário — Cara de Mau</div><div class="a">Pizzaria pirata imersiva no Dia 3: rodízio de pizzas, show com o Capitão Cara de Mau e espaço lúdico no Navio pras crianças. Sessões 18h ou 21h30, por reserva — avisar do aniversário do Juininho.</div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🛷 Canela em dois dias — Alpen Park e Florybal separados</div><div class="a">Como ambos tomam muito tempo, ficaram em dias diferentes: Alpen Park (trenó e tirolesa) + Catedral de Pedra no Dia 4, e Terra Mágica Florybal (dinossauros e chocolate) + Garfo &amp; Bombacha no Dia 5. Ingressos a comprar.</div></div>
@@ -1126,13 +1181,14 @@
     <div class="cl-group reveal">Dia de viagem · mochila de mão</div>
 
     <div class="cl reveal" style="--accent:var(--amber)">
-      <div class="cl-head"><span class="ci">✈️</span><div><h3>Pra separar pro aeroporto</h3><div class="cs">Voo de madrugada 02:30 · pouso em POA 07:00</div></div></div>
+      <div class="cl-head"><span class="ci">✈️</span><div><h3>Pra separar pro aeroporto</h3><div class="cs">Voo de madrugada 02:45 · conexão em Guarulhos · pouso em POA 08:50</div></div></div>
       <ul>
         <li>Chegar no Guararapes com <b>~2h de antecedência</b> (estar lá por volta de 00:30)</li>
+        <li><b>São 4 trechos agora</b> — 4 cartões de embarque por passageiro, salvos offline</li>
         <li>Documento com foto de todos em mãos</li>
         <li>A passagem inclui bolsa + mão, <b>sem bagagem despachada</b> — caiba tudo</li>
         <li>Kit da Isis de fácil acesso: fralda, leite, muda e manta</li>
-        <li>Lanches e água pras crianças (voo de madrugada)</li>
+        <li>Lanches e água pras crianças — agora são <b>~6h de porta a porta</b> (dois voos + 1h de conexão)</li>
         <li>Casacos à mão pro desembarque — POA amanhece frio (~9–12°)</li>
         <li>Tablet e fones carregados; remédios de uso contínuo na mão</li>
         <li><b>Check-in só às 14h:</b> deixar uma muda do Dia 1 e os itens da bebê acessíveis</li>
@@ -1148,7 +1204,10 @@
     <h2>O que ainda falta fechar</h2>
     <p class="lead">Parte da logística (comigo, o Felipe). Não trava a aprovação de vocês — define os valores finais.</p>
     <div class="todo">
-      <div class="t"><b>Transporte</b> — van privativa x 2 carros alugados. Considerando a chegada 07:00, a bebê, cadeirinhas e o carrinho. A pousada tem estacionamento grátis, o que pesa a favor dos 2 carros.</div>
+      <div class="t"><b>⚠️ Avisar a FL Tour da mudança do voo</b> — o contrato assinado registra "voo com chegada prevista às 07h00" e o pouso agora é <b>08h50</b>. A cláusula 4.2 exige comunicação imediata: feito isso, a alteração da companhia aérea não conta como atraso nosso. Pedir ao Flávio a confirmação por escrito do novo horário.</div>
+      <div class="t"><b>Conferir o valor do transfer com o Flávio</b> — o contrato assinado diz <b>R$ 1.150 no total</b> (R$ 575 por trecho, já pelos dois carros), com sinal de <b>R$ 350</b> pago e <b>R$ 800</b> em aberto. Antes o site registrava R$ 1.150 por carro e sinal de R$ 300. Vale bater o número no WhatsApp e guardar o print.</div>
+      <div class="t"><b>Confirmar se o fondue abre na segunda-feira</b> — o voucher diz "até 31/07 aberto inclusive nas segundas". Nosso jantar é <b>segunda, 28/09</b>. Ligar pro La Famille de Gazon antes de contar com o Dia 5.</div>
+      <div class="t"><b>Ingressos do Snowland e do fondue da família Juininho</b> — os vouchers pagos cobrem só a família Felipe. A família Juininho ainda precisa comprar.</div>
       <div class="t"><b>Orçamento por família</b> — define o cenário (econômico, intermediário ou completo) e quais opcionais entram.</div>
     </div>
     <div class="legend">
@@ -1221,14 +1280,97 @@ const PLACES = {
     verdict:"Entrada leve e divertida pra começar a viagem com o pé direito."},
 
   snowland:{ico:"❄️",name:"Snowland",tag:"Parque de neve · Indoor · Gramado",g:"#bcd4e6,#5d7fa8",img:"",
-    addr:"RS-235, R. Linha Carazal, 9009 - Gramado - RS, 95675-500",ig:"snowlandgramado",wa:"555430501720",video:"",
+    addr:"Rodovia RS-235, R. Linha Carazal, 9009 - Bairro Carazal, Gramado - RS, 95675-500",ig:"snowlandgramado",wa:"555430501720",video:"",
+    tel:"+558008003737",email:"sac.snowland@gramadoparks.com",
+    receipt:{file:"comprovantes/snowland-ingressos.pdf",dl:"Ingressos-Snowland-26-09-2026.pdf",
+      title:"Ingressos do Snowland — família Felipe",sub:"Voucher 2025823 · 3 ingressos nominais · 26/09/2026 às 10h"},
     price:{adult:199.9,child:129.5,childMax:17,freeUnder:4,etiq:"pago"},
-    what:"O único parque de neve indoor da América Latina. Neve de verdade a -5°C, com pista de esqui e snowboard, patinação no gelo, tobogã, montanha de neve e espetáculo. Tudo coberto e climatizado. Ingressos já comprados para 26/09 às 10h!",
-    highlights:["Montanha de neve e castelinho","Patinação no gelo (min 1,15m e pé 28)","Tobogã, tubing e ice slide (min 1,30m)","Snow Kids pra 0–7 anos (Lavínia ✓)","Roupas impermeáveis inclusas","Esqui/snowboard: pago à parte"],
-    facts:[["✅ Voucher","JÁ PAGO — 26/09 às 10h (família F e J)"],["Horário","10h às 17h (atrações até 16h30)"],["Incluso","Entrada + todas as atrações, roupas impermeáveis"],["Não incluso","Esqui/snowboard, estacionamento, lockers, comida, fotos"],["Patinação","Min 1,15m e pé nº 28"],["Tubing / Ice Slide","Min 1,30m"],["Snow Kids","0 a 7 anos — Lavínia (3) entra"],["Ísis (bebê)","Min 1 ano na montanha de neve — verificar com os pais"],["Reagendamento","1ª vez grátis (48h antes); depois R$50/ingresso"]],
-    family:["Sofia (8) e Netinho (12): patinação, tubing, ice slide e jogos","Lavínia (3): Snow Kids e montanha de neve (espaço kids)","Ísis (bebê): verificar se já tem 1 ano completo pra área de neve"],
-    tip:"Vistam roupa térmica e meias grossas por baixo — o casaco emprestado ajuda, mas as pernas sentem o frio. Esqui/snowboard é pago à parte e vale a pena pra quem quiser experimentar.",
-    verdict:"O ponto alto da viagem — ingressos confirmados para o dia do aniversário do Juininho."},
+    what:"O único parque de neve indoor da América Latina: <b>neve de verdade a -5 °C</b>, montanha de neve, pista de patinação no gelo, tubing, ice slide, esqui e snowboard, shows e teatro — tudo coberto e climatizado, funciona chova ou faça sol. <b>Os ingressos da família Felipe já estão pagos</b> para <b>26/09 às 10h</b> — <b>o PDF com os 3 vouchers nominais está logo abaixo, é só tocar em \"Ver PDF\"</b>. A família Juininho ainda precisa comprar.",
+    highlights:["✅ 3 ingressos pagos — família Felipe","26/09 · entrada às 10h","Roupas impermeáveis inclusas","Montanha de neve e patinação","5 shows ao longo do dia","Snow Kids pra 0–7 anos (Lavínia ✓)","Esqui/snowboard: pago à parte"],
+    facts:[
+      ["✅ Situação","<b>PAGO — só a família Felipe</b> (3 ingressos). Família Juininho ainda precisa comprar."],
+      ["Data e hora","<b>26/09/2026 às 10:00</b> — aniversário do Juininho"],
+      ["Voucher","Nº <b>2025823</b> | 2093942 · compra SDJSZGUJ, em 17/06/2026"],
+      ["Comprado por","Joyce Rodrigues · joycetamiresleal@gmail.com"],
+      ["Agência","Laçador de Ofertas LTDA"],
+      ["Funcionamento","Parque das <b>10h às 17h</b> · atrações das <b>10h às 16h30</b>"],
+      ["Endereço","Rodovia RS-235, Linha Carazal, 9009 — Bairro Carazal, Gramado/RS"],
+      ["Central de vendas","0800 800 3737 · WhatsApp (54) 3050-1700"],
+      ["Incluso","Entrada + todas as atrações da montanha de neve, jogos do 2º andar, patinação e shows + <b>roupas impermeáveis</b>"],
+      ["Não incluso","Esqui e snowboard, estacionamento, lockers, souvenirs, alimentação, bebidas e fotos"],
+      ["Menores","Certidão de nascimento ou identidade é <b>obrigatória</b> na entrada · menor só entra acompanhado de maior de 18"],
+      ["Reagendamento","Até 48h antes · 1ª alteração grátis (só a diferença de tarifa) · depois R$ 50 por ingresso"],
+      ["Estacionamento","Estapar, pago à parte — dá pra comprar antecipado ou no parque"],
+      ["Preço de balcão (ref.)","Adulto R$ 199,90 · criança 4–17 R$ 129,50 — o site costuma ter promoção (visto a R$ 159,93 / R$ 103,60)"]
+    ],
+    sections:[
+      {t:"Quem já está pago", nav:"🎟️ Os ingressos", html:`<ul class="rules">
+        <li><span class="ri">🎟️</span><div><b>Joyce Tamires Leal da Costa Rodrigues</b> — Ingresso Adulto (Oferta Laçador) · código de acesso 39213978</div></li>
+        <li><span class="ri">🎟️</span><div><b>Felipe Rodrigues da Silva Gomes</b> — Ingresso Adulto (Oferta Laçador) · código de acesso 39213979</div></li>
+        <li><span class="ri">🎟️</span><div><b>Sofia Rodrigues Leal</b> — Ingresso Criança (04 a 17 anos) · código de acesso 39213977</div></li>
+        <li><span class="ri">👶</span><div><b>Lavínia (3 anos)</b> — não precisa de ingresso: <b>grátis até 3 anos</b>. Mas leva a certidão de nascimento.</div></li>
+        <li class="warn"><span class="ri">🛒</span><div><b>Família Juininho ainda não tem ingresso.</b> São 3 pagantes (Juininho, Jennifer e Netinho, 12 anos) — a Isis é isenta. Comprar pro <b>mesmo dia e horário</b>, 26/09 às 10h, pra todo mundo entrar junto.</div></li>
+        <li><span class="ri">📱</span><div>Os passaportes são <b>nominais e intransferíveis</b> e todos devem ser usados <b>no mesmo dia</b>. Apresentar o voucher na bilheteria junto com documento oficial com foto.</div></li>
+      </ul>`},
+
+      {t:"Altura e idade — quem entra em quê", nav:"📏 Alturas", html:`<div class="facts">
+        <div class="fact"><div class="k">Montanha de Neve</div><div class="vv">Idade mínima <b>1 ano completo</b></div></div>
+        <div class="fact"><div class="k">Patinação no Gelo</div><div class="vv">Altura mín. <b>1,15 m</b> e pé nº <b>28</b></div></div>
+        <div class="fact"><div class="k">Castelinho / Tubing infantil</div><div class="vv">De <b>0,90 m</b> a <b>1,30 m</b></div></div>
+        <div class="fact"><div class="k">Carrossel na Neve</div><div class="vv">De <b>0,90 m</b> a <b>1,30 m</b></div></div>
+        <div class="fact"><div class="k">Mini Playground</div><div class="vv">Altura <b>máxima</b> 1,10 m</div></div>
+        <div class="fact"><div class="k">Tubing</div><div class="vv">Altura mín. <b>1,30 m</b> <span style="color:var(--ink-soft)">(o mapa do parque indica 1,15 m — conferir na hora)</span></div></div>
+        <div class="fact"><div class="k">Ice Slide</div><div class="vv">Altura mín. <b>1,30 m</b></div></div>
+        <div class="fact"><div class="k">Ice Motion</div><div class="vv">Altura mín. <b>1,30 m</b></div></div>
+        <div class="fact"><div class="k">Simulador de esqui / 7D</div><div class="vv">Altura mín. <b>1,35 m</b></div></div>
+        <div class="fact"><div class="k">Snow Kids</div><div class="vv">De <b>0 a 7 anos</b> — espaço próprio</div></div>
+        <div class="fact"><div class="k">Esqui e snowboard</div><div class="vv">Altura mín. <b>1,15 m</b> e pé nº <b>28</b> · pago à parte</div></div>
+      </div>
+      <ul class="rules" style="margin-top:12px">
+        <li class="warn"><span class="ri">🤰</span><div>Por segurança, <b>não é permitida a entrada de gestantes</b> nem de portadores de osteoporose nas áreas de neve e patinação.</div></li>
+        <li class="warn"><span class="ri">👶</span><div><b>Menores de 1 ano não entram na área de neve.</b> Também não é permitido carregar criança no colo na pista de patinação nem na área de neve.</div></li>
+        <li><span class="ri">❤️</span><div>Não recomendado pra quem tem cardiopatia, asma, epilepsia, hipotensão/hipertensão ou problema de coluna.</div></li>
+      </ul>`},
+
+      {t:"Programação do dia — shows", nav:"🎭 Shows", html:`<div class="facts">
+        <div class="fact"><div class="k">09h50 · 2 min</div><div class="vv"><b>Boas-Vindas</b> — na Recepção</div></div>
+        <div class="fact"><div class="k">11h30 · 20 min</div><div class="vv"><b>Teatro: A Jornada do Guardião</b> — Teatro de Belleneve, na área de neve</div></div>
+        <div class="fact"><div class="k">12h30 · 20 min</div><div class="vv"><b>Musical: Encantos do Reino da Neve</b> — 2º andar, em frente à Área Kids</div></div>
+        <div class="fact"><div class="k">14h00 · 25 min</div><div class="vv"><b>Snowland On Ice</b> — show de patinação artística, na pista de patinação</div></div>
+        <div class="fact"><div class="k">15h15 · 10 min</div><div class="vv"><b>O Ritmo da Neve</b> — área de neve, em frente ao relógio</div></div>
+        <div class="fact"><div class="k">14h50 – 15h10</div><div class="vv"><b>Foto com os personagens</b></div></div>
+      </div>
+      <p style="font-size:.78rem;color:var(--ink-soft);margin-top:10px">Horários da programação divulgada pelo parque — <b>conferir o quadro na entrada no dia</b>, porque muda por temporada.</p>`},
+
+      {t:"Horários das atrações", nav:"🎢 Atrações", html:`<div class="facts">
+        <div class="fact"><div class="k">10h às 16h</div><div class="vv">Montanha de neve, tubing, ice slide, ice motion, carrossel na neve, castelo do reino, vila da neve, encontro com os patinadores</div></div>
+        <div class="fact"><div class="k">10h às 16h</div><div class="vv">Fotos com o Yeti (Caverna) · Esqui e snowboard: aulas e aluguel de equipamento</div></div>
+        <div class="fact"><div class="k">10h às 16h30</div><div class="vv">Pista de patinação no gelo</div></div>
+        <div class="fact"><div class="k">10h às 17h</div><div class="vv">Simulador de snowboard · Ice Games (2º andar) · Pista de esportes</div></div>
+        <div class="fact"><div class="k">13h30 às 17h</div><div class="vv"><b>Snow Kids</b> (Espaço Kids) — atenção ao horário, só abre à tarde</div></div>
+      </div>
+      <p style="font-size:.78rem;color:var(--ink-soft);margin-top:10px">O parque tem 3 níveis: <b>subsolo</b> (bilheteria, caverna, simulador), <b>piso principal</b> (área de neve, patinação, esqui) e <b>2º piso</b> (Ice Games, Área Kids, alimentação).</p>`},
+
+      {t:"Onde comer dentro do parque", nav:"🍔 Comida", html:`<ul class="rules">
+        <li><span class="ri">⛸️</span><div><b>Na pista de patinação:</b> Café de Belleneve, Taberna do Yeti, Royal Trudel e Laboratório Sr. Chocolate.</div></li>
+        <li><span class="ri">❄️</span><div><b>Na área de neve:</b> Café de Belleneve e o Pub da Montanha / Ice Bar.</div></li>
+        <li><span class="ri">🍕</span><div><b>Praça de alimentação, 2º piso:</b> Bamba Burguer, pizzaria, Café de Belleneve e o Restaurante Panorâmico Ice Bar.</div></li>
+        <li class="warn"><span class="ri">🚫</span><div><b>Não é permitido entrar com alimentos e bebidas</b> — só água e itens de bebê e de necessidade específica.</div></li>
+        <li><span class="ri">💰</span><div>Alimentação <b>não está inclusa</b> no ingresso. Prever esse gasto à parte pro dia.</div></li>
+      </ul>`},
+
+      {t:"Regras, cancelamento e no-show", nav:"📋 Regras", html:`<ul class="rules">
+        <li><span class="ri">🔁</span><div><b>Reagendamento:</b> até <b>48h antes</b> da data. A 1ª alteração é grátis (paga só a diferença de tarifa, se houver); as seguintes custam <b>R$ 50 por ingresso</b>. A nova data tem que respeitar a mesma temporada e o mesmo dia da semana.</div></li>
+        <li><span class="ri">↩️</span><div><b>Cancelamento:</b> em até 7 dias corridos da compra online, com direito de arrependimento. Passado esse prazo, dá pra cancelar até 48h antes, com taxa de <b>20%</b>. Pedido por e-mail pra <b>cancelamentos.snowland@gramadoparks.com</b>, do mesmo e-mail da compra.</div></li>
+        <li class="warn"><span class="ri">⛔</span><div><b>No-show:</b> ingresso não usado, não cancelado e não reagendado <b>não é reembolsado nem remarcado</b>. Perde.</div></li>
+        <li><span class="ri">🎒</span><div><b>Guarda-volumes</b> pra locação, sujeito a disponibilidade — o parque não se responsabiliza por objetos perdidos.</div></li>
+        <li><span class="ri">🐾</span><div>Não é permitida a entrada de <b>animais de estimação</b>.</div></li>
+        <li><span class="ri">📸</span><div>Fotos profissionais são vendidas à parte — no balcão de fotos ou antecipadamente pela central.</div></li>
+      </ul>`}
+    ],
+    family:["<b>Felipe e Joyce:</b> ingressos pagos ✓ — patinação, montanha de neve e o show das 14h","<b>Sofia (8):</b> ingresso pago ✓ — patinação (tem 1,15 m?), castelinho e Ice Games. Tubing e ice slide só se tiver 1,30 m","<b>Lavínia (3):</b> entra de graça ✓ — Snow Kids (abre 13h30), castelinho e carrossel na neve","<b>Juininho e Jennifer:</b> precisam comprar — mesma data e horário","<b>Netinho (12):</b> precisa comprar (ingresso criança 4–17) — pega tubing, ice slide e ice motion se tiver 1,30 m","<b>Isis (bebê):</b> isenta, mas <b>só entra na área de neve com 1 ano completo</b> — conferir a data de aniversário antes"],
+    tip:"Vistam <b>roupa térmica e meias grossas</b> por baixo: a roupa impermeável do parque protege do molhado, mas não do frio nas pernas. Levem <b>luvas e touca próprias</b> (as do parque são limitadas) e a <b>certidão de nascimento de cada criança</b> — sem documento, o menor não entra. Cheguem às 9h40 pra pegar a fila de troca de roupa antes da abertura e não perder o Boas-Vindas das 9h50. E lembrem: o <b>Snow Kids da Lavínia só abre às 13h30</b> — vale planejar o almoço pra antes disso.",
+    verdict:"O ponto alto da viagem — família Felipe com ingresso na mão pro dia do aniversário do Juininho. Falta só a família Juininho comprar os 3 dela."},
 
   hector:{ico:"🍕",name:"Hector — Pizzaria do Harry Potter",tag:"Rodízio temático · Jantar · Gramado",g:"#5a3a8a,#2a1d4a",img:"",
     addr:"Av. Borges de Medeiros, 1791 - Centro, Gramado - RS",ig:"hectordragao",wa:"555496885995",video:"",
@@ -1296,12 +1438,54 @@ const PLACES = {
 
   fondue:{ico:"🫕",name:"Fondue — La Famille de Gazon",tag:"Sequência fondue na pedra · PAGO · Gramado",g:"#c8893a,#7a4a2a",img:"",
     addr:"Av. das Hortênsias, 1008 - Centro, Gramado",ig:"gazongramado",wa:"",video:"",
+    receipt:{file:"comprovantes/fondue-voucher.pdf",dl:"Voucher-Fondue-La-Famille-de-Gazon.pdf",
+      title:"Voucher do fondue — família Felipe",sub:"2 vouchers de jantar · Laçador de Ofertas · válidos até 31/10/2026"},
     price:{adult:129.9,child:60,childMax:10,freeUnder:5,etiq:"pago"},
-    what:"Sequência de fondue na pedra na La Famille de Gazon: queijo derretido com vinho branco + pão, batata e legumes; carne na pedra (bovino, suíno e frango) com 11 molhos; e fondue de chocolate com 5 frutas e waffer. Vouchers já comprados — só aparecer!",
-    highlights:["Fondue de queijo com vinho branco","Carne na pedra: 3 tipos + 11 molhos","Fondue de chocolate com frutas","Sem agendamento — por ordem de chegada","Restaurante não cobra taxa de 10%"],
-    facts:[["Endereço","Av. das Hortênsias, 1008 - Centro, Gramado"],["Horário jantar","18h às 23h — todos os dias"],["Voucher","✅ JÁ PAGO (família F e J)"],["⚠️ Regra do voucher","NÃO VALE sábado nem domingo — somente dias de semana"],["Crianças","Até 4 anos: isento · 5 a 10 anos: R$60 no local"],["Agendamento","Não precisa — ordem de chegada"],["Bebidas","Não inclusas no voucher"],["Rodízio de vinhos","R$ 40 por pessoa (opcional)"],["Tempo de visita","~2h a 2h30 — refeição completa"]],
-    tip:"Chegar cedo (18h–18h30) pra não esperar. Levar os vouchers no celular — Felipe e Juininho têm os códigos (não publicados aqui por segurança).",
-    verdict:"Está no Dia 5 (segunda-feira) — fondue quente pra fechar o dia de Canela."},
+    what:"Sequência completa de fondue na pedra na <b>La Famille de Gazon</b>: fondue de queijo derretido com vinho branco (com pão, batata a vapor, goiabada e legumes), carne na pedra com <b>3 tipos de carne</b> e <b>11 molhos</b>, e fondue de chocolate ao leite com 5 frutas e waffer. <b>A família Felipe tem 2 vouchers de jantar já pagos</b> — <b>o PDF está logo abaixo, é só tocar em \"Ver PDF\"</b>. Sem agendamento: é por ordem de chegada.",
+    highlights:["✅ 2 vouchers pagos — família Felipe","Sequência completa: queijo, carne e chocolate","3 carnes + 11 molhos","Sem agendamento — ordem de chegada","Não cobra taxa de 10%","Válido até 31/10/2026"],
+    facts:[
+      ["✅ Situação","<b>PAGO — 2 vouchers, só a família Felipe.</b> Família Juininho paga no local."],
+      ["Valor do voucher","R$ 129,90 cada — sequência de fondue na pedra pra 1 pessoa"],
+      ["Comprado por","Joyce Rodrigues, em 17/06/2026 · Laçador de Ofertas"],
+      ["Validade","Até <b>31/10/2026</b>"],
+      ["Restaurante","La Famille de Gazon — Av. das Hortênsias, 1008, Centro, Gramado"],
+      ["Jantar","Todos os dias, das <b>18h às 23h</b>"],
+      ["⚠️ Segundas","O voucher diz \"até 31/07 aberto inclusive nas segundas\" — <b>nosso jantar é segunda, 28/09</b>. Ligar antes pra confirmar."],
+      ["Almoço especial","Sábados e domingos, 12h às 15h (nosso voucher é de <b>jantar</b>)"],
+      ["Crianças","Até 4 anos: <b>isento</b> · de 5 a 10 anos: <b>R$ 60,00</b> pagos no local"],
+      ["Agendamento","Não precisa — por ordem de chegada, igual pra todo mundo"],
+      ["Não incluso","Bebidas e couvert"],
+      ["Taxa de serviço","<b>O restaurante não cobra os 10%</b>"],
+      ["Tempo de visita","~2h a 2h30 — é refeição completa, em três tempos"],
+      ["Laçador de Ofertas","contato@lacadordeofertas.com.br · (51) 3062-6070, seg a sex 10h–17h"]
+    ],
+    sections:[
+      {t:"⚠️ Confirmar antes: abre na segunda?", nav:"⚠️ Segunda-feira", html:`<ul class="rules">
+        <li class="warn"><span class="ri">📅</span><div>O regulamento do voucher diz: jantar diariamente das 18h às 23h, <b>"até 31/07 aberto inclusive nas segundas"</b>. Isso sugere que, <b>depois de 31/07, a segunda pode não ter jantar</b>.</div></li>
+        <li class="warn"><span class="ri">🗓️</span><div><b>O nosso fondue está marcado pro Dia 5 — segunda-feira, 28/09.</b> Bem depois dessa data.</div></li>
+        <li><span class="ri">📞</span><div><b>Ligar ou chamar o restaurante antes da viagem</b> e confirmar se abre nas segundas em setembro. Se não abrir, o plano é simples: trocar o fondue com outro dia do roteiro — o voucher vale até 31/10, então qualquer noite da viagem serve.</div></li>
+        <li><span class="ri">✅</span><div>Boa notícia: o nosso voucher é da opção <b>JANTAR</b>, que vale <b>todos os dias</b>. A restrição de sábado e domingo do regulamento é só pros vouchers da opção <b>almoço</b> — não é o nosso caso.</div></li>
+      </ul>`},
+
+      {t:"Quem está pago e quem paga no local", nav:"🎟️ Os vouchers", html:`<ul class="rules">
+        <li><span class="ri">🎟️</span><div><b>2 vouchers de jantar em nome de Joyce Rodrigues</b> — códigos <b>JOGK54</b> e <b>QMMA17</b>, ambos com senha 115, válidos até 31/10/2026. Cobrem <b>Felipe e Joyce</b>.</div></li>
+        <li><span class="ri">👧</span><div><b>Sofia (8 anos):</b> paga <b>R$ 60,00 no local</b> — faixa de 5 a 10 anos.</div></li>
+        <li><span class="ri">👶</span><div><b>Lavínia (3 anos):</b> <b>isenta</b> — até 4 anos não paga.</div></li>
+        <li class="warn"><span class="ri">💳</span><div><b>Família Juininho paga tudo no local:</b> Juininho e Jennifer como adultos, <b>Netinho (12) também como adulto</b> — a isenção de R$ 60 vai só até os 10 anos. A Isis é isenta.</div></li>
+        <li><span class="ri">📱</span><div>Apresentar o voucher na chegada, <b>impresso ou no celular</b>. Vale a pena salvar o PDF offline — vejam se o restaurante tem sinal bom.</div></li>
+      </ul>`},
+
+      {t:"O que vem na sequência", nav:"🫕 O cardápio", html:`<ul class="rules">
+        <li><span class="ri">🧀</span><div><b>Fondue de queijo</b> — queijos selecionados derretidos com vinho branco, acompanhados de pão, batata a vapor, goiabada e legumes.</div></li>
+        <li><span class="ri">🥩</span><div><b>Fondue de carne na pedra</b> — <b>3 tipos de carne</b> (bovina, suína e frango) com <b>11 molhos</b> diferentes. É o prato principal e o que demora mais.</div></li>
+        <li><span class="ri">🍫</span><div><b>Fondue de chocolate</b> — chocolate ao leite com <b>5 variedades de frutas</b> e waffer pra fechar.</div></li>
+        <li><span class="ri">🍷</span><div><b>Bebidas e couvert não estão inclusos</b> no voucher — entram na conta à parte.</div></li>
+        <li><span class="ri">🍽️</span><div>Consumo <b>exclusivamente no local</b>. O voucher não pode ser revendido nem transferido.</div></li>
+      </ul>`}
+    ],
+    family:["<b>Felipe e Joyce:</b> vouchers pagos ✓ — só apresentar na chegada","<b>Sofia (8):</b> R$ 60,00 no local","<b>Lavínia (3):</b> isenta ✓","<b>Juininho, Jennifer e Netinho (12):</b> pagam como adultos no local","<b>Isis (bebê):</b> isenta ✓"],
+    tip:"Chegar <b>18h–18h30</b>, logo na abertura: não tem reserva, é ordem de chegada, e com 8 pessoas (4 delas crianças) a espera pesa. Como é sequência em três tempos, contem <b>~2h30</b> na mesa — é o programa da noite, não um jantar rápido. Levem os dois vouchers salvos no celular <b>e</b> impressos, por garantia.",
+    verdict:"Jantar da família Felipe já pago — só falta confirmar se o restaurante abre na segunda, dia 28."},
 
   cafecolonial:{ico:"☕",name:"Café Colonial Bela Vista",tag:"Café colonial · Bela Vista · Gramado",g:"#b88a5a,#74542f",img:"",
     addr:"Café Colonial Bela Vista - Gramado - RS",ig:"belavistacafecolonialoficial",wa:"555432861608",video:"",
@@ -1501,17 +1685,92 @@ const PLACES = {
         <li><span class="ri">🌐</span><div>Reservas feitas pela Booking.com seguem as condições da plataforma, e diferenças se resolvem lá. <b>A nossa foi direto com a pousada</b>, então vale o que está acima.</div></li>
       </ul>`}
     ],
-    tip:"Guardem o número <b>6.598</b> e o comprovante aqui do lado — é o que a recepção pede no check-in. Chegando às 7h da manhã, o quarto só sai às 14h: deixem as malas na recepção e comecem o dia pelo almoço.",
+    tip:"Guardem o número <b>6.598</b> e o comprovante aqui do lado — é o que a recepção pede no check-in. Com o novo voo, a chegada em Gramado fica por volta das <b>11h30–12h</b> e o quarto só sai às 14h: deixem as malas na recepção e comecem o dia pelo almoço. É também no check-in que se acerta por escrito o horário de saída do transfer no dia 29.",
     verdict:"Base central, com cozinha e estrutura de casa, tudo no térreo e já paga. Não sobra nada pra acertar na chegada."},
 
-  transfer:{ico:"🚗",name:"Transfer — FL Tour Gramado",tag:"Carro privativo · Aeroporto ⇄ Gramado",g:"#2e6b8a,#16384a",img:"",
-    addr:"Retirada no desembarque do Aeroporto Salgado Filho (POA) → Gramado (~2h de serra)",ig:"fltour.gramado",wa:"555492362592",video:"",
-    price:{note:"<b>R$ 1.290</b> ida e volta por carro (até 6x sem juros) · <b>R$ 1.150 no Pix</b> — 1 carro por família. Sinal de R$ 300 já pago pra fechar; o restante é acertado no fim da viagem. Escolhemos pagar no Pix.",etiq:"pago sinal"},
-    what:"Transfer privativo da FL Tour Gramado, com o Flávio Souza: 2 carros sedan (um por família) fazendo aeroporto ⇄ Gramado. Saída imediata do aeroporto na chegada e retorno programado 4 horas antes do voo de volta.",
-    highlights:["2 carros sedan — 1 por família","Saída imediata do aeroporto","Retorno 4h antes do voo","Ida e volta no mesmo pacote","Sinal pago — restante no fim"],
-    facts:[["Empresa","FL Tour Gramado — Flávio Souza"],["WhatsApp","(54) 9236-2592"],["Instagram","@fltour.gramado"],["Veículos","2 carros sedan (1 por família)"],["Valor","R$ 1.290 ida e volta (6x s/ juros) · R$ 1.150 no Pix — por carro"],["Pagamento","Sinal R$ 300 pago · restante no fim · escolhido Pix"],["Chegada","Saída imediata do aeroporto (pouso 07:00)"],["Retorno","4 horas antes do voo de volta (voo 19:20)"]],
-    tip:"Confirmar com o Flávio no WhatsApp o ponto de encontro no desembarque e o horário exato do retorno alguns dias antes — e combinar o acerto do restante no Pix.",
-    verdict:"Nosso transporte aeroporto ⇄ Gramado: privativo, um carro por família, sem depender de aluguel."},
+  transfer:{ico:"🚗",name:"Transfer — FL Tour Gramado",tag:"Privativo · Aeroporto ⇄ Gramado · Contrato assinado",g:"#2e6b8a,#16384a",img:"",
+    addr:"Receptivo no desembarque do Aeroporto Salgado Filho (POA) → Pousada Cabanas Rota do Sol, Gramado (~2h de serra)",ig:"fltour.gramado",wa:"555492362592",video:"",
+    tel:"+555492362592",email:"fltour@hotmail.com",
+    receipt:{file:"comprovantes/transfer-fltour-contrato.pdf",dl:"Contrato-FL-Tour-Transfer-Ida-e-Volta.pdf",
+      title:"Contrato do transfer — assinado",sub:"Minuta revisada FL Tour Gramado · ida e volta · 23/07/2026"},
+    price:{etiq:"sinal pago",note:"<b>R$ 1.150,00 no total</b>, via Pix — cobre os <b>dois carros</b> e os <b>dois trechos</b> (R$ 575,00 na ida + R$ 575,00 na volta).<br><span style='color:var(--ink-soft)'>Rateado: <b>R$ 575,00 por família</b>.</span><br><b>Sinal de R$ 350,00 já pago</b> · saldo de <b>R$ 800,00</b> a acertar no fim da viagem.<br><span style='color:var(--ink-soft);font-size:.86em'>⚠️ Esses são os números do contrato assinado. O site registrava antes R$ 1.150 <i>por carro</i> e sinal de R$ 300 — vale bater com o Flávio no WhatsApp e guardar o print.</span>"},
+    what:"Transfer privativo da FL Tour Gramado, com o Flávio Souza: <b>2 veículos</b> (um por família) fazendo aeroporto ⇄ Gramado nos dois sentidos, com cadeirinha e bebê-conforto inclusos. O motorista faz o receptivo dentro do aeroporto e chama no WhatsApp <b>um dia antes</b> de cada trecho. Contrato assinado pelas duas partes em 23/07/2026 — <b>o PDF completo está logo abaixo, é só tocar em \"Ver PDF\"</b>.",
+    highlights:["Contrato assinado — PDF aqui","2 veículos · 1 por família","Receptivo dentro do aeroporto","01 cadeirinha + 01 bebê-conforto","Saída imediata na chegada","Tolerância de 1h após o pouso","Sinal pago · R$ 800 em aberto"],
+    facts:[
+      ["Empresa","<b>FL Tour Gramado</b> — Flávio Souza"],
+      ["CNPJ","46.490.542/0001-90"],
+      ["Endereço","Rua Santa Maria, 16 — Carniel, Gramado"],
+      ["WhatsApp","(54) 99236-2592 · (54) 99124-6912"],
+      ["E-mail","fltour@hotmail.com"],
+      ["Instagram","@fltour.gramado"],
+      ["Contratante","Joyce Tamires Leal da Costa Rodrigues"],
+      ["Serviço","Transfer aeroporto privativo — <b>ida e volta</b>"],
+      ["Passageiros","08 — cadastrados no sistema da empresa"],
+      ["Veículos","2 (um por família) — carro, van ou ônibus conforme adequação"],
+      ["Destino","Pousada Cabanas Rota do Sol, Gramado"],
+      ["Ida","<b>24/09/2026</b> · Porto Alegre → Gramado · R$ 575,00"],
+      ["Volta","<b>29/09/2026</b> · Gramado → Porto Alegre · R$ 575,00"],
+      ["Total","<b>R$ 1.150,00</b> via Pix (2 carros · 2 trechos)"],
+      ["Sinal pago","R$ 350,00"],
+      ["Saldo em aberto","<b>R$ 800,00</b> — acertar no fim da viagem"],
+      ["Contrato","Minuta revisada, assinada pelas partes em 23/07/2026"]
+    ],
+    sections:[
+      {t:"⚠️ O voo mudou — precisa reavisar", nav:"⚠️ Voo mudou", html:`<ul class="rules">
+        <li class="warn"><span class="ri">🔄</span><div><b>O contrato registra "voo com chegada prevista às 07h00".</b> A Azul cancelou o voo direto e o pouso em Porto Alegre passou para <b>08h50</b> — 1h50 mais tarde.</div></li>
+        <li><span class="ri">📞</span><div><b>Avisar o Flávio pelo WhatsApp o quanto antes</b> e passar a nova previsão de chegada: voo <b>AD 2842</b>, chegando às <b>08:50</b> de 24/09, reserva <b>BT2PVB</b>.</div></li>
+        <li><span class="ri">🛡️</span><div>A cláusula 4.2 protege a gente: alteração feita pela companhia aérea, <b>comprovada e comunicada imediatamente</b>, não é tratada como desistência nem como atraso nosso. O que ativa essa proteção é justamente o aviso — por isso ele não pode esperar.</div></li>
+        <li><span class="ri">📄</span><div>Pedir ao Flávio a <b>confirmação por escrito</b> do novo horário (print do WhatsApp já serve) e guardar junto com o e-mail da Azul.</div></li>
+      </ul>`},
+
+      {t:"Ida — Qui, 24/09", nav:"🛬 A ida", html:`<ul class="rules">
+        <li><span class="ri">🛬</span><div><b>08:50</b> — pouso em Porto Alegre (Salgado Filho), voo AD 2842 vindo de Guarulhos.</div></li>
+        <li><span class="ri">🧳</span><div>Desembarque, banheiro e retirada de bagagem: contar <b>~30 a 40 minutos</b> com 4 crianças.</div></li>
+        <li><span class="ri">📱</span><div>O motorista <b>entra em contato pelo WhatsApp um dia antes</b> e faz o receptivo dentro do aeroporto. Ele localiza o grupo — combinar o ponto exato de encontro na véspera.</div></li>
+        <li><span class="ri">🚗</span><div>Depois do encontro, a <b>saída é imediata</b> do aeroporto em direção à pousada. Serra: ~2h.</div></li>
+        <li><span class="ri">🏡</span><div>Chegada prevista em Gramado por volta das <b>11h30 – 12h</b>. O check-in da pousada é às 14h — as malas ficam na recepção e o dia começa pelo almoço.</div></li>
+      </ul>`},
+
+      {t:"Volta — Ter, 29/09", nav:"🛫 A volta", html:`<ul class="rules">
+        <li><span class="ri">✈️</span><div>Voo de volta às <b>19h20</b>, saindo de Porto Alegre.</div></li>
+        <li><span class="ri">✍️</span><div><b>O horário exato de saída de Gramado é definido por escrito no check-in da pousada</b> (cláusula 6) — não é combinado agora. Levar isso na lembrança no dia 24.</div></li>
+        <li><span class="ri">⏱️</span><div>O horário tem que considerar as ~2h de estrada, o trânsito e a antecedência do embarque. Na prática, saída de Gramado entre <b>14h e 15h20</b>.</div></li>
+        <li><span class="ri">📞</span><div>Se a FL Tour precisar mudar esse horário, ela avisa com antecedência — e a mudança <b>só vale depois de comunicada</b> à contratante.</div></li>
+        <li><span class="ri">💳</span><div>É no fim da viagem que se acerta o <b>saldo de R$ 800,00</b>, no Pix.</div></li>
+      </ul>`},
+
+      {t:"Se o voo atrasar", nav:"⏱ Atraso", html:`<ul class="rules">
+        <li><span class="ri">🕐</span><div><b>Tolerância de 1 hora</b>, contada a partir do <b>horário efetivo do pouso</b> informado pela companhia — já cobrindo desembarque, bagagem e o encontro com o motorista.</div></li>
+        <li><span class="ri">✅</span><div>Atraso causado pela <b>companhia aérea</b> não é atraso nosso, desde que a FL Tour seja avisada assim que soubermos e receba a nova previsão de chegada.</div></li>
+        <li class="warn"><span class="ri">💰</span><div>Se o atraso bagunçar a programação dos veículos ou gerar custo comprovado, pode haver taxa — <b>limite de R$ 80,00 por hora e por veículo</b>. O valor e o critério têm que ser <b>informados e acordados antes</b> do atendimento.</div></li>
+        <li class="warn"><span class="ri">🍔</span><div><b>Demora nossa conta como atraso:</b> parar pra comer, comprar ou resolver coisas pessoais depois do desembarque sem avisar o motorista. Depois da tolerância, cabe cobrança.</div></li>
+      </ul>`},
+
+      {t:"Se o voo for cancelado ou alterado", nav:"🔄 Voo cancelado", html:`<ul class="rules">
+        <li><span class="ri">📄</span><div>Cancelamento, realocação ou alteração pela companhia, <b>comprovados e comunicados imediatamente</b>, não são tratados como desistência nem como no-show.</div></li>
+        <li><span class="ri">🔁</span><div><b>Se avisarmos antes dos motoristas saírem:</b> o transfer é remarcado pra nova data ou horário, conforme disponibilidade, <b>aproveitando o valor já pago</b>. Diferença de custo, se houver, tem que ser acordada antes.</div></li>
+        <li class="warn"><span class="ri">🚙</span><div><b>Se os motoristas já tiverem saído ou chegado ao aeroporto:</b> a FL Tour pode reter o sinal de <b>R$ 350,00</b> pra cobrir os custos — mas <b>não cobra o saldo de R$ 800,00</b> do serviço que não aconteceu.</div></li>
+        <li><span class="ri">🆕</span><div>Conseguindo outro voo, dá pra remarcar o atendimento no novo horário ou no dia seguinte (havendo disponibilidade), descontando só os custos efetivamente gerados e informados antes.</div></li>
+        <li class="warn"><span class="ri">⛔</span><div><b>Cobrança integral</b> continua valendo em caso de desistência voluntária, ausência sem comunicação, no-show ou <b>falta de comprovação</b> do cancelamento — por isso guardar sempre o e-mail da Azul.</div></li>
+      </ul>`},
+
+      {t:"Cancelar a reserva do transfer", nav:"📅 Cancelamento", html:`<ul class="rules">
+        <li><span class="ri">✅</span><div><b>Até 7 dias antes</b> da data de utilização: estorno de <b>100%</b> do valor contratado.</div></li>
+        <li><span class="ri">⚖️</span><div><b>Até 3 dias antes:</b> estorno parcial de <b>50%</b>, com retenção pros custos operacionais.</div></li>
+        <li class="warn"><span class="ri">⛔</span><div><b>Com menos de 72 horas:</b> sem direito a estorno — o valor fica retido.</div></li>
+        <li><span class="ri">🗓️</span><div>Quando houver estorno, ele pode levar <b>até 30 dias corridos</b>.</div></li>
+        <li><span class="ri">📌</span><div>Estas regras valem pro cancelamento por vontade nossa. Cancelamento por causa do <b>voo</b> segue a cláusula 4.2, na aba ao lado.</div></li>
+      </ul>`},
+
+      {t:"Bagagens e cadeirinhas", nav:"🧳 Bagagem", html:`<ul class="rules">
+        <li><span class="ri">👶</span><div>Declarados no contrato: <b>01 cadeirinha</b> e <b>01 bebê-conforto</b>, fornecidos pela FL Tour conforme idade, peso e altura informados.</div></li>
+        <li><span class="ri">🧳</span><div>Bagagem declarada: <b>08 malas de 10 kg</b>, mochilas e <b>01 carrinho de bebê</b>.</div></li>
+        <li class="warn"><span class="ri">⚠️</span><div>Bagagem <b>não declarada</b> que não couber nos veículos pode exigir a contratação de um <b>carro adicional</b>, com custo à parte. Se a mala aumentar até setembro, avisar antes.</div></li>
+        <li><span class="ri">🚐</span><div>O serviço é operado em carro, van ou ônibus, conforme a quantidade de passageiros e bagagens — a empresa adequa o veículo.</div></li>
+      </ul>`}
+    ],
+    tip:"Duas coisas não podem passar: <b>(1)</b> avisar o Flávio hoje da mudança do voo — o contrato ainda diz 07h00 e a proteção da cláusula 4.2 depende desse aviso; <b>(2)</b> no check-in da pousada, dia 24, deixar <b>por escrito</b> o horário de saída do dia 29. Guardem o print das duas conversas.",
+    verdict:"Contrato assinado, sinal pago e cláusulas boas pra quem viaja com criança — só falta reavisar o novo horário de chegada."},
 
   opcionais:{ico:"🌸",name:"Outras opcionais",tag:"Atrações extras · decidir na hora",g:"#8a7eb8,#544a8a",img:"",
     addr:"",ig:"",wa:"",video:"",price:null,
@@ -1526,7 +1785,7 @@ const DAYS = [
   {n:1,date:"Qui · 24 Set",ico:"✈️",accent:"var(--choco)",title:"Chegada & Mundo Lugano",obj:"Subir a serra com calma, instalar e curtir o centro sem pressa.",
    anchor:"lugano",tired:"leve",rain:"Mundo Lugano é indoor — perfeito em qualquer clima",book:null,
    slots:[
-     {t:"Manhã",b:"Pouso em Porto Alegre às 07:00, retirar carro/transfer e subir a serra (~2h, com parada pra café e troca da bebê).",p:[]},
+     {t:"08:50",b:"Pouso em Porto Alegre (voo agora com conexão em Guarulhos). Retirar bagagem, encontrar o motorista da FL Tour no desembarque e subir a serra (~2h, com parada pra café e troca da bebê).",p:["transfer"]},
      {t:"~12h",b:"Chegada em Gramado pela Cabanas Rota do Sol (check-in a partir das 14h — dá pra deixar as malas antes). Almoço numa churrascaria, rodízio gaúcho pra estrear a viagem.",p:["hotel"]},
      {t:"Tarde",b:"Depois de descansar, Mundo Lugano — parque indoor de chocolate, jogos e shows, no coração de Gramado.",p:["lugano"]},
      {t:"Noite",b:"Rodízio de pizza no próprio Mundo Lugano — fecha o dia sem sair do lugar.",p:[]}
@@ -1561,7 +1820,7 @@ const DAYS = [
      {t:"Manhã",b:"Terra Mágica Florybal — parque grande com dinossauros animatrônicos, cavernas, cenários temáticos e a fábrica de chocolate Florybal. Percurso ao ar livre (~2h a 3h).",p:["florybal"]},
      {t:"Almoço",b:"Garfo & Bombacha — churrascaria campeira na RS-466, com costelão na brasa e show de danças gaúchas. Na mesma estrada do Florybal.",p:["garfoebombacha"]},
      {t:"Tarde",b:"Fechar o Florybal com calma e voltar pra Gramado pra descansar antes da noite.",p:[]},
-     {t:"Noite",b:"🫕 Fondue na La Famille de Gazon — sequência completa: queijo, carne na pedra e chocolate. Voucher já pago! Chegar a partir das 18h, por ordem de chegada. Só funciona em dias de semana (segunda ✓).",p:["fondue"]}
+     {t:"18h",b:"🫕 Fondue na La Famille de Gazon — sequência completa: queijo, carne na pedra com 11 molhos e chocolate. Vouchers da família Felipe já pagos. Sem reserva, é por ordem de chegada: chegar às 18h, na abertura. ⚠️ Confirmar antes se o restaurante abre na segunda-feira.",p:["fondue"]}
    ]},
   {n:6,date:"Ter · 29 Set",ico:"🧳",accent:"var(--hortensia)",title:"Último dia — manhã livre &amp; volta",obj:"Check-out até 12h e estrada pra Porto Alegre com folga. Sem atração marcada — a regra do dia é não perder o voo.",
    anchor:null,tired:"leve",rain:"Em chuva, ficar no coberto (café/Rua Coberta) até a hora de sair",book:"Confirmar transporte de volta pra POA",
@@ -1605,7 +1864,8 @@ const TRAVELERS = [
 const ETIQ={oficial:"oficial",estimado:"estimado",conferir:"confirmar"};
 const brl=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 function priceFor(pr,age){ if(!pr) return 0; if(age<pr.freeUnder) return 0; if(pr.childMax!=null && age<=pr.childMax) return pr.child; return pr.adult; }
-function famTotal(p,fam){ if(!p.price||p.price.tbd) return 0; return TRAVELERS.filter(t=>t.fam===fam).reduce((s,t)=>s+priceFor(p.price,t.age),0); }
+/* preço "por nota" (hospedagem, transfer) não é por pessoa — não entra no rateio */
+function famTotal(p,fam){ if(!p.price||p.price.tbd||p.price.adult==null) return 0; return TRAVELERS.filter(t=>t.fam===fam).reduce((s,t)=>s+priceFor(p.price,t.age),0); }
 
 function chip(id){const p=PLACES[id];return `<span class="pchip" data-place="${id}">${p.ico} ${p.name}</span>`}
 
@@ -1744,7 +2004,7 @@ function renderBudget(){
   let html="", gF=0, gJ=0;
   DAYS.forEach(d=>{
     const seen=new Set(), rows=[];
-    d.slots.forEach(s=>s.p.forEach(id=>{ if(!seen.has(id)){ seen.add(id); const p=PLACES[id]; if(p.price){ rows.push({name:p.name,tbd:!!p.price.tbd,F:famTotal(p,'F'),J:famTotal(p,'J')}); } } }));
+    d.slots.forEach(s=>s.p.forEach(id=>{ if(!seen.has(id)){ seen.add(id); const p=PLACES[id]; if(p.price&&(p.price.tbd||p.price.adult!=null)){ rows.push({name:p.name,tbd:!!p.price.tbd,F:famTotal(p,'F'),J:famTotal(p,'J')}); } } }));
     if(!rows.length){
       html += `<div class="bud-day reveal"><h4><span>Dia ${d.n} · ${d.title}</span><span class="bud-head">só passeios grátis</span></h4></div>`;
       return;
@@ -1764,7 +2024,7 @@ function renderBudget(){
   document.getElementById("budTotalJ").textContent = brl(gJ);
 }
 
-const TARGET = new Date("2026-09-24T02:30:00-03:00").getTime();
+const TARGET = new Date("2026-09-24T02:45:00-03:00").getTime();
 function tick(){
   const diff = TARGET - Date.now();
   if(diff<=0){

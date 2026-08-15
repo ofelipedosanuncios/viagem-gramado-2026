@@ -103,7 +103,15 @@
   .jrn-chips span{font-size:.72rem;font-weight:600;color:var(--ink-soft);background:var(--cream-2);border-radius:20px;padding:4px 11px;white-space:nowrap}
   .jrn-map{width:100%;max-width:400px;height:auto;display:block;margin:14px auto 2px}
 
-  .jrn-rail{position:relative;margin-top:10px}
+  .jrn-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:12px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--cream);color:var(--ink);font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer;transition:background .2s}
+  .jrn-btn:hover{background:var(--cream-2)}
+  .jrn-btn .ch{display:inline-block;font-size:.62rem;transition:transform .25s;color:var(--hortensia)}
+  .jrn-btn[aria-expanded="true"] .ch{transform:rotate(180deg)}
+  .jrn-det{display:none}
+  .jrn-det.show{display:block;animation:jfade .28s ease}
+  @keyframes jfade{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+  .jrn-rail{position:relative;margin-top:14px}
   .jrn-rail::before{content:"";position:absolute;left:67px;top:18px;bottom:18px;width:2px;background:var(--line);border-radius:2px}
   .jstop,.jleg{display:grid;grid-template-columns:56px 24px 1fr}
   .jstop{align-items:start}
@@ -611,6 +619,12 @@
         <text x="360" y="42" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink-soft)">~11:30</text>
       </svg>
 
+      <button class="jrn-btn" type="button" data-jrn="det-ida" aria-expanded="false" aria-controls="det-ida"
+              data-more="🕐 Ver programação completa da ida" data-less="Recolher programação da ida">
+        <span class="jl-txt">🕐 Ver programação completa da ida</span><span class="ch">▼</span>
+      </button>
+
+      <div class="jrn-det" id="det-ida">
       <div class="jrn-rail">
         <div class="jstop">
           <div class="jt">22:30<small>Qua 23</small></div><div class="jdot base">🏠</div>
@@ -661,6 +675,7 @@
       </div>
 
       <p class="jrn-foot">⏱️ <b>~13h de porta a porta</b>, de sair de casa até chegar na pousada — sendo 6h05 entre o primeiro embarque e o pouso em Porto Alegre.</p>
+      </div>
     </div>
 
     <!-- ROTA DA VOLTA — mapa + hora a hora -->
@@ -700,6 +715,12 @@
         <text x="362" y="42" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink-soft)">01:00</text>
       </svg>
 
+      <button class="jrn-btn" type="button" data-jrn="det-volta" aria-expanded="false" aria-controls="det-volta"
+              data-more="🕐 Ver programação completa da volta" data-less="Recolher programação da volta">
+        <span class="jl-txt">🕐 Ver programação completa da volta</span><span class="ch">▼</span>
+      </button>
+
+      <div class="jrn-det" id="det-volta">
       <div class="jrn-rail">
         <div class="jstop">
           <div class="jt">12:00<small>Ter 29</small></div><div class="jdot base">🏡</div>
@@ -744,6 +765,7 @@
       </div>
 
       <p class="jrn-foot">⏱️ <b>5h40 de Porto Alegre a Recife</b> · ~11h desde a saída de Gramado até pousar em casa.</p>
+      </div>
     </div>
 
     <p class="ap-sub" style="margin-top:22px">Mais detalhes · toque para abrir</p>
@@ -1252,7 +1274,7 @@
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">❄️ Snowland — 26/09 às 10h</div><div class="a">Data e horário confirmados: <b>26/09 (sábado, aniversário do Juininho) às 10h</b>. A <b>família Felipe já tem os 3 ingressos pagos</b> (Felipe, Joyce e Sofia — a Lavínia é isenta). ⚠️ A <b>família Juininho ainda precisa comprar</b> os 3 dela, pro mesmo dia e horário. Inclui: montanha de neve, patinação, jogos, shows e roupas impermeáveis. Não inclui: esqui/snowboard, estacionamento e comida. <span class="viagem-btn" data-place="snowland" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>❄️</span> Ingressos, alturas e programação</span></div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🫕 Fondue — La Famille de Gazon</div><div class="a">Sequência de fondue na pedra no Dia 5. A <b>família Felipe tem 2 vouchers de jantar pagos</b> (Felipe e Joyce); Sofia paga R$ 60 no local e Lavínia é isenta. A família Juininho paga no local. ⚠️ Falta confirmar se o restaurante <b>abre nas segundas</b> em setembro — o voucher só garante segundas até 31/07. <span class="viagem-btn" data-place="fondue" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>🫕</span> Vouchers, cardápio e regras</span></div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🚗 Transfer aeroporto ⇄ Gramado — FL Tour</div><div class="a">Contrato assinado com a FL Tour Gramado: 2 veículos, ida e volta, com cadeirinha e bebê-conforto. <b>R$ 1.150 no total</b>, sinal de R$ 350 pago e R$ 800 em aberto. ⚠️ Falta <b>alinhar o horário de chegada com o Flávio</b>: o contrato registra 07h00 e o pouso é às <b>08h50</b>. <span class="viagem-btn" data-place="transfer" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>🚗</span> Contrato e todas as regras</span></div></div>
-      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🍫 Mundo Lugano</div><div class="a">Parque indoor de chocolate e jogos no dia da chegada (Dia 1) — e o rodízio de pizza fecha a noite.</div></div>
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🍫 Mundo Lugano — Dia 1, com rodízio</div><div class="a">Parque indoor de 3 andares no centro, com jogos ilimitados, pra fechar o dia da chegada. A <b>família Felipe tem os 4 ingressos com rodízio de pizza já pagos</b> (R$ 329,72); a família Juininho ainda precisa comprar. Não precisa agendar — é só chegar. <span class="viagem-btn" data-place="lugano" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>🍫</span> Vouchers, shows e cardápio</span></div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🏴‍☠️ Jantar de aniversário — Cara de Mau</div><div class="a">Pizzaria pirata imersiva no Dia 3: rodízio de pizzas, show com o Capitão Cara de Mau e espaço lúdico no Navio pras crianças. Sessões 18h ou 21h30, por reserva — avisar do aniversário do Juininho.</div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🛷 Canela em dois dias — Alpen Park e Florybal separados</div><div class="a">Como ambos tomam muito tempo, ficaram em dias diferentes: Alpen Park (trenó e tirolesa) + Catedral de Pedra no Dia 4, e Terra Mágica Florybal (dinossauros e chocolate) + Garfo &amp; Bombacha no Dia 5. Ingressos a comprar.</div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🧸 Lago Negro & Mundo Criamigos</div><div class="a">Dia 2, um dia leve em Gramado: manhã no Lago Negro e uma tarde dedicada ao Criamigos, onde cada criança monta o próprio urso de pelúcia.</div></div>
@@ -1430,15 +1452,93 @@
    price{adult,child,childMax,freeUnder,etiq} (null = grátis),
    what, highlights, facts, family(opc), tip, verdict */
 const PLACES = {
-  lugano:{ico:"🍫",name:"Mundo Lugano",tag:"Parque indoor · Chocolate & jogos · Gramado",g:"#a4703e,#5e3d24",img:"",
+  lugano:{ico:"🍫",name:"Mundo Lugano",tag:"Parque indoor · Jogos & rodízio de pizza · Gramado",g:"#a4703e,#5e3d24",img:"",
     addr:"Av. Borges de Medeiros, 2497 - Centro, Gramado - RS, 95670-000",ig:"mundolugano",wa:"5554992762168",video:"",
-    price:{adult:109.9,child:89.9,childMax:12,freeUnder:4,etiq:"oficial"},
-    what:"Parque temático indoor no coração de Gramado, da marca de chocolate Lugano. Esculturas gigantes feitas de chocolate, mais de 70 máquinas de games, realidade virtual, boliche, shows com personagens e até rodízio de pizza. Diversão garantida em qualquer clima.",
-    highlights:["Esculturas gigantes de chocolate","70+ games e realidade virtual","Shows com personagens","Rodízio de pizza (opcional)","Boliche e oficina de chocolate (à parte)"],
-    facts:[["Horário","Quarta a segunda 10h–23h (entrada até 21h) · fecha terças · rodízio 17h–23h"],["Tempo de visita","~2h a 3h"],["Atrações","Games, VR, shows e área de chocolate"],["Extras pagos","Boliche e oficina de chocolate"],["Se chover","Indoor — perfeito em qualquer clima"]],
-    family:["Netinho (12) e Sofia (8): games, VR e boliche","Lavínia (3): shows e o mundo de chocolate","Isis (bebê): tranquilo, ambiente fechado"],
-    tip:"Como é central e indoor, é a abertura perfeita pro dia de chegada — sem exigir energia depois do voo de madrugada.",
-    verdict:"Entrada leve e divertida pra começar a viagem com o pé direito."},
+    email:"contato@mundolugano.com.br",
+    receipt:{file:"comprovantes/lugano-vouchers.pdf",dl:"Vouchers-Mundo-Lugano-Familia-Felipe.pdf",
+      title:"Vouchers do Mundo Lugano — família Felipe",sub:"4 ingressos com rodízio de pizza · comprados em 06/08/2026 · válidos até 31/12/2026"},
+    price:{adult:97.43,child:67.43,childMax:12,freeUnder:3,etiq:"pago"},
+    what:"Parque indoor de <b>três andares</b> no coração de Gramado, a poucos passos da Rua Coberta. Mais de <b>50 jogos</b> — parede de escalada, brinquedão, jogos de tiro, sala de PS5, Mundo Express — e o melhor: <b>sem fichas, sem créditos e sem cartões</b>, dá pra jogar o dia inteiro quantas vezes quiser. Tem ainda shows do mascote Luguito ao longo do dia e um <b>rodízio de pizzas temático</b> no Mundo Lunar. <b>A família Felipe tem os 4 ingressos com rodízio já pagos</b> — <b>o PDF está logo abaixo, é só tocar em \"Ver PDF\"</b>.",
+    highlights:["✅ 4 ingressos pagos — família Felipe","Rodízio de pizza incluso","+50 jogos em 3 andares","Sem fichas nem créditos — joga à vontade","Shows do Luguito o dia todo","Indoor — funciona com chuva","⚠️ Fecha às terças-feiras"],
+    facts:[
+      ["✅ Situação","<b>PAGO — só a família Felipe</b> (2 adultos + 2 infantis, todos com rodízio). Família Juininho ainda precisa comprar."],
+      ["Total pago","<b>R$ 329,72</b> — 2 × R$ 97,43 (adulto) + 2 × R$ 67,43 (infantil)"],
+      ["Comprado por","Joyce Rodrigues, em 06/08/2026"],
+      ["Validade","Usar até <b>31/12/2026</b> · <b>não precisa agendar</b>, é só chegar"],
+      ["⚠️ Fecha às terças","Abre <b>todos os dias, menos terça-feira</b> — nosso Dia 1 é quinta, então tudo certo"],
+      ["Funcionamento","<b>10h às 23h</b> · entrada no parque só até as <b>21h</b>"],
+      ["Shows do Luguito","Das <b>10h30 às 20h30</b>, de meia em meia hora"],
+      ["Rodízio de pizza","Seg a sex: <b>17h às 23h</b> · sáb e dom: 12h às 23h · entrada no restaurante até as <b>22h</b>"],
+      ["⚠️ Rodízio","<b>Acesso único.</b> Saiu do restaurante, não pode voltar — só entrar quando todo mundo estiver com fome"],
+      ["Crianças","Até <b>2 anos</b> não pagam"],
+      ["Jogos","Sem limite de uso — <b>sem fichas, sem créditos, sem cartões</b>"],
+      ["Não incluso","Bebidas, outras comidas, customização de chocolates e máquinas de pelúcia"],
+      ["Taxa de 10%","Pode ser cobrada sobre o serviço, mas é <b>opcional</b>"],
+      ["Comida de fora","<b>Proibido entrar com comida e bebida</b> (exceto restrição alimentar)"],
+      ["Documento","Levar <b>RG ou CNH</b> — é exigido na entrada"],
+      ["Menores","Menor de 18 não entra desacompanhado de responsável"],
+      ["Endereço","Av. Borges de Medeiros, 2497 — Centro, Gramado/RS"],
+      ["Contato","WhatsApp (54) 99276-2168 · contato@mundolugano.com.br"]
+    ],
+    sections:[
+      {t:"Os 4 vouchers da família Felipe", nav:"🎟️ Vouchers", html:`<ul class="rules">
+        <li><span class="ri">🎟️</span><div><b>2 × Ingresso Adulto + Rodízio de Pizza</b> — R$ 97,43 cada. Cobrem <b>Felipe e Joyce</b>.</div></li>
+        <li><span class="ri">🎟️</span><div><b>2 × Ingresso Infantil + Rodízio de Pizza</b> — R$ 67,43 cada. Cobrem <b>Sofia (8)</b> e <b>Lavínia (3)</b>.</div></li>
+        <li><span class="ri">💰</span><div>Total pago: <b>R$ 329,72</b>. Todos incluem entrada no parque <b>e</b> o rodízio de pizzas.</div></li>
+        <li><span class="ri">📱</span><div>Apresentar o voucher na chegada — <b>impresso ou no celular</b>. Os códigos estão no PDF aqui da ficha; vale baixar antes de viajar.</div></li>
+        <li class="warn"><span class="ri">🛒</span><div><b>Família Juininho ainda não comprou.</b> Seriam 2 adultos (Juininho e Jennifer) + 1 infantil (Netinho, 12) — a Isis não paga por ter menos de 2 anos.</div></li>
+      </ul>`},
+
+      {t:"O que tem pra fazer", nav:"🎮 Atrações", html:`<ul class="rules">
+        <li><span class="ri">🧗</span><div><b>Escalada e brinquedão</b> — parede de escalada e estrutura pra gastar energia. O ponto forte pra Sofia e Netinho.</div></li>
+        <li><span class="ri">🎯</span><div><b>Jogos de tiro</b> — parte da ação em família.</div></li>
+        <li><span class="ri">🕹️</span><div><b>Jogos para competir</b> — desafios entre a galera pra ver quem leva a melhor. Tem também <b>sala de PS5</b>.</div></li>
+        <li><span class="ri">🚂</span><div><b>Mundo Express</b> — passeio tranquilo, bom pros menores.</div></li>
+        <li><span class="ri">🎭</span><div><b>Shows e encontros</b> com o mascote <b>Luguito</b> — coreografias, música e interação, das 10h30 às 20h30.</div></li>
+        <li><span class="ri">🍕</span><div><b>Rodízio de pizzas temático</b> no Mundo Lunar, dentro do próprio parque.</div></li>
+      </ul>
+      <p style="font-size:.8rem;color:var(--ink-soft);margin-top:10px">São <b>três andares</b> de atrações, e o acesso aos jogos é ilimitado durante toda a visita.</p>`},
+
+      {t:"Programação dos shows", nav:"🎪 Shows", html:`<div class="facts">
+        <div class="fact"><div class="k">10h30</div><div class="vv">Mundinho do Luguito e seus amigos — <span style="color:var(--ink-soft)">Palco Picadeiro</span></div></div>
+        <div class="fact"><div class="k">11h00</div><div class="vv"><b>Sejam bem-vindos</b> (coreografia) — <span style="color:var(--ink-soft)">Palco Picadeiro</span></div></div>
+        <div class="fact"><div class="k">11h30</div><div class="vv">Mundinho do Luguito — <span style="color:var(--ink-soft)">Palco Picadeiro</span></div></div>
+        <div class="fact"><div class="k">12h00</div><div class="vv">Mundinho do Luguito — <span style="color:var(--ink-soft)">Palco Picadeiro</span></div></div>
+        <div class="fact"><div class="k">12h30</div><div class="vv"><b>Luguito Astronauta no Mundo Lunar</b> — <span style="color:var(--ink-soft)">Restaurante</span></div></div>
+        <div class="fact"><div class="k">13h00</div><div class="vv">Mundinho do Luguito — <span style="color:var(--ink-soft)">Palco Picadeiro</span></div></div>
+        <div class="fact"><div class="k">15h00 e 15h30</div><div class="vv">Mundinho do Luguito — <span style="color:var(--ink-soft)">Palco Picadeiro</span></div></div>
+        <div class="fact"><div class="k">16h00</div><div class="vv"><b>Sejam bem-vindos</b> (coreografia) — <span style="color:var(--ink-soft)">Palco Picadeiro</span></div></div>
+        <div class="fact"><div class="k">16h30 · 17h00 · 17h30</div><div class="vv">Mundinho do Luguito — <span style="color:var(--ink-soft)">Palco Picadeiro</span></div></div>
+        <div class="fact"><div class="k">19h00</div><div class="vv"><b>Luguito Astronauta no Mundo Lunar</b> — <span style="color:var(--ink-soft)">Restaurante</span></div></div>
+        <div class="fact"><div class="k">19h30 e 20h00</div><div class="vv">Mundinho do Luguito — <span style="color:var(--ink-soft)">Palco Picadeiro</span></div></div>
+        <div class="fact"><div class="k">20h30</div><div class="vv"><b>Luguito Astronauta no Mundo Lunar</b> — <span style="color:var(--ink-soft)">Restaurante</span></div></div>
+      </div>
+      <p style="font-size:.78rem;color:var(--ink-soft);margin-top:10px">💡 Os shows do <b>Luguito Astronauta</b> acontecem no <b>restaurante</b> — dá pra assistir enquanto come, se acertar o horário do rodízio. Programação sujeita a alteração sem aviso: conferir no dia.</p>`},
+
+      {t:"Cardápio do rodízio", nav:"🍕 Pizzas", html:`<p style="font-size:.84rem;color:var(--ink-soft);margin-bottom:10px"><b>24 sabores salgados</b> e <b>10 doces</b> rodando na mesa.</p>
+      <div class="subh" style="margin-top:0">Salgadas</div>
+      <div class="hl">${["Calabresa","Napoletana","Marguerita","Mozzarella","4 queijos","Portuguesa","Atum","Frango com Catupiry","Frango com Milho","Alho-poró e Peito de Peru","Brócolis","Rúcula com Tomate Seco","Cebola Caramelizada com Gorgonzola","Bacon com Cebola","Pepperoni","Marguerita Especial","Alho e Óleo","Linguiça","Caprese","Bacon, Tomate e Catupiry","Coração","Carne de Panela","Costelão 12 horas","Carne Moída Picante"].map(x=>`<span>${x}</span>`).join("")}</div>
+      <div class="subh">Doces</div>
+      <div class="hl">${["Banana com Doce de Leite","Chocolate com Morango","Banana com Canela","Romeu e Julieta","Avelíssimo com Morango","Sorvete","Drageas Mistas","Três Chocolates","Brownie","Torta de Limão"].map(x=>`<span>${x}</span>`).join("")}</div>
+      <ul class="rules" style="margin-top:12px">
+        <li><span class="ri">🥤</span><div><b>Bebidas não estão inclusas</b> no voucher — entram na conta à parte.</div></li>
+        <li class="warn"><span class="ri">🚪</span><div><b>O acesso ao restaurante é único.</b> Depois que a refeição termina e vocês saem, não dá pra voltar. Entrar só com todo mundo com fome de verdade.</div></li>
+      </ul>`},
+
+      {t:"Regras e cancelamento", nav:"📋 Regras", html:`<ul class="rules">
+        <li class="warn"><span class="ri">📅</span><div><b>Fecha às terças-feiras.</b> Nos outros dias, das 10h às 23h — mas a <b>entrada no parque vai só até as 21h</b>.</div></li>
+        <li><span class="ri">🪪</span><div>Por segurança, é exigida a apresentação de <b>RG ou CNH</b>. Menor de 18 anos não entra sem responsável maior de 18.</div></li>
+        <li class="warn"><span class="ri">🚫</span><div><b>Proibido entrar com comida e bebida</b> no parque — a exceção é quem tem restrição alimentar.</div></li>
+        <li><span class="ri">💳</span><div>Pode ser cobrada <b>taxa de 10%</b> sobre o serviço, mas o pagamento é <b>opcional</b>.</div></li>
+        <li><span class="ri">🎨</span><div>Ficam de fora do voucher: bebidas, outras opções de alimentação, <b>customização de chocolates</b> e as <b>máquinas de bichinhos de pelúcia</b>.</div></li>
+        <li><span class="ri">↩️</span><div><b>Cancelamento:</b> até 7 dias da compra, pelo Código de Defesa do Consumidor, só por e-mail em <b>contato@mundolugano.com.br</b>. Só aceitam cancelamento integral — não dá pra cancelar um ingresso só.</div></li>
+        <li><span class="ri">🗓️</span><div>Passado esse prazo, ainda há <b>180 dias</b> a partir da emissão pra usar os vouchers.</div></li>
+        <li class="warn"><span class="ri">⛔</span><div><b>No-show:</b> voucher não usado e não cancelado no prazo não gera crédito nem reembolso.</div></li>
+      </ul>`}
+    ],
+    family:["<b>Felipe e Joyce:</b> ingressos com rodízio pagos ✓","<b>Sofia (8):</b> ingresso infantil com rodízio pago ✓ — escalada, jogos de tiro e PS5","<b>Lavínia (3):</b> ingresso infantil com rodízio pago ✓ — brinquedão, Mundo Express e os shows do Luguito","<b>Juininho, Jennifer e Netinho (12):</b> precisam comprar — 2 adultos + 1 infantil","<b>Isis (bebê):</b> não paga — até 2 anos é isenta"],
+    tip:"Chegar de <b>tarde</b> e emendar no rodízio: os jogos são ilimitados, então dá pra brincar até a fome bater e entrar no restaurante por volta das <b>18h–19h</b>, pegando de quebra o show do <b>Luguito Astronauta às 19h</b>. Mas atenção ao ponto mais importante: <b>o acesso ao restaurante é único</b> — quem sair não volta. Levem <b>RG ou CNH</b>, e nada de comida de fora.",
+    verdict:"Abertura perfeita pro dia de chegada: indoor, no centro, jogos ilimitados e o jantar já resolvido — tudo pago pela família Felipe."},
 
   snowland:{ico:"❄️",name:"Snowland",tag:"Parque de neve · Indoor · Gramado",g:"#bcd4e6,#5d7fa8",img:"",
     addr:"Rodovia RS-235, R. Linha Carazal, 9009 - Bairro Carazal, Gramado - RS, 95675-500",ig:"snowlandgramado",wa:"555430501720",video:"",
@@ -1948,8 +2048,8 @@ const DAYS = [
    slots:[
      {t:"08:50",b:"Pouso em Porto Alegre, no Salgado Filho. Retirar bagagem, encontrar o motorista da FL Tour no desembarque e subir a serra (~2h, com parada pra café e troca da bebê).",p:["transfer"]},
      {t:"~12h",b:"Chegada em Gramado pela Cabanas Rota do Sol (check-in a partir das 14h — dá pra deixar as malas antes). Almoço numa churrascaria, rodízio gaúcho pra estrear a viagem.",p:["hotel"]},
-     {t:"Tarde",b:"Depois de descansar, Mundo Lugano — parque indoor de chocolate, jogos e shows, no coração de Gramado.",p:["lugano"]},
-     {t:"Noite",b:"Rodízio de pizza no próprio Mundo Lugano — fecha o dia sem sair do lugar.",p:[]}
+     {t:"Tarde",b:"Depois de descansar, Mundo Lugano — parque indoor de 3 andares no centro, com +50 jogos liberados à vontade (sem ficha nem crédito) e shows do Luguito de meia em meia hora. Ingressos da família Felipe já pagos.",p:["lugano"]},
+     {t:"~18h",b:"Rodízio de pizzas no próprio Mundo Lugano, sem sair do lugar — 24 sabores salgados e 10 doces. ⚠️ A entrada no restaurante é única: só entrar com todo mundo com fome. Às 19h tem o show do Luguito Astronauta ali mesmo.",p:[]}
    ]},
   {n:2,date:"Sex · 25 Set",ico:"🧸",accent:"var(--hortensia)",title:"Gramado leve — Lago Negro & Criamigos",obj:"Um dia tranquilo em Gramado: manhã à beira do Lago Negro e uma tarde dedicada ao Mundo Criamigos, guardando energia pro grande Dia 3.",
    anchor:"laghonegro",tired:"leve",rain:"Se chover, trocar o Lago Negro por chocolaterias e lojas na Rua Coberta",book:null,
@@ -2625,6 +2725,20 @@ function initAeroportoTabs(){
   });
 }
 initAeroportoTabs();
+
+/* abre e fecha a programação completa da ida e da volta */
+function initRotas(){
+  document.querySelectorAll(".jrn-btn").forEach(btn=>{
+    const det=document.getElementById(btn.dataset.jrn);
+    if(!det)return;
+    btn.addEventListener("click",()=>{
+      const aberto=det.classList.toggle("show");
+      btn.setAttribute("aria-expanded",aberto);
+      btn.querySelector(".jl-txt").textContent = aberto ? btn.dataset.less : btn.dataset.more;
+    });
+  });
+}
+initRotas();
 
 /* PWA — funciona offline depois da primeira visita (sinal fraco na serra) */
 if("serviceWorker" in navigator && location.protocol==="https:"){

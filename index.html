@@ -92,12 +92,39 @@
   .flight .rt{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--hortensia);font-weight:700}
   .flight .det{font-size:.92rem;color:var(--ink)}
   .flight .det b{font-weight:600}.flight .det small{color:var(--ink-soft)}
-  .flight{align-items:flex-start}
-  .flight .legs{margin-top:10px;display:flex;flex-direction:column;gap:6px}
-  .flight .leg{display:flex;gap:10px;align-items:baseline;font-size:.83rem;color:var(--ink-soft);line-height:1.35}
-  .flight .leg .lt{font-weight:700;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums;flex:0 0 auto}
-  .flight .cnx{margin-top:8px;font-size:.76rem;font-weight:700;color:#8a5a1e;background:rgba(212,160,74,.16);border-radius:20px;padding:4px 11px;display:inline-block}
-  .flight .loc{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-top:9px}
+
+  /* ---- Rota da viagem: mapa + linha do tempo hora a hora ---- */
+  .jrn{margin-top:16px;background:var(--snow);border:1px solid var(--line);border-radius:var(--r);padding:18px 16px 16px;box-shadow:var(--shadow)}
+  .jrn+.jrn{margin-top:14px}
+  .jrn-k{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--hortensia)}
+  .jrn-k span{color:var(--ink-soft);letter-spacing:.12em}
+  .jrn-t{font-family:'Fraunces',Georgia,serif;font-size:1.18rem;line-height:1.2;margin:5px 0 9px}
+  .jrn-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+  .jrn-chips span{font-size:.72rem;font-weight:600;color:var(--ink-soft);background:var(--cream-2);border-radius:20px;padding:4px 11px;white-space:nowrap}
+  .jrn-map{width:100%;max-width:400px;height:auto;display:block;margin:14px auto 2px}
+
+  .jrn-rail{position:relative;margin-top:10px}
+  .jrn-rail::before{content:"";position:absolute;left:67px;top:18px;bottom:18px;width:2px;background:var(--line);border-radius:2px}
+  .jstop,.jleg{display:grid;grid-template-columns:56px 24px 1fr}
+  .jstop{align-items:start}
+  .jstop .jt{text-align:right;padding:6px 10px 0 0;font-size:.95rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.15;color:var(--ink);white-space:nowrap}
+  .jstop .jt small{display:block;font-size:.58rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
+  .jdot{position:relative;z-index:2;width:24px;height:24px;margin-top:5px;border-radius:50%;background:var(--snow);border:2px solid var(--hortensia);display:flex;align-items:center;justify-content:center;font-size:.66rem;line-height:1}
+  .jdot.road{border-color:var(--amber)}
+  .jdot.base{border-color:var(--pine-2)}
+  .jstop .jb{padding:3px 0 2px 12px;min-width:0}
+  .jstop .jb>b{display:block;font-size:.92rem;font-weight:600;line-height:1.35}
+  .jstop .jb .jw b{font-weight:700;color:var(--ink)}
+  .jstop .jb .jw{font-size:.79rem;color:var(--ink-soft);line-height:1.42;margin-top:3px}
+  .jleg .jl{grid-column:3;margin:4px 0 4px 12px;justify-self:start;font-size:.72rem;font-weight:700;padding:3px 11px;border-radius:20px;background:rgba(124,131,196,.15);color:#4a52a0}
+  .jleg .jl.road{background:rgba(200,137,58,.17);color:#8a5a1e}
+  .jleg .jl.wait{background:var(--cream-2);color:var(--ink-soft);font-weight:600}
+  .jrn-foot{margin-top:13px;padding-top:12px;border-top:1px dashed var(--line);font-size:.79rem;color:var(--ink-soft);line-height:1.45}
+  @media(max-width:400px){
+    .jstop,.jleg{grid-template-columns:50px 24px 1fr}
+    .jrn-rail::before{left:61px}
+    .jstop .jt{font-size:.88rem}
+  }
 
   .climate{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
   .chip-stat{background:var(--snow);border:1px solid var(--line);border-radius:14px;padding:12px 14px;flex:1;min-width:120px;box-shadow:var(--shadow)}
@@ -547,42 +574,176 @@
     <div class="sec-head"><span class="sec-kicker">Aeroporto</span></div>
     <h2>Voos e aeroporto</h2>
 
-    <!-- IDA E VOLTA — sempre visível -->
-    <div class="flights reveal">
-      <div class="flight">
-        <span class="ico">🛫</span>
-        <div><span class="rt">Ida · Qui 24/09</span><div class="det"><b>Recife 02:45 → Porto Alegre 08:50</b> <small>· Azul, agora com conexão em Guarulhos</small></div>
-          <div class="legs">
-            <div class="leg"><span class="lt">02:45 → 06:05</span><span>REC → GRU · voo AD 4153 · 3h20</span></div>
-            <div class="leg"><span class="lt">07:05 → 08:50</span><span>GRU → POA · voo AD 2842 · 1h45</span></div>
-          </div>
-          <span class="cnx">⚠️ Conexão em Guarulhos: 1h00 · reserva BT2PVB</span>
+    <!-- ROTA DA IDA — mapa + hora a hora -->
+    <div class="jrn reveal">
+      <div class="jrn-k">Ida · <span>Qui, 24 de setembro</span></div>
+      <div class="jrn-t">De Recife a Gramado</div>
+      <div class="jrn-chips"><span>2 voos</span><span>1 conexão</span><span>6h05 de voo</span><span>Reserva BT2PVB</span></div>
+
+      <svg class="jrn-map" viewBox="0 0 400 86" role="img" aria-label="Rota da ida: Recife 02:45, Guarulhos 06:05, Porto Alegre 08:50 e Gramado por volta das 11:30" font-family="'Spline Sans',system-ui,sans-serif">
+        <line x1="40" y1="64" x2="256" y2="64" stroke="var(--hortensia)" stroke-width="3" stroke-linecap="round"/>
+        <line x1="256" y1="64" x2="360" y2="64" stroke="var(--amber)" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 5"/>
+
+        <circle cx="94" cy="64" r="10.5" fill="var(--snow)"/>
+        <path d="M -5 -3.2 L 5.5 0 L -5 3.2 L -2.4 0 Z" transform="translate(94,64)" fill="var(--hortensia)"/>
+        <circle cx="202" cy="64" r="10.5" fill="var(--snow)"/>
+        <path d="M -5 -3.2 L 5.5 0 L -5 3.2 L -2.4 0 Z" transform="translate(202,64)" fill="var(--hortensia)"/>
+        <circle cx="308" cy="64" r="10.5" fill="var(--snow)"/>
+        <g transform="translate(308,64)" fill="var(--amber)">
+          <path d="M -6.5 1.8 L -6.5 -0.6 L -4.4 -0.6 L -3.2 -2.9 L 3.2 -2.9 L 4.4 -0.6 L 6.5 -0.6 L 6.5 1.8 Z"/>
+          <circle cx="-3.4" cy="2.6" r="1.5"/><circle cx="3.4" cy="2.6" r="1.5"/>
+        </g>
+
+        <circle cx="40"  cy="64" r="6.5" fill="var(--hortensia)"/>
+        <circle cx="148" cy="64" r="6.5" fill="var(--hortensia)"/>
+        <circle cx="256" cy="64" r="6.5" fill="var(--hortensia)"/>
+        <circle cx="360" cy="64" r="8.5" fill="var(--amber)"/>
+        <circle cx="360" cy="64" r="3.2" fill="var(--snow)"/>
+
+        <text x="40"  y="22" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">REC</text>
+        <text x="148" y="22" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">GRU</text>
+        <text x="256" y="22" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">POA</text>
+        <text x="360" y="22" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">GRAMADO</text>
+
+        <text x="40"  y="42" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink-soft)">02:45</text>
+        <text x="148" y="42" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink-soft)">06:05</text>
+        <text x="256" y="42" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink-soft)">08:50</text>
+        <text x="360" y="42" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink-soft)">~11:30</text>
+      </svg>
+
+      <div class="jrn-rail">
+        <div class="jstop">
+          <div class="jt">22:30<small>Qua 23</small></div><div class="jdot base">🏠</div>
+          <div class="jb"><b>Sair de casa</b><div class="jw">Rumo ao Aeroporto do Recife. É na noite de <b>quarta</b> — o voo é já de madrugada.</div></div>
+        </div>
+        <div class="jleg"><span class="jl wait">~1h até o aeroporto</span></div>
+
+        <div class="jstop">
+          <div class="jt">00:30<small>Qui 24</small></div><div class="jdot">🧳</div>
+          <div class="jb"><b>Aeroporto do Recife · Guararapes</b><div class="jw">Despacho (se houver), raio-X e a <b>sala VIP W Premium</b> depois da segurança, em frente ao portão 7.</div></div>
+        </div>
+        <div class="jleg"><span class="jl wait">2h15 de espera · dá pra descansar na sala</span></div>
+
+        <div class="jstop">
+          <div class="jt">02:45</div><div class="jdot">🛫</div>
+          <div class="jb"><b>Decola pra São Paulo</b><div class="jw">Voo <b>AD 4153</b> · Recife → Guarulhos. O trecho mais longo da viagem — as crianças devem dormir.</div></div>
+        </div>
+        <div class="jleg"><span class="jl">3h20 no ar</span></div>
+
+        <div class="jstop">
+          <div class="jt">06:05</div><div class="jdot">🔗</div>
+          <div class="jb"><b>Pousa em Guarulhos</b><div class="jw"><b>Conexão de 1 hora.</b> Sem sair da área de embarque: direto pro próximo portão, sem loja nem café. Conferir o portão no app ainda dentro do avião.</div></div>
+        </div>
+        <div class="jleg"><span class="jl wait">1h de conexão · atenção máxima</span></div>
+
+        <div class="jstop">
+          <div class="jt">07:05</div><div class="jdot">🛫</div>
+          <div class="jb"><b>Decola pra Porto Alegre</b><div class="jw">Voo <b>AD 2842</b> · Guarulhos → Porto Alegre. Trecho curto, já amanhecendo.</div></div>
+        </div>
+        <div class="jleg"><span class="jl">1h45 no ar</span></div>
+
+        <div class="jstop">
+          <div class="jt">08:50</div><div class="jdot">🛬</div>
+          <div class="jb"><b>Pousa em Porto Alegre · Salgado Filho</b><div class="jw">Retirar bagagem e encontrar o motorista da FL Tour no desembarque. Com 4 crianças, contar ~40 min. <b>Casacos à mão</b> — POA amanhece entre 9° e 12°.</div></div>
+        </div>
+        <div class="jleg"><span class="jl road">~40 min de desembarque</span></div>
+
+        <div class="jstop">
+          <div class="jt">09:30</div><div class="jdot road">🚗</div>
+          <div class="jb"><b>Sobe a serra com a FL Tour</b><div class="jw">2 carros, um por família, com cadeirinha e bebê-conforto. ~2h de estrada, com parada pra café e troca da bebê.</div></div>
+        </div>
+        <div class="jleg"><span class="jl road">~2h de serra</span></div>
+
+        <div class="jstop">
+          <div class="jt">~11:30</div><div class="jdot road">🏡</div>
+          <div class="jb"><b>Chega em Gramado · Cabanas Rota do Sol</b><div class="jw">O quarto só libera às <b>14h</b>: malas na recepção e o dia começa pelo almoço. À tarde, Mundo Lugano.</div></div>
         </div>
       </div>
-      <div class="flight">
-        <span class="ico">🛬</span>
-        <div><span class="rt">Volta · Ter 29/09</span><div class="det"><b>Porto Alegre 19:20 → Recife 01:00 (30/09)</b> <small>· conexão em Congonhas</small></div>
-          <div class="legs">
-            <div class="leg"><span class="lt">19:20 → 20:55</span><span>POA → CGH · São Paulo/Congonhas</span></div>
-            <div class="leg"><span class="lt">21:55 → 01:00</span><span>CGH → REC · chegada 30/09</span></div>
-          </div>
-          <span class="cnx">⚠️ Conexão em Congonhas: 1h00</span>
-        </div>
-      </div>
+
+      <p class="jrn-foot">⏱️ <b>~13h de porta a porta</b>, de sair de casa até chegar na pousada — sendo 6h05 entre o primeiro embarque e o pouso em Porto Alegre.</p>
     </div>
 
-    <div class="note reveal" style="margin-top:14px;border-left:4px solid var(--amber)">
-      <p style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--amber);margin-bottom:7px">🔄 Alteração da Azul · aceita</p>
-      <h3 style="margin-bottom:6px">A ida mudou: agora tem parada em Guarulhos</h3>
-      <p style="font-size:.86rem;color:var(--ink-soft)">A Azul cancelou o voo direto Recife → Porto Alegre e ofereceu a remarcação, <b>sem custo adicional</b> — aceitamos. A ida deixou de ser direta e passou a ter conexão em <b>São Paulo/Guarulhos</b>. O pouso em Porto Alegre saiu das <b>07:00 para as 08:50</b> (1h50 mais tarde). A volta segue exatamente igual.</p>
-      <div class="vip-rows" style="margin-top:12px">
-        <div class="vip-r"><span class="vl">Reserva</span><span><b>BT2PVB</b> — Azul Brazilian Airlines</span></div>
-        <div class="vip-r"><span class="vl">Saída de Recife</span><span>02:30 → <b>02:45</b> (15 min mais tarde)</span></div>
-        <div class="vip-r"><span class="vl">Chegada em POA</span><span>07:00 → <b>08:50</b> (1h50 mais tarde)</span></div>
-        <div class="vip-r"><span class="vl">Trechos</span><span>Agora são <b>4</b> (2 na ida + 2 na volta) — antes eram 3</span></div>
-        <div class="vip-r"><span class="vl">Valor</span><span>Mesmo valor — sem cobrança extra</span></div>
-        <div class="vip-r"><span class="vl">Impacto</span><span>Transfer da FL Tour precisa ser reavisado — o contrato está com chegada 07h00</span></div>
+    <!-- ROTA DA VOLTA — mapa + hora a hora -->
+    <div class="jrn reveal">
+      <div class="jrn-k">Volta · <span>Ter, 29 de setembro</span></div>
+      <div class="jrn-t">De Gramado a Recife</div>
+      <div class="jrn-chips"><span>2 voos</span><span>1 conexão</span><span>5h40 de voo</span><span>Chega 30/09</span></div>
+
+      <svg class="jrn-map" viewBox="0 0 400 86" role="img" aria-label="Rota da volta: Gramado por volta das 14h, Porto Alegre 19:20, Congonhas 21:55 e Recife 01:00" font-family="'Spline Sans',system-ui,sans-serif">
+        <line x1="42" y1="64" x2="150" y2="64" stroke="var(--amber)" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 5"/>
+        <line x1="150" y1="64" x2="362" y2="64" stroke="var(--hortensia)" stroke-width="3" stroke-linecap="round"/>
+
+        <circle cx="96" cy="64" r="10.5" fill="var(--snow)"/>
+        <g transform="translate(96,64)" fill="var(--amber)">
+          <path d="M -6.5 1.8 L -6.5 -0.6 L -4.4 -0.6 L -3.2 -2.9 L 3.2 -2.9 L 4.4 -0.6 L 6.5 -0.6 L 6.5 1.8 Z"/>
+          <circle cx="-3.4" cy="2.6" r="1.5"/><circle cx="3.4" cy="2.6" r="1.5"/>
+        </g>
+        <circle cx="204" cy="64" r="10.5" fill="var(--snow)"/>
+        <path d="M -5 -3.2 L 5.5 0 L -5 3.2 L -2.4 0 Z" transform="translate(204,64)" fill="var(--hortensia)"/>
+        <circle cx="310" cy="64" r="10.5" fill="var(--snow)"/>
+        <path d="M -5 -3.2 L 5.5 0 L -5 3.2 L -2.4 0 Z" transform="translate(310,64)" fill="var(--hortensia)"/>
+
+        <circle cx="42"  cy="64" r="8.5" fill="var(--amber)"/>
+        <circle cx="42"  cy="64" r="3.2" fill="var(--snow)"/>
+        <circle cx="150" cy="64" r="6.5" fill="var(--hortensia)"/>
+        <circle cx="258" cy="64" r="6.5" fill="var(--hortensia)"/>
+        <circle cx="362" cy="64" r="6.5" fill="var(--pine-2)"/>
+
+        <text x="42"  y="22" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">GRAMADO</text>
+        <text x="150" y="22" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">POA</text>
+        <text x="258" y="22" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">CGH</text>
+        <text x="362" y="22" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">REC</text>
+
+        <text x="42"  y="42" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink-soft)">~14:00</text>
+        <text x="150" y="42" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink-soft)">19:20</text>
+        <text x="258" y="42" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink-soft)">21:55</text>
+        <text x="362" y="42" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink-soft)">01:00</text>
+      </svg>
+
+      <div class="jrn-rail">
+        <div class="jstop">
+          <div class="jt">12:00<small>Ter 29</small></div><div class="jdot base">🏡</div>
+          <div class="jb"><b>Check-out da pousada</b><div class="jw">Malas na recepção e a manhã fica livre. Almoço de despedida no <b>Café Colonial Bela Vista</b>, que substitui almoço e jantar.</div></div>
+        </div>
+        <div class="jleg"><span class="jl wait">manhã livre + almoço</span></div>
+
+        <div class="jstop">
+          <div class="jt">~14:00</div><div class="jdot road">🚗</div>
+          <div class="jb"><b>Sai de Gramado com a FL Tour</b><div class="jw">⚠️ O horário exato é combinado <b>por escrito no check-in da pousada</b>, no dia 24 — não está fechado ainda.</div></div>
+        </div>
+        <div class="jleg"><span class="jl road">~2h de estrada</span></div>
+
+        <div class="jstop">
+          <div class="jt">~16:00</div><div class="jdot">🧳</div>
+          <div class="jb"><b>Chega no aeroporto de Porto Alegre</b><div class="jw">Despacho, raio-X e a <b>sala VIP W Premium</b> no mezanino do 3º piso — boa hora pra uma refeição tranquila.</div></div>
+        </div>
+        <div class="jleg"><span class="jl wait">~3h de espera no aeroporto</span></div>
+
+        <div class="jstop">
+          <div class="jt">19:20</div><div class="jdot">🛫</div>
+          <div class="jb"><b>Decola pra São Paulo</b><div class="jw">Porto Alegre → Congonhas.</div></div>
+        </div>
+        <div class="jleg"><span class="jl">1h35 no ar</span></div>
+
+        <div class="jstop">
+          <div class="jt">20:55</div><div class="jdot">🔗</div>
+          <div class="jb"><b>Pousa em Congonhas</b><div class="jw"><b>Conexão de 1 hora.</b> Direto pro próximo portão, sem parar. A sala VIP daqui fica antes da segurança — não compensa.</div></div>
+        </div>
+        <div class="jleg"><span class="jl wait">1h de conexão · atenção máxima</span></div>
+
+        <div class="jstop">
+          <div class="jt">21:55</div><div class="jdot">🛫</div>
+          <div class="jb"><b>Decola pra Recife</b><div class="jw">Congonhas → Recife. Último trecho, com todo mundo já cansado.</div></div>
+        </div>
+        <div class="jleg"><span class="jl">3h05 no ar</span></div>
+
+        <div class="jstop">
+          <div class="jt">01:00<small>Qua 30</small></div><div class="jdot base">🏠</div>
+          <div class="jb"><b>Pousa no Recife</b><div class="jw">Chegada já na madrugada de quarta. Vale deixar o transporte de casa combinado antes de viajar.</div></div>
+        </div>
       </div>
+
+      <p class="jrn-foot">⏱️ <b>5h40 de Porto Alegre a Recife</b> · ~11h desde a saída de Gramado até pousar em casa.</p>
     </div>
 
     <p class="ap-sub" style="margin-top:22px">Mais detalhes · toque para abrir</p>
@@ -614,7 +775,7 @@
           <div class="vip-r"><span class="vl">Acesso</span><span>C6 Carbon via rede parceira DragonPass</span></div>
           <div class="vip-r"><span class="vl">Benefícios</span><span>Alimentação · bebidas · Wi-Fi · tomadas · banheiros · espaço de descanso</span></div>
         </div>
-        <div class="vip-why">Por que Recife é a melhor escolha: aeroporto de madrugada, crianças fora do horário normal de sono, espera de ~2h antes de um trecho de 3h20 — e agora, com a conexão em Guarulhos, a viagem inteira até Porto Alegre passa de 6h. A sala entrega conforto exatamente quando vai fazer mais diferença.</div>
+        <div class="vip-why">Por que Recife é a melhor escolha: aeroporto de madrugada, crianças fora do horário normal de sono, espera de ~2h antes de um trecho de 3h20 e uma viagem de mais de 6h até Porto Alegre. A sala entrega conforto exatamente quando vai fazer mais diferença.</div>
       </div>
 
       <div class="note reveal" style="margin-top:12px">
@@ -793,7 +954,7 @@
         <div class="vip-rows">
           <div class="vip-r"><span class="vl">Ida (02h45)</span><span>Check-in abre 21/09 às 02h45 · encerra 1h antes do voo</span></div>
           <div class="vip-r"><span class="vl">Volta (19h20)</span><span>Check-in abre 26/09 às 19h20 · chegar ao aeroporto ~17h00</span></div>
-          <div class="vip-r"><span class="vl">Dica</span><span>Salvar cartões offline assim que fizer o check-in — agora são <b>4 cartões por passageiro</b> (REC→GRU e GRU→POA na ida; POA→CGH e CGH→REC na volta)</span></div>
+          <div class="vip-r"><span class="vl">Dica</span><span>Salvar cartões offline assim que fizer o check-in — são <b>4 cartões por passageiro</b> (REC→GRU e GRU→POA na ida; POA→CGH e CGH→REC na volta)</span></div>
           <div class="vip-r"><span class="vl">Reserva</span><span>Código <b>BT2PVB</b> — usar no app da Azul e no site pra check-in</span></div>
         </div>
       </div>
@@ -949,7 +1110,7 @@
       <p class="ap-sub">7 dias antes</p>
       <div class="note reveal">
         <ul class="vip-checklist">
-          <li><b>Reavisar a FL Tour do novo horário</b> — o contrato está com chegada 07h00, agora é 08h50</li>
+          <li><b>Confirmar com a FL Tour a chegada às 08h50</b> — o contrato ainda registra 07h00</li>
           <li>Conferir horários na Azul e na Decolar — tirar print da programação (reserva BT2PVB)</li>
           <li>Confirmar que os 4 trechos aparecem nas reservas: REC→GRU→POA na ida e POA→CGH→REC na volta</li>
           <li>Conferir regras de bagagem de mão da Azul</li>
@@ -1031,7 +1192,7 @@
   <div class="wrap">
     <div class="sec-head"><span class="sec-kicker">Transporte</span></div>
     <h2>Transfer aeroporto ⇄ Gramado</h2>
-    <p class="lead">FL Tour Gramado · privativo, 2 carros · contrato assinado. Retirada no desembarque do Aeroporto Salgado Filho (POA) → Gramado (~2h de serra), agora com pouso às <b>08:50</b>.</p>
+    <p class="lead">FL Tour Gramado · privativo, 2 carros · contrato assinado. Receptivo no desembarque do Aeroporto Salgado Filho (POA) às <b>08:50</b> → Gramado, ~2h de serra.</p>
     <div class="viagem-btns reveal" style="margin-top:6px">
       <span class="viagem-btn" data-place="transfer"><span>🚗</span> Ver o contrato e todos os detalhes</span>
     </div>
@@ -1090,7 +1251,7 @@
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🏡 Onde vamos ficar — Cabanas Rota do Sol</div><div class="a">2 chalés Família Econômico (4 pessoas cada) · Reserva nº 6.598 · R$ 3.120 no total, <b>já pago</b>. Rua Dartagnan de Oliveira, 310 — Av. Central, Gramado. Check-in 24/09 (14h) · check-out 29/09 (12h). <span class="viagem-btn" data-place="hotel" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>🏡</span> Fotos, regras e comprovante</span></div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">❄️ Snowland — 26/09 às 10h</div><div class="a">Data e horário confirmados: <b>26/09 (sábado, aniversário do Juininho) às 10h</b>. A <b>família Felipe já tem os 3 ingressos pagos</b> (Felipe, Joyce e Sofia — a Lavínia é isenta). ⚠️ A <b>família Juininho ainda precisa comprar</b> os 3 dela, pro mesmo dia e horário. Inclui: montanha de neve, patinação, jogos, shows e roupas impermeáveis. Não inclui: esqui/snowboard, estacionamento e comida. <span class="viagem-btn" data-place="snowland" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>❄️</span> Ingressos, alturas e programação</span></div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🫕 Fondue — La Famille de Gazon</div><div class="a">Sequência de fondue na pedra no Dia 5. A <b>família Felipe tem 2 vouchers de jantar pagos</b> (Felipe e Joyce); Sofia paga R$ 60 no local e Lavínia é isenta. A família Juininho paga no local. ⚠️ Falta confirmar se o restaurante <b>abre nas segundas</b> em setembro — o voucher só garante segundas até 31/07. <span class="viagem-btn" data-place="fondue" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>🫕</span> Vouchers, cardápio e regras</span></div></div>
-      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🚗 Transfer aeroporto ⇄ Gramado — FL Tour</div><div class="a">Contrato assinado com a FL Tour Gramado: 2 veículos, ida e volta, com cadeirinha e bebê-conforto. <b>R$ 1.150 no total</b>, sinal de R$ 350 pago e R$ 800 em aberto. ⚠️ Como a Azul mudou a ida, o <b>novo horário de chegada (08h50) precisa ser avisado</b> — o contrato ainda registra 07h00. <span class="viagem-btn" data-place="transfer" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>🚗</span> Contrato e todas as regras</span></div></div>
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🚗 Transfer aeroporto ⇄ Gramado — FL Tour</div><div class="a">Contrato assinado com a FL Tour Gramado: 2 veículos, ida e volta, com cadeirinha e bebê-conforto. <b>R$ 1.150 no total</b>, sinal de R$ 350 pago e R$ 800 em aberto. ⚠️ Falta <b>alinhar o horário de chegada com o Flávio</b>: o contrato registra 07h00 e o pouso é às <b>08h50</b>. <span class="viagem-btn" data-place="transfer" style="margin-top:9px;font-size:.8rem;padding:8px 13px"><span>🚗</span> Contrato e todas as regras</span></div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🍫 Mundo Lugano</div><div class="a">Parque indoor de chocolate e jogos no dia da chegada (Dia 1) — e o rodízio de pizza fecha a noite.</div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🏴‍☠️ Jantar de aniversário — Cara de Mau</div><div class="a">Pizzaria pirata imersiva no Dia 3: rodízio de pizzas, show com o Capitão Cara de Mau e espaço lúdico no Navio pras crianças. Sessões 18h ou 21h30, por reserva — avisar do aniversário do Juininho.</div></div>
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🛷 Canela em dois dias — Alpen Park e Florybal separados</div><div class="a">Como ambos tomam muito tempo, ficaram em dias diferentes: Alpen Park (trenó e tirolesa) + Catedral de Pedra no Dia 4, e Terra Mágica Florybal (dinossauros e chocolate) + Garfo &amp; Bombacha no Dia 5. Ingressos a comprar.</div></div>
@@ -1184,11 +1345,11 @@
       <div class="cl-head"><span class="ci">✈️</span><div><h3>Pra separar pro aeroporto</h3><div class="cs">Voo de madrugada 02:45 · conexão em Guarulhos · pouso em POA 08:50</div></div></div>
       <ul>
         <li>Chegar no Guararapes com <b>~2h de antecedência</b> (estar lá por volta de 00:30)</li>
-        <li><b>São 4 trechos agora</b> — 4 cartões de embarque por passageiro, salvos offline</li>
+        <li><b>São 4 trechos</b> — 4 cartões de embarque por passageiro, salvos offline</li>
         <li>Documento com foto de todos em mãos</li>
         <li>A passagem inclui bolsa + mão, <b>sem bagagem despachada</b> — caiba tudo</li>
         <li>Kit da Isis de fácil acesso: fralda, leite, muda e manta</li>
-        <li>Lanches e água pras crianças — agora são <b>~6h de porta a porta</b> (dois voos + 1h de conexão)</li>
+        <li>Lanches e água pras crianças — são <b>~6h de Recife a Porto Alegre</b> (dois voos + 1h de conexão)</li>
         <li>Casacos à mão pro desembarque — POA amanhece frio (~9–12°)</li>
         <li>Tablet e fones carregados; remédios de uso contínuo na mão</li>
         <li><b>Check-in só às 14h:</b> deixar uma muda do Dia 1 e os itens da bebê acessíveis</li>
@@ -1204,7 +1365,7 @@
     <h2>O que ainda falta fechar</h2>
     <p class="lead">Parte da logística (comigo, o Felipe). Não trava a aprovação de vocês — define os valores finais.</p>
     <div class="todo">
-      <div class="t"><b>⚠️ Avisar a FL Tour da mudança do voo</b> — o contrato assinado registra "voo com chegada prevista às 07h00" e o pouso agora é <b>08h50</b>. A cláusula 4.2 exige comunicação imediata: feito isso, a alteração da companhia aérea não conta como atraso nosso. Pedir ao Flávio a confirmação por escrito do novo horário.</div>
+      <div class="t"><b>⚠️ Alinhar o horário de chegada com a FL Tour</b> — o contrato assinado registra "voo com chegada prevista às 07h00", mas o pouso é às <b>08h50</b>. Avisar o Flávio pelo WhatsApp e pedir a confirmação por escrito do horário correto.</div>
       <div class="t"><b>Conferir o valor do transfer com o Flávio</b> — o contrato assinado diz <b>R$ 1.150 no total</b> (R$ 575 por trecho, já pelos dois carros), com sinal de <b>R$ 350</b> pago e <b>R$ 800</b> em aberto. Antes o site registrava R$ 1.150 por carro e sinal de R$ 300. Vale bater o número no WhatsApp e guardar o print.</div>
       <div class="t"><b>Confirmar se o fondue abre na segunda-feira</b> — o voucher diz "até 31/07 aberto inclusive nas segundas". Nosso jantar é <b>segunda, 28/09</b>. Ligar pro La Famille de Gazon antes de contar com o Dia 5.</div>
       <div class="t"><b>Ingressos do Snowland e do fondue da família Juininho</b> — os vouchers pagos cobrem só a família Felipe. A família Juininho ainda precisa comprar.</div>
@@ -1685,7 +1846,7 @@ const PLACES = {
         <li><span class="ri">🌐</span><div>Reservas feitas pela Booking.com seguem as condições da plataforma, e diferenças se resolvem lá. <b>A nossa foi direto com a pousada</b>, então vale o que está acima.</div></li>
       </ul>`}
     ],
-    tip:"Guardem o número <b>6.598</b> e o comprovante aqui do lado — é o que a recepção pede no check-in. Com o novo voo, a chegada em Gramado fica por volta das <b>11h30–12h</b> e o quarto só sai às 14h: deixem as malas na recepção e comecem o dia pelo almoço. É também no check-in que se acerta por escrito o horário de saída do transfer no dia 29.",
+    tip:"Guardem o número <b>6.598</b> e o comprovante aqui do lado — é o que a recepção pede no check-in. A chegada em Gramado fica por volta das <b>11h30–12h</b> e o quarto só sai às 14h: deixem as malas na recepção e comecem o dia pelo almoço. É também no check-in que se acerta por escrito o horário de saída do transfer no dia 29.",
     verdict:"Base central, com cozinha e estrutura de casa, tudo no térreo e já paga. Não sobra nada pra acertar na chegada."},
 
   transfer:{ico:"🚗",name:"Transfer — FL Tour Gramado",tag:"Privativo · Aeroporto ⇄ Gramado · Contrato assinado",g:"#2e6b8a,#16384a",img:"",
@@ -1693,7 +1854,7 @@ const PLACES = {
     tel:"+555492362592",email:"fltour@hotmail.com",
     receipt:{file:"comprovantes/transfer-fltour-contrato.pdf",dl:"Contrato-FL-Tour-Transfer-Ida-e-Volta.pdf",
       title:"Contrato do transfer — assinado",sub:"Minuta revisada FL Tour Gramado · ida e volta · 23/07/2026"},
-    price:{etiq:"sinal pago",note:"<b>R$ 1.150,00 no total</b>, via Pix — cobre os <b>dois carros</b> e os <b>dois trechos</b> (R$ 575,00 na ida + R$ 575,00 na volta).<br><span style='color:var(--ink-soft)'>Rateado: <b>R$ 575,00 por família</b>.</span><br><b>Sinal de R$ 350,00 já pago</b> · saldo de <b>R$ 800,00</b> a acertar no fim da viagem.<br><span style='color:var(--ink-soft);font-size:.86em'>⚠️ Esses são os números do contrato assinado. O site registrava antes R$ 1.150 <i>por carro</i> e sinal de R$ 300 — vale bater com o Flávio no WhatsApp e guardar o print.</span>"},
+    price:{etiq:"sinal pago",note:"<b>R$ 1.150,00 no total</b>, via Pix — cobre os <b>dois carros</b> e os <b>dois trechos</b> (R$ 575,00 na ida + R$ 575,00 na volta).<br><span style='color:var(--ink-soft)'>Rateado: <b>R$ 575,00 por família</b>.</span><br><b>Sinal de R$ 350,00 já pago</b> · saldo de <b>R$ 800,00</b> a acertar no fim da viagem.<br><span style='color:var(--ink-soft);font-size:.86em'>⚠️ Valores conforme o contrato assinado — vale reconfirmar com o Flávio no WhatsApp e guardar o print.</span>"},
     what:"Transfer privativo da FL Tour Gramado, com o Flávio Souza: <b>2 veículos</b> (um por família) fazendo aeroporto ⇄ Gramado nos dois sentidos, com cadeirinha e bebê-conforto inclusos. O motorista faz o receptivo dentro do aeroporto e chama no WhatsApp <b>um dia antes</b> de cada trecho. Contrato assinado pelas duas partes em 23/07/2026 — <b>o PDF completo está logo abaixo, é só tocar em \"Ver PDF\"</b>.",
     highlights:["Contrato assinado — PDF aqui","2 veículos · 1 por família","Receptivo dentro do aeroporto","01 cadeirinha + 01 bebê-conforto","Saída imediata na chegada","Tolerância de 1h após o pouso","Sinal pago · R$ 800 em aberto"],
     facts:[
@@ -1716,11 +1877,11 @@ const PLACES = {
       ["Contrato","Minuta revisada, assinada pelas partes em 23/07/2026"]
     ],
     sections:[
-      {t:"⚠️ O voo mudou — precisa reavisar", nav:"⚠️ Voo mudou", html:`<ul class="rules">
-        <li class="warn"><span class="ri">🔄</span><div><b>O contrato registra "voo com chegada prevista às 07h00".</b> A Azul cancelou o voo direto e o pouso em Porto Alegre passou para <b>08h50</b> — 1h50 mais tarde.</div></li>
-        <li><span class="ri">📞</span><div><b>Avisar o Flávio pelo WhatsApp o quanto antes</b> e passar a nova previsão de chegada: voo <b>AD 2842</b>, chegando às <b>08:50</b> de 24/09, reserva <b>BT2PVB</b>.</div></li>
-        <li><span class="ri">🛡️</span><div>A cláusula 4.2 protege a gente: alteração feita pela companhia aérea, <b>comprovada e comunicada imediatamente</b>, não é tratada como desistência nem como atraso nosso. O que ativa essa proteção é justamente o aviso — por isso ele não pode esperar.</div></li>
-        <li><span class="ri">📄</span><div>Pedir ao Flávio a <b>confirmação por escrito</b> do novo horário (print do WhatsApp já serve) e guardar junto com o e-mail da Azul.</div></li>
+      {t:"⚠️ Alinhar o horário com a FL Tour", nav:"⚠️ Alinhar horário", html:`<ul class="rules">
+        <li class="warn"><span class="ri">⏰</span><div><b>O contrato registra "voo com chegada prevista às 07h00" — mas o pouso é às 08h50.</b> É o único ponto do contrato que está fora do combinado.</div></li>
+        <li><span class="ri">📞</span><div><b>Avisar o Flávio pelo WhatsApp</b> e passar a chegada correta: voo <b>AD 2842</b>, pousando às <b>08:50</b> de 24/09 em Porto Alegre, reserva <b>BT2PVB</b>.</div></li>
+        <li><span class="ri">🛡️</span><div>A cláusula 4.2 protege a gente sempre que a mudança vier da companhia aérea e for <b>comprovada e comunicada de imediato</b> — não é tratada como desistência nem como atraso nosso. O que ativa essa proteção é o aviso.</div></li>
+        <li><span class="ri">📄</span><div>Pedir ao Flávio a <b>confirmação por escrito</b> do horário (print do WhatsApp já serve) e guardar junto com o e-mail da Azul.</div></li>
       </ul>`},
 
       {t:"Ida — Qui, 24/09", nav:"🛬 A ida", html:`<ul class="rules">
@@ -1733,7 +1894,7 @@ const PLACES = {
 
       {t:"Volta — Ter, 29/09", nav:"🛫 A volta", html:`<ul class="rules">
         <li><span class="ri">✈️</span><div>Voo de volta às <b>19h20</b>, saindo de Porto Alegre.</div></li>
-        <li><span class="ri">✍️</span><div><b>O horário exato de saída de Gramado é definido por escrito no check-in da pousada</b> (cláusula 6) — não é combinado agora. Levar isso na lembrança no dia 24.</div></li>
+        <li><span class="ri">✍️</span><div><b>O horário exato de saída de Gramado é definido por escrito no check-in da pousada</b> (cláusula 6) — não está fechado ainda. Levar isso na lembrança no dia 24.</div></li>
         <li><span class="ri">⏱️</span><div>O horário tem que considerar as ~2h de estrada, o trânsito e a antecedência do embarque. Na prática, saída de Gramado entre <b>14h e 15h20</b>.</div></li>
         <li><span class="ri">📞</span><div>Se a FL Tour precisar mudar esse horário, ela avisa com antecedência — e a mudança <b>só vale depois de comunicada</b> à contratante.</div></li>
         <li><span class="ri">💳</span><div>É no fim da viagem que se acerta o <b>saldo de R$ 800,00</b>, no Pix.</div></li>
@@ -1770,7 +1931,7 @@ const PLACES = {
       </ul>`}
     ],
     tip:"Duas coisas não podem passar: <b>(1)</b> avisar o Flávio hoje da mudança do voo — o contrato ainda diz 07h00 e a proteção da cláusula 4.2 depende desse aviso; <b>(2)</b> no check-in da pousada, dia 24, deixar <b>por escrito</b> o horário de saída do dia 29. Guardem o print das duas conversas.",
-    verdict:"Contrato assinado, sinal pago e cláusulas boas pra quem viaja com criança — só falta reavisar o novo horário de chegada."},
+    verdict:"Contrato assinado, sinal pago e cláusulas boas pra quem viaja com criança — só falta alinhar o horário de chegada."},
 
   opcionais:{ico:"🌸",name:"Outras opcionais",tag:"Atrações extras · decidir na hora",g:"#8a7eb8,#544a8a",img:"",
     addr:"",ig:"",wa:"",video:"",price:null,
@@ -1785,7 +1946,7 @@ const DAYS = [
   {n:1,date:"Qui · 24 Set",ico:"✈️",accent:"var(--choco)",title:"Chegada & Mundo Lugano",obj:"Subir a serra com calma, instalar e curtir o centro sem pressa.",
    anchor:"lugano",tired:"leve",rain:"Mundo Lugano é indoor — perfeito em qualquer clima",book:null,
    slots:[
-     {t:"08:50",b:"Pouso em Porto Alegre (voo agora com conexão em Guarulhos). Retirar bagagem, encontrar o motorista da FL Tour no desembarque e subir a serra (~2h, com parada pra café e troca da bebê).",p:["transfer"]},
+     {t:"08:50",b:"Pouso em Porto Alegre, no Salgado Filho. Retirar bagagem, encontrar o motorista da FL Tour no desembarque e subir a serra (~2h, com parada pra café e troca da bebê).",p:["transfer"]},
      {t:"~12h",b:"Chegada em Gramado pela Cabanas Rota do Sol (check-in a partir das 14h — dá pra deixar as malas antes). Almoço numa churrascaria, rodízio gaúcho pra estrear a viagem.",p:["hotel"]},
      {t:"Tarde",b:"Depois de descansar, Mundo Lugano — parque indoor de chocolate, jogos e shows, no coração de Gramado.",p:["lugano"]},
      {t:"Noite",b:"Rodízio de pizza no próprio Mundo Lugano — fecha o dia sem sair do lugar.",p:[]}

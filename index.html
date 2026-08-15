@@ -103,6 +103,21 @@
   .jrn-chips span{font-size:.72rem;font-weight:600;color:var(--ink-soft);background:var(--cream-2);border-radius:20px;padding:4px 11px;white-space:nowrap}
   .jrn-map{width:100%;max-width:400px;height:auto;display:block;margin:14px auto 2px}
 
+  /* ---- Alerta de pendência no topo da ficha ---- */
+  .alerta{margin:14px 0 2px;background:linear-gradient(180deg,rgba(212,160,74,.16),rgba(212,160,74,.07));border:1px solid rgba(200,137,58,.35);border-left:4px solid var(--amber);border-radius:14px;padding:14px 15px}
+  .alerta .at{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#8a5a1e;margin-bottom:8px}
+  .alerta .atx{font-size:.87rem;line-height:1.5;color:var(--ink)}
+  .alerta .atx b{font-weight:700}
+  .alerta .apay{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .alerta .ap{flex:1 1 96px;background:var(--snow);border:1px solid var(--line);border-radius:11px;padding:9px 8px;text-align:center}
+  .alerta .ap .apl{display:block;font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--ink-soft);margin-bottom:4px}
+  .alerta .ap .apv{display:block;font-size:.98rem;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.15}
+  .alerta .ap.pago .apv{color:var(--pine-2)}
+  .alerta .ap.falta{border-color:rgba(168,68,47,.45);background:rgba(168,68,47,.06)}
+  .alerta .ap.falta .apv{color:#a8442f}
+  .alerta .anota{margin-top:11px;padding-top:10px;border-top:1px dashed rgba(138,90,30,.32);font-size:.81rem;line-height:1.45;color:var(--ink-soft)}
+  .alerta .anota b{color:var(--ink)}
+
   .jrn-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:12px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--cream);color:var(--ink);font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer;transition:background .2s}
   .jrn-btn:hover{background:var(--cream-2)}
   .jrn-btn .ch{display:inline-block;font-size:.62rem;transition:transform .25s;color:var(--hortensia)}
@@ -1701,6 +1716,10 @@ const PLACES = {
     addr:"Av. das Hortênsias, 1008 - Centro, Gramado",ig:"gazongramado",wa:"",video:"",
     receipt:{file:"comprovantes/fondue-voucher.pdf",dl:"Voucher-Fondue-La-Famille-de-Gazon.pdf",
       title:"Voucher do fondue — família Felipe",sub:"2 vouchers de jantar · Laçador de Ofertas · válidos até 31/10/2026"},
+    alerta:{tit:"A Sofia paga no restaurante",
+      txt:"Compramos <b>só 2 vouchers</b>, do <b>Felipe</b> e da <b>Joyce</b>. A <b>Sofia (8 anos) paga no local</b> — a <b>Lavínia (3) não paga</b>, é isenta até 4 anos.",
+      vals:[["Já pago · 2 vouchers","R$ 259,80","pago"],["Sofia · no local","R$ 60,00","falta"]],
+      nota:"Levar <b>R$ 60,00</b> separados pra pagar a Sofia na hora, além das bebidas — que não entram no voucher. A <b>família Juininho paga tudo no local</b>: Juininho, Jennifer e o Netinho (12) como adultos, e a Isis isenta."},
     price:{adult:129.9,child:60,childMax:10,freeUnder:5,etiq:"pago"},
     what:"Sequência completa de fondue na pedra na <b>La Famille de Gazon</b>: fondue de queijo derretido com vinho branco (com pão, batata a vapor, goiabada e legumes), carne na pedra com <b>3 tipos de carne</b> e <b>11 molhos</b>, e fondue de chocolate ao leite com 5 frutas e waffer. <b>A família Felipe tem 2 vouchers de jantar já pagos</b> — <b>o PDF está logo abaixo, é só tocar em \"Ver PDF\"</b>. Sem agendamento: é por ordem de chegada.",
     highlights:["✅ 2 vouchers pagos — família Felipe","Sequência completa: queijo, carne e chocolate","3 carnes + 11 molhos","Sem agendamento — ordem de chegada","Não cobra taxa de 10%","Válido até 31/10/2026"],
@@ -1954,6 +1973,10 @@ const PLACES = {
     tel:"+555492362592",email:"fltour@hotmail.com",
     receipt:{file:"comprovantes/transfer-fltour-contrato.pdf",dl:"Contrato-FL-Tour-Transfer-Ida-e-Volta.pdf",
       title:"Contrato do transfer — assinado",sub:"Minuta revisada FL Tour Gramado · ida e volta · 23/07/2026"},
+    alerta:{tit:"Ainda falta pagar",
+      txt:"Só a <b>entrada foi paga</b>. O restante é acertado com o Flávio <b>no fim da viagem</b>, e é <b>dividido entre as duas famílias</b>.",
+      vals:[["Total do serviço","R$ 1.150,00",""],["Entrada paga","R$ 350,00","pago"],["Falta pagar","R$ 800,00","falta"]],
+      nota:"São <b>R$ 400,00 por família</b> a acertar no fim da viagem. O contrato prevê pagamento no <b>Pix</b> — combinar com o Flávio como fica a divisão entre as duas famílias na hora de pagar."},
     price:{etiq:"sinal pago",note:"<b>R$ 1.150,00 no total</b>, via Pix — cobre os <b>dois carros</b> e os <b>dois trechos</b> (R$ 575,00 na ida + R$ 575,00 na volta).<br><span style='color:var(--ink-soft)'>Rateado: <b>R$ 575,00 por família</b>.</span><br><b>Sinal de R$ 350,00 já pago</b> · saldo de <b>R$ 800,00</b> a acertar no fim da viagem.<br><span style='color:var(--ink-soft);font-size:.86em'>⚠️ Valores conforme o contrato assinado — vale reconfirmar com o Flávio no WhatsApp e guardar o print.</span>"},
     what:"Transfer privativo da FL Tour Gramado, com o Flávio Souza: <b>2 veículos</b> (um por família) fazendo aeroporto ⇄ Gramado nos dois sentidos, com cadeirinha e bebê-conforto inclusos. O motorista faz o receptivo dentro do aeroporto e chama no WhatsApp <b>um dia antes</b> de cada trecho. Contrato assinado pelas duas partes em 23/07/2026 — <b>o PDF completo está logo abaixo, é só tocar em \"Ver PDF\"</b>.",
     highlights:["Contrato assinado — PDF aqui","2 veículos · 1 por família","Receptivo dentro do aeroporto","01 cadeirinha + 01 bebê-conforto","Saída imediata na chegada","Tolerância de 1h após o pouso","Sinal pago · R$ 800 em aberto"],
@@ -2202,6 +2225,7 @@ function openPlace(id){
     ${p.img?`<img src="${p.img}" alt="${p.name}"><div class="bovl"></div>`:""}
     <span class="bico">${p.ico}</span><span class="tag2">${p.tag}</span><h3>${p.name}</h3>
   </div>`;
+  if(p.alerta) html += alertaHTML(p.alerta);
   if(p.gallery) html += galeriaHTML();
   if(p.addr){
     let actions = `<button class="copyaddr" data-addr="${p.addr}">📋 Copiar endereço</button>`;
@@ -2648,6 +2672,18 @@ function ligaGaleria(root){
   }
 
   mostra(0,false);
+}
+
+function alertaHTML(a){
+  const vals = (a.vals&&a.vals.length)
+    ? `<div class="apay">${a.vals.map(v=>`<div class="ap ${v[2]||""}"><span class="apl">${v[0]}</span><span class="apv">${v[1]}</span></div>`).join("")}</div>`
+    : "";
+  return `<div class="alerta">
+    <div class="at">⚠️ ${a.tit}</div>
+    <div class="atx">${a.txt}</div>
+    ${vals}
+    ${a.nota?`<div class="anota">${a.nota}</div>`:""}
+  </div>`;
 }
 
 function comprovanteHTML(r){

@@ -51,6 +51,11 @@ const MAX_HISTORICO = 6; // ultimas 6 mensagens enviadas pelo site
 const LIMITE_JANELA_MS = 10 * 60 * 1000; // 10 minutos
 const LIMITE_POR_JANELA = 20; // 20 perguntas por IP na janela
 
+// ---------- Imagem anexada (analise multimodal) ----------
+const MIME_IMAGEM_PERMITIDO = new Set(["image/jpeg", "image/png", "image/webp", "image/heic", "image/heif"]);
+const MAX_IMAGEM_BASE64 = 6 * 1024 * 1024; // ~4.3MB de imagem original
+const LIMITE_CORPO_HTTP = 8 * 1024 * 1024; // body maximo aceito na requisicao (imagem em base64 + resto do JSON)
+
 const usoPorIp = new Map(); // ip -> { contador, expiraEm }
 
 function dentroDoLimite(ip) {
@@ -113,14 +118,15 @@ Voce conversa dentro do proprio site do guia, com os membros da familia.
 
 Regras:
 - Responda SEMPRE em portugues do Brasil, de forma curta, clara e amigavel.
-- Use SOMENTE as informacoes do conteudo do site fornecido abaixo. Nao invente precos, horarios ou enderecos.
-- Se a informacao nao estiver no site, diga com honestidade que nao esta no guia e sugira o que poderia ser feito.
+- Priorize SEMPRE as informacoes do conteudo do site fornecido abaixo pra tudo que for da viagem em si (roteiro, precos, horarios, enderecos, decisoes da familia) — isso e o que foi decidido, nao invente nem contrarie.
+- Se a pergunta for sobre algo que nao esta no site (clima previsto, se um lugar esta aberto hoje, noticias, precos ou horarios que podem ter mudado desde que o guia foi escrito etc.), pode usar a busca do Google pra responder — e deixe claro que essa parte veio de uma busca externa, nao do guia.
+- Se o usuario mandar uma imagem, analise o conteudo dela (foto de comprovante, prato, roupa, lugar etc.) e responda considerando a pergunta junto com o que aparece na imagem.
 - Formate valores em reais (R$) e horarios de forma legivel.
 - Pode usar emojis com moderacao para ficar simpatico.
 - Quando fizer sentido, organize em topicos ou passos.
 - Voce se apresenta como Claudio quando perguntarem seu nome.`;
 
-async function perguntarGemini(historico, pergunta) {
+async function perguntarGemini(historico, pergunta, imagem) {
   const site = carregarSite();
   const contents = [];
 
@@ -147,7 +153,10 @@ async function perguntarGemini(historico, pergunta) {
       parts: [{ text: String(msg.texto || "").slice(0, MAX_PERGUNTA) }],
     });
   }
-  contents.push({ role: "user", parts: [{ text: pergunta }] });
+
+  const partesPergunta = [{ text: pergunta || "Analise esta imagem." }];
+  if (imagem) partesPergunta.push({ inlineData: { mimeType: imagem.mimeType, data: imagem.dados } });
+  contents.push({ role: "user", parts: partesPergunta });
 
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
   const resp = await fetch(url, {
@@ -155,6 +164,7 @@ async function perguntarGemini(historico, pergunta) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       contents,
+      tools: [{ google_search: {} }],
       generationConfig: { temperature: 0.4, maxOutputTokens: 1024 },
     }),
   });
@@ -222,17 +232,33 @@ const servidor = http.createServer(async (req, res) => {
 
   let corpo;
   try {
-    corpo = JSON.parse(await lerCorpo(req));
-  } catch {
-    return json(res, 400, { erro: "JSON invalido" });
+    corpo = JSON.parse(await lerCorpo(req, LIMITE_CORPO_HTTP));
+  } catch (e) {
+    return json(res, e.message === "corpo grande demais" ? 413 : 400, {
+      erro: e.message === "corpo grande demais" ? "Imagem grande demais." : "JSON invalido",
+    });
   }
 
   const pergunta = String(corpo.pergunta || "").trim().slice(0, MAX_PERGUNTA);
   const historico = Array.isArray(corpo.historico) ? corpo.historico : [];
-  if (!pergunta) return json(res, 400, { erro: "pergunta vazia" });
+
+  let imagem = null;
+  if (corpo.imagem && typeof corpo.imagem === "object") {
+    const mimeType = String(corpo.imagem.mimeType || "");
+    const dados = String(corpo.imagem.dados || "").replace(/^data:[^;]+;base64,/, "");
+    if (!MIME_IMAGEM_PERMITIDO.has(mimeType)) {
+      return json(res, 400, { erro: "Formato de imagem nao suportado." });
+    }
+    if (!dados || dados.length > MAX_IMAGEM_BASE64) {
+      return json(res, 400, { erro: "Imagem vazia ou grande demais." });
+    }
+    imagem = { mimeType, dados };
+  }
+
+  if (!pergunta && !imagem) return json(res, 400, { erro: "pergunta vazia" });
 
   try {
-    const resposta = await perguntarGemini(historico, pergunta);
+    const resposta = await perguntarGemini(historico, pergunta, imagem);
     json(res, 200, { resposta });
   } catch (e) {
     console.error("Erro ao responder:", e.message);

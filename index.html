@@ -2856,14 +2856,25 @@ if("serviceWorker" in navigator && location.protocol==="https:"){
     padding:7px 12px;font-size:12.5px;color:var(--ink-soft);cursor:pointer}
   .cl-chip:hover{border-color:var(--amber);color:var(--ink)}
 
+  .cl-preview{display:none;align-items:center;gap:8px;padding:8px 12px;background:var(--snow);
+    border-top:1px solid var(--line)}
+  .cl-preview.on{display:flex}
+  .cl-preview img{width:40px;height:40px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+  .cl-preview span{flex:1;font-size:12px;color:var(--ink-soft)}
+  .cl-preview button{border:0;background:transparent;color:var(--ink-soft);cursor:pointer;font-size:18px;padding:4px}
+
   .cl-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--snow)}
-  .cl-form input{flex:1;min-width:0;padding:11px 14px;border:1px solid var(--line);border-radius:999px;
+  .cl-form input[type=text]{flex:1;min-width:0;padding:11px 14px;border:1px solid var(--line);border-radius:999px;
     font:inherit;font-size:14px;color:var(--ink);background:var(--cream);outline:none}
-  .cl-form input:focus{border-color:var(--amber)}
-  .cl-form button{width:44px;height:44px;flex:none;border:0;border-radius:50%;cursor:pointer;
+  .cl-form input[type=text]:focus{border-color:var(--amber)}
+  .cl-attach{width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:50%;cursor:pointer;
+    background:var(--cream);color:var(--ink-soft);font-size:18px;transition:filter .15s ease}
+  .cl-attach:hover{filter:brightness(.97)}
+  .cl-form button[type=submit]{width:44px;height:44px;flex:none;border:0;border-radius:50%;cursor:pointer;
     background:var(--amber);color:#fff;font-size:17px;transition:filter .15s ease}
-  .cl-form button:hover{filter:brightness(1.08)}
+  .cl-form button[type=submit]:hover{filter:brightness(1.08)}
   .cl-form button:disabled{opacity:.45;cursor:not-allowed}
+  .cl-msg img.cl-img{max-width:100%;border-radius:10px;display:block;margin-top:6px}
 </style>
 
 <button id="claudio-fab" aria-label="Abrir conversa com o Claudio, o guia da viagem">
@@ -2878,7 +2889,14 @@ if("serviceWorker" in navigator && location.protocol==="https:"){
   </div>
   <div class="cl-msgs" id="cl-msgs"></div>
   <div class="cl-chips" id="cl-chips"></div>
+  <div class="cl-preview" id="cl-preview">
+    <img id="cl-preview-img" alt="Pré-visualização da imagem anexada">
+    <span id="cl-preview-nome"></span>
+    <button type="button" id="cl-preview-remover" aria-label="Remover imagem">&times;</button>
+  </div>
   <form class="cl-form" id="cl-form">
+    <input type="file" id="cl-file" accept="image/png,image/jpeg,image/webp,image/heic,image/heif" hidden>
+    <button type="button" class="cl-attach" id="cl-attach" aria-label="Anexar imagem">📎</button>
     <input id="cl-input" type="text" maxlength="500" autocomplete="off"
            placeholder="Pergunte sobre a viagem..." aria-label="Sua pergunta">
     <button type="submit" id="cl-send" aria-label="Enviar">➤</button>
@@ -2894,9 +2912,42 @@ if("serviceWorker" in navigator && location.protocol==="https:"){
   const form=document.getElementById('cl-form');
   const input=document.getElementById('cl-input');
   const send=document.getElementById('cl-send');
+  const fileInput=document.getElementById('cl-file');
+  const attachBtn=document.getElementById('cl-attach');
+  const preview=document.getElementById('cl-preview');
+  const previewImg=document.getElementById('cl-preview-img');
+  const previewNome=document.getElementById('cl-preview-nome');
+  const previewRemover=document.getElementById('cl-preview-remover');
 
   const SUGESTOES=['O que faremos no Dia 1?','Quanto vai custar pra minha família?','O que levar na mala?'];
-  let historico=[], ocupado=false, iniciado=false;
+  const MAX_IMAGEM_BYTES=4*1024*1024; // ~4MB, compativel com o limite do backend em base64
+  let historico=[], ocupado=false, iniciado=false, imagemAnexada=null;
+
+  function limparAnexo(){
+    imagemAnexada=null; fileInput.value=''; preview.classList.remove('on'); previewImg.src='';
+  }
+
+  attachBtn.addEventListener('click',()=>fileInput.click());
+  previewRemover.addEventListener('click',limparAnexo);
+
+  fileInput.addEventListener('change',()=>{
+    const arquivo=fileInput.files&&fileInput.files[0];
+    if(!arquivo)return;
+    if(!arquivo.type.startsWith('image/')){
+      bolha('Só dá pra anexar imagens (foto ou print).','erro'); fileInput.value=''; return;
+    }
+    if(arquivo.size>MAX_IMAGEM_BYTES){
+      bolha('Essa imagem é grande demais (máx. ~4MB). Tenta uma foto menor.','erro'); fileInput.value=''; return;
+    }
+    const leitor=new FileReader();
+    leitor.onload=()=>{
+      const dataUrl=String(leitor.result||'');
+      const dados=dataUrl.split(',')[1]||'';
+      imagemAnexada={mimeType:arquivo.type,dados,previewUrl:dataUrl};
+      previewImg.src=dataUrl; previewNome.textContent=arquivo.name; preview.classList.add('on');
+    };
+    leitor.readAsDataURL(arquivo);
+  });
 
   /* Markdown leve: escapa HTML e entende **negrito** e listas com * ou - */
   function formatar(txt){
@@ -2911,10 +2962,15 @@ if("serviceWorker" in navigator && location.protocol==="https:"){
     return html.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').trim();
   }
 
-  function bolha(texto,tipo){
+  function bolha(texto,tipo,imagemUrl){
     const d=document.createElement('div');
     d.className='cl-msg '+tipo;
     if(tipo==='bot')d.innerHTML=formatar(texto); else d.textContent=texto;
+    if(imagemUrl){
+      const img=document.createElement('img');
+      img.src=imagemUrl; img.className='cl-img'; img.alt='Imagem enviada';
+      d.appendChild(img);
+    }
     msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight; return d;
   }
 
@@ -2936,15 +2992,19 @@ if("serviceWorker" in navigator && location.protocol==="https:"){
   }
 
   async function perguntar(texto){
-    if(ocupado||!texto.trim())return;
+    const imagem=imagemAnexada;
+    if(ocupado||(!texto.trim()&&!imagem))return;
     ocupado=true; send.disabled=true;
-    bolha(texto,'user'); input.value=''; chips.innerHTML='';
+    bolha(texto||'(imagem)','user',imagem&&imagem.previewUrl);
+    input.value=''; chips.innerHTML=''; limparAnexo();
     const dots=pensando();
     try{
+      const corpo={pergunta:texto,historico:historico.slice(-6)};
+      if(imagem) corpo.imagem={mimeType:imagem.mimeType,dados:imagem.dados};
       const r=await fetch('/api/claudio/chat',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({pergunta:texto,historico:historico.slice(-6)})
+        body:JSON.stringify(corpo)
       });
       const dados=await r.json().catch(()=>({}));
       dots.remove();
@@ -2952,7 +3012,7 @@ if("serviceWorker" in navigator && location.protocol==="https:"){
         bolha(dados.erro||'Não consegui responder agora. Tenta de novo em instantes.','erro');
       }else{
         bolha(dados.resposta,'bot');
-        historico.push({papel:'user',texto:texto},{papel:'model',texto:dados.resposta});
+        historico.push({papel:'user',texto:texto||'(imagem enviada)'},{papel:'model',texto:dados.resposta});
       }
     }catch(e){
       dots.remove();
@@ -2966,7 +3026,7 @@ if("serviceWorker" in navigator && location.protocol==="https:"){
     panel.classList.add('open'); fab.classList.add('hidden');
     if(!iniciado){
       iniciado=true;
-      bolha('Oi! Eu sou o **Claudio**, o guia da viagem 🧭\nPode me perguntar sobre roteiro, horários, preços, endereços, orçamento ou o que levar na mala.','bot');
+      bolha('Oi! Eu sou o **Claudio**, o guia da viagem 🧭\nPode me perguntar sobre roteiro, horários, preços, endereços, orçamento ou o que levar na mala. Se não estiver no guia eu busco na internet — e também dá pra anexar uma foto (📎) pra eu analisar.','bot');
       mostrarChips();
     }
     setTimeout(()=>input.focus(),80);

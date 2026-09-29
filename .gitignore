@@ -4,5 +4,9 @@
 # /var/www/gramado/comprovantes/ (protegido pela senha do nginx).
 comprovantes/
 
+# Documentos gerados com nome completo, reserva ou outros dados
+# sensíveis — mesma regra dos comprovantes, nunca pro repositório público.
+documentos/
+
 node_modules/
 tmp/

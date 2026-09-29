@@ -754,9 +754,9 @@
       <div class="jrn-rail">
         <div class="jstop">
           <div class="jt">12:00<small>Ter 29</small></div><div class="jdot base">🏡</div>
-          <div class="jb"><b>Check-out da pousada</b><div class="jw">Malas na recepção e a manhã fica livre. Almoço de despedida no <b>Café Colonial Bela Vista</b>, que substitui almoço e jantar.</div></div>
+          <div class="jb"><b>Check-out da pousada</b><div class="jw">Malas na recepção e manhã de despedida no <b>Acquamotion</b> (10h–13h), com lanche no parque.</div></div>
         </div>
-        <div class="jleg"><span class="jl wait">manhã livre + almoço</span></div>
+        <div class="jleg"><span class="jl wait">Acquamotion + lanche</span></div>
 
         <div class="jstop">
           <div class="jt">~14:00</div><div class="jdot road">🚗</div>
@@ -1311,7 +1311,7 @@
       <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">🧸 Lago Negro & Mundo Criamigos</div><div class="a">Dia 4, um dia leve em Gramado: manhã no Lago Negro e uma tarde dedicada ao Criamigos, onde cada criança monta o próprio urso de pelúcia.</div></div>
       <div class="dec"><div class="q">🏰 Mini Mundo e Aldeia do Papai Noel — encaixar?</div><div class="a">Saíram do roteiro fixo e ficaram como opções. Se a família quiser, dá pra encaixar numa manhã leve de Gramado. Toque nas opções pra ver os detalhes.</div></div>
       <div class="dec"><div class="q">🌿 Parque do Caracol e Vale dos Dinossauros — entram?</div><div class="a">Saíram como certos e agora são opções de Canela (RS-466). Dá pra somar num dos dias de Canela se a família quiser natureza e dinossauros — ou deixar de fora pra não pesar.</div></div>
-      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">☕ Café Colonial Bela Vista — almoço do Dia 6</div><div class="a">Volta pro último dia: mesa farta de despedida que substitui almoço e jantar antes da estrada pra Porto Alegre.</div></div>
+      <div class="dec done"><span class="badge">Confirmado ✓</span><div class="q">💦 Acquamotion — manhã do Dia 6</div><div class="a">Despedida nas águas quentes (10h–13h), com lanche no parque.</div></div>
       <div class="dec"><span class="badge" style="background:var(--amber);color:#fff">⏳ Decidir</span><div class="q">🍔 Jantar em hamburgueria — Dia 4</div><div class="a">A noite leve do Dia 4 vai ser numa hamburgueria no centro de Gramado. Falta escolher qual — mandem as sugestões que a gente fecha.</div></div>
     </div>
   </div>
@@ -1681,8 +1681,8 @@ const PLACES = {
     highlights:["Piscinas de água quente (~32°C)","Toboáguas pra todas as idades","Rio lento e hidromassagem","Área infantil rasa","Tudo coberto e aquecido"],
     facts:[["Horário","10h às 18h, terça a domingo · fecha segundas"],["Tempo de visita","Meio período a dia inteiro"],["O que levar","Maiô/sunga, toalha, chinelo e troca de roupa"],["Com bebê","Águas quentes — Isis com supervisão e pouco tempo"],["Se chover","Coberto — perfeito"]],
     family:["Todos: piscinas quentes relaxam e divertem","Isis (bebê): só na parte rasa e morna, no colo"],
-    tip:"Levem chinelo e muda extra pras crianças. Como é o meio da viagem, é o dia ideal pra desacelerar.",
-    verdict:"Ótimo equilíbrio: diversão garantida e um respiro no meio da viagem."},
+    tip:"Levem chinelo e muda extra pras crianças. Chegar às 10h, na abertura, e sair até ~13h pra dar tempo de voltar à pousada antes da estrada.",
+    verdict:"Despedida perfeita: diversão garantida e todo mundo relaxado antes da estrada. Está no Dia 6."},
 
   caracol:{ico:"🌿",name:"Parque do Caracol",tag:"Parque estadual · opção · Canela",g:"#3e7d4f,#1c3f29",img:"",
     addr:"Rodovia RS-466, km 0 - Caracol, Canela - RS, 95680-000",ig:"parquedocaracol",wa:"5554999769063",video:"",
@@ -2130,11 +2130,11 @@ const DAYS = [
      {t:"Tarde",b:"Fechar o Florybal com calma e voltar pra Gramado pra descansar antes da noite.",p:[]},
      {t:"18h",b:"🫕 Fondue na La Famille de Gazon — sequência completa: queijo, carne na pedra com 11 molhos e chocolate. Vouchers da família Felipe já pagos. Sem reserva, é por ordem de chegada: chegar às 18h, na abertura. ⚠️ Confirmar antes se o restaurante abre na segunda-feira.",p:["fondue"]}
    ]},
-  {n:6,date:"Ter · 29 Set",ico:"🧳",accent:"var(--hortensia)",title:"Último dia — manhã livre &amp; volta",obj:"Check-out até 12h e estrada pra Porto Alegre com folga. Sem atração marcada — a regra do dia é não perder o voo.",
-   anchor:null,tired:"leve",rain:"Em chuva, ficar no coberto (café/Rua Coberta) até a hora de sair",book:"Confirmar transporte de volta pra POA",
+  {n:6,date:"Ter · 29 Set",ico:"💦",accent:"var(--hortensia)",title:"Último dia — Acquamotion &amp; volta",obj:"Despedida nas águas quentes do Acquamotion pela manhã e estrada pra Porto Alegre com folga. A regra do dia continua: não perder o voo.",
+   anchor:"acquamotion",tired:"leve",rain:"Acquamotion é coberto e aquecido — perfeito se chover",book:"Comprar ingresso do Acquamotion antecipado · Confirmar transporte de volta pra POA",
    slots:[
-     {t:"Manhã",b:"Café da manhã na pousada, manhã livre e check-out até as 12h. Sem corrida.",p:[]},
-     {t:"Almoço",b:"Café Colonial Bela Vista — a mesa farta de despedida (cucas, tortas, queijos e embutidos) que substitui almoço e jantar antes da estrada.",p:["cafecolonial"]},
+     {t:"Manhã",b:"Café da manhã cedo na pousada, check-out e malas na recepção. Às 10h, na abertura, Acquamotion — piscinas termais quentes, toboáguas e rio lento pra fechar a viagem relaxando. Levar maiô/sunga, toalha, chinelo e muda de roupa.",p:["acquamotion"]},
+     {t:"Almoço",b:"Lanche no próprio Acquamotion. Sair do parque até ~13h pra voltar à pousada, trocar de roupa e pegar as malas.",p:[]},
      {t:"~14h",b:"Sair de Gramado pra Porto Alegre com margem de sobra (~2h de estrada).",p:[]},
      {t:"19:20",b:"Voo de volta pra casa.",p:[]}
    ]}
@@ -2440,7 +2440,6 @@ const MAPPTS=[
   {id:"ruacoberta",name:"Rua Coberta",ico:"🛍️",lat:-29.3787256,lng:-50.8735655,city:"Gramado",addr:"R. Madre Verônica, 30 — Centro, Gramado"},
   {id:"laghonegro",name:"Lago Negro",ico:"🦢",lat:-29.3943674,lng:-50.8777667,city:"Gramado",addr:"R. Vinte e Cinco de Julho, 439 — Gramado"},
   {id:"aldeia",name:"Aldeia do Papai Noel",ico:"🎅",lat:-29.3815873,lng:-50.8710802,city:"Gramado",addr:"Av. Borges de Medeiros, 2300 — Centro, Gramado"},
-  {id:"cafecolonial",name:"Café Bela Vista",ico:"☕",lat:-29.3711219,lng:-50.8626883,city:"Gramado",addr:"Av. das Hortênsias, 3500 — Vila Suíça, Gramado"},
   {id:"snowland",name:"Snowland",ico:"❄️",lat:-29.3938142,lng:-50.9219863,city:"Gramado",addr:"RS-235, Linha Carazal, 9009 — Gramado"},
   {id:"acquamotion",name:"Acquamotion",ico:"💦",lat:-29.3911764,lng:-50.9274082,city:"Gramado",addr:"Linha Carazal, 501 — Gramado"},
   {id:"caracol",name:"Parque do Caracol",ico:"🌿",lat:-29.3129543,lng:-50.851966,city:"Canela",addr:"Rod. RS-466, km 0 — Caracol, Canela"},
